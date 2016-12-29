@@ -1,0 +1,669 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" >
+  <xsd:include schemaLocation="../contacts/Contacts_Common_Type.xsd"/>
+	<xsd:include schemaLocation="../misc/Misc_Types_Type.xsd"/>
+
+	<xsd:annotation>
+		<xsd:documentation>Type definitions pertaining to General Accounting entities.</xsd:documentation>
+	</xsd:annotation>
+
+  <xsd:complexType name="gl_balancetype_type">
+			<xsd:sequence>
+			  <xsd:element name="account_baltype_id" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="long_description" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="short_description" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
+			</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="gl_accounttype_type">
+			<xsd:sequence>
+	 			<xsd:element name="acct_type_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="description" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="balance_type" type="gl_balancetype_type" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
+			</xsd:sequence>
+	</xsd:complexType>
+
+  <xsd:complexType name="gl_accountcatg_type">
+			<xsd:sequence>
+			  <xsd:element name="acct_catg_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+	 			<xsd:element name="acct_type" type="gl_accounttype_type" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="description" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
+			</xsd:sequence>
+	</xsd:complexType>
+		
+	<xsd:complexType name="gl_account_type">
+			<xsd:sequence>
+			  <xsd:element name="acct_id" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+	 			<xsd:element name="acct_type" type="gl_accounttype_type" minOccurs="1" maxOccurs="1"/>
+	 			<xsd:element name="acct_catg" type="gl_accountcatg_type" minOccurs="1" maxOccurs="1"/>
+	 			<xsd:element name="acct_seq" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="account_no" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="account_name" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="account_code" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="account_description" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="balance_type" type="gl_balancetype_type" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="active" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
+			</xsd:sequence>
+	</xsd:complexType>
+		
+  <xsd:complexType name="gl_criteria_type">
+			<xsd:sequence>
+			  <xsd:element name="acct_id" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+	 			<xsd:element name="acct_type" type="gl_accounttype_type" minOccurs="0" maxOccurs="1"/>
+	 			<xsd:element name="acct_catg" type="gl_accountcatg_type" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="account_no" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="account_name" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="account_code" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="account_description" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="balance_type" type="gl_balancetype_type" minOccurs="0" maxOccurs="1"/>
+			</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="gl_subsidiary_type">
+			<xsd:sequence>
+			  <xsd:element name="acct_subsidiary_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+	 			<xsd:element name="account" type="gl_accounttype_type" minOccurs="1" maxOccurs="1"/>
+	 			<xsd:element name="activity_table" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="description" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
+			</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="creditortype_type">
+			<xsd:sequence>
+			  <xsd:element name="creditor_type_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="description" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
+			</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="creditor_type">
+			<xsd:sequence>
+	 			<xsd:element name="creditor_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+	 			<xsd:element name="creditor_type" type="creditortype_type" minOccurs="1" maxOccurs="1"/>
+	 			<xsd:element name="contact_details" type="business_type" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="acct_id" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="account_no" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="credit_limit" type="xsd:decimal" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="apr" type="xsd:decimal" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="balance" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="ext_account_no" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="active" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="transactions" type="creditor_activity_type" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+		
+		<xsd:complexType name="creditor_activity_type">
+			<xsd:sequence>
+			  <xsd:element name="creditor_activity_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+	 			<xsd:element name="creditor_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="amount" type="xsd:decimal" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="xact_details" type="xact_type" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+		
+		<xsd:complexType name="creditor_criteria_type">
+			<xsd:sequence>
+				<xsd:element name="creditor" type="creditor_type" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="creditor_type" type="creditortype_type" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="contact_details" type="business_type" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="account_no" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="ext_account_no" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="credit_limit" type="xsd:decimal" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="active" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+		
+		<xsd:complexType name="customer_type">
+			<xsd:sequence>
+	 			<xsd:element name="customer_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="acct_id" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="business_contact_details" type="business_type" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="person_contact_details" type="person_type" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="account_no" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="credit_limit" type="xsd:decimal" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="acct_description" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="balance" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="active" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="transactions" type="customer_activity_type" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+		
+		<xsd:complexType name="customer_activity_type">
+			<xsd:sequence>
+			  <xsd:element name="customer_activity_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+	 			<xsd:element name="customer_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+	 			<xsd:element name="xact_id" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="amount" type="xsd:decimal" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="xact_details" type="xact_type" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	
+		<xsd:complexType name="customer_criteria_type">
+			<xsd:sequence>
+				<xsd:element name="customer" type="customer_type" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="contact_details" type="business_type" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="account_no" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="credit_limit" type="xsd:decimal" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="active" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	
+	  <xsd:complexType name="purchase_order_criteria">
+			<xsd:sequence>
+	 			<xsd:element name="purchase_order_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+	 			<xsd:element name="status_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+	 			<xsd:element name="Vendor" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+	 			<xsd:element name="business_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+	 			<xsd:element name="business_name" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+	 			<xsd:element name="reference_no" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+	  </xsd:complexType>
+	  
+	  <xsd:complexType name="purchase_order_return_type">
+			<xsd:sequence>
+	 			<xsd:element name="return_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="purchase_order" type="purchase_order_type" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="transaction" type="xact_type" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="reason" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+	  </xsd:complexType>
+	  
+	  <xsd:complexType name="purchase_order_status_type">
+			<xsd:sequence>
+	 			<xsd:element name="status_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="description" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+	  </xsd:complexType>
+	  
+	  <xsd:complexType name="purchase_order_status_history_type">
+			<xsd:sequence>
+			  <xsd:element name="status_hist_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+			  <xsd:element name="purchase_order" type="purchase_order_type" minOccurs="1" maxOccurs="1"/>
+	 			<xsd:element name="status" type="purchase_order_status_type" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="effective_date" type="xsd:date"/>
+				<xsd:element name="end_date" type="xsd:date"/>
+				<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
+			</xsd:sequence>
+	  </xsd:complexType>
+	  
+	  <xsd:complexType name="purchase_order_type">
+			<xsd:sequence>
+			    <xsd:annotation>
+			    	<xsd:documentation>Purchase order header</xsd:documentation>
+			    </xsd:annotation>
+			    <xsd:element name="purchase_order_id" type="xsd:integer" minOccurs="1" maxOccurs="1">
+			    	<xsd:annotation>
+			    		<xsd:documentation>The unique id of the sales order</xsd:documentation>
+			    	</xsd:annotation>
+			    </xsd:element>
+			    <xsd:element name="transaction" type="xact_type" minOccurs="1" maxOccurs="1"/>
+		 			<xsd:element name="creditor" type="creditor_type" minOccurs="1" maxOccurs="1">
+		 				<xsd:annotation>
+		 					<xsd:documentation>The creditor's unique id.</xsd:documentation>
+		 				</xsd:annotation>
+		 			</xsd:element>
+				<xsd:element name="reference_no" type="xsd:string" minOccurs="0" maxOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>Has the sales order been invoiced?  Set to true when invoiced and false otherwise.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="total" type="xsd:decimal" minOccurs="1" maxOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>The purchase order total.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="items" type="purchase_order_item_type" minOccurs="0" maxOccurs="unbounded">
+					<xsd:annotation>
+						<xsd:documentation>The inventory items that comprise this order.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+		
+		<xsd:complexType name="purchase_order_item_type">
+				<xsd:annotation>
+					<xsd:documentation>The purchase order item record.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:sequence>
+			    <xsd:element name="purchase_order_item_id" type="xsd:integer" minOccurs="1" maxOccurs="1">
+			    	<xsd:annotation>
+			    		<xsd:documentation>The unique id of the sales order item.</xsd:documentation>
+			    	</xsd:annotation>
+			    </xsd:element>
+				<xsd:element name="purchase_order" type="purchase_order_type" minOccurs="1" maxOccurs="1">
+			    	<xsd:annotation>
+			    		<xsd:documentation>The purchase order details</xsd:documentation>
+			    	</xsd:annotation>
+			    </xsd:element>
+				<xsd:element name="item" type="item_master_type" minOccurs="1" maxOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>The item master details.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="unit_cost" type="xsd:decimal" minOccurs="0" maxOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>The unit cost of item.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="qty" type="xsd:integer" default="0" minOccurs="1" maxOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>The item's quantity.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="qty_received" type="xsd:integer" default="0" minOccurs="1" maxOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>The quantity received.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="qty_returned" type="xsd:integer" default="0" minOccurs="1" maxOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>The quantity returned.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+		
+		<xsd:complexType name="sales_order_criteria">
+			<xsd:sequence>
+	 			<xsd:element name="sales_order_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+	 			<xsd:element name="customer_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+	 			<xsd:element name="account_no" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+	 			<xsd:element name="business_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+	 			<xsd:element name="business_name" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+	 			<xsd:element name="tax_id" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+	 			<xsd:element name="phone" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+	  </xsd:complexType>
+	  
+	  <xsd:complexType name="sales_order_status_type">
+			<xsd:sequence>
+	 			<xsd:element name="status_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="description" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
+			</xsd:sequence>
+	  </xsd:complexType>
+	  
+	  <xsd:complexType name="sales_order_status_history_type">
+			<xsd:sequence>
+			  <xsd:element name="status_hist_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+			  <xsd:element name="sales_order" type="sales_order_type" minOccurs="1" maxOccurs="1"/>
+	 			<xsd:element name="status" type="sales_order_status_type" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="effective_date" type="xsd:date"/>
+				<xsd:element name="end_date" type="xsd:date"/>
+				<xsd:element name="reason" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="active" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
+			</xsd:sequence>
+	  </xsd:complexType>
+	  
+		<xsd:complexType name="sales_order_type">
+			<xsd:sequence>
+		    <xsd:annotation>
+		    	<xsd:documentation>Sales order header</xsd:documentation>
+		    </xsd:annotation>
+		    <xsd:element name="sales_order_id" type="xsd:integer" default="0" minOccurs="1" maxOccurs="1">
+		    	<xsd:annotation>
+		    		<xsd:documentation>The unique id of the sales order</xsd:documentation>
+		    	</xsd:annotation>
+		    </xsd:element>
+	 			<xsd:element name="customer" type="customer_type" minOccurs="1" maxOccurs="1">
+	 				<xsd:annotation>
+	 					<xsd:documentation>The customer's unique id.</xsd:documentation>
+	 				</xsd:annotation>
+	 			</xsd:element>
+				<xsd:element name="invoiced" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>Has the sales order been invoiced?  Set to true when invoiced and false otherwise.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="order_total" type="xsd:decimal" minOccurs="0" maxOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>The sales order total.  This should equal the sum of each item's product (markup * unit_cost * qty).</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+  			<xsd:element name="effective_date" type="xsd:date" minOccurs="0" maxOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>The description of the sales order reason.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="status_history" type="sales_order_status_history_type" minOccurs="0" maxOccurs="unbounded">
+					<xsd:annotation>
+						<xsd:documentation>The status history of this order.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="items" type="sales_order_item_type" minOccurs="0" maxOccurs="unbounded">
+					<xsd:annotation>
+						<xsd:documentation>The inventory items that comprise this order.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	
+	  <xsd:complexType name="sales_order_item_type">
+				<xsd:annotation>
+					<xsd:documentation>The sales order item record.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:sequence>
+			    <xsd:element name="sales_order_item_id" type="xsd:integer" default="0" minOccurs="1" maxOccurs="1">
+			    	<xsd:annotation>
+			    		<xsd:documentation>The unique id of the sales order item.</xsd:documentation>
+			    	</xsd:annotation>
+			    </xsd:element>
+				<xsd:element name="sales_order" type="sales_order_type" minOccurs="1" maxOccurs="1">
+			    	<xsd:annotation>
+			    		<xsd:documentation>The unique id of the sales order for this item</xsd:documentation>
+			    	</xsd:annotation>
+			    </xsd:element>
+	 			<xsd:element name="customer" type="customer_type" minOccurs="1" maxOccurs="1">
+	 				<xsd:annotation>
+	 					<xsd:documentation>The customer's unique id for this sales order item.</xsd:documentation>
+	 				</xsd:annotation>
+	 			</xsd:element>
+				<xsd:element name="item" type="item_master_type" minOccurs="1" maxOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>The unique id of the item.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="item_name_override" type="xsd:string" minOccurs="1" maxOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>The name or description of the sales order item that is to replace the original name.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="back_order_qty" type="xsd:decimal" minOccurs="0" maxOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>The expected back order quantity of the item.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="markup" type="xsd:decimal" default="0" minOccurs="1" maxOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>The item's mark up value.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="unit_cost" type="xsd:decimal" default="0" minOccurs="1" maxOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>The unit cost of the item.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="order_qty" type="xsd:integer" default="0" minOccurs="1" maxOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>The quantity order for the item.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	
+	    <xsd:complexType name="sales_invoice_type">
+			<xsd:sequence>
+			    <xsd:annotation>
+			    	<xsd:documentation>The message returned from a sales order invoice transaction request</xsd:documentation>
+			    </xsd:annotation>
+				<xsd:element name="invoice_id" type="xsd:integer" minOccurs="1" maxOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>This is the primary key.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="sales_order" type="sales_order_type" minOccurs="1" maxOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>A message describing the results of invoicing the sales order.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			    <xsd:element name="transaction" type="xact_type" minOccurs="1" maxOccurs="1">
+			    	<xsd:annotation>
+			    		<xsd:documentation>The unique id of the sales order</xsd:documentation>
+			    	</xsd:annotation>
+			    </xsd:element>
+				<xsd:element name="invoice_no" type="xsd:string" minOccurs="1" maxOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>The invoice reference number of the processed sales order.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="item_count" type="xsd:integer" default="0" minOccurs="1" maxOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>The total number of sales order items processed.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="invoice_total" type="xsd:decimal" default="0" minOccurs="1" maxOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>The total amount invoiced for this transaction.  This amount should be equal to the sales order total.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+
+    <xsd:complexType name="xact_criteria_type">
+		      <xsd:sequence>
+					  <xsd:element name="xactId" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+					  <xsd:element name="account_no" type="xsd:string" minOccurs="1" maxOccurs="1" />
+					  <xsd:element name="from_xact_amount" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
+					  <xsd:element name="to_xact_amount" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
+					  <xsd:element name="from_xact_date" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+					  <xsd:element name="to_xact_date" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+					  <xsd:element name="xact_reason" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+					  <xsd:element name="xact_reason_options" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+					  <xsd:element name="xact_subtype" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+					  <xsd:element name="xact_type" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+					  <xsd:element name="business_name" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+					  <xsd:element name="confirm_no" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+					  <xsd:element name="invoice_no" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+					  <xsd:element name="from_item_amount" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
+					  <xsd:element name="to_item_amount" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
+					  <xsd:element name="from_rel_op_item_amount" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+					  <xsd:element name="to_rel_op_item_amount" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+					  <xsd:element name="from_rel_op_xact_amount" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+					  <xsd:element name="to_rel_op_xact_amount" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+					  <xsd:element name="from_rel_op_xact_date" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+					  <xsd:element name="to_rel_op_xact_date" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+					  <xsd:element name="date_created" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+					  <xsd:element name="date_updated" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+					  <xsd:element name="user_id" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+		      </xsd:sequence>
+	  </xsd:complexType>
+    
+    	
+	  <xsd:complexType name="common_xact_type">
+		      <xsd:sequence>
+		       	<xsd:element name="xact" type="xact_type"  minOccurs="1" maxOccurs="1"/>
+					  <xsd:element name="parent_entity_id" type="xsd:integer"/>
+					  <xsd:element name="spec_xact_level1_id" type="xsd:integer"/>
+					  <xsd:element name="spec_xact_level1_date" type="xsd:dateTime"/>
+					  <xsd:element name="spec_xact_level2_id" type="xsd:integer"/>
+					  <xsd:element name="spec_xact_level2_date" type="xsd:dateTime"/>
+		      </xsd:sequence>
+	  </xsd:complexType>
+	  
+		<xsd:complexType name="xacttype_type">
+		    <xsd:sequence>
+				    <xsd:element name="xact_type_id" type="xsd:integer"/>
+					  <xsd:element name="code" type="xsd:NCName"/>
+					  <xsd:element name="description" type="xsd:string"/>
+					  <xsd:element name="to_multiplier" type="xsd:integer"/>
+					  <xsd:element name="to_acct_type_id" type="xsd:integer"/>
+					  <xsd:element name="from_multiplier" type="xsd:integer"/>
+					  <xsd:element name="has_subsidiary" type="xsd:integer"/>
+					  <xsd:element name="from_acct_type_id" type="xsd:integer"/>
+					  <xsd:element name="to_acct_catg_id" type="xsd:integer"/>
+					  <xsd:element name="xact_catg_id" type="xsd:integer"/>
+					  <xsd:element name="from_acct_catg_id" type="xsd:integer"/>
+			   </xsd:sequence>
+	  </xsd:complexType>
+	  
+	  <xsd:complexType name="xacttype_item_type">
+		    <xsd:sequence>
+		        <xsd:element name="xact_item_id" type="xsd:integer"/>
+				    <xsd:element name="xact_type" type="xacttype_type"/>
+					  <xsd:element name="name" type="xsd:string"/>
+					  <xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
+			   </xsd:sequence>
+	  </xsd:complexType>
+	  
+	  <xsd:complexType name="xacttype_item_activity_type">
+		    <xsd:sequence>
+		        <xsd:element name="xact_type_item_actv_id" type="xsd:integer"/>
+		        <xsd:element name="xact" type="xact_type"/>
+		        <xsd:element name="xact_item" type="xacttype_item_type"/>
+				    <xsd:element name="amount" type="xsd:decimal"/>
+					  <xsd:element name="description" type="xsd:string"/>
+					  <xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
+			   </xsd:sequence>
+	  </xsd:complexType>
+	
+	  <xsd:complexType name="xact_category_type">
+		    <xsd:sequence>
+		        <xsd:element name="xact_catg_id" type="xsd:integer"/>
+				    <xsd:element name="description" type="xsd:string"/>
+					  <xsd:element name="code" type="xsd:string"/>
+			   </xsd:sequence>
+	  </xsd:complexType>
+	  
+	  <xsd:complexType name="xact_code_group_type">
+		    <xsd:sequence>
+		        <xsd:element name="xact_code_grp_id" type="xsd:integer"/>
+				    <xsd:element name="description" type="xsd:string"/>
+					  <xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
+			   </xsd:sequence>
+	  </xsd:complexType>
+	  
+	  <xsd:complexType name="xact_code_type">
+		    <xsd:sequence>
+		        <xsd:element name="xact_code_id" type="xsd:integer"/>
+		        <xsd:element name="xact_code_grp" type="xact_code_group_type"/>
+				    <xsd:element name="description" type="xsd:string"/>
+					  <xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
+			   </xsd:sequence>
+	  </xsd:complexType>
+	  
+		<xsd:complexType name="xact_type">
+		      <xsd:sequence>
+		       	<xsd:element name="xact_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+					  <xsd:element name="xact_type" type="xacttype_type" minOccurs="1" maxOccurs="1"/>
+					  <xsd:element name="xact_subtype_id" type="xacttype_type" minOccurs="0" maxOccurs="1"/>
+					  <xsd:element name="customer" type="customer_type" minOccurs="0" maxOccurs="1"/>
+					  <xsd:element name="creditor" type="creditor_type" minOccurs="0" maxOccurs="1"/>					  
+					  <xsd:element name="xact_amount" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
+					  <xsd:element name="xact_date" type="xsd:date" minOccurs="1" maxOccurs="1"/>
+					  <xsd:element name="xact_reason" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+					  <xsd:element name="account_no" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+					  <xsd:element name="confirm_no" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+					  <xsd:element name="document_id" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+					  <xsd:element name="invoice_no" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+					  <xsd:element name="item_total" type="xsd:decimal" minOccurs="0" maxOccurs="1"/>
+					  <xsd:element name="items" type="xact_item_type" minOccurs="0" maxOccurs="unbounded"/>
+					  <xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
+		      </xsd:sequence>
+	    </xsd:complexType>
+	
+		<xsd:complexType name="xact_item_type">
+		      <xsd:sequence>
+			      <xsd:element name="item_id" type="xsd:integer"/>
+		       	<xsd:element name="xact_id" type="xsd:integer"/>
+					  <xsd:element name="itemtype_id" type="xsd:integer"/>
+					  <xsd:element name="name" type="xsd:string"/>
+					  <xsd:element name="amount" type="xsd:decimal"/>
+					  <xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
+		      </xsd:sequence>
+	    </xsd:complexType>
+	
+		<xsd:complexType name="xact_itemtype_type">
+		      <xsd:sequence>
+			        <xsd:element name="itemtype_id" type="xsd:integer"/>
+		       		<xsd:element name="xact_type_id" type="xact_type"/>
+					    <xsd:element name="name" type="xsd:string"/>
+					    <xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
+		      </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="item_criteria_type">
+			<xsd:sequence>
+			  <xsd:element name="item_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+	 			<xsd:element name="item_type" type="item_master_itemtype_type" minOccurs="1" maxOccurs="1"/>
+	 			<xsd:element name="vendor" type="creditor_type" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="item_name" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="vendor_item_no" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="item_serial_no" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="qty_on_hand" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="unit_cost" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="markup" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="active" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="status" type="item_master_status_type" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
+			</xsd:sequence>
+	  </xsd:complexType>
+	  
+    <xsd:complexType name="item_master_itemtype_type">
+			<xsd:sequence>
+	 			<xsd:element name="item_type_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="description" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
+			</xsd:sequence>
+	  </xsd:complexType>
+    
+    <xsd:complexType name="item_master_status_type">
+			<xsd:sequence>
+	 			<xsd:element name="item_status_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="description" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
+			</xsd:sequence>
+	  </xsd:complexType>
+	  
+	  <xsd:complexType name="item_master_type">
+			<xsd:sequence>
+			  <xsd:element name="item_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+	 			<xsd:element name="item_type" type="item_master_itemtype_type" minOccurs="1" maxOccurs="1"/>
+	 			<xsd:element name="creditor" type="creditor_type" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="description" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="vendor_item_no" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="item_serial_no" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="qty_on_hand" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="unit_cost" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="markup" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="retail_price" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="override_retail" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="active" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="status_history" type="item_master_status_history_type" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
+			</xsd:sequence>
+	  </xsd:complexType>
+	  
+	  <xsd:complexType name="item_master_status_history_type">
+			<xsd:sequence>
+			  <xsd:element name="status_hist_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+			  <xsd:element name="item" type="item_master_type" minOccurs="1" maxOccurs="1"/>
+	 			<xsd:element name="status" type="item_master_status_type" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="unit_cost" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="markup" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="effective_date" type="xsd:date"/>
+				<xsd:element name="end_date" type="xsd:date"/>
+				<xsd:element name="reason" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="active" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
+			</xsd:sequence>
+	  </xsd:complexType>
+	  
+	  <xsd:complexType name="vendor_item_type">
+			<xsd:sequence>
+			  <xsd:element name="item_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+	 			<xsd:element name="creditor" type="creditor_type" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="description" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="vendor_item_no" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="item_serial_no" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="unit_cost" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+	  </xsd:complexType>
+	  
+</xsd:schema>
