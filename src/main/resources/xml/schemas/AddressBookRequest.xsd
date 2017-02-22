@@ -5,17 +5,17 @@
 					
 	<xsd:complexType name="contact_criteria_group">
 			<xsd:sequence>
-				<xsd:element name="business_criteria" type="business_contact_criteria" minOccurs="0" maxOccurs="1" nillable="false">
+				<xsd:element name="business_criteria" type="business_contact_criteria" minOccurs="0" maxOccurs="1">
 					<xsd:annotation>
 						<xsd:documentation>Selection criteria fields for business contact entity</xsd:documentation>
 					</xsd:annotation>
 				</xsd:element>
-				<xsd:element name="person_criteria" type="person_contact_criteria" minOccurs="1" maxOccurs="1" nillable="false">
+				<xsd:element name="person_criteria" type="person_contact_criteria" minOccurs="1" maxOccurs="1">
 					<xsd:annotation>
 						<xsd:documentation>Selection criteria fields for personal contact entity</xsd:documentation>
 					</xsd:annotation>
 				</xsd:element>
-				<xsd:element name="common_criteria" type="common_contact_criteria" minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:element name="common_criteria" type="common_contact_criteria" minOccurs="1" maxOccurs="1">
 					<xsd:annotation>
 						<xsd:documentation>Selection criteria fields for common contact entity</xsd:documentation>
 					</xsd:annotation>
@@ -25,17 +25,17 @@
 				
     <xsd:complexType name="contact_detail_group">
 			<xsd:sequence>
-					<xsd:element name="business_contacts" type="business_type" minOccurs="0" maxOccurs="unbounded" nillable="true">
+					<xsd:element name="business_contacts" type="business_type" minOccurs="0" maxOccurs="unbounded">
 		    	<xsd:annotation>
 		    		<xsd:documentation>A list of business type records</xsd:documentation>
 		    	</xsd:annotation>
 		    </xsd:element>
-		    <xsd:element name="person_contacts" type="person_type" minOccurs="0" maxOccurs="unbounded" nillable="true">
+		    <xsd:element name="person_contacts" type="person_type" minOccurs="0" maxOccurs="unbounded">
 		    	<xsd:annotation>
 		    		<xsd:documentation>A list of personal type records</xsd:documentation>
 		    	</xsd:annotation>
 		    </xsd:element>
-		    <xsd:element name="common_contacts" type="common_contact_type" minOccurs="0" maxOccurs="unbounded" nillable="true">
+		    <xsd:element name="common_contacts" type="common_contact_type" minOccurs="0" maxOccurs="unbounded">
 		    	<xsd:annotation>
 		    		<xsd:documentation>A list of common contact type records</xsd:documentation>
 		    	</xsd:annotation>
@@ -46,17 +46,17 @@
 	<xsd:element name="AddressBookRequest">
 		<xsd:complexType>
 			<xsd:sequence>
-				<xsd:element name="header" type="header_type" minOccurs="1" nillable="false">
+				<xsd:element name="header" type="header_type" minOccurs="1">
 					<xsd:annotation>
 						<xsd:documentation xml:lang="en">Known as the Web Service Header.  This element is to be used as part of the request data.  Contains the data needed to identify and route message to its property service implementation.</xsd:documentation>
 					</xsd:annotation>
 				</xsd:element>
-				<xsd:element name="criteria" type="contact_criteria_group" minOccurs="0" maxOccurs="1" nillable="true">
+				<xsd:element name="criteria" type="contact_criteria_group" minOccurs="0" maxOccurs="1">
 						<xsd:annotation>
 							<xsd:documentation>The selection criteria</xsd:documentation> 
 						</xsd:annotation>
 				</xsd:element>
-				<xsd:element name="profile" type="contact_detail_group" minOccurs="0" maxOccurs="1" nillable="true">
+				<xsd:element name="profile" type="contact_detail_group" minOccurs="0" maxOccurs="1">
 						<xsd:annotation>
 							<xsd:documentation>The various transaction detail types</xsd:documentation> 
 						</xsd:annotation>

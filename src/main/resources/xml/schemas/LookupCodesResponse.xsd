@@ -6,12 +6,12 @@
 	<xsd:element name="LookupCodesResponse">
 		<xsd:complexType>
 		  <xsd:sequence>
-				<xsd:element name="header" type="header_type" minOccurs="1" nillable="false">
+				<xsd:element name="header" type="header_type" minOccurs="1">
 					<xsd:annotation>
 						<xsd:documentation xml:lang="en">Known as the Web Service Header.  This element is to be used as part of the request data.  Contains the data needed to identify and route message to its property service implementation.</xsd:documentation>
 					</xsd:annotation>
 				</xsd:element>
-				<xsd:element name="reply_status" type="reply_status_type" minOccurs="0" maxOccurs="1" nillable="false" >
+				<xsd:element name="reply_status" type="reply_status_type" minOccurs="0" maxOccurs="1">
 					<xsd:annotation>
 						<xsd:documentation xml:lang="en">The status of the content web service invocation.  The return code will be greater than or equal to zero indicating the total number of records retrieved.   Otherwise, a value less than zero is present when an error occurs.</xsd:documentation>
 					</xsd:annotation>

@@ -8,7 +8,7 @@
 
 	<xsd:complexType name="gl_criteria_group">
 			<xsd:sequence>
-				<xsd:element name="criteria" type="gl_criteria_type" minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:element name="criteria" type="gl_criteria_type" minOccurs="1" maxOccurs="1">
 						<xsd:annotation>
 							<xsd:documentation>The genreal ledger selection criteria</xsd:documentation> 
 						</xsd:annotation>
@@ -18,17 +18,17 @@
 				
     <xsd:complexType name="gl_detail_group">
 			<xsd:sequence>
-			    <xsd:element name="account_types" type="gl_accounttype_type" minOccurs="0" maxOccurs="unbounded" nillable="true">
+			    <xsd:element name="account_types" type="gl_accounttype_type" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>The genreal ledger account types</xsd:documentation> 
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="account_categories" type="gl_accountcatg_type" minOccurs="0" maxOccurs="unbounded" nillable="true">
+					<xsd:element name="account_categories" type="gl_accountcatg_type" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>The genreal ledger account categories</xsd:documentation> 
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="accounts" type="gl_account_type" minOccurs="0" maxOccurs="unbounded" nillable="true">
+					<xsd:element name="accounts" type="gl_account_type" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>The genreal ledger accounts</xsd:documentation> 
 						</xsd:annotation>
@@ -39,17 +39,17 @@
 	<xsd:element name="AccountingGeneralLedgerRequest">
 		<xsd:complexType>
 			<xsd:sequence>
-				<xsd:element name="header" type="header_type" minOccurs="1" nillable="false">
+				<xsd:element name="header" type="header_type" minOccurs="1">
 						<xsd:annotation>
 							<xsd:documentation xml:lang="en">Known as the Web Service Header.  This element is to be used as part of the request data.  Contains the data needed to identify and route message to its property service implementation.</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-				<xsd:element name="criteria" type="gl_criteria_group" minOccurs="0" maxOccurs="1" nillable="true">
+				<xsd:element name="criteria" type="gl_criteria_group" minOccurs="0" maxOccurs="1">
 						<xsd:annotation>
 							<xsd:documentation>The selection criteria</xsd:documentation> 
 						</xsd:annotation>
 				</xsd:element>
-				<xsd:element name="profile" type="gl_detail_group" minOccurs="0" maxOccurs="1" nillable="true">
+				<xsd:element name="profile" type="gl_detail_group" minOccurs="0" maxOccurs="1">
 						<xsd:annotation>
 							<xsd:documentation>The various transaction detail types</xsd:documentation> 
 						</xsd:annotation>

@@ -7,12 +7,12 @@
 	</xsd:annotation>
 	<xsd:complexType name="project_criteria_group">
 			<xsd:sequence>
-					<xsd:element name="employee_criteria" type="employee_criteria_type" minOccurs="0" maxOccurs="1" nillable="true">
+					<xsd:element name="employee_criteria" type="employee_criteria_type" minOccurs="0" maxOccurs="1">
 						<xsd:annotation>
 							<xsd:documentation>The employee selection criteria</xsd:documentation> 
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="timesheet_criteria" type="timesheet_criteria_type" minOccurs="0" maxOccurs="unbounded" nillable="true">
+					<xsd:element name="timesheet_criteria" type="timesheet_criteria_type" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>The timesheet selection criteria</xsd:documentation> 
 						</xsd:annotation>
@@ -22,67 +22,67 @@
 		
 		<xsd:complexType name="project_detail_group">
 			<xsd:sequence>
-					<xsd:element name="EmployeeType" type="employeetype_type" minOccurs="0" maxOccurs="unbounded" nillable="true">
+					<xsd:element name="EmployeeType" type="employeetype_type" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>The employee types</xsd:documentation> 
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="EmployeeTitle" type="employee_title_type" minOccurs="0" maxOccurs="unbounded" nillable="true">
+					<xsd:element name="EmployeeTitle" type="employee_title_type" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>The employee titles</xsd:documentation> 
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="Employee" type="employee_type" minOccurs="0" maxOccurs="unbounded" nillable="true">
+					<xsd:element name="Employee" type="employee_type" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>The employee details</xsd:documentation> 
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="Client" type="client_type" minOccurs="0" maxOccurs="unbounded" nillable="true">
+					<xsd:element name="Client" type="client_type" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>The client details</xsd:documentation> 
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="Project" type="project_type" minOccurs="0" maxOccurs="unbounded" nillable="true">
+					<xsd:element name="Project" type="project_type" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>The project details</xsd:documentation> 
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="EmployeeProject" type="employee_project_type" minOccurs="0" maxOccurs="unbounded" nillable="true">
+					<xsd:element name="EmployeeProject" type="employee_project_type" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>The employee project details</xsd:documentation> 
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="TimesheetStatus" type="timesheet_status_type" minOccurs="0" maxOccurs="unbounded" nillable="true">
+					<xsd:element name="TimesheetStatus" type="timesheet_status_type" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>The timesheet status details</xsd:documentation> 
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="TimesheetStatusHistory" type="timesheet_status_history_type" minOccurs="0" maxOccurs="unbounded" nillable="true">
+					<xsd:element name="TimesheetStatusHistory" type="timesheet_status_history_type" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>The timesheet status history details</xsd:documentation> 
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="Timesheet" type="timesheet_type" minOccurs="0" maxOccurs="unbounded" nillable="true">
+					<xsd:element name="Timesheet" type="timesheet_type" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>The timesheet details</xsd:documentation> 
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="Task" type="task_type" minOccurs="0" maxOccurs="unbounded" nillable="true">
+					<xsd:element name="Task" type="task_type" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>The task details</xsd:documentation> 
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="ProjectTask" type="project_task_type" minOccurs="0" maxOccurs="unbounded" nillable="true">
+					<xsd:element name="ProjectTask" type="project_task_type" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>The project task details</xsd:documentation> 
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="TimeLog" type="event_type" minOccurs="0" maxOccurs="unbounded" nillable="true">
+					<xsd:element name="TimeLog" type="event_type" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>The timesheet event details</xsd:documentation> 
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="ProjectPeriod" type="project_periods_type" minOccurs="0" maxOccurs="unbounded" nillable="true">
+					<xsd:element name="ProjectPeriod" type="project_periods_type" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>The project period legend</xsd:documentation> 
 						</xsd:annotation>
@@ -93,17 +93,17 @@
 	<xsd:element name="ProjectProfileRequest">
 		<xsd:complexType>
 			<xsd:sequence>
-					<xsd:element name="header" type="header_type" minOccurs="1" nillable="false">
+					<xsd:element name="header" type="header_type" minOccurs="1">
 						<xsd:annotation>
 							<xsd:documentation xml:lang="en">Known as the Web Service Header.  This element is to be used as part of the request data.  Contains the data needed to identify and route message to its property service implementation.</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="criteria" type="project_criteria_group" minOccurs="0" maxOccurs="1" nillable="true">
+					<xsd:element name="criteria" type="project_criteria_group" minOccurs="0" maxOccurs="1">
 						<xsd:annotation>
 							<xsd:documentation>The selection criteria</xsd:documentation> 
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="profile" type="project_detail_group" minOccurs="0" maxOccurs="1" nillable="true">
+					<xsd:element name="profile" type="project_detail_group" minOccurs="0" maxOccurs="1">
 						<xsd:annotation>
 							<xsd:documentation>The various project tracker detail types</xsd:documentation> 
 						</xsd:annotation>

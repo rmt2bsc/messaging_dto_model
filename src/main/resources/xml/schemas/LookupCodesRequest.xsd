@@ -5,12 +5,12 @@
 	<xsd:element name="LookupCodesRequest">
 		<xsd:complexType>
 			<xsd:sequence>
-				<xsd:element name="header" type="header_type" minOccurs="1" nillable="false">
+				<xsd:element name="header" type="header_type" minOccurs="1">
 					<xsd:annotation>
 						<xsd:documentation xml:lang="en">Known as the Web Service Header.  This element is to be used as part of the request data.  Contains the data needed to identify and route message to its property service implementation.</xsd:documentation>
 					</xsd:annotation>
 				</xsd:element>
-				<xsd:element name="criteria" type="lookup_code_criteria_type" minOccurs="1" maxOccurs="1" nillable="false">
+				<xsd:element name="criteria" type="lookup_code_criteria_type" minOccurs="1" maxOccurs="1">
 					<xsd:annotation>
 						<xsd:documentation xml:lang="en">The selection criteria to be applied for query.</xsd:documentation>
 					</xsd:annotation>

@@ -13,17 +13,17 @@
 					</xsd:restriction>
 				</xsd:simpleType>
 			</xsd:element>
-			<xsd:element name="message" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="true">
+			<xsd:element name="message" type="xsd:string" minOccurs="1" maxOccurs="1" >
 				<xsd:annotation>
 					<xsd:documentation xml:lang="en">This is the message text</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="ext_message" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="true">
+			<xsd:element name="ext_message" type="xsd:string" minOccurs="1" maxOccurs="1" >
 				<xsd:annotation>
 					<xsd:documentation xml:lang="en">This the long version of the message</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="return_code" minOccurs="1" maxOccurs="1" type="xsd:integer" nillable="true">
+			<xsd:element name="return_code" minOccurs="1" maxOccurs="1" type="xsd:integer" >
 				<xsd:annotation>
 					<xsd:documentation xml:lang="en">The return code indicating success or failure</xsd:documentation>
 				</xsd:annotation>
