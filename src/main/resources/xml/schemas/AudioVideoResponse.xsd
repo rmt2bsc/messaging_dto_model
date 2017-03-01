@@ -2,7 +2,7 @@
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <xsd:include schemaLocation="RMT2_Message_Header_Type.xsd"/>
 	<xsd:include schemaLocation="RMT2_Message_Reply_Status_Type.xsd"/>
-	<xsd:include schemaLocation="mime/Audio_Visual_Project_Type.xsd" />
+	<xsd:include schemaLocation="mime/Audio_Video_Project_Type.xsd" />
 	<xsd:element name="AudioVideoResponse">
 		<xsd:complexType>
 		  <xsd:sequence>
