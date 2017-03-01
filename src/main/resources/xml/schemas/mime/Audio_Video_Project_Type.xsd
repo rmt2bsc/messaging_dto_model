@@ -133,9 +133,19 @@
 						<xsd:documentation>File path to content.</xsd:documentation>
 					</xsd:annotation>
 				</xsd:element>
+				<xsd:element name="content_filename" type="xsd:string" minOccurs="0" maxOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>The content's filename.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
 				<xsd:element name="art_work_path" type="xsd:string" minOccurs="0" maxOccurs="1">
 					<xsd:annotation>
 						<xsd:documentation>File path to art work image.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="art_work_filename" type="xsd:string" minOccurs="0" maxOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>The filename of the art work image.</xsd:documentation>
 					</xsd:annotation>
 				</xsd:element>
 				<xsd:element name="comments" type="xsd:string" minOccurs="0" maxOccurs="1">
