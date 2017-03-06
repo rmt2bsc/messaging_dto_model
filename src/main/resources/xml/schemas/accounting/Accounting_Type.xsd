@@ -329,6 +329,11 @@
 						<xsd:documentation>Has the sales order been invoiced?  Set to true when invoiced and false otherwise.</xsd:documentation>
 					</xsd:annotation>
 				</xsd:element>
+				<xsd:element name="invoice_details" type="sales_invoice_type" minOccurs="0" maxOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>Invoice details.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
 				<xsd:element name="order_total" type="xsd:decimal" minOccurs="0" maxOccurs="1">
 					<xsd:annotation>
 						<xsd:documentation>The sales order total.  This should equal the sum of each item's product (markup * unit_cost * qty).</xsd:documentation>
