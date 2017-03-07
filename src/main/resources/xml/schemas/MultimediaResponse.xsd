@@ -16,7 +16,7 @@
 						<xsd:documentation xml:lang="en">The status of the content web service invocation.  The return code will be greater than or equal to zero indicating the total number of records retrieved.   Otherwise, a value less than zero is present when an error occurs.</xsd:documentation>
 					</xsd:annotation>
 				</xsd:element>
-			  <xsd:element name="content" type="mime_content_type" minOccurs="0" maxOccurs="unbounded">
+			  <xsd:element name="content" type="mime_content_type" minOccurs="0" maxOccurs="1">
 			    	<xsd:annotation>
 			    		<xsd:documentation>The content record</xsd:documentation>
 			    	</xsd:annotation>
