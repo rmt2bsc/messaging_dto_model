@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:include schemaLocation="../schemas/MultimediaRequest.xsd"/>
+		</xsd:schema>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:include schemaLocation="../schemas/MultimediaResponse.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="InMessage">
+		<wsdl:part name="InMessageRequest" element="MultimediaRequest"/>
+	</wsdl:message>
+	<wsdl:message name="OutMessage">
+		<wsdl:part name="OutMessageResponse" element="MultimediaResponse"/>
+	</wsdl:message>
+	<wsdl:portType name="DocumentMediaSearchInterface">
+		<wsdl:operation name="DocumentMediaSearch">
+			<wsdl:input message="InMessage"/>
+			<wsdl:output message="OutMessage"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="DocumentMediaSearchSoapHttpBinding" type="DocumentMediaSearchInterface">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+		<wsdl:operation name="DocumentMediaSearch">
+			<soap:operation style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="DocumentMediaSearchService">
+		<wsdl:port name="DocumentMediaSearchEndpoint" binding="DocumentMediaSearchSoapHttpBinding">
+		<!--
+			<soap:address location="http://rmt2.net/ServiceDispatch/soapRouter"/>
+		-->
+			<soap:address location="http://localhost:8080/gateway/services/web"/>
+		</wsdl:port>
+	</wsdl:service>
+	
+</wsdl:definitions>
