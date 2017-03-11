@@ -11,7 +11,7 @@
 						<xsd:documentation>This is the primary key.  Will default to zero when record is new.</xsd:documentation>
 					</xsd:annotation>
 				</xsd:element>
-				<xsd:element name="mime_type_details" type="mime_type" default="0" minOccurs="1" maxOccurs="unbounded">
+				<xsd:element name="mime_type_details" type="mime_type" minOccurs="1" maxOccurs="unbounded">
 					<xsd:annotation>
 						<xsd:documentation>Provides MIME type/sub type details.</xsd:documentation>
 					</xsd:annotation>
