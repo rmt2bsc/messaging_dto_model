@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:impl="http://soapheader.ibm.com" 
+	              xmlns:intf="http://soapheader.ibm.com" 
+	              xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+	              xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" 
+	              xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	              targetNamespace="http://soapheader.ibm.com">
+ <wsdl:types>
+   <schema xmlns="http://www.w3.org/2001/XMLSchema" 
+  	      elementFormDefault="qualified" 
+  	      targetNamespace="http://soapheader.ibm.com" 
+  	      xmlns:impl="http://soapheader.ibm.com" 
+  	      xmlns:intf="http://soapheader.ibm.com" 
+  	      xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+  	      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  	      
+      <!-- ******************************************************** -->
+      <!-- Change XSD's to those that are required for the service  -->
+  	  <xsd:include schemaLocation="../schemas/MultimediaRequest.xsd"/>
+		  <xsd:include schemaLocation="../schemas/MultimediaResponse.xsd"/>
+		  <!-- ******************************************************** -->
+		  
+		  <!-- Equivalent to transaction id -->
+		  <element name="service_id" type="xsd:string"/>
+	 </schema>
+ </wsdl:types>
+
+   <wsdl:message name="InMessage">
+      <!-- ********************************** -->
+      <!-- Change to the required request xsd -->
+      <!-- ********************************** -->
+      <wsdl:part element="intf:MultimediaRequest" name="payload"/>
+      <wsdl:part element="intf:service_id" name="header"/>
+   </wsdl:message>
+
+   <wsdl:message name="OutMessage">
+      <!-- *********************************** -->
+      <!-- Change to the required response xsd -->
+      <!-- *********************************** -->
+      <wsdl:part element="intf:MultimediaResponse" name="payload"/>
+   </wsdl:message>
+   
+      <!-- ************************************************************************* -->
+      <!-- Replace every occurrence of "NameOfService_" with the actual service name -->
+      <!-- ************************************************************************* -->
+   <wsdl:portType name="NameOfService_Interface">
+      <wsdl:operation name="setOperationDescriptionHere">
+         <wsdl:input message="intf:InMessage" name="InMessage"/>
+         <wsdl:output message="intf:OutMessage" name="OutMessage"/>
+      </wsdl:operation>
+   </wsdl:portType>
+
+   <wsdl:binding name="NameOfService_Binding" type="intf:NameOfService_Interface">
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+      <wsdl:operation name="setOperationDescriptionHere">
+         <wsdlsoap:operation soapAction=""/>
+         <wsdl:input name="InMessage">
+            <wsdlsoap:header message="intf:InMessage" part="header" use="literal"/>
+            <wsdlsoap:body parts="payload" use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="OutMessage">
+            <wsdlsoap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+   </wsdl:binding>
+
+   <wsdl:service name="NameOfService_Service">
+      <wsdl:port binding="intf:NameOfService_Binding" name="NameOfService_Service">
+         <wsdlsoap:address location="http://localhost:8080/server-external-webservices/services/web"/>
+      </wsdl:port>
+   </wsdl:service>
+
+</wsdl:definitions>
