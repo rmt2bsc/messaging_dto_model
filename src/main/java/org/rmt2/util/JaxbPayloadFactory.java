@@ -12,7 +12,7 @@ import com.api.xml.jaxb.JaxbUtil;
 import com.util.RMT2Date;
 
 /**
- * A factory for creating message payload components.
+ * A factory for creating common message payload components.
  * 
  * @author Roy Terrell
  * 
@@ -22,7 +22,7 @@ public class JaxbPayloadFactory {
     /**
      * Creates a JaxbPayloadFactory object.
      */
-    private JaxbPayloadFactory() {
+    JaxbPayloadFactory() {
         return;
     }
 
@@ -41,7 +41,7 @@ public class JaxbPayloadFactory {
      * @return an instance of {@link com.xml.schema.bindings.HeaderType
      *         HeaderType}
      */
-    public static HeaderType createHeader(String routing, String app,
+    public static final HeaderType createHeader(String routing, String app,
             String module, String transaction, String delivMode,
             String msgType, String userId) {
         ObjectFactory f = new ObjectFactory();
@@ -74,7 +74,7 @@ public class JaxbPayloadFactory {
      *            implementor.
      * @return an instance of {@link ReplyStatusType}
      */
-    public static ReplyStatusType createReplyStatus(boolean successfull,
+    public static final ReplyStatusType createReplyStatus(boolean successfull,
             String msg, String detailMsg, int returnCode) {
         ObjectFactory f = new ObjectFactory();
         ReplyStatusType replyStat = f.createReplyStatusType();
