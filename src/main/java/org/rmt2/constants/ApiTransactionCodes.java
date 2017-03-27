@@ -1,6 +1,6 @@
 package org.rmt2.constants;
 
-public class TransId {
+public class ApiTransactionCodes {
 
     // AddressBook
     public static final String CONTACTS_BUSINESS_GET_ALL = "GET_ALL_BUSINESS_CONTACTS";
@@ -11,7 +11,7 @@ public class TransId {
     public static final String MEDIA_GET_CONTENT = "GET_CONTENT_ATTACHMENT";
     public static final String MEDIA_SAVE_CONTENT = "SAVE_CONTENT_ATTACHMENT";
 
-    public TransId() {
+    public ApiTransactionCodes() {
         // TODO Auto-generated constructor stub
     }
 
