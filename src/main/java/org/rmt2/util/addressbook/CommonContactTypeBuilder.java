@@ -17,11 +17,19 @@ import com.util.assistants.Verifier;
  */
 public class CommonContactTypeBuilder {
 
+    private CommonContactType subject;
+    
     /**
      * Create a CommonContactTypeBuilder
      */
-    public CommonContactTypeBuilder() {
-        return;
+    private CommonContactTypeBuilder(Builder builder) {
+        ObjectFactory f = new ObjectFactory();
+        subject = f.createCommonContactType();
+        subject.setContactId(BigInteger.valueOf(builder.contactId));
+        subject.setContactName(builder.contactName);
+        subject.setContactEmail(builder.contactEmail);
+        subject.setContactType(builder.contactType);
+        subject.setAddress(builder.address);
     }
 
     /**
@@ -138,14 +146,8 @@ public class CommonContactTypeBuilder {
          * @return an instance of {@link CommonContactType}
          */
         public CommonContactType build() {
-            ObjectFactory f = new ObjectFactory();
-            CommonContactType subject = f.createCommonContactType();
-            subject.setContactId(BigInteger.valueOf(this.contactId));
-            subject.setContactName(this.contactName);
-            subject.setContactEmail(this.contactEmail);
-            subject.setContactType(this.contactType);
-            subject.setAddress(this.address);
-            return subject;
+            CommonContactTypeBuilder obj = new CommonContactTypeBuilder(this);
+            return obj.subject;
         }
     }
 

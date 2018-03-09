@@ -15,11 +15,22 @@ import com.util.assistants.Verifier;
  */
 public class ZipcodeTypeBuilder {
 
+    private ZipcodeType subject;
+    
     /**
      * Create a ZipcodeTypeBuilder
      */
-    public ZipcodeTypeBuilder() {
-        return;
+    private ZipcodeTypeBuilder(Builder builder) {
+        ObjectFactory f = new ObjectFactory();
+        subject = f.createZipcodeType();
+        subject.setZipId(BigInteger.valueOf(builder.zipId));
+        subject.setZipcode(BigInteger.valueOf(builder.zipcode));
+        subject.setCity(builder.city);
+        subject.setCityAliasAbbr(builder.cityAliasAbbr);
+        subject.setCityAliasName(builder.cityAliasName);
+        subject.setCountyName(builder.countyName);
+        subject.setState(builder.state);
+        subject.setAreaCode(builder.areaCode);
     }
 
     /**
@@ -185,17 +196,8 @@ public class ZipcodeTypeBuilder {
          * @return an instance of {@link ZipcodeType}
          */
         public ZipcodeType build() {
-            ObjectFactory f = new ObjectFactory();
-            ZipcodeType subject = f.createZipcodeType();
-            subject.setZipId(BigInteger.valueOf(this.zipId));
-            subject.setZipcode(BigInteger.valueOf(this.zipcode));
-            subject.setCity(this.city);
-            subject.setCityAliasAbbr(this.cityAliasAbbr);
-            subject.setCityAliasName(this.cityAliasName);
-            subject.setCountyName(this.countyName);
-            subject.setState(this.state);
-            subject.setAreaCode(this.areaCode);
-            return subject;
+            ZipcodeTypeBuilder obj = new ZipcodeTypeBuilder(this);
+            return obj.subject;
         }
     }
 

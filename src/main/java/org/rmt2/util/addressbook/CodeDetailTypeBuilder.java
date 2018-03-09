@@ -15,11 +15,18 @@ import com.util.assistants.Verifier;
  */
 public class CodeDetailTypeBuilder {
 
+    private CodeDetailType subject;
+    
     /**
      * Create a CodeDetailTypeBuilder
      */
-    public CodeDetailTypeBuilder() {
-        return;
+    private CodeDetailTypeBuilder(Builder builder) {
+        ObjectFactory f = new ObjectFactory();
+        subject = f.createCodeDetailType();
+        subject.setCodeId(BigInteger.valueOf(builder.codeId));
+        subject.setShortdesc(builder.shortdesc);
+        subject.setLongdesc(builder.longdesc);
+        subject.setLabel(builder.label);
     }
 
     /**
@@ -118,13 +125,8 @@ public class CodeDetailTypeBuilder {
          * @return an instance of {@link CodeDetailType}
          */
         public CodeDetailType build() {
-            ObjectFactory f = new ObjectFactory();
-            CodeDetailType subject = f.createCodeDetailType();
-            subject.setCodeId(BigInteger.valueOf(this.codeId));
-            subject.setShortdesc(shortdesc);
-            subject.setLongdesc(longdesc);
-            subject.setLabel(label);
-            return subject;
+            CodeDetailTypeBuilder obj = new CodeDetailTypeBuilder(this);
+            return obj.subject;
         }
     }
 

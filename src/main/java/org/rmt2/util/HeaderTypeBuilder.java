@@ -15,72 +15,151 @@ import com.util.RMT2Date;
  */
 public class HeaderTypeBuilder {
 
-    /**
-     * Create HeaderTypeBuilder
-     */
-    public HeaderTypeBuilder() {
-        return;
-    }
+    private HeaderType subject;
+    
 
     private HeaderTypeBuilder(Builder builder) {
-        return;
+        ObjectFactory f = new ObjectFactory();
+        subject = f.createHeaderType();
+        subject.setApplication(builder.appName);
+        subject.setDeliveryMode(builder.deliveryMode);
+        subject.setMessageMode(builder.messageMode);
+        subject.setModule(builder.moduleName);
+        subject.setRouting(builder.routing);
+        if (builder.deliveryDate != null) {
+            subject.setDeliveryDate(RMT2Date.formatDate(builder.deliveryDate, "MM/dd/yyyy HH:mm:ss"));    
+        }
+        subject.setSessionId(null);
+        subject.setTransaction(builder.transId);
+        subject.setUserId(builder.userId);
     }
 
+    /**
+     * Builder for {@link HeaderType}
+     * 
+     * @author Roy Terrell
+     *
+     */
     public static final class Builder {
-        private HeaderType subject;
-
+        private String appName;
+        private String moduleName;
+        private String transId;
+        private Date deliveryDate;
+        private String deliveryMode;
+        private String messageMode;
+        private String routing;
+        private String userId;
+        
+        
         private Builder() {
-            ObjectFactory f = new ObjectFactory();
-            this.subject = f.createHeaderType();
+            this.appName = null;
+            this.moduleName = null;
+            this.transId = null;
+            this.deliveryDate = null;
+            this.deliveryMode = null;
+            this.messageMode = null;
+            this.routing = null;
+            this.userId = null;
         }
 
+        /**
+         * Creates a new Builder.
+         * <p>
+         * Declared private to prevent direct instantiation by external
+         * consumers.
+         */
         public static Builder create() {
             return new Builder();
         }
 
+        /**
+         * 
+         * @param appName
+         * @return
+         */
         public Builder withApplication(String appName) {
-            this.subject.setApplication(appName);
+            this.appName = appName;
             return this;
         }
 
+        /**
+         * 
+         * @param moduleName
+         * @return
+         */
         public Builder withModule(String moduleName) {
-            this.subject.setModule(moduleName);
+            this.moduleName = moduleName;
             return this;
         }
 
+        /**
+         * 
+         * @param transId
+         * @return
+         */
         public Builder withTransaction(String transId) {
-            this.subject.setTransaction(transId);
+            this.transId = transId;
             return this;
         }
 
+        /**
+         * 
+         * @param deliveryDate
+         * @return
+         */
         public Builder withDeliveryDate(Date deliveryDate) {
-            String dateStr = RMT2Date.formatDate(deliveryDate, "MM/dd/yyyy HH:mm:ss");
-            this.subject.setDeliveryDate(dateStr);
+            this.deliveryDate = deliveryDate;
             return this;
         }
 
+        /**
+         * 
+         * @param deliveryMode
+         * @return
+         */
         public Builder withDeliveryMode(String deliveryMode) {
-            this.subject.setDeliveryMode(deliveryMode);
+            this.deliveryMode = deliveryMode;
             return this;
         }
 
+        /**
+         * 
+         * @param messageMode
+         * @return
+         */
         public Builder withMessageMode(String messageMode) {
-            this.subject.setMessageMode(messageMode);
+            this.messageMode = messageMode;
             return this;
         }
 
+        /**
+         * 
+         * @param routing
+         * @return
+         */
         public Builder withRouting(String routing) {
-            this.subject.setRouting(routing);
+            this.routing = routing;
             return this;
         }
 
+        /**
+         * 
+         * @param userId
+         * @return
+         */
         public Builder withUserId(String userId) {
-            this.subject.setUserId(userId);
+            this.userId = userId;
             return this;
         }
 
+        /**
+         * Completes the building of the HeaderType
+         * 
+         * @return an instance of {@link HeaderType}
+         */
         public HeaderType build() {
-            return this.subject;
+            HeaderTypeBuilder obj = new HeaderTypeBuilder(this);
+            return obj.subject;
         }
     }
 

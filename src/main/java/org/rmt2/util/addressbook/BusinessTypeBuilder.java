@@ -18,11 +18,28 @@ import com.util.assistants.Verifier;
  */
 public class BusinessTypeBuilder {
 
+    private BusinessType subject;
+    
     /**
      * Create a BusinessTypeBuilder
      */
-    public BusinessTypeBuilder() {
-        return;
+    private BusinessTypeBuilder(Builder builder) {
+        ObjectFactory f = new ObjectFactory();
+        subject = f.createBusinessType();
+        subject.setBusinessId(BigInteger.valueOf(builder.businessId));
+        subject.setLongName(builder.longName);
+        subject.setShortName(builder.shortName);
+        subject.setContactFirstname(builder.contactFirstname);
+        subject.setContactLastname(builder.contactLastname);
+        subject.setContactPhone(builder.contactPhone);
+        subject.setContactExt(builder.contactExt);
+        subject.setContactEmail(builder.contactEmail);
+        subject.setTaxId(builder.taxId);
+        subject.setWebsite(builder.website);
+        subject.setEntityType(builder.entityType);
+        subject.setServiceType(builder.serviceType);
+        subject.setCategory(builder.category);
+        subject.setAddress(builder.address);
     }
 
     /**
@@ -295,23 +312,8 @@ public class BusinessTypeBuilder {
          * @return an instance of {@link BusinessType}
          */
         public BusinessType build() {
-            ObjectFactory f = new ObjectFactory();
-            BusinessType subject = f.createBusinessType();
-            subject.setBusinessId(BigInteger.valueOf(this.businessId));
-            subject.setLongName(this.longName);
-            subject.setShortName(this.shortName);
-            subject.setContactFirstname(this.contactFirstname);
-            subject.setContactLastname(this.contactLastname);
-            subject.setContactPhone(this.contactPhone);
-            subject.setContactExt(this.contactExt);
-            subject.setContactEmail(this.contactEmail);
-            subject.setTaxId(this.taxId);
-            subject.setWebsite(this.website);
-            subject.setEntityType(this.entityType);
-            subject.setServiceType(this.serviceType);
-            subject.setCategory(this.category);
-            subject.setAddress(this.address);
-            return subject;
+            BusinessTypeBuilder obj = new BusinessTypeBuilder(this);
+            return obj.subject;
         }
     }
 
