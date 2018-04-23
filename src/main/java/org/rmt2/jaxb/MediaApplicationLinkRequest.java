@@ -9,6 +9,7 @@
 package org.rmt2.jaxb;
 
 import java.io.Serializable;
+import java.math.BigInteger;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -28,8 +29,10 @@ import com.RMT2Base;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="header" type="{}header_type"/>
- *         &lt;element name="entity_id" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="reply_status" type="{}reply_status_type"/>
+ *         &lt;element name="project_name" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="module_name" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="entity_id" type="{http://www.w3.org/2001/XMLSchema}integer"/>
+ *         &lt;element name="content_id" type="{http://www.w3.org/2001/XMLSchema}integer"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -41,11 +44,13 @@ import com.RMT2Base;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "header",
+    "projectName",
+    "moduleName",
     "entityId",
-    "replyStatus"
+    "contentId"
 })
-@XmlRootElement(name = "RS_common_reply")
-public class RSCommonReply
+@XmlRootElement(name = "MediaApplicationLinkRequest")
+public class MediaApplicationLinkRequest
     extends RMT2Base
     implements Serializable
 {
@@ -53,10 +58,14 @@ public class RSCommonReply
     private final static long serialVersionUID = 1L;
     @XmlElement(required = true)
     protected HeaderType header;
+    @XmlElement(name = "project_name", required = true)
+    protected String projectName;
+    @XmlElement(name = "module_name", required = true)
+    protected String moduleName;
     @XmlElement(name = "entity_id", required = true)
-    protected String entityId;
-    @XmlElement(name = "reply_status", required = true)
-    protected ReplyStatusType replyStatus;
+    protected BigInteger entityId;
+    @XmlElement(name = "content_id", required = true)
+    protected BigInteger contentId;
 
     /**
      * Gets the value of the header property.
@@ -83,14 +92,62 @@ public class RSCommonReply
     }
 
     /**
-     * Gets the value of the entityId property.
+     * Gets the value of the projectName property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getEntityId() {
+    public String getProjectName() {
+        return projectName;
+    }
+
+    /**
+     * Sets the value of the projectName property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setProjectName(String value) {
+        this.projectName = value;
+    }
+
+    /**
+     * Gets the value of the moduleName property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getModuleName() {
+        return moduleName;
+    }
+
+    /**
+     * Sets the value of the moduleName property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setModuleName(String value) {
+        this.moduleName = value;
+    }
+
+    /**
+     * Gets the value of the entityId property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link BigInteger }
+     *     
+     */
+    public BigInteger getEntityId() {
         return entityId;
     }
 
@@ -99,35 +156,35 @@ public class RSCommonReply
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link BigInteger }
      *     
      */
-    public void setEntityId(String value) {
+    public void setEntityId(BigInteger value) {
         this.entityId = value;
     }
 
     /**
-     * Gets the value of the replyStatus property.
+     * Gets the value of the contentId property.
      * 
      * @return
      *     possible object is
-     *     {@link ReplyStatusType }
+     *     {@link BigInteger }
      *     
      */
-    public ReplyStatusType getReplyStatus() {
-        return replyStatus;
+    public BigInteger getContentId() {
+        return contentId;
     }
 
     /**
-     * Sets the value of the replyStatus property.
+     * Sets the value of the contentId property.
      * 
      * @param value
      *     allowed object is
-     *     {@link ReplyStatusType }
+     *     {@link BigInteger }
      *     
      */
-    public void setReplyStatus(ReplyStatusType value) {
-        this.replyStatus = value;
+    public void setContentId(BigInteger value) {
+        this.contentId = value;
     }
 
 }
