@@ -41,7 +41,7 @@
 						<xsd:documentation>The size of the binary data in bytes.</xsd:documentation>
 					</xsd:annotation>
 				</xsd:element>
-				<xsd:element name="binary_data" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:element name="binary_data" type="xsd:base64Binary" minOccurs="0" maxOccurs="1">
 					<xsd:annotation>
 						<xsd:documentation>The data in binary code.</xsd:documentation>
 					</xsd:annotation>
