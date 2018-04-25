@@ -19,9 +19,9 @@
 			    		<xsd:documentation>The name of the project module to link media content.</xsd:documentation>
 			    	</xsd:annotation>
 		    </xsd:element>
-		    <xsd:element name="entity_id" type="xsd:integer" minOccurs="1" maxOccurs="1">
+		    <xsd:element name="entity_id" type="xsd:string" minOccurs="1" maxOccurs="1">
 			    	<xsd:annotation>
-			    		<xsd:documentation>The id of the module's entity that is to linked to media content.</xsd:documentation>
+			    		<xsd:documentation>The column id of the module's entity that is to linked to media content.</xsd:documentation>
 			    	</xsd:annotation>
 		    </xsd:element>
 		    <xsd:element name="content_id" type="xsd:integer" minOccurs="1" maxOccurs="1">

@@ -10,11 +10,13 @@ package org.rmt2.jaxb;
 
 import java.io.Serializable;
 import java.math.BigInteger;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+
 import com.RMT2Base;
 
 
@@ -63,7 +65,7 @@ public class MediaApplicationLinkRequest
     @XmlElement(name = "module_name", required = true)
     protected String moduleName;
     @XmlElement(name = "entity_id", required = true)
-    protected BigInteger entityId;
+    protected String entityId;
     @XmlElement(name = "content_id", required = true)
     protected BigInteger contentId;
 
@@ -144,10 +146,10 @@ public class MediaApplicationLinkRequest
      * 
      * @return
      *     possible object is
-     *     {@link BigInteger }
+     *     {@link String }
      *     
      */
-    public BigInteger getEntityId() {
+    public String getEntityId() {
         return entityId;
     }
 
@@ -159,7 +161,7 @@ public class MediaApplicationLinkRequest
      *     {@link BigInteger }
      *     
      */
-    public void setEntityId(BigInteger value) {
+    public void setEntityId(String value) {
         this.entityId = value;
     }
 
