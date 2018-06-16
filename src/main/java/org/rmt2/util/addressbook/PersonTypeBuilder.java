@@ -20,11 +20,30 @@ import com.util.assistants.Verifier;
  */
 public class PersonTypeBuilder {
 
+    private PersonType subject;
+    
     /**
      * Create a PersonTypeBuilder
      */
-    public PersonTypeBuilder() {
-        return;
+    private PersonTypeBuilder(Builder builder) {
+        ObjectFactory f = new ObjectFactory();
+        subject = f.createPersonType();
+        subject.setPersonId(BigInteger.valueOf(builder.personId));
+        subject.setFirstName(builder.firstName);
+        subject.setMidName(builder.midName);
+        subject.setLastName(builder.lastName);
+        subject.setMaidenName(builder.maidenName);
+        subject.setShortName(builder.shortName);
+        subject.setBirthDate(builder.birthDate);
+        subject.setSsn(builder.ssn);
+        subject.setEmail(builder.email);
+        subject.setGeneration(builder.generation);
+        subject.setTitle(builder.title);
+        subject.setGender(builder.gender);
+        subject.setMaritalStatus(builder.maritalStatus);
+        subject.setRace(builder.race);
+        subject.setCategory(builder.category);
+        subject.setAddress(builder.address);
     }
 
     /**
@@ -341,25 +360,8 @@ public class PersonTypeBuilder {
          * @return an instance of {@link BusinessType}
          */
         public PersonType build() {
-            ObjectFactory f = new ObjectFactory();
-            PersonType subject = f.createPersonType();
-            subject.setPersonId(BigInteger.valueOf(this.personId));
-            subject.setFirstName(this.firstName);
-            subject.setMidName(this.midName);
-            subject.setLastName(this.lastName);
-            subject.setMaidenName(this.maidenName);
-            subject.setShortName(this.shortName);
-            subject.setBirthDate(this.birthDate);
-            subject.setSsn(this.ssn);
-            subject.setEmail(this.email);
-            subject.setGeneration(this.generation);
-            subject.setTitle(this.title);
-            subject.setGender(this.gender);
-            subject.setMaritalStatus(this.maritalStatus);
-            subject.setRace(this.race);
-            subject.setCategory(this.category);
-            subject.setAddress(this.address);
-            return subject;
+            PersonTypeBuilder obj = new PersonTypeBuilder(this);
+            return obj.subject;
         }
     }
 }

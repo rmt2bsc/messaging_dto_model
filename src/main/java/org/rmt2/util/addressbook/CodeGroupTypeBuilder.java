@@ -15,11 +15,16 @@ import com.util.assistants.Verifier;
  */
 public class CodeGroupTypeBuilder {
 
+    private CodeGroupType subject;
+    
     /**
      * Create a CodeGroupTypeBuilder
      */
-    public CodeGroupTypeBuilder() {
-        return;
+    private CodeGroupTypeBuilder(Builder builder) {
+        ObjectFactory f = new ObjectFactory();
+        CodeGroupType subject = f.createCodeGroupType();
+        subject.setGroupId(BigInteger.valueOf(builder.groupId));
+        subject.setGroupDesc(builder.groupDesc);
     }
 
     /**
@@ -84,11 +89,8 @@ public class CodeGroupTypeBuilder {
          * @return an instance of {@link CodeGroupType}
          */
         public CodeGroupType build() {
-            ObjectFactory f = new ObjectFactory();
-            CodeGroupType subject = f.createCodeGroupType();
-            subject.setGroupId(BigInteger.valueOf(this.groupId));
-            subject.setGroupDesc(this.groupDesc);
-            return subject;
+            CodeGroupTypeBuilder obj = new CodeGroupTypeBuilder(this);
+            return obj.subject;
         }
     }
 

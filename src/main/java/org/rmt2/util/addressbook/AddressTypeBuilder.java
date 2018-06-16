@@ -15,12 +15,31 @@ import com.util.assistants.Verifier;
  *
  */
 public class AddressTypeBuilder {
+    
+    private AddressType subject;
 
     /**
      * Create an AddressTypeBuilder
      */
-    public AddressTypeBuilder() {
-        return;
+    private AddressTypeBuilder(Builder builder) {
+        ObjectFactory f = new ObjectFactory();
+        this.subject = f.createAddressType();
+        subject.setAddrId(BigInteger.valueOf(builder.addrId));
+        subject.setPersonId(BigInteger.valueOf(builder.personId));
+        subject.setBusinessId(BigInteger.valueOf(builder.businessId));
+        subject.setAddr1(builder.addr1);
+        subject.setAddr2(builder.addr2);
+        subject.setAddr3(builder.addr3);
+        subject.setAddr4(builder.addr4);
+        subject.setZip(builder.zip);
+        subject.setZipExt(BigInteger.valueOf(builder.zipExt));
+        subject.setPhoneCell(builder.phoneCell);
+        subject.setPhoneFax(builder.phoneFax);
+        subject.setPhoneHome(builder.phoneHome);
+        subject.setPhoneMain(builder.phoneMain);
+        subject.setPhonePager(builder.phonePager);
+        subject.setPhoneWork(builder.phoneWork);
+        subject.setPhoneWorkExt(builder.phoneWorkExt);
     }
 
     /**
@@ -325,25 +344,8 @@ public class AddressTypeBuilder {
          * @return an instance of {@link AddressType}
          */
         public AddressType build() {
-            ObjectFactory f = new ObjectFactory();
-            AddressType subject = f.createAddressType();
-            subject.setAddrId(BigInteger.valueOf(this.addrId));
-            subject.setPersonId(BigInteger.valueOf(this.personId));
-            subject.setBusinessId(BigInteger.valueOf(this.businessId));
-            subject.setAddr1(this.addr1);
-            subject.setAddr2(this.addr2);
-            subject.setAddr3(this.addr3);
-            subject.setAddr4(this.addr4);
-            subject.setZip(this.zip);
-            subject.setZipExt(BigInteger.valueOf(this.zipExt));
-            subject.setPhoneCell(this.phoneCell);
-            subject.setPhoneFax(this.phoneFax);
-            subject.setPhoneHome(this.phoneHome);
-            subject.setPhoneMain(this.phoneMain);
-            subject.setPhonePager(this.phonePager);
-            subject.setPhoneWork(this.phoneWork);
-            subject.setPhoneWorkExt(this.phoneWorkExt);
-            return subject;
+            AddressTypeBuilder obj = new AddressTypeBuilder(this);
+            return obj.subject;
         }
     }
 }
