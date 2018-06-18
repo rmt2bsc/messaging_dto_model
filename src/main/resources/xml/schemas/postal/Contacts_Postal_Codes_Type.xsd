@@ -19,10 +19,10 @@
 	<xsd:complexType name="state_type">
 		<xsd:sequence>
 			<xsd:element name="state_id" type="xsd:integer" nillable="false" default="0"/>
-			<xsd:element name="state_name" nillable="true" type="xsd:string"/>
-			<xsd:element name="state_code" nillable="true" type="xsd:string"/>
-			<xsd:element name="country_id" type="xsd:integer" nillable="true" default="0"/>
-			<xsd:element name="country_name" nillable="true" type="xsd:string"/>
+			<xsd:element name="state_name" type="xsd:string"/>
+			<xsd:element name="state_code" type="xsd:string"/>
+			<xsd:element name="country_id" type="xsd:integer" default="0"/>
+			<xsd:element name="country_name" type="xsd:string"/>
 		</xsd:sequence>
 	</xsd:complexType>
 
@@ -188,7 +188,7 @@
 						<xsd:documentation xml:lang="en">The user's login id.</xsd:documentation>
 					</xsd:annotation>
 				</xsd:element>
-				<xsd:element name="order_by" type="order_by_type" minOccurs="0" maxOccurs="unbounded" nillable="true">
+				<xsd:element name="order_by" type="order_by_type" minOccurs="0" maxOccurs="unbounded">
 					<xsd:annotation>
 						<xsd:documentation xml:lang="en">A comma separated list of properties and sequencing direction indicators which is used to indicate how the result set is to be ordered.  The expressions should resemble the syntax of SQL order by clause.  For example, "first_name asc, last_name desc"</xsd:documentation>
 					</xsd:annotation>

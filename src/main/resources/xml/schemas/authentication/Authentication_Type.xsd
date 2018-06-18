@@ -285,42 +285,42 @@
 			<xsd:documentation>This is an extended version of the document that manages user resource types.</xsd:documentation>
 		</xsd:annotation>
 		<xsd:sequence>
-			<xsd:element name="rsrc_id" type="xsd:integer" nillable="true"  minOccurs="1" maxOccurs="1">
+			<xsd:element name="rsrc_id" type="xsd:integer"  minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>This is the user resource unique id</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="rsrc_name" type="xsd:string" nillable="true" minOccurs="1" maxOccurs="1">
+			<xsd:element name="rsrc_name" type="xsd:string" minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>This is the user resource unique id</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-            <xsd:element name="rsrc_type" type="resource_type" nillable="true" minOccurs="1" maxOccurs="1">
+            <xsd:element name="rsrc_type" type="resource_type" minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The resource type of the user resource</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="rsrc_sub_type" type="resource_subtype_type" nillable="true" minOccurs="1" maxOccurs="1">
+			<xsd:element name="rsrc_sub_type" type="resource_subtype_type" minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The resource sub type of the user resource</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="url" type="xsd:string" nillable="true" minOccurs="1" maxOccurs="1">
+			<xsd:element name="url" type="xsd:string" minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The URL used to invoke the user resource</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="host" type="xsd:string" nillable="true" minOccurs="1" maxOccurs="1">
+			<xsd:element name="host" type="xsd:string" minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The host where the user resource lives</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="description" type="xsd:string" nillable="true" minOccurs="1" maxOccurs="1">
+			<xsd:element name="description" type="xsd:string" minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The long description of the user resource</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="secured" type="xsd:boolean" nillable="true" minOccurs="1" maxOccurs="1" default="false">
+			<xsd:element name="secured" type="xsd:boolean" minOccurs="1" maxOccurs="1" default="false">
 				<xsd:annotation>
 					<xsd:documentation>Indicates whether or not the user resource is secured</xsd:documentation>
 				</xsd:annotation>
@@ -333,52 +333,52 @@
 			<xsd:documentation>This is the document that manages user resource types minus resource type and resource sub type elements.</xsd:documentation>
 		</xsd:annotation>
 		<xsd:sequence>
-			<xsd:element name="rsrc_id" type="xsd:integer" nillable="true"  minOccurs="1" maxOccurs="1">
+			<xsd:element name="rsrc_id" type="xsd:integer"  minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>This is the user resource unique id</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="rsrc_name" type="xsd:string" nillable="true" minOccurs="1" maxOccurs="1">
+			<xsd:element name="rsrc_name" type="xsd:string" minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>This is the user resource unique id</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="url" type="xsd:string" nillable="true" minOccurs="1" maxOccurs="1">
+			<xsd:element name="url" type="xsd:string" minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The URL used to invoke the user resource</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="host" type="xsd:string" nillable="true" minOccurs="1" maxOccurs="1">
+			<xsd:element name="host" type="xsd:string" minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The host where the user resource lives</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="description" type="xsd:string" nillable="true" minOccurs="1" maxOccurs="1">
+			<xsd:element name="description" type="xsd:string" minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The long description of the user resource</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="secured" type="xsd:boolean" nillable="true" minOccurs="1" maxOccurs="1" default="false">
+			<xsd:element name="secured" type="xsd:boolean" minOccurs="1" maxOccurs="1" default="false">
 				<xsd:annotation>
 					<xsd:documentation>Indicates whether or not the user resource is secured</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="rsrc_type_id" type="xsd:integer" nillable="true"  minOccurs="1" maxOccurs="1">
+			<xsd:element name="rsrc_type_id" type="xsd:integer"  minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>This is the id of the resource type</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="rsrc_type_name" type="xsd:string" nillable="true" minOccurs="1" maxOccurs="1">
+			<xsd:element name="rsrc_type_name" type="xsd:string" minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>This is the name of the resource type</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="rsrc_subtype_id" type="xsd:integer" nillable="true"  minOccurs="1" maxOccurs="1">
+			<xsd:element name="rsrc_subtype_id" type="xsd:integer"  minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>This is the id of the resource sub type</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="rsrc_subtype_name" type="xsd:string" nillable="true" minOccurs="1" maxOccurs="1">
+			<xsd:element name="rsrc_subtype_name" type="xsd:string" minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>This is the name of the resource sub type</xsd:documentation>
 				</xsd:annotation>
@@ -391,32 +391,32 @@
 			<xsd:documentation>This is the document tracks the resources that have be granted and revoked for a given user.</xsd:documentation>
 		</xsd:annotation>
 		<xsd:sequence>
-		    <xsd:element name="user_uid" type="xsd:integer" nillable="true"  minOccurs="1" maxOccurs="1">
+		    <xsd:element name="user_uid" type="xsd:integer"  minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>This is the user's unique id</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="login_id" type="xsd:string" nillable="true" minOccurs="1" maxOccurs="1">
+			<xsd:element name="login_id" type="xsd:string" minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>This is the user's login id</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="user_firstname" type="xsd:string" nillable="true" minOccurs="1" maxOccurs="1">
+			<xsd:element name="user_firstname" type="xsd:string" minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>This is the user's first name</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="user_lastname" type="xsd:string" nillable="true" minOccurs="1" maxOccurs="1">
+			<xsd:element name="user_lastname" type="xsd:string" minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>This is the user's last name</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="granted_resources" type="resource_type" nillable="true" minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="granted_resources" type="resource_type" minOccurs="0" maxOccurs="unbounded">
 				<xsd:annotation>
 					<xsd:documentation>This is a list of resources that have been granted to said user</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="revoked_resources" type="resource_type" nillable="true" minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="revoked_resources" type="resource_type" minOccurs="0" maxOccurs="unbounded">
 				<xsd:annotation>
 					<xsd:documentation>This is a list of resources that have been revoked from the said user.</xsd:documentation>
 				</xsd:annotation>
@@ -510,22 +510,22 @@
 
 	<xsd:complexType name="user_app_roles_type">
 		<xsd:sequence>
-			<xsd:element name="user_info" type="user_type" minOccurs="1" maxOccurs="1" nillable="true">
+			<xsd:element name="user_info" type="user_type" minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>User Type Information</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="app_info" type="application_type" minOccurs="1" maxOccurs="1" nillable="true">
+			<xsd:element name="app_info" type="application_type" minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>Application Type Information</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="assigned_roles" type="app_role_type" minOccurs="0" maxOccurs="unbounded" nillable="true">
+			<xsd:element name="assigned_roles" type="app_role_type" minOccurs="0" maxOccurs="unbounded">
 				<xsd:annotation>
 					<xsd:documentation>One or more assigned application roles</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="revoked_roles" type="app_role_type" minOccurs="0" maxOccurs="unbounded" nillable="true">
+			<xsd:element name="revoked_roles" type="app_role_type" minOccurs="0" maxOccurs="unbounded">
 				<xsd:annotation>
 					<xsd:documentation>One or more revoked application roles</xsd:documentation>
 				</xsd:annotation>
