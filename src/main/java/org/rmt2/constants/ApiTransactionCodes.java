@@ -3,10 +3,7 @@ package org.rmt2.constants;
 public class ApiTransactionCodes {
 
     // AddressBook
-    public static final String CONTACTS_BUSINESS_GET_ALL = "GET_ALL_BUSINESS_CONTACTS";
     public static final String CONTACTS_BUSINESS_GET = "GET_BUSINESS_CONTACT";
-    public static final String CONTACTS_BUSINESS_GET_CRITERIA = "GET_BUSINESS_CONTACTS_USING_CRITERIA";
-    public static final String CONTACTS_BUSINESS_ADD = "ADD_BUSINESS_CONTACT";
     public static final String CONTACTS_BUSINESS_UPDATE = "UPDATE_BUSINESS_CONTACT";
     public static final String CONTACTS_BUSINESS_DELETE = "DELETE_BUSINESS_CONTACT";
 
