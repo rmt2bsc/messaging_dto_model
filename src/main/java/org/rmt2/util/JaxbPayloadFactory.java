@@ -8,8 +8,8 @@ import org.rmt2.jaxb.ObjectFactory;
 import org.rmt2.jaxb.RSCommonReply;
 import org.rmt2.jaxb.ReplyStatusType;
 
+import com.api.util.RMT2Date;
 import com.api.xml.jaxb.JaxbUtil;
-import com.util.RMT2Date;
 
 /**
  * A factory for creating common message payload components.

@@ -5,7 +5,7 @@ import java.math.BigInteger;
 import org.rmt2.jaxb.ObjectFactory;
 import org.rmt2.jaxb.ZipcodeType;
 
-import com.util.assistants.Verifier;
+import com.api.util.assistants.Verifier;
 
 /**
  * ZipcodeType Builder.

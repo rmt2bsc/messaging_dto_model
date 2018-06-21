@@ -5,7 +5,7 @@ import java.math.BigInteger;
 import org.rmt2.jaxb.CodeDetailType;
 import org.rmt2.jaxb.ObjectFactory;
 
-import com.util.assistants.Verifier;
+import com.api.util.assistants.Verifier;
 
 /**
  * CodeDetailType Builder.
