@@ -5,9 +5,14 @@
 			<xsd:documentation>Describes general code details data </xsd:documentation>
 		</xsd:annotation>
 		<xsd:sequence>
-			<xsd:element name="code_id" type="xsd:integer" minOccurs="1" nillable="false" default="0">
+			<xsd:element name="code_id" type="xsd:integer" minOccurs="1" maxOccurs="1" default="0">
 				<xsd:annotation>
 					<xsd:documentation>The unique identifier of the code</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="group_id" type="xsd:integer" minOccurs="1" maxOccurs="1" default="0">
+				<xsd:annotation>
+					<xsd:documentation>The group in which this code detail belongs</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
 			<xsd:element name="shortdesc" type="xsd:string" minOccurs="1" maxOccurs="1">
@@ -99,9 +104,24 @@
 					<xsd:documentation>Obtain a list of codes based on one or more selected groups</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
+			<xsd:element name="group_description" type="xsd:string" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Obtain one or more groups based on their description</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
 			<xsd:element name="code" type="xsd:integer" minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>Obtain a single general code record by code id.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="code_short_description" type="xsd:string" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Obtain one or more general codes based on their short description</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="code_long_description" type="xsd:string" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Obtain one or more general codes based on their long description</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
 			<xsd:element name="codes" type="xsd:integer" minOccurs="1" maxOccurs="unbounded">
