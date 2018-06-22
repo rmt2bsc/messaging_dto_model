@@ -6,6 +6,12 @@ public class ApiTransactionCodes {
     public static final String CONTACTS_GET = "GET_CONTACT";
     public static final String CONTACTS_UPDATE = "UPDATE_CONTACT";
     public static final String CONTACTS_DELETE = "DELETE_CONTACT";
+    public static final String LOOKUP_GROUP_GET = "GET_LOOKUP_GROUP";
+    public static final String LOOKUP_GROUP_UPDATE = "UPDATE_LOOKUP_GROUP";
+    public static final String LOOKUP_GROUP_DELETE = "DELETE_LOOKUP_GROUP";
+    public static final String LOOKUP_CODE_GET = "GET_LOOKUP_CODE";
+    public static final String LOOKUP_CODE_UPDATE = "UPDATE_LOOKUP_CODE";
+    public static final String LOOKUP_CODE_DELETE = "DELETE_LOOKUP_CODE";
 
     // MultiMedia
     public static final String MEDIA_GET_CONTENT = "GET_CONTENT_ATTACHMENT";
