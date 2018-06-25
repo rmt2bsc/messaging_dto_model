@@ -98,7 +98,7 @@ public class LookupRequestBuilderTest {
         LookupCodesRequest req = fact.createLookupCodesRequest();
         
         HeaderType head =  HeaderTypeBuilder.Builder.create()
-                .withApplication("AddressBook")
+                .withApplication("addressbook")
                 .withModule(ConfigConstants.API_APP_MODULE_VALUE)
                 .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
                 .withDeliveryDate(new Date())
@@ -110,6 +110,7 @@ public class LookupRequestBuilderTest {
         
         LookupCodeCriteriaType criteria = fact.createLookupCodeCriteriaType();
         criteria.setCode(BigInteger.valueOf(100));
+        criteria.setGroup(BigInteger.valueOf(200));
         criteria.setCodeShortDescription("Code short description test");
         criteria.setCodeLongDescription("Code long description test");
         criteria.setAll(true);
