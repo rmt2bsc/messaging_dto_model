@@ -13,6 +13,9 @@ public class ApiTransactionCodes {
     public static final String LOOKUP_CODE_UPDATE = "UPDATE_LOOKUP_CODE";
     public static final String LOOKUP_CODE_DELETE = "DELETE_LOOKUP_CODE";
     public static final String ZIPCODE_GET = "GET_ZIPCODE";
+    public static final String COUNTRY_GET = "GET_COUNTRY";
+    public static final String REGION_GET = "GET_REGION";
+    public static final String COUNTRY_REGION_GET = "GET_COUNTRY_REGION";
 
     // MultiMedia
     public static final String MEDIA_GET_CONTENT = "GET_CONTENT_ATTACHMENT";
