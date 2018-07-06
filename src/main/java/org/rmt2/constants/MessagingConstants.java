@@ -7,7 +7,20 @@ package org.rmt2.constants;
  */
 public class MessagingConstants {
 
+    /**
+     * The JAXB package for RMT2 binding classes.  Serves as the JAXB context.
+     */
     public static final String JAXB_RMT2_PKG = "org.rmt2.jaxb";
+    
+    /**
+     * Successful return code.
+     */
+    public static final int RETURN_CODE_SUCCESS = 1;
+    
+    /**
+     * Failure return code.
+     */
+    public static final int RETURN_CODE_FAILURE = -1;
     
     /**
      * 
