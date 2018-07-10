@@ -16,6 +16,7 @@ public class ApiTransactionCodes {
     public static final String COUNTRY_GET = "GET_COUNTRY";
     public static final String REGION_GET = "GET_REGION";
     public static final String IP_INFO_GET = "GET_IP_INFO";
+    public static final String TIMEZONE_GET = "GET_TIMEZONE";
 
     // MultiMedia
     public static final String MEDIA_GET_CONTENT = "GET_CONTENT_ATTACHMENT";
