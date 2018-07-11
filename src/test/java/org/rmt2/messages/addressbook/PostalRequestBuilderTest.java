@@ -16,6 +16,7 @@ import org.rmt2.jaxb.ObjectFactory;
 import org.rmt2.jaxb.PostalRequest;
 import org.rmt2.jaxb.PostalRequest.PostalCriteria;
 import org.rmt2.jaxb.StatesCriteriaType;
+import org.rmt2.jaxb.TimezoneCriteriaType;
 import org.rmt2.jaxb.ZipResultFormatType;
 import org.rmt2.jaxb.ZipcodeCriteriaType;
 import org.rmt2.util.HeaderTypeBuilder;
@@ -162,5 +163,35 @@ public class PostalRequestBuilderTest {
         System.out.println(xml);
         Assert.assertNotNull(xml);
         Assert.assertTrue(xml.contains("111.222.333.444"));
+    }
+    
+    @Test
+    public void testBuildTimezoneQueryRequest() {
+        ObjectFactory fact = new ObjectFactory();
+        PostalRequest req = fact.createPostalRequest();
+        
+        HeaderType head =  HeaderTypeBuilder.Builder.create()
+                .withApplication("addressbook")
+                .withModule("postal")
+                .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
+                .withDeliveryDate(new Date())
+                
+                // Set these header elements with dummy values in order to be properly assigned later.
+                .withTransaction(ApiTransactionCodes.TIMEZONE_GET)
+                .withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
+                .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
+        
+        PostalCriteria postalCriteria = fact.createPostalRequestPostalCriteria();
+         TimezoneCriteriaType criteria = fact.createTimezoneCriteriaType();
+        criteria.setTimezoneId(1000);
+        criteria.setTimezoneDesc("America/Chicago");
+        postalCriteria.setTimezone(criteria);
+        req.setPostalCriteria(postalCriteria);
+        req.setHeader(head);
+        
+        String xml = jaxb.marshalJsonMessage(req);
+        System.out.println(xml);
+        Assert.assertNotNull(xml);
+        Assert.assertTrue(xml.contains("America/Chicago"));
     }
 }
