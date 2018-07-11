@@ -140,7 +140,7 @@ public class JaxbPayloadFactory {
                 .withDeliveryDate(new Date()).withRouting("Busiess Server")
                 .build();
         
-        ReplyStatusType rs = createReplyStatus(errCode, MessagingConstants.RETURN_STATUS_ERROR, errMsg, extErrMsg);
+        ReplyStatusType rs = createReplyStatus(errCode, MessagingConstants.RETURN_STATUS_SUCCESS, errMsg, extErrMsg);
         RSCommonReply reply = fact.createRSCommonReply();
         reply.setReplyStatus(rs);
         reply.setHeader(header);

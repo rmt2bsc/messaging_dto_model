@@ -15,12 +15,7 @@ public class MessagingConstants {
     /**
      * Successful return code.
      */
-    public static final int RETURN_CODE_SUCCESS = 200;
-    
-    /**
-     * Bad request return code.
-     */
-    public static final int RETURN_CODE_BAD_REQUEST = 400;
+    public static final int RETURN_CODE_SUCCESS = 1;
     
     /**
      * Failure return code.
@@ -45,17 +40,18 @@ public class MessagingConstants {
     /**
      * 
      */
+    
     public static final String MSG_TRANSPORT_MODE_ASYNC = "ASYNC";
 
     /**
      * 
      */
-    public static final String RETURN_STATUS_SUCCESS = "SUCCESS";
+    public static final String RETURN_STATUS_SUCCESS = "200";
 
     /**
      * 
      */
-    public static final String RETURN_STATUS_ERROR = "ERROR";
+    public static final String RETURN_STATUS_BAD_REQUEST = "400";
 
     
     public MessagingConstants() {
