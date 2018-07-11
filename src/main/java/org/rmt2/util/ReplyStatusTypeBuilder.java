@@ -2,7 +2,6 @@ package org.rmt2.util;
 
 import java.math.BigInteger;
 
-import org.rmt2.constants.MessagingConstants;
 import org.rmt2.jaxb.ObjectFactory;
 import org.rmt2.jaxb.ReplyStatusType;
 
@@ -22,8 +21,7 @@ public class ReplyStatusTypeBuilder {
     private ReplyStatusTypeBuilder(Builder builder) {
         ObjectFactory f = new ObjectFactory();
         subject = f.createReplyStatusType();
-        subject.setReturnStatus(builder.successful ? MessagingConstants.RETURN_STATUS_SUCCESS
-                        : MessagingConstants.RETURN_STATUS_BAD_REQUEST);
+        subject.setReturnStatus(builder.status);
         subject.setMessage(builder.message);
         subject.setExtMessage(builder.detailMessage);
         subject.setReturnCode(BigInteger.valueOf(builder.returnCode));
@@ -36,13 +34,13 @@ public class ReplyStatusTypeBuilder {
      *
      */
     public static final class Builder {
-        private boolean successful;
+        private String status;
         private String message;
         private String detailMessage;
         private int returnCode;
         
         private Builder() {
-            this.successful = false;
+            this.status = null;
             this.message = null;
             this.detailMessage = null;
             this.returnCode = 0;
@@ -60,11 +58,11 @@ public class ReplyStatusTypeBuilder {
 
         /**
          * 
-         * @param successful
+         * @param status
          * @return
          */
-        public Builder withStatus(boolean successful) {
-            this.successful = successful;
+        public Builder withStatus(String status) {
+            this.status = status;
             return this;
         }
 

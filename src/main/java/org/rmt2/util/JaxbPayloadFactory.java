@@ -74,7 +74,7 @@ public class JaxbPayloadFactory {
     public static final ReplyStatusType createReplyStatus(int returnCode, String statusCode, String message, String extMessage) {
         ReplyStatusType rs = ReplyStatusTypeBuilder.Builder.create()
                 .withReturnCode(returnCode)
-                .withStatus(statusCode.equals(MessagingConstants.RETURN_STATUS_SUCCESS) ? true : false)
+                .withStatus(statusCode)
                 .withMessage(message)
                 .withDetailMessage(extMessage)
                 .build();
