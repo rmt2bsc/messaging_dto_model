@@ -15,7 +15,12 @@ public class MessagingConstants {
     /**
      * Successful return code.
      */
-    public static final int RETURN_CODE_SUCCESS = 1;
+    public static final int RETURN_CODE_SUCCESS = 200;
+    
+    /**
+     * Bad request return code.
+     */
+    public static final int RETURN_CODE_BAD_REQUEST = 400;
     
     /**
      * Failure return code.
