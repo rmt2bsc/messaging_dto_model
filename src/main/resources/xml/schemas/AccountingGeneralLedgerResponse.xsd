@@ -13,12 +13,12 @@
 							<xsd:documentation xml:lang="en">Known as the Web Service Header.  This element is to be used as part of the request data.  Contains the data needed to identify and route message to its property service implementation.</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="reply_status" type="reply_status_type" minOccurs="0" maxOccurs="1">
+					<xsd:element name="reply_status" type="reply_status_type" minOccurs="1" maxOccurs="1">
 						<xsd:annotation>
 							<xsd:documentation xml:lang="en">The status of the request.  The return code will be greater than or equal to zero indicating the total number of records retrieved.   Otherwise, a value less than zero is present when an error occurs.</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="profile" type="gl_detail_group" minOccurs="0" maxOccurs="unbounded">
+					<xsd:element name="profile" type="gl_detail_group" minOccurs="1" maxOccurs="1">
 						<xsd:annotation>
 							<xsd:documentation>The genreal ledger detail types</xsd:documentation> 
 						</xsd:annotation>
