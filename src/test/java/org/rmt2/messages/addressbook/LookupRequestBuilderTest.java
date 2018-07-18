@@ -41,7 +41,7 @@ public class LookupRequestBuilderTest {
         LookupCodesRequest req = fact.createLookupCodesRequest();
         
         HeaderType head =  HeaderTypeBuilder.Builder.create()
-                .withApplication("AddressBook")
+                .withApplication("addressbook")
                 .withModule(ConfigConstants.API_APP_MODULE_VALUE)
                 .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
                 .withDeliveryDate(new Date())
@@ -61,7 +61,7 @@ public class LookupRequestBuilderTest {
         String xml = jaxb.marshalJsonMessage(req);
         System.out.println(xml);
         Assert.assertNotNull(xml);
-        Assert.assertTrue(xml.contains("200"));
+        Assert.assertTrue(xml.contains(ApiTransactionCodes.LOOKUP_GROUP_GET));
     }
  
     @Test
@@ -70,7 +70,7 @@ public class LookupRequestBuilderTest {
         LookupCodesRequest req = fact.createLookupCodesRequest();
         
         HeaderType head =  HeaderTypeBuilder.Builder.create()
-                .withApplication("AddressBook")
+                .withApplication("addressbook")
                 .withModule(ConfigConstants.API_APP_MODULE_VALUE)
                 .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
                 .withDeliveryDate(new Date())
@@ -89,7 +89,7 @@ public class LookupRequestBuilderTest {
         String xml = jaxb.marshalJsonMessage(req);
         System.out.println(xml);
         Assert.assertNotNull(xml);
-        Assert.assertTrue(xml.contains("200"));
+        Assert.assertTrue(xml.contains(ApiTransactionCodes.LOOKUP_GROUP_UPDATE));
     }
     
     @Test
@@ -120,7 +120,7 @@ public class LookupRequestBuilderTest {
         String xml = jaxb.marshalJsonMessage(req);
         System.out.println(xml);
         Assert.assertNotNull(xml);
-        Assert.assertTrue(xml.contains("100"));
+        Assert.assertTrue(xml.contains(ApiTransactionCodes.LOOKUP_CODE_GET));
     }
     
     @Test
@@ -129,7 +129,7 @@ public class LookupRequestBuilderTest {
         LookupCodesRequest req = fact.createLookupCodesRequest();
         
         HeaderType head =  HeaderTypeBuilder.Builder.create()
-                .withApplication("AddressBook")
+                .withApplication("addressbook")
                 .withModule(ConfigConstants.API_APP_MODULE_VALUE)
                 .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
                 .withDeliveryDate(new Date())
@@ -151,6 +151,6 @@ public class LookupRequestBuilderTest {
         String xml = jaxb.marshalJsonMessage(req);
         System.out.println(xml);
         Assert.assertNotNull(xml);
-        Assert.assertTrue(xml.contains("Code detail long description Test"));
+        Assert.assertTrue(xml.contains(ApiTransactionCodes.LOOKUP_CODE_UPDATE));
     }
 }

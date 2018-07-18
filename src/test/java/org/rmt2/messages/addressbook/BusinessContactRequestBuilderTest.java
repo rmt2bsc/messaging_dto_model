@@ -67,7 +67,7 @@ public class BusinessContactRequestBuilderTest {
         String xml = jaxb.marshalJsonMessage(req);
         System.out.println(xml);
         Assert.assertNotNull(xml);
-        Assert.assertTrue(xml.contains("ABC Company"));
+        Assert.assertTrue(xml.contains(ApiTransactionCodes.CONTACTS_GET));
     }
  
     
@@ -122,6 +122,6 @@ public class BusinessContactRequestBuilderTest {
         String xml = jaxb.marshalJsonMessage(req);
         System.out.println(xml);
         Assert.assertNotNull(xml);
-        Assert.assertTrue(xml.contains("ABC Company"));
+        Assert.assertTrue(xml.contains(ApiTransactionCodes.CONTACTS_UPDATE));
     }
 }

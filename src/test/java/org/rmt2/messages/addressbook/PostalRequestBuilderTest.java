@@ -70,7 +70,7 @@ public class PostalRequestBuilderTest {
         String xml = jaxb.marshalJsonMessage(req);
         System.out.println(xml);
         Assert.assertNotNull(xml);
-        Assert.assertTrue(xml.contains("FULL"));
+        Assert.assertTrue(xml.contains(ApiTransactionCodes.ZIPCODE_GET));
     }
  
     @Test
@@ -100,7 +100,7 @@ public class PostalRequestBuilderTest {
         String xml = jaxb.marshalJsonMessage(req);
         System.out.println(xml);
         Assert.assertNotNull(xml);
-        Assert.assertTrue(xml.contains("United States"));
+        Assert.assertTrue(xml.contains(ApiTransactionCodes.COUNTRY_GET));
     }
     
     @Test
@@ -132,7 +132,7 @@ public class PostalRequestBuilderTest {
         String xml = jaxb.marshalJsonMessage(req);
         System.out.println(xml);
         Assert.assertNotNull(xml);
-        Assert.assertTrue(xml.contains("Texas"));
+        Assert.assertTrue(xml.contains(ApiTransactionCodes.REGION_GET));
     }
     
     @Test
@@ -162,7 +162,7 @@ public class PostalRequestBuilderTest {
         String xml = jaxb.marshalJsonMessage(req);
         System.out.println(xml);
         Assert.assertNotNull(xml);
-        Assert.assertTrue(xml.contains("111.222.333.444"));
+        Assert.assertTrue(xml.contains(ApiTransactionCodes.IP_INFO_GET));
     }
     
     @Test
@@ -192,6 +192,6 @@ public class PostalRequestBuilderTest {
         String xml = jaxb.marshalJsonMessage(req);
         System.out.println(xml);
         Assert.assertNotNull(xml);
-        Assert.assertTrue(xml.contains("America/Chicago"));
+        Assert.assertTrue(xml.contains(ApiTransactionCodes.TIMEZONE_GET));
     }
 }
