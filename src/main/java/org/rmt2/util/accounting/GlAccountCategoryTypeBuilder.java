@@ -69,7 +69,7 @@ public class GlAccountCategoryTypeBuilder {
          * @throws VerifyException
          *             if the parameter conditions are not met.
          */
-        public Builder withAcctTypeId(int acctCatgId) {
+        public Builder withAcctCatgId(int acctCatgId) {
             Verifier.verifyNotNegative(acctCatgId, "Account Category id must not be a negative value");
             this.acctCatgId = BigInteger.valueOf(acctCatgId);
             return this;
