@@ -327,6 +327,6 @@ public class GeneralLedgerRequestBuilderTest {
         String xml = jaxb.marshalJsonMessage(req);
         System.out.println(xml);
         Assert.assertNotNull(xml);
-        Assert.assertTrue(xml.contains(ApiTransactionCodes.GL_ACCOUNT_CATG_UPDATE));
+        Assert.assertTrue(xml.contains(ApiTransactionCodes.GL_ACCOUNT_CATG_DELETE));
     }
 }
