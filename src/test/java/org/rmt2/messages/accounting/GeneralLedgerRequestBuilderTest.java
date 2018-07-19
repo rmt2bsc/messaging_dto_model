@@ -179,4 +179,41 @@ public class GeneralLedgerRequestBuilderTest {
         Assert.assertNotNull(xml);
         Assert.assertTrue(xml.contains(ApiTransactionCodes.GL_ACCOUNT_DELETE));
     }
+    
+    @Test
+    public void testBuildGlAccountTypeQueryRequest() {
+        ObjectFactory fact = new ObjectFactory();
+        AccountingGeneralLedgerRequest req = fact.createAccountingGeneralLedgerRequest();
+        
+        HeaderType head =  HeaderTypeBuilder.Builder.create()
+                .withApplication("accounting")
+                .withModule(ConfigConstants.API_APP_MODULE_VALUE)
+                .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
+                .withDeliveryDate(new Date())
+                
+                // Set these header elements with dummy values in order to be properly assigned later.
+                .withTransaction(ApiTransactionCodes.GL_ACCOUNT_TYPE_GET)
+                .withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
+                .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
+        
+        
+        GlCriteriaType criteria = fact.createGlCriteriaType();
+        GlBalancetypeType gbtt = GlAccountBalanceTypeBuilder.Builder.create()
+                .withAcctBalanceTypeId(1).build();
+        GlAccounttypeType gatt = GlAccounttypeTypeBuilder.Builder.create()
+                .withAcctTypeId(111)
+                .withDescription("GL Account Type Description Test").build();
+        criteria.setAcctType(gatt);
+        criteria.setBalanceType(gbtt);
+        
+        GlCriteriaGroup criteriaGroup = fact.createGlCriteriaGroup();
+        criteriaGroup.setCriteria(criteria);
+        req.setCriteria(criteriaGroup);
+        req.setHeader(head);
+        
+        String xml = jaxb.marshalJsonMessage(req);
+        System.out.println(xml);
+        Assert.assertNotNull(xml);
+        Assert.assertTrue(xml.contains(ApiTransactionCodes.GL_ACCOUNT_TYPE_GET));
+    }
 }
