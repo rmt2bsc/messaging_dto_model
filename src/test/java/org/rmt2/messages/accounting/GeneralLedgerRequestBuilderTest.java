@@ -203,8 +203,8 @@ public class GeneralLedgerRequestBuilderTest {
         GlAccounttypeType gatt = GlAccounttypeTypeBuilder.Builder.create()
                 .withAcctTypeId(111)
                 .withDescription("GL Account Type Description Test").build();
+        gatt.setBalanceType(gbtt);
         criteria.setAcctType(gatt);
-        criteria.setBalanceType(gbtt);
         
         GlCriteriaGroup criteriaGroup = fact.createGlCriteriaGroup();
         criteriaGroup.setCriteria(criteria);
