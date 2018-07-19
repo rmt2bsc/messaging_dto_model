@@ -135,7 +135,7 @@ public class GeneralLedgerRequestBuilderTest {
         acctList.add(rec);
         
         GlDetailGroup details = fact.createGlDetailGroup();
-        details.getAccounts().addAll(acctList);
+        details.getAccount().addAll(acctList);
         req.setProfile(details);
         req.setHeader(head);
         
@@ -170,7 +170,7 @@ public class GeneralLedgerRequestBuilderTest {
         acctList.add(rec);
         
         GlDetailGroup details = fact.createGlDetailGroup();
-        details.getAccounts().addAll(acctList);
+        details.getAccount().addAll(acctList);
         req.setProfile(details);
         req.setHeader(head);
         
