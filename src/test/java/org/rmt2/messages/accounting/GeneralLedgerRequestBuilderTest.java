@@ -75,7 +75,7 @@ public class GeneralLedgerRequestBuilderTest {
                 .withAcctTypeId(111)
                 .withDescription("GL Account Type Description Test").build();
         GlAccountcatgType gact = GlAccountCategoryTypeBuilder.Builder.create()
-                .withAcctTypeId(300).withAccountType(gatt)
+                .withAcctCatgId(300).withAccountType(gatt)
                 .withDescription("GL Account Category Test").build();
         criteria.setAcctType(gatt);
         criteria.setAcctCatg(gact);
@@ -122,7 +122,7 @@ public class GeneralLedgerRequestBuilderTest {
                 .withAcctTypeId(111)
                 .withDescription("GL Account Type Description Test").build();
         GlAccountcatgType gact = GlAccountCategoryTypeBuilder.Builder.create()
-                .withAcctTypeId(300).withAccountType(gatt)
+                .withAcctCatgId(300).withAccountType(gatt)
                 .withDescription("GL Account Category Test").build();
         RecordTrackingType tracking = RecordTrackingTypeBuilder.Builder.create()
                 .withDateCreated("2018-01-01 10:10:44").build();
@@ -215,5 +215,118 @@ public class GeneralLedgerRequestBuilderTest {
         System.out.println(xml);
         Assert.assertNotNull(xml);
         Assert.assertTrue(xml.contains(ApiTransactionCodes.GL_ACCOUNT_TYPE_GET));
+    }
+    
+    @Test
+    public void testBuildGlAccountCategoryQueryRequest() {
+        ObjectFactory fact = new ObjectFactory();
+        AccountingGeneralLedgerRequest req = fact.createAccountingGeneralLedgerRequest();
+        
+        HeaderType head =  HeaderTypeBuilder.Builder.create()
+                .withApplication("accounting")
+                .withModule(ConfigConstants.API_APP_MODULE_VALUE)
+                .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
+                .withDeliveryDate(new Date())
+                
+                // Set these header elements with dummy values in order to be properly assigned later.
+                .withTransaction(ApiTransactionCodes.GL_ACCOUNT_CATG_GET)
+                .withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
+                .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
+        
+        
+        GlCriteriaType criteria = fact.createGlCriteriaType();
+        GlAccounttypeType gatt = GlAccounttypeTypeBuilder.Builder.create()
+                .withAcctTypeId(111)
+                .withDescription("GL Account Type Description Test").build();
+        GlBalancetypeType gbtt = GlAccountBalanceTypeBuilder.Builder.create()
+                .withAcctBalanceTypeId(1).build();
+        GlAccountcatgType gact = GlAccountCategoryTypeBuilder.Builder.create()
+                .withAcctCatgId(300).withAccountType(gatt)
+                .withDescription("GL Account Category Test").build();
+        gatt.setBalanceType(gbtt);
+        gact.setAcctType(gatt);
+        criteria.setAcctCatg(gact);
+        
+        GlCriteriaGroup criteriaGroup = fact.createGlCriteriaGroup();
+        criteriaGroup.setCriteria(criteria);
+        req.setCriteria(criteriaGroup);
+        req.setHeader(head);
+        
+        String xml = jaxb.marshalJsonMessage(req);
+        System.out.println(xml);
+        Assert.assertNotNull(xml);
+        Assert.assertTrue(xml.contains(ApiTransactionCodes.GL_ACCOUNT_CATG_GET));
+    }
+    
+    @Test
+    public void testBuildGlAccountCategoryUpdateRequest() {
+        ObjectFactory fact = new ObjectFactory();
+        AccountingGeneralLedgerRequest req = fact.createAccountingGeneralLedgerRequest();
+        
+        HeaderType head =  HeaderTypeBuilder.Builder.create()
+                .withApplication("accounting")
+                .withModule(ConfigConstants.API_APP_MODULE_VALUE)
+                .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
+                .withDeliveryDate(new Date())
+                
+                // Set these header elements with dummy values in order to be properly assigned later.
+                .withTransaction(ApiTransactionCodes.GL_ACCOUNT_CATG_UPDATE)
+                .withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
+                .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
+        
+        
+        GlBalancetypeType gbtt = GlAccountBalanceTypeBuilder.Builder.create()
+                .withAcctBalanceTypeId(1).build();
+        GlAccounttypeType gatt = GlAccounttypeTypeBuilder.Builder.create()
+                .withAcctTypeId(111)
+                .withDescription("GL Account Type Description Test")
+                .withBalanceType(gbtt).build();
+        RecordTrackingType tracking = RecordTrackingTypeBuilder.Builder.create()
+                .withDateCreated("2018-01-01 10:10:44").build();
+        GlAccountcatgType gact = GlAccountCategoryTypeBuilder.Builder.create()
+                .withAcctCatgId(300).withAccountType(gatt)
+                .withDescription("GL Account Category Test")
+                .withRecordTrackingType(tracking).build();
+        
+        GlDetailGroup detailGroup = fact.createGlDetailGroup();
+        detailGroup.getAccountCategory().add(gact);
+        req.setProfile(detailGroup);
+        req.setHeader(head);
+        
+        String xml = jaxb.marshalJsonMessage(req);
+        System.out.println(xml);
+        Assert.assertNotNull(xml);
+        Assert.assertTrue(xml.contains(ApiTransactionCodes.GL_ACCOUNT_CATG_UPDATE));
+    }
+    
+    @Test
+    public void testBuildGlAccountCategoryDeleteRequest() {
+        ObjectFactory fact = new ObjectFactory();
+        AccountingGeneralLedgerRequest req = fact.createAccountingGeneralLedgerRequest();
+        
+        HeaderType head =  HeaderTypeBuilder.Builder.create()
+                .withApplication("accounting")
+                .withModule(ConfigConstants.API_APP_MODULE_VALUE)
+                .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
+                .withDeliveryDate(new Date())
+                
+                // Set these header elements with dummy values in order to be properly assigned later.
+                .withTransaction(ApiTransactionCodes.GL_ACCOUNT_CATG_DELETE)
+                .withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
+                .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
+        
+        
+        GlAccountcatgType gact = GlAccountCategoryTypeBuilder.Builder.create()
+                .withAcctCatgId(300).build();
+        
+        GlDetailGroup detailGroup = fact.createGlDetailGroup();
+        detailGroup.getAccountCategory().add(gact);
+        req.setProfile(detailGroup);
+        req.setHeader(head);
+        
+        String xml = jaxb.marshalJsonMessage(req);
+        System.out.println(xml);
+        Assert.assertNotNull(xml);
+        Assert.assertTrue(xml.contains(ApiTransactionCodes.GL_ACCOUNT_CATG_UPDATE));
     }
 }
