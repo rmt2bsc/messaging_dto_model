@@ -27,6 +27,8 @@ public class ApiTransactionCodes {
     public static final String GL_ACCOUNT_GET = "GET_GL_ACCOUNT";
     public static final String GL_ACCOUNT_UPDATE = "UPDATE_GL_ACCOUNT";
     public static final String GL_ACCOUNT_DELETE = "DELETE_GL_ACCOUNT";
+    public static final String GL_ACCOUNT_TYPE_GET = "GET_GL_ACCOUNT_TYPE";
+    
     public static final String ACCOUNTING_SALESORDER_CREATE = "CREATE_SALES_ORDER";
     
     public ApiTransactionCodes() {
