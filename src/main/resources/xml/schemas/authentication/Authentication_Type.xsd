@@ -749,4 +749,59 @@
 			</xsd:sequence>
 	</xsd:complexType>
 	
+	<xsd:complexType name="auth_criteria_group">
+			<xsd:sequence>
+				<xsd:element name="user_profile_criteria" type="user_profile_criteria_type" minOccurs="1" maxOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>User profile selection criteria</xsd:documentation> 
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="user_app_roles_criteria" type="user_app_roles_criteria_type" minOccurs="1" maxOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>User application roles criteria</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="resource_criteria" type="resource_criteria_type" minOccurs="1" maxOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>Resource selection criteria</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="resource_subtype_criteria" type="resource_subtype_criteria_type" minOccurs="1" maxOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>Resource sub type selection criteria</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="user_resource_access_criteria" type="user_resource_access_criteria_type" minOccurs="1" maxOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>User resource access selection criteria</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+  </xsd:complexType>
+				
+    <xsd:complexType name="auth_detail_group">
+			<xsd:sequence>
+			  <xsd:element name="user_profile" type="user_type" minOccurs="0" maxOccurs="unbounded">
+		    	<xsd:annotation>
+		    		<xsd:documentation>A list of one or more user profiles based on some selection criteria.</xsd:documentation>
+		    	</xsd:annotation>
+		    </xsd:element>
+				<xsd:element name="user_app_roles" type="user_app_roles_type" minOccurs="1" maxOccurs="1">
+		    	<xsd:annotation>
+		    		<xsd:documentation>The user's granted and revoked roles.</xsd:documentation>
+		    	</xsd:annotation>
+		    </xsd:element>
+				<xsd:element name="resource_items" type="resource_type" minOccurs="0" maxOccurs="unbounded">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="en">One or more resources.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+	      <xsd:element name="resource_subtype_items" type="resource_subtype_type" minOccurs="0" maxOccurs="unbounded">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="en">A list of user_resource_subtype_type documents.</xsd:documentation>
+				</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+		
 </xsd:schema>

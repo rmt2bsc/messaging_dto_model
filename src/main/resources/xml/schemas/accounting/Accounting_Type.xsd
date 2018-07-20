@@ -622,7 +622,72 @@
 					    <xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
 		      </xsd:sequence>
     </xsd:complexType>
-
+    
+    <xsd:complexType name="transaction_criteria_group">
+			<xsd:sequence>
+			    <xsd:element name="gl_criteria" type="gl_criteria_type" minOccurs="0" maxOccurs="1">
+						<xsd:annotation>
+							<xsd:documentation>The General Ledger selection criteria</xsd:documentation> 
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="customer_criteria" type="customer_criteria_type" minOccurs="0" maxOccurs="1">
+						<xsd:annotation>
+							<xsd:documentation>The customer selection criteria</xsd:documentation> 
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="creditor_criteria" type="creditor_criteria_type" minOccurs="0" maxOccurs="1">
+						<xsd:annotation>
+							<xsd:documentation>The creditor criteria</xsd:documentation> 
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="sales_criteria" type="sales_order_criteria" minOccurs="0" maxOccurs="1">
+						<xsd:annotation>
+							<xsd:documentation>The sales order criteria</xsd:documentation> 
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="purchases_criteria" type="purchase_order_criteria" minOccurs="0" maxOccurs="1">
+						<xsd:annotation>
+							<xsd:documentation>The purchases criteria</xsd:documentation> 
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="xact_criteria" type="xact_criteria_type" minOccurs="0" maxOccurs="1">
+						<xsd:annotation>
+							<xsd:documentation>The genreal transaction criteria</xsd:documentation> 
+						</xsd:annotation>
+					</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+		
+		<xsd:complexType name="transaction_detail_group">
+			<xsd:sequence>
+					<xsd:element name="transaction" type="xact_type" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>The genreal transaction details</xsd:documentation> 
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="creditor" type="creditor_type" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>The creditor transaction details</xsd:documentation> 
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="customer" type="customer_type" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>The customer transaction details</xsd:documentation> 
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="purchase_order" type="purchase_order_type" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>The purchase order transaction details</xsd:documentation> 
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="sales_order" type="sales_order_type" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>The sales order transaction details</xsd:documentation> 
+						</xsd:annotation>
+					</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	
     <xsd:complexType name="inventory_criteria_type">
 			<xsd:sequence>
 			  <xsd:element name="item_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
