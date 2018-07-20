@@ -705,6 +705,46 @@
 			</xsd:sequence>
 	  </xsd:complexType>
 	  
+	  <xsd:complexType name="item_association_criteria_type">
+			<xsd:sequence>
+			  <xsd:element name="assoc_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+	 			<xsd:element name="assoc_item_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+	 			<xsd:element name="item_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="assoc_type" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+	  </xsd:complexType>
+	  
+	  <xsd:complexType name="item_status_criteria_type">
+			<xsd:sequence>
+			  <xsd:element name="item_status_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="item_status_description" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+	  </xsd:complexType>
+	  
+	  <xsd:complexType name="item_status_history_criteria_type">
+			<xsd:sequence>
+			  <xsd:element name="item_status_hist_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+			  <xsd:element name="item_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="item_status_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+	  </xsd:complexType>
+	  
+	   <xsd:complexType name="itemtype_criteria_type">
+			<xsd:sequence>
+			  <xsd:element name="item_type_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="item_type_description" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+	  </xsd:complexType>
+	  
+	  <xsd:complexType name="vendor_item_criteria_type">
+			<xsd:sequence>
+			  <xsd:element name="item_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+			  <xsd:element name="creditor_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="item_serial_no" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="vendor_item_no" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+	  </xsd:complexType>
+	  
     <xsd:complexType name="inventory_itemtype_type">
 			<xsd:sequence>
 	 			<xsd:element name="item_type_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
@@ -766,6 +806,41 @@
 			</xsd:sequence>
 	  </xsd:complexType>
 	  
+	  <xsd:complexType name="inventory_criteria_group">
+			<xsd:sequence>
+					<xsd:element name="item_criteria" type="inventory_criteria_type" minOccurs="0" maxOccurs="1">
+						<xsd:annotation>
+							<xsd:documentation>Item master selection criteria</xsd:documentation> 
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="item_assoc_criteria" type="item_association_criteria_type" minOccurs="0" maxOccurs="1">
+						<xsd:annotation>
+							<xsd:documentation>Item association selection criteria</xsd:documentation> 
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="item_status_criteria" type="item_status_criteria_type" minOccurs="0" maxOccurs="1">
+						<xsd:annotation>
+							<xsd:documentation>Item status selection criteria</xsd:documentation> 
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="item_status_hist_criteria" type="item_status_history_criteria_type" minOccurs="0" maxOccurs="1">
+						<xsd:annotation>
+							<xsd:documentation>Item status history selection criteria</xsd:documentation> 
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="item_type_criteria" type="itemtype_criteria_type" minOccurs="0" maxOccurs="1">
+						<xsd:annotation>
+							<xsd:documentation>Item Type selection criteria</xsd:documentation> 
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="vendor_item_criteria" type="vendor_item_criteria_type" minOccurs="0" maxOccurs="1">
+						<xsd:annotation>
+							<xsd:documentation>Vendor item selection criteria details</xsd:documentation> 
+						</xsd:annotation>
+					</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+		
 	  <xsd:complexType name="inventory_detail_group">
 			<xsd:sequence>
 					<xsd:element name="inv_item" type="inventory_item_type" minOccurs="0" maxOccurs="unbounded">
