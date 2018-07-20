@@ -688,7 +688,7 @@
 			</xsd:sequence>
 		</xsd:complexType>
 	
-    <xsd:complexType name="inventory_criteria_type">
+    <xsd:complexType name="item_criteria_type">
 			<xsd:sequence>
 			  <xsd:element name="item_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
 	 			<xsd:element name="item_type" type="inventory_itemtype_type" minOccurs="1" maxOccurs="1"/>
@@ -808,7 +808,7 @@
 	  
 	  <xsd:complexType name="inventory_criteria_group">
 			<xsd:sequence>
-					<xsd:element name="item_criteria" type="inventory_criteria_type" minOccurs="0" maxOccurs="1">
+					<xsd:element name="item_criteria" type="item_criteria_type" minOccurs="0" maxOccurs="1">
 						<xsd:annotation>
 							<xsd:documentation>Item master selection criteria</xsd:documentation> 
 						</xsd:annotation>
