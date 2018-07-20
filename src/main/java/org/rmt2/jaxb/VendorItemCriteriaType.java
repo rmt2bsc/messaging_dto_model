@@ -9,7 +9,6 @@
 package org.rmt2.jaxb;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.math.BigInteger;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -19,21 +18,19 @@ import com.RMT2Base;
 
 
 /**
- * <p>Java class for vendor_item_type complex type.
+ * <p>Java class for vendor_item_criteria_type complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="vendor_item_type">
+ * &lt;complexType name="vendor_item_criteria_type">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="item_id" type="{http://www.w3.org/2001/XMLSchema}integer"/>
- *         &lt;element name="creditor" type="{}creditor_type"/>
- *         &lt;element name="description" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="vendor_item_no" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="creditor_id" type="{http://www.w3.org/2001/XMLSchema}integer"/>
  *         &lt;element name="item_serial_no" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="unit_cost" type="{http://www.w3.org/2001/XMLSchema}decimal"/>
+ *         &lt;element name="vendor_item_no" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -43,15 +40,13 @@ import com.RMT2Base;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "vendor_item_type", propOrder = {
+@XmlType(name = "vendor_item_criteria_type", propOrder = {
     "itemId",
-    "creditor",
-    "description",
-    "vendorItemNo",
+    "creditorId",
     "itemSerialNo",
-    "unitCost"
+    "vendorItemNo"
 })
-public class VendorItemType
+public class VendorItemCriteriaType
     extends RMT2Base
     implements Serializable
 {
@@ -59,16 +54,12 @@ public class VendorItemType
     private final static long serialVersionUID = 1L;
     @XmlElement(name = "item_id", required = true)
     protected BigInteger itemId;
-    @XmlElement(required = true)
-    protected CreditorType creditor;
-    @XmlElement(required = true)
-    protected String description;
-    @XmlElement(name = "vendor_item_no", required = true)
-    protected String vendorItemNo;
+    @XmlElement(name = "creditor_id", required = true)
+    protected BigInteger creditorId;
     @XmlElement(name = "item_serial_no", required = true)
     protected String itemSerialNo;
-    @XmlElement(name = "unit_cost", required = true)
-    protected BigDecimal unitCost;
+    @XmlElement(name = "vendor_item_no", required = true)
+    protected String vendorItemNo;
 
     /**
      * Gets the value of the itemId property.
@@ -95,75 +86,27 @@ public class VendorItemType
     }
 
     /**
-     * Gets the value of the creditor property.
+     * Gets the value of the creditorId property.
      * 
      * @return
      *     possible object is
-     *     {@link CreditorType }
+     *     {@link BigInteger }
      *     
      */
-    public CreditorType getCreditor() {
-        return creditor;
+    public BigInteger getCreditorId() {
+        return creditorId;
     }
 
     /**
-     * Sets the value of the creditor property.
+     * Sets the value of the creditorId property.
      * 
      * @param value
      *     allowed object is
-     *     {@link CreditorType }
+     *     {@link BigInteger }
      *     
      */
-    public void setCreditor(CreditorType value) {
-        this.creditor = value;
-    }
-
-    /**
-     * Gets the value of the description property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getDescription() {
-        return description;
-    }
-
-    /**
-     * Sets the value of the description property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setDescription(String value) {
-        this.description = value;
-    }
-
-    /**
-     * Gets the value of the vendorItemNo property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getVendorItemNo() {
-        return vendorItemNo;
-    }
-
-    /**
-     * Sets the value of the vendorItemNo property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setVendorItemNo(String value) {
-        this.vendorItemNo = value;
+    public void setCreditorId(BigInteger value) {
+        this.creditorId = value;
     }
 
     /**
@@ -191,27 +134,27 @@ public class VendorItemType
     }
 
     /**
-     * Gets the value of the unitCost property.
+     * Gets the value of the vendorItemNo property.
      * 
      * @return
      *     possible object is
-     *     {@link BigDecimal }
+     *     {@link String }
      *     
      */
-    public BigDecimal getUnitCost() {
-        return unitCost;
+    public String getVendorItemNo() {
+        return vendorItemNo;
     }
 
     /**
-     * Sets the value of the unitCost property.
+     * Sets the value of the vendorItemNo property.
      * 
      * @param value
      *     allowed object is
-     *     {@link BigDecimal }
+     *     {@link String }
      *     
      */
-    public void setUnitCost(BigDecimal value) {
-        this.unitCost = value;
+    public void setVendorItemNo(String value) {
+        this.vendorItemNo = value;
     }
 
 }

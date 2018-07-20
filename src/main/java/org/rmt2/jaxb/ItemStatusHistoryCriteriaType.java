@@ -18,18 +18,18 @@ import com.RMT2Base;
 
 
 /**
- * <p>Java class for inventory_item_status_type complex type.
+ * <p>Java class for item_status_history_criteria_type complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="inventory_item_status_type">
+ * &lt;complexType name="item_status_history_criteria_type">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
+ *         &lt;element name="item_status_hist_id" type="{http://www.w3.org/2001/XMLSchema}integer"/>
+ *         &lt;element name="item_id" type="{http://www.w3.org/2001/XMLSchema}integer"/>
  *         &lt;element name="item_status_id" type="{http://www.w3.org/2001/XMLSchema}integer"/>
- *         &lt;element name="description" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="tracking" type="{}record_tracking_type" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -39,22 +39,71 @@ import com.RMT2Base;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "inventory_item_status_type", propOrder = {
-    "itemStatusId",
-    "description",
-    "tracking"
+@XmlType(name = "item_status_history_criteria_type", propOrder = {
+    "itemStatusHistId",
+    "itemId",
+    "itemStatusId"
 })
-public class InventoryItemStatusType
+public class ItemStatusHistoryCriteriaType
     extends RMT2Base
     implements Serializable
 {
 
     private final static long serialVersionUID = 1L;
+    @XmlElement(name = "item_status_hist_id", required = true)
+    protected BigInteger itemStatusHistId;
+    @XmlElement(name = "item_id", required = true)
+    protected BigInteger itemId;
     @XmlElement(name = "item_status_id", required = true)
     protected BigInteger itemStatusId;
-    @XmlElement(required = true)
-    protected String description;
-    protected RecordTrackingType tracking;
+
+    /**
+     * Gets the value of the itemStatusHistId property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link BigInteger }
+     *     
+     */
+    public BigInteger getItemStatusHistId() {
+        return itemStatusHistId;
+    }
+
+    /**
+     * Sets the value of the itemStatusHistId property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link BigInteger }
+     *     
+     */
+    public void setItemStatusHistId(BigInteger value) {
+        this.itemStatusHistId = value;
+    }
+
+    /**
+     * Gets the value of the itemId property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link BigInteger }
+     *     
+     */
+    public BigInteger getItemId() {
+        return itemId;
+    }
+
+    /**
+     * Sets the value of the itemId property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link BigInteger }
+     *     
+     */
+    public void setItemId(BigInteger value) {
+        this.itemId = value;
+    }
 
     /**
      * Gets the value of the itemStatusId property.
@@ -78,54 +127,6 @@ public class InventoryItemStatusType
      */
     public void setItemStatusId(BigInteger value) {
         this.itemStatusId = value;
-    }
-
-    /**
-     * Gets the value of the description property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getDescription() {
-        return description;
-    }
-
-    /**
-     * Sets the value of the description property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setDescription(String value) {
-        this.description = value;
-    }
-
-    /**
-     * Gets the value of the tracking property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link RecordTrackingType }
-     *     
-     */
-    public RecordTrackingType getTracking() {
-        return tracking;
-    }
-
-    /**
-     * Sets the value of the tracking property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link RecordTrackingType }
-     *     
-     */
-    public void setTracking(RecordTrackingType value) {
-        this.tracking = value;
     }
 
 }

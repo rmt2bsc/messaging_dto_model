@@ -18,19 +18,19 @@ import com.RMT2Base;
 
 
 /**
- * <p>Java class for resource_criteria_type complex type.
+ * <p>Java class for item_association_criteria_type complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="resource_criteria_type">
+ * &lt;complexType name="item_association_criteria_type">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="rsrc_id" type="{http://www.w3.org/2001/XMLSchema}integer" minOccurs="0"/>
- *         &lt;element name="rsrc_type_id" type="{http://www.w3.org/2001/XMLSchema}integer" minOccurs="0"/>
- *         &lt;element name="rsrc_subtype_id" type="{http://www.w3.org/2001/XMLSchema}integer" minOccurs="0"/>
- *         &lt;element name="rsrc_name" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="assoc_id" type="{http://www.w3.org/2001/XMLSchema}integer"/>
+ *         &lt;element name="assoc_item_id" type="{http://www.w3.org/2001/XMLSchema}integer"/>
+ *         &lt;element name="item_id" type="{http://www.w3.org/2001/XMLSchema}integer"/>
+ *         &lt;element name="assoc_type" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -40,121 +40,121 @@ import com.RMT2Base;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "resource_criteria_type", propOrder = {
-    "rsrcId",
-    "rsrcTypeId",
-    "rsrcSubtypeId",
-    "rsrcName"
+@XmlType(name = "item_association_criteria_type", propOrder = {
+    "assocId",
+    "assocItemId",
+    "itemId",
+    "assocType"
 })
-public class ResourceCriteriaType
+public class ItemAssociationCriteriaType
     extends RMT2Base
     implements Serializable
 {
 
     private final static long serialVersionUID = 1L;
-    @XmlElement(name = "rsrc_id")
-    protected BigInteger rsrcId;
-    @XmlElement(name = "rsrc_type_id")
-    protected BigInteger rsrcTypeId;
-    @XmlElement(name = "rsrc_subtype_id")
-    protected BigInteger rsrcSubtypeId;
-    @XmlElement(name = "rsrc_name")
-    protected String rsrcName;
+    @XmlElement(name = "assoc_id", required = true)
+    protected BigInteger assocId;
+    @XmlElement(name = "assoc_item_id", required = true)
+    protected BigInteger assocItemId;
+    @XmlElement(name = "item_id", required = true)
+    protected BigInteger itemId;
+    @XmlElement(name = "assoc_type", required = true)
+    protected String assocType;
 
     /**
-     * Gets the value of the rsrcId property.
+     * Gets the value of the assocId property.
      * 
      * @return
      *     possible object is
      *     {@link BigInteger }
      *     
      */
-    public BigInteger getRsrcId() {
-        return rsrcId;
+    public BigInteger getAssocId() {
+        return assocId;
     }
 
     /**
-     * Sets the value of the rsrcId property.
+     * Sets the value of the assocId property.
      * 
      * @param value
      *     allowed object is
      *     {@link BigInteger }
      *     
      */
-    public void setRsrcId(BigInteger value) {
-        this.rsrcId = value;
+    public void setAssocId(BigInteger value) {
+        this.assocId = value;
     }
 
     /**
-     * Gets the value of the rsrcTypeId property.
+     * Gets the value of the assocItemId property.
      * 
      * @return
      *     possible object is
      *     {@link BigInteger }
      *     
      */
-    public BigInteger getRsrcTypeId() {
-        return rsrcTypeId;
+    public BigInteger getAssocItemId() {
+        return assocItemId;
     }
 
     /**
-     * Sets the value of the rsrcTypeId property.
+     * Sets the value of the assocItemId property.
      * 
      * @param value
      *     allowed object is
      *     {@link BigInteger }
      *     
      */
-    public void setRsrcTypeId(BigInteger value) {
-        this.rsrcTypeId = value;
+    public void setAssocItemId(BigInteger value) {
+        this.assocItemId = value;
     }
 
     /**
-     * Gets the value of the rsrcSubtypeId property.
+     * Gets the value of the itemId property.
      * 
      * @return
      *     possible object is
      *     {@link BigInteger }
      *     
      */
-    public BigInteger getRsrcSubtypeId() {
-        return rsrcSubtypeId;
+    public BigInteger getItemId() {
+        return itemId;
     }
 
     /**
-     * Sets the value of the rsrcSubtypeId property.
+     * Sets the value of the itemId property.
      * 
      * @param value
      *     allowed object is
      *     {@link BigInteger }
      *     
      */
-    public void setRsrcSubtypeId(BigInteger value) {
-        this.rsrcSubtypeId = value;
+    public void setItemId(BigInteger value) {
+        this.itemId = value;
     }
 
     /**
-     * Gets the value of the rsrcName property.
+     * Gets the value of the assocType property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getRsrcName() {
-        return rsrcName;
+    public String getAssocType() {
+        return assocType;
     }
 
     /**
-     * Sets the value of the rsrcName property.
+     * Sets the value of the assocType property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setRsrcName(String value) {
-        this.rsrcName = value;
+    public void setAssocType(String value) {
+        this.assocType = value;
     }
 
 }

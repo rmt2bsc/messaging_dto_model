@@ -18,17 +18,17 @@ import com.RMT2Base;
 
 
 /**
- * <p>Java class for timezone_type complex type.
+ * <p>Java class for itemtype_criteria_type complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="timezone_type">
+ * &lt;complexType name="itemtype_criteria_type">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="timezone_id" type="{http://www.w3.org/2001/XMLSchema}integer"/>
- *         &lt;element name="timeszone_desc" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="item_type_id" type="{http://www.w3.org/2001/XMLSchema}integer"/>
+ *         &lt;element name="item_type_description" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -38,67 +38,67 @@ import com.RMT2Base;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "timezone_type", propOrder = {
-    "timezoneId",
-    "timeszoneDesc"
+@XmlType(name = "itemtype_criteria_type", propOrder = {
+    "itemTypeId",
+    "itemTypeDescription"
 })
-public class TimezoneType
+public class ItemtypeCriteriaType
     extends RMT2Base
     implements Serializable
 {
 
     private final static long serialVersionUID = 1L;
-    @XmlElement(name = "timezone_id", required = true, defaultValue = "0")
-    protected BigInteger timezoneId;
-    @XmlElement(name = "timeszone_desc", required = true)
-    protected String timeszoneDesc;
+    @XmlElement(name = "item_type_id", required = true)
+    protected BigInteger itemTypeId;
+    @XmlElement(name = "item_type_description", required = true)
+    protected String itemTypeDescription;
 
     /**
-     * Gets the value of the timezoneId property.
+     * Gets the value of the itemTypeId property.
      * 
      * @return
      *     possible object is
      *     {@link BigInteger }
      *     
      */
-    public BigInteger getTimezoneId() {
-        return timezoneId;
+    public BigInteger getItemTypeId() {
+        return itemTypeId;
     }
 
     /**
-     * Sets the value of the timezoneId property.
+     * Sets the value of the itemTypeId property.
      * 
      * @param value
      *     allowed object is
      *     {@link BigInteger }
      *     
      */
-    public void setTimezoneId(BigInteger value) {
-        this.timezoneId = value;
+    public void setItemTypeId(BigInteger value) {
+        this.itemTypeId = value;
     }
 
     /**
-     * Gets the value of the timeszoneDesc property.
+     * Gets the value of the itemTypeDescription property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getTimeszoneDesc() {
-        return timeszoneDesc;
+    public String getItemTypeDescription() {
+        return itemTypeDescription;
     }
 
     /**
-     * Sets the value of the timeszoneDesc property.
+     * Sets the value of the itemTypeDescription property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setTimeszoneDesc(String value) {
-        this.timeszoneDesc = value;
+    public void setItemTypeDescription(String value) {
+        this.itemTypeDescription = value;
     }
 
 }
