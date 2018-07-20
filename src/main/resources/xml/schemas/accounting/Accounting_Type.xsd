@@ -277,7 +277,7 @@
 			    		<xsd:documentation>The purchase order details</xsd:documentation>
 			    	</xsd:annotation>
 			    </xsd:element>
-				<xsd:element name="item" type="item_master_type" minOccurs="1" maxOccurs="1">
+				<xsd:element name="item" type="inventory_item_type" minOccurs="1" maxOccurs="1">
 					<xsd:annotation>
 						<xsd:documentation>The item master details.</xsd:documentation>
 					</xsd:annotation>
@@ -408,7 +408,7 @@
 	 					<xsd:documentation>The customer's unique id for this sales order item.</xsd:documentation>
 	 				</xsd:annotation>
 	 			</xsd:element>
-				<xsd:element name="item" type="item_master_type" minOccurs="1" maxOccurs="1">
+				<xsd:element name="item" type="inventory_item_type" minOccurs="1" maxOccurs="1">
 					<xsd:annotation>
 						<xsd:documentation>The unique id of the item.</xsd:documentation>
 					</xsd:annotation>
@@ -623,10 +623,10 @@
 		      </xsd:sequence>
     </xsd:complexType>
 
-    <xsd:complexType name="item_criteria_type">
+    <xsd:complexType name="inventory_criteria_type">
 			<xsd:sequence>
 			  <xsd:element name="item_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
-	 			<xsd:element name="item_type" type="item_master_itemtype_type" minOccurs="1" maxOccurs="1"/>
+	 			<xsd:element name="item_type" type="inventory_itemtype_type" minOccurs="1" maxOccurs="1"/>
 	 			<xsd:element name="vendor" type="creditor_type" minOccurs="1" maxOccurs="1"/>
 				<xsd:element name="item_name" type="xsd:string" minOccurs="1" maxOccurs="1"/>
 				<xsd:element name="vendor_item_no" type="xsd:string" minOccurs="1" maxOccurs="1"/>
@@ -635,12 +635,12 @@
 				<xsd:element name="unit_cost" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
 				<xsd:element name="markup" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
 				<xsd:element name="active" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
-				<xsd:element name="status" type="item_master_status_type" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element name="status" type="inventory_item_status_type" minOccurs="0" maxOccurs="unbounded"/>
 				<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
 			</xsd:sequence>
 	  </xsd:complexType>
 	  
-    <xsd:complexType name="item_master_itemtype_type">
+    <xsd:complexType name="inventory_itemtype_type">
 			<xsd:sequence>
 	 			<xsd:element name="item_type_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
 				<xsd:element name="description" type="xsd:string" minOccurs="1" maxOccurs="1"/>
@@ -648,7 +648,7 @@
 			</xsd:sequence>
 	  </xsd:complexType>
     
-    <xsd:complexType name="item_master_status_type">
+    <xsd:complexType name="inventory_item_status_type">
 			<xsd:sequence>
 	 			<xsd:element name="item_status_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
 				<xsd:element name="description" type="xsd:string" minOccurs="1" maxOccurs="1"/>
@@ -656,10 +656,10 @@
 			</xsd:sequence>
 	  </xsd:complexType>
 	  
-	  <xsd:complexType name="item_master_type">
+	  <xsd:complexType name="inventory_item_type">
 			<xsd:sequence>
 			  <xsd:element name="item_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
-	 			<xsd:element name="item_type" type="item_master_itemtype_type" minOccurs="1" maxOccurs="1"/>
+	 			<xsd:element name="item_type" type="inventory_itemtype_type" minOccurs="1" maxOccurs="1"/>
 	 			<xsd:element name="creditor" type="creditor_type" minOccurs="1" maxOccurs="1"/>
 				<xsd:element name="description" type="xsd:string" minOccurs="1" maxOccurs="1"/>
 				<xsd:element name="vendor_item_no" type="xsd:string" minOccurs="1" maxOccurs="1"/>
@@ -670,16 +670,16 @@
 				<xsd:element name="retail_price" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
 				<xsd:element name="override_retail" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
 				<xsd:element name="active" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
-				<xsd:element name="status_history" type="item_master_status_history_type" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element name="status_history" type="inventory_status_history_type" minOccurs="0" maxOccurs="unbounded"/>
 				<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
 			</xsd:sequence>
 	  </xsd:complexType>
 	  
-	  <xsd:complexType name="item_master_status_history_type">
+	  <xsd:complexType name="inventory_status_history_type">
 			<xsd:sequence>
 			  <xsd:element name="status_hist_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
-			  <xsd:element name="item" type="item_master_type" minOccurs="1" maxOccurs="1"/>
-	 			<xsd:element name="status" type="item_master_status_type" minOccurs="1" maxOccurs="1"/>
+			  <xsd:element name="item" type="inventory_item_type" minOccurs="1" maxOccurs="1"/>
+	 			<xsd:element name="status" type="inventory_item_status_type" minOccurs="1" maxOccurs="1"/>
 				<xsd:element name="unit_cost" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
 				<xsd:element name="markup" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
 				<xsd:element name="effective_date" type="xsd:date"/>
@@ -700,5 +700,35 @@
 				<xsd:element name="unit_cost" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
 			</xsd:sequence>
 	  </xsd:complexType>
+	  
+	  <xsd:complexType name="inventory_detail_group">
+			<xsd:sequence>
+					<xsd:element name="inv_item" type="inventory_item_type" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>The item master details</xsd:documentation> 
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="inv_item_status" type="inventory_item_status_type" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Inventory item status detail</xsd:documentation> 
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="inv_item_type" type="inventory_itemtype_type" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Inventory item type details</xsd:documentation> 
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="inv_item_status_hist" type="inventory_status_history_type" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Inventory item status history details</xsd:documentation> 
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="vendor_item" type="vendor_item_type" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Vendor item details of a given inventory item</xsd:documentation> 
+						</xsd:annotation>
+					</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
 	  
 </xsd:schema>
