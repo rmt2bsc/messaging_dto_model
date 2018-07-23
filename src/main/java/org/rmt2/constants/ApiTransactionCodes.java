@@ -23,7 +23,7 @@ public class ApiTransactionCodes {
     public static final String MEDIA_SAVE_CONTENT = "SAVE_CONTENT_ATTACHMENT";
     public static final String MEDIA_CONTENT_APP_LINK = "LINK_CONTENT_TO_APPLICATION";
 
-    // Accounting - Sales
+    // Accounting - General Ledger
     public static final String GL_ACCOUNT_GET = "GET_GL_ACCOUNT";
     public static final String GL_ACCOUNT_UPDATE = "UPDATE_GL_ACCOUNT";
     public static final String GL_ACCOUNT_DELETE = "DELETE_GL_ACCOUNT";
@@ -32,7 +32,13 @@ public class ApiTransactionCodes {
     public static final String GL_ACCOUNT_CATG_UPDATE = "UPDATE_GL_ACCOUNT_CATG";
     public static final String GL_ACCOUNT_CATG_DELETE = "DELETE_GL_ACCOUNT_CATG";
     
-    public static final String ACCOUNTING_SALESORDER_CREATE = "CREATE_SALES_ORDER";
+    // Accounting - Inventory
+    public static final String INVENTORY_ITEM_STATUS_HIST_GET = "GET_ITEM_STATUS_HIST";
+    public static final String INVENTORY_ITEM_CURRENT_STATUS_HIST_GET = "GET_CURRENT_ITEM_STATUS_HIST";
+    public static final String INVENTORY_ITEM_MASTER_GET = "GET_ITEM_MASTER";
+    public static final String INVENTORY_ITEM_MASTER_UPDATE = "UPDATE_ITEM_MASTER";
+    public static final String INVENTORY_ITEM_MASTER_DELETE = "DELETE_ITEM_MASTER";
+    
     
     public ApiTransactionCodes() {
         // TODO Auto-generated constructor stub
