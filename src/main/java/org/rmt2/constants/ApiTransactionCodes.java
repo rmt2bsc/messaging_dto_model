@@ -39,6 +39,7 @@ public class ApiTransactionCodes {
     public static final String INVENTORY_ITEM_MASTER_UPDATE = "UPDATE_ITEM_MASTER";
     public static final String INVENTORY_ITEM_MASTER_DELETE = "DELETE_ITEM_MASTER";
     
+    public static final String ACCOUNTING_SALESORDER_CREATE = "CREATE_SALES_ORDER";
     
     public ApiTransactionCodes() {
         // TODO Auto-generated constructor stub
