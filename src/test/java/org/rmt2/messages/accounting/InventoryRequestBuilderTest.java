@@ -23,6 +23,7 @@ import org.rmt2.jaxb.ObjectFactory;
 import org.rmt2.jaxb.RecordTrackingType;
 import org.rmt2.util.HeaderTypeBuilder;
 import org.rmt2.util.RecordTrackingTypeBuilder;
+import org.rmt2.util.accounting.inventory.InventoryItemTypeBuilder;
 
 import com.api.config.ConfigConstants;
 import com.api.config.SystemConfigurator;
@@ -104,16 +105,16 @@ public class InventoryRequestBuilderTest {
                 .withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
         
-        
-        InventoryItemType item = fact.createInventoryItemType();
-        item.setItemId(BigInteger.valueOf(100));
-        item.setActive(BigInteger.valueOf(1));
-        item.setDescription("Dell Computer");
-        item.setItemSerialNo("11111111");
-        item.setMarkup(BigDecimal.valueOf(3));
-        item.setUnitCost(BigDecimal.valueOf(150.99));
-        item.setQtyOnHand(BigInteger.valueOf(10));
-        item.setVendorItemNo("1234-4839");
+
+        InventoryItemType item = InventoryItemTypeBuilder.Builder.create()
+                .withItemId(100)
+                .withActive(true)
+                .withItemName("Dell Computer")
+                .withItemSerialNo("11111111")
+                .withMarkup(3)
+                .withUnitCost(150.99)
+                .withQtyOnHand(10)
+                .withVendorItemNo("1234-4839").build();
         
         InventoryItemtypeType iit = fact.createInventoryItemtypeType();
         iit.setItemTypeId(BigInteger.valueOf(222));
