@@ -1,52 +1,52 @@
-package org.rmt2.util.accounting;
+package org.rmt2.util.accounting.generalledger;
 
 import java.math.BigInteger;
 
+import org.rmt2.jaxb.GlAccountcatgType;
 import org.rmt2.jaxb.GlAccounttypeType;
-import org.rmt2.jaxb.GlBalancetypeType;
 import org.rmt2.jaxb.ObjectFactory;
 import org.rmt2.jaxb.RecordTrackingType;
 
 import com.api.util.assistants.Verifier;
 
 /**
- * GlAccounttypeType Builder.
+ * GlAccountcatgType Builder.
  * 
  * @author Roy Terrell
  *
  */
-public class GlAccounttypeTypeBuilder {
+public class GlAccountCategoryTypeBuilder {
 
-    private GlAccounttypeType subject;
+    private GlAccountcatgType subject;
     
     /**
-     * Create a GlAccounttypeType
+     * Create a GlAccountcatgType
      */
-    private GlAccounttypeTypeBuilder(Builder builder) {
+    private GlAccountCategoryTypeBuilder(Builder builder) {
         ObjectFactory f = new ObjectFactory();
-        subject = f.createGlAccounttypeType();
-        subject.setAcctTypeId(builder.acctTypeId);
+        subject = f.createGlAccountcatgType();
+        subject.setAcctCatgId(builder.acctCatgId);
         subject.setDescription(builder.description);
-        subject.setBalanceType(builder.balanceType);
+        subject.setAcctType(builder.acctType);
         subject.setTracking(builder.tracking);
     }
 
     /**
-     * Builder for {@link GlAccounttypeType}
+     * Builder for {@link GlAccountcatgType}
      * 
      * @author Roy Terrell
      *
      */
     public static final class Builder {
-        private BigInteger acctTypeId;
+        private BigInteger acctCatgId;
+        private GlAccounttypeType acctType;
         private String description;
-        private GlBalancetypeType balanceType;
         private RecordTrackingType tracking;
 
         private Builder() {
-            this.acctTypeId = null;
+            this.acctCatgId = null;
             this.description = null;
-            this.balanceType = null;
+            this.acctType = null;
             this.tracking = null;
         }
 
@@ -61,32 +61,32 @@ public class GlAccounttypeTypeBuilder {
         }
 
         /**
-         * Set up account type id.
+         * Set up account category id.
          * 
-         * @param acctTypeId
+         * @param acctCatgId
          *            an int value that must be greater than or equal to zero
          * @return Non-null Builder used to continue building the object
          * @throws VerifyException
          *             if the parameter conditions are not met.
          */
-        public Builder withAcctTypeId(int acctTypeId) {
-            Verifier.verifyNotNegative(acctTypeId, "Account Type id must not be a negative value");
-            this.acctTypeId = BigInteger.valueOf(acctTypeId);
+        public Builder withAcctCatgId(int acctCatgId) {
+            Verifier.verifyNotNegative(acctCatgId, "Account Category id must not be a negative value");
+            this.acctCatgId = BigInteger.valueOf(acctCatgId);
             return this;
         }
 
         /**
          * Set up balance type.
          * 
-         * @param balType
-         *            an instance of {@link GlBalancetypeType} value that must not be null
+         * @param acctType
+         *            an instance of {@link GlAccounttypeType} value that must not be null
          * @return Non-null Builder used to continue building the object
          * @throws VerifyException
          *             if the parameter conditions are not met.
          */
-        public Builder withBalanceType(GlBalancetypeType balType) {
-            Verifier.verifyNotNull(balType, "Balance Type cannot be null");
-            this.balanceType = balType;
+        public Builder withAccountType(GlAccounttypeType acctType) {
+            Verifier.verifyNotNull(acctType, "Account Type cannot be null for GL Account Category");
+            this.acctType = acctType;
             return this;
         }
 
@@ -124,12 +124,12 @@ public class GlAccounttypeTypeBuilder {
         }
 
         /**
-         * Completes the building of the GlAccounttypeType
+         * Completes the building of the GlAccountcatgType
          * 
-         * @return an instance of {@link GlAccounttypeType}
+         * @return an instance of {@link GlAccountcatgType}
          */
-        public GlAccounttypeType build() {
-            GlAccounttypeTypeBuilder obj = new GlAccounttypeTypeBuilder(this);
+        public GlAccountcatgType build() {
+            GlAccountCategoryTypeBuilder obj = new GlAccountCategoryTypeBuilder(this);
             return obj.subject;
         }
     }

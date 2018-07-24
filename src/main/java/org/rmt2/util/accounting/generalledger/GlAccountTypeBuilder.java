@@ -1,4 +1,4 @@
-package org.rmt2.util.accounting;
+package org.rmt2.util.accounting.generalledger;
 
 import java.math.BigInteger;
 

@@ -24,9 +24,9 @@ import org.rmt2.jaxb.ObjectFactory;
 import org.rmt2.jaxb.RecordTrackingType;
 import org.rmt2.util.HeaderTypeBuilder;
 import org.rmt2.util.RecordTrackingTypeBuilder;
-import org.rmt2.util.accounting.GlAccountBalanceTypeBuilder;
-import org.rmt2.util.accounting.GlAccountCategoryTypeBuilder;
-import org.rmt2.util.accounting.GlAccounttypeTypeBuilder;
+import org.rmt2.util.accounting.generalledger.GlAccountBalanceTypeBuilder;
+import org.rmt2.util.accounting.generalledger.GlAccountCategoryTypeBuilder;
+import org.rmt2.util.accounting.generalledger.GlAccounttypeTypeBuilder;
 
 import com.api.config.ConfigConstants;
 import com.api.config.SystemConfigurator;
