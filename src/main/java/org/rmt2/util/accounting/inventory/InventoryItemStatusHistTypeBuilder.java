@@ -2,6 +2,7 @@ package org.rmt2.util.accounting.inventory;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.Date;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 
@@ -164,6 +165,27 @@ public class InventoryItemStatusHistTypeBuilder {
         }
         
         /**
+         * Set up item status effective date.
+         * 
+         * @param effectiveDate
+         *            the effective date of the item's status. Cannot be null.
+         * @return Non-null Builder used to continue building the object
+         * @throws VerifyException
+         *             if the parameter conditions are not met.
+         */
+        public Builder withEffectiveDate(Date effectiveDate) {
+            Verifier.verifyNotNull(effectiveDate, "Inventory item status effective date cannot be a null");
+            try {
+                XMLGregorianCalendar dt = RMT2Date.toXmlDate(effectiveDate);
+                this.effectiveDate = dt;    
+            }
+            catch (SystemException e) {
+                LOGGER.warn("Unable to conver inventory item status effective date, " + effectiveDate + ", to XMLGregorianCalendar");
+            }
+            return this;
+        }
+        
+        /**
          * Set up item status end date.
          * 
          * @param endDate
@@ -184,6 +206,27 @@ public class InventoryItemStatusHistTypeBuilder {
             return this;
         }
          
+        /**
+         * Set up item status end date.
+         * 
+         * @param endDate
+         *            the end date of the item's status. Cannot be null.
+         * @return Non-null Builder used to continue building the object
+         * @throws VerifyException
+         *             if the parameter conditions are not met.
+         */
+        public Builder withEndDate(Date endDate) {
+            Verifier.verifyNotNull(endDate, "Inventory item status end date cannot be a null");
+            try {
+                XMLGregorianCalendar dt = RMT2Date.toXmlDate(endDate);
+                this.endDate = dt;    
+            }
+            catch (SystemException e) {
+                LOGGER.warn("Unable to conver inventory item status end date, " + endDate + ", to XMLGregorianCalendar");
+            }
+            return this;
+        }
+        
         /**
          * Set up vendor item number.
          * 

@@ -153,7 +153,7 @@ public class GlAccountTypeBuilder {
          * @throws VerifyException
          *             if the parameter conditions are not met.
          */
-        public Builder withContactLastname(int acctSeq) {
+        public Builder withAcctSeq(int acctSeq) {
             Verifier.verifyNotNegative(acctSeq, "Account Sequence must not be a negative value");
             this.acctSeq = BigInteger.valueOf(acctSeq);
             return this;
@@ -215,7 +215,7 @@ public class GlAccountTypeBuilder {
          */
         public Builder withAccountDescription(String accountDescription) {
             Verifier.verifyNotEmpty(accountDescription, "Account description cannot be empty");
-            this.accountCode = accountDescription;
+            this.accountDescription = accountDescription;
             return this;
         }
         
@@ -231,7 +231,7 @@ public class GlAccountTypeBuilder {
         public Builder withActive(int activeInd) {
             Verifier.verifyNotNegative(activeInd, "Account active indicator must not be a negative value");
             Verifier.verify((activeInd >= 0 && activeInd <= 1), "Account active indicator must equal either 0 or 1");
-            this.acctId = BigInteger.valueOf(activeInd);
+            this.active = BigInteger.valueOf(activeInd);
             return this;
         }
         

@@ -1,5 +1,7 @@
 package org.rmt2.util;
 
+import java.util.Date;
+
 import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.rmt2.jaxb.ObjectFactory;
@@ -69,6 +71,16 @@ public class RecordTrackingTypeBuilder {
             this.dateCreated = RMT2Date.toXmlDate(dateString);
             return this;
         }
+        
+        /**
+         * 
+         * @param dateString
+         * @return
+         */
+        public Builder withDateCreated(Date dateString) {
+            this.dateCreated = RMT2Date.toXmlDate(dateString);
+            return this;
+        }
 
         /**
          * 
@@ -76,6 +88,16 @@ public class RecordTrackingTypeBuilder {
          * @return
          */
         public Builder withDateUpdate(String dateString) {
+            this.dateUpdated = RMT2Date.toXmlDate(dateString);
+            return this;
+        }
+        
+        /**
+         * 
+         * @param dateString
+         * @return
+         */
+        public Builder withDateUpdate(Date dateString) {
             this.dateUpdated = RMT2Date.toXmlDate(dateString);
             return this;
         }
