@@ -41,6 +41,7 @@ public class ApiTransactionCodes {
     public static final String INVENTORY_ITEM_MASTER_ACTIVATE = "ACTIVATE_ITEM_MASTER";
     public static final String INVENTORY_ITEM_MASTER_DEACTIVATE = "DEACTIVATE_ITEM_MASTER";
     public static final String INVENTORY_ITEM_RETAIL_OVERRIDE_ADD = "ADD_ITEM_RETAIL_OVERRIDE";
+    public static final String INVENTORY_ITEM_RETAIL_OVERRIDE_REMOVE = "REMOVE_ITEM_RETAIL_OVERRIDE";
     
     public static final String ACCOUNTING_SALESORDER_CREATE = "CREATE_SALES_ORDER";
     

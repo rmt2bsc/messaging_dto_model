@@ -332,4 +332,41 @@ public class InventoryRequestBuilderTest {
         Assert.assertNotNull(xml);
         Assert.assertTrue(xml.contains(ApiTransactionCodes.INVENTORY_ITEM_RETAIL_OVERRIDE_ADD));
     }
+    
+    @Test
+    public void testBuildItemRemoveRetailOverrideRequest() {
+        ObjectFactory fact = new ObjectFactory();
+        InventoryRequest req = fact.createInventoryRequest();
+        
+        HeaderType head =  HeaderTypeBuilder.Builder.create()
+                .withApplication("accounting")
+                .withModule("inventory")
+                .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
+                .withDeliveryDate(new Date())
+                
+                // Set these header elements with dummy values in order to be properly assigned later.
+                .withTransaction(ApiTransactionCodes.INVENTORY_ITEM_RETAIL_OVERRIDE_REMOVE)
+                .withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
+                .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
+        
+        
+        ItemCriteriaType criteria = fact.createItemCriteriaType();
+        criteria.getItemIdList().add(BigInteger.valueOf(100));
+        criteria.getItemIdList().add(BigInteger.valueOf(200));
+        criteria.getItemIdList().add(BigInteger.valueOf(300));
+        
+        CreditorType cred = fact.createCreditorType();
+        cred.setCreditorId(BigInteger.valueOf(1234567));
+        criteria.setVendor(cred);
+        
+        InventoryCriteriaGroup criteriaGroup = fact.createInventoryCriteriaGroup();
+        criteriaGroup.setItemCriteria(criteria);
+        req.setCriteria(criteriaGroup);
+        req.setHeader(head);
+        
+        String xml = jaxb.marshalJsonMessage(req);
+        System.out.println(xml);
+        Assert.assertNotNull(xml);
+        Assert.assertTrue(xml.contains(ApiTransactionCodes.INVENTORY_ITEM_RETAIL_OVERRIDE_REMOVE));
+    }
 }
