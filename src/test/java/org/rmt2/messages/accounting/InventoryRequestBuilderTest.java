@@ -18,6 +18,7 @@ import org.rmt2.jaxb.InventoryItemType;
 import org.rmt2.jaxb.InventoryItemtypeType;
 import org.rmt2.jaxb.InventoryRequest;
 import org.rmt2.jaxb.ItemCriteriaType;
+import org.rmt2.jaxb.ItemStatusCriteriaType;
 import org.rmt2.jaxb.ItemStatusHistoryCriteriaType;
 import org.rmt2.jaxb.ObjectFactory;
 import org.rmt2.jaxb.RecordTrackingType;
@@ -232,6 +233,38 @@ public class InventoryRequestBuilderTest {
         System.out.println(xml);
         Assert.assertNotNull(xml);
         Assert.assertTrue(xml.contains(ApiTransactionCodes.INVENTORY_ITEM_CURRENT_STATUS_HIST_GET));
+    }
+    
+    @Test
+    public void testBuildItemStatusQueryRequest() {
+        ObjectFactory fact = new ObjectFactory();
+        InventoryRequest req = fact.createInventoryRequest();
+        
+        HeaderType head =  HeaderTypeBuilder.Builder.create()
+                .withApplication("accounting")
+                .withModule("inventory")
+                .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
+                .withDeliveryDate(new Date())
+                
+                // Set these header elements with dummy values in order to be properly assigned later.
+                .withTransaction(ApiTransactionCodes.INVENTORY_ITEM_STATUS_GET)
+                .withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
+                .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
+        
+        
+        ItemStatusCriteriaType criteria = fact.createItemStatusCriteriaType();
+        criteria.setItemStatusId(BigInteger.valueOf(200));
+        criteria.setItemStatusDescription("QUOTE");
+
+        InventoryCriteriaGroup criteriaGroup = fact.createInventoryCriteriaGroup();
+        criteriaGroup.setItemStatusCriteria(criteria);
+        req.setCriteria(criteriaGroup);
+        req.setHeader(head);
+        
+        String xml = jaxb.marshalJsonMessage(req);
+        System.out.println(xml);
+        Assert.assertNotNull(xml);
+        Assert.assertTrue(xml.contains(ApiTransactionCodes.INVENTORY_ITEM_STATUS_GET));
     }
     
     @Test

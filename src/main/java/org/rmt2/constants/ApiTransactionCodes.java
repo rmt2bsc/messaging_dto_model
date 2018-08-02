@@ -33,6 +33,7 @@ public class ApiTransactionCodes {
     public static final String GL_ACCOUNT_CATG_DELETE = "DELETE_GL_ACCOUNT_CATG";
     
     // Accounting - Inventory
+    public static final String INVENTORY_ITEM_STATUS_GET = "GET_ITEM_STATUS";
     public static final String INVENTORY_ITEM_STATUS_HIST_GET = "GET_ITEM_STATUS_HIST";
     public static final String INVENTORY_ITEM_CURRENT_STATUS_HIST_GET = "GET_CURRENT_ITEM_STATUS_HIST";
     public static final String INVENTORY_ITEM_MASTER_GET = "GET_ITEM_MASTER";
