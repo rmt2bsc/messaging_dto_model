@@ -23,6 +23,7 @@ import org.rmt2.jaxb.ItemStatusHistoryCriteriaType;
 import org.rmt2.jaxb.ItemtypeCriteriaType;
 import org.rmt2.jaxb.ObjectFactory;
 import org.rmt2.jaxb.RecordTrackingType;
+import org.rmt2.jaxb.VendorItemCriteriaType;
 import org.rmt2.util.HeaderTypeBuilder;
 import org.rmt2.util.RecordTrackingTypeBuilder;
 import org.rmt2.util.accounting.inventory.InventoryItemTypeBuilder;
@@ -434,5 +435,39 @@ public class InventoryRequestBuilderTest {
         System.out.println(xml);
         Assert.assertNotNull(xml);
         Assert.assertTrue(xml.contains(ApiTransactionCodes.INVENTORY_ITEM_RETAIL_OVERRIDE_REMOVE));
+    }
+    
+    @Test
+    public void testBuildGetVendorItemRequest() {
+        ObjectFactory fact = new ObjectFactory();
+        InventoryRequest req = fact.createInventoryRequest();
+        
+        HeaderType head =  HeaderTypeBuilder.Builder.create()
+                .withApplication("accounting")
+                .withModule("inventory")
+                .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
+                .withDeliveryDate(new Date())
+                
+                // Set these header elements with dummy values in order to be properly assigned later.
+                .withTransaction(ApiTransactionCodes.INVENTORY_VENDOR_ITEM_GET)
+                .withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
+                .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
+        
+        
+        VendorItemCriteriaType criteria = fact.createVendorItemCriteriaType();
+        criteria.setItemId(BigInteger.valueOf(100));
+        criteria.setCreditorId(BigInteger.valueOf(1234567));
+        criteria.setItemSerialNo("1234KDJSK");
+        criteria.setVendorItemNo("111-222-333");
+        
+        InventoryCriteriaGroup criteriaGroup = fact.createInventoryCriteriaGroup();
+        criteriaGroup.setVendorItemCriteria(criteria);
+        req.setCriteria(criteriaGroup);
+        req.setHeader(head);
+        
+        String xml = jaxb.marshalJsonMessage(req);
+        System.out.println(xml);
+        Assert.assertNotNull(xml);
+        Assert.assertTrue(xml.contains(ApiTransactionCodes.INVENTORY_VENDOR_ITEM_GET));
     }
 }
