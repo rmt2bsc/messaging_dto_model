@@ -36,6 +36,7 @@ public class ApiTransactionCodes {
     public static final String INVENTORY_ITEM_STATUS_GET = "GET_ITEM_STATUS";
     public static final String INVENTORY_ITEM_STATUS_HIST_GET = "GET_ITEM_STATUS_HIST";
     public static final String INVENTORY_ITEM_CURRENT_STATUS_HIST_GET = "GET_CURRENT_ITEM_STATUS_HIST";
+    public static final String INVENTORY_ITEM_TYPE_GET = "GET_ITEM_TYPE";
     public static final String INVENTORY_ITEM_MASTER_GET = "GET_ITEM_MASTER";
     public static final String INVENTORY_ITEM_MASTER_UPDATE = "UPDATE_ITEM_MASTER";
     public static final String INVENTORY_ITEM_MASTER_DELETE = "DELETE_ITEM_MASTER";
