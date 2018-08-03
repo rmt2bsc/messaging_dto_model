@@ -470,4 +470,66 @@ public class InventoryRequestBuilderTest {
         Assert.assertNotNull(xml);
         Assert.assertTrue(xml.contains(ApiTransactionCodes.INVENTORY_VENDOR_ITEM_GET));
     }
+    
+    @Test
+    public void testBuildGetVendorAssignedItemsRequest() {
+        ObjectFactory fact = new ObjectFactory();
+        InventoryRequest req = fact.createInventoryRequest();
+        
+        HeaderType head =  HeaderTypeBuilder.Builder.create()
+                .withApplication("accounting")
+                .withModule("inventory")
+                .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
+                .withDeliveryDate(new Date())
+                
+                // Set these header elements with dummy values in order to be properly assigned later.
+                .withTransaction(ApiTransactionCodes.INVENTORY_VENDOR_ASSIGNED_ITEMS_GET)
+                .withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
+                .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
+        
+        
+        VendorItemCriteriaType criteria = fact.createVendorItemCriteriaType();
+        criteria.setCreditorId(BigInteger.valueOf(1234567));
+        
+        InventoryCriteriaGroup criteriaGroup = fact.createInventoryCriteriaGroup();
+        criteriaGroup.setVendorItemCriteria(criteria);
+        req.setCriteria(criteriaGroup);
+        req.setHeader(head);
+        
+        String xml = jaxb.marshalJsonMessage(req);
+        System.out.println(xml);
+        Assert.assertNotNull(xml);
+        Assert.assertTrue(xml.contains(ApiTransactionCodes.INVENTORY_VENDOR_ASSIGNED_ITEMS_GET));
+    }
+    
+    @Test
+    public void testBuildGetVendorUnassignedItemsRequest() {
+        ObjectFactory fact = new ObjectFactory();
+        InventoryRequest req = fact.createInventoryRequest();
+        
+        HeaderType head =  HeaderTypeBuilder.Builder.create()
+                .withApplication("accounting")
+                .withModule("inventory")
+                .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
+                .withDeliveryDate(new Date())
+                
+                // Set these header elements with dummy values in order to be properly assigned later.
+                .withTransaction(ApiTransactionCodes.INVENTORY_VENDOR_UNASSIGNED_ITEMS_GET)
+                .withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
+                .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
+        
+        
+        VendorItemCriteriaType criteria = fact.createVendorItemCriteriaType();
+        criteria.setCreditorId(BigInteger.valueOf(1234567));
+        
+        InventoryCriteriaGroup criteriaGroup = fact.createInventoryCriteriaGroup();
+        criteriaGroup.setVendorItemCriteria(criteria);
+        req.setCriteria(criteriaGroup);
+        req.setHeader(head);
+        
+        String xml = jaxb.marshalJsonMessage(req);
+        System.out.println(xml);
+        Assert.assertNotNull(xml);
+        Assert.assertTrue(xml.contains(ApiTransactionCodes.INVENTORY_VENDOR_UNASSIGNED_ITEMS_GET));
+    }
 }
