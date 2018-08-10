@@ -23,6 +23,8 @@ import org.rmt2.jaxb.ItemStatusHistoryCriteriaType;
 import org.rmt2.jaxb.ItemtypeCriteriaType;
 import org.rmt2.jaxb.ObjectFactory;
 import org.rmt2.jaxb.RecordTrackingType;
+import org.rmt2.jaxb.SimpleItemListType;
+import org.rmt2.jaxb.SimpleItemType;
 import org.rmt2.jaxb.VendorItemCriteriaType;
 import org.rmt2.util.HeaderTypeBuilder;
 import org.rmt2.util.RecordTrackingTypeBuilder;
@@ -381,9 +383,23 @@ public class InventoryRequestBuilderTest {
         
         
         ItemCriteriaType criteria = fact.createItemCriteriaType();
-        criteria.getItemIdList().add(BigInteger.valueOf(100));
-        criteria.getItemIdList().add(BigInteger.valueOf(200));
-        criteria.getItemIdList().add(BigInteger.valueOf(300));
+        SimpleItemListType itemList = fact.createSimpleItemListType();
+        SimpleItemType item = fact.createSimpleItemType();
+        item.setItemId(BigInteger.valueOf(100));
+        item.setItemName("Iten Name 1");
+        itemList.getItem().add(item);
+        
+        item = fact.createSimpleItemType();
+        item.setItemId(BigInteger.valueOf(200));
+        item.setItemName("Iten Name 2");
+        itemList.getItem().add(item);
+        
+        item = fact.createSimpleItemType();
+        item.setItemId(BigInteger.valueOf(300));
+        item.setItemName("Iten Name 3");
+        itemList.getItem().add(item);
+        
+        criteria.setItems(itemList);
         
         CreditorType cred = fact.createCreditorType();
         cred.setCreditorId(BigInteger.valueOf(1234567));
@@ -418,9 +434,23 @@ public class InventoryRequestBuilderTest {
         
         
         ItemCriteriaType criteria = fact.createItemCriteriaType();
-        criteria.getItemIdList().add(BigInteger.valueOf(100));
-        criteria.getItemIdList().add(BigInteger.valueOf(200));
-        criteria.getItemIdList().add(BigInteger.valueOf(300));
+        SimpleItemListType itemList = fact.createSimpleItemListType();
+        SimpleItemType item = fact.createSimpleItemType();
+        item.setItemId(BigInteger.valueOf(100));
+        item.setItemName("Iten Name 1");
+        itemList.getItem().add(item);
+        
+        item = fact.createSimpleItemType();
+        item.setItemId(BigInteger.valueOf(200));
+        item.setItemName("Iten Name 2");
+        itemList.getItem().add(item);
+        
+        item = fact.createSimpleItemType();
+        item.setItemId(BigInteger.valueOf(300));
+        item.setItemName("Iten Name 3");
+        itemList.getItem().add(item);
+        
+        criteria.setItems(itemList);
         
         CreditorType cred = fact.createCreditorType();
         cred.setCreditorId(BigInteger.valueOf(1234567));
@@ -531,5 +561,54 @@ public class InventoryRequestBuilderTest {
         System.out.println(xml);
         Assert.assertNotNull(xml);
         Assert.assertTrue(xml.contains(ApiTransactionCodes.INVENTORY_VENDOR_UNASSIGNED_ITEMS_GET));
+    }
+    
+    @Test
+    public void testBuildAssignVendorItemRequest() {
+        ObjectFactory fact = new ObjectFactory();
+        InventoryRequest req = fact.createInventoryRequest();
+        
+        HeaderType head =  HeaderTypeBuilder.Builder.create()
+                .withApplication("accounting")
+                .withModule("inventory")
+                .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
+                .withDeliveryDate(new Date())
+                
+                // Set these header elements with dummy values in order to be properly assigned later.
+                .withTransaction(ApiTransactionCodes.INVENTORY_VENDOR_ITEM_ASSIGN)
+                .withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
+                .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
+        
+        
+        VendorItemCriteriaType criteria = fact.createVendorItemCriteriaType();
+        criteria.setCreditorId(BigInteger.valueOf(1234567));
+        
+        SimpleItemListType itemList = fact.createSimpleItemListType();
+        SimpleItemType item = fact.createSimpleItemType();
+        item.setItemId(BigInteger.valueOf(100));
+        item.setItemName("Iten Name 1");
+        itemList.getItem().add(item);
+        
+        item = fact.createSimpleItemType();
+        item.setItemId(BigInteger.valueOf(200));
+        item.setItemName("Iten Name 2");
+        itemList.getItem().add(item);
+        
+        item = fact.createSimpleItemType();
+        item.setItemId(BigInteger.valueOf(300));
+        item.setItemName("Iten Name 3");
+        itemList.getItem().add(item);
+        
+        criteria.setItems(itemList);
+        
+        InventoryCriteriaGroup criteriaGroup = fact.createInventoryCriteriaGroup();
+        criteriaGroup.setVendorItemCriteria(criteria);
+        req.setCriteria(criteriaGroup);
+        req.setHeader(head);
+        
+        String xml = jaxb.marshalJsonMessage(req);
+        System.out.println(xml);
+        Assert.assertNotNull(xml);
+        Assert.assertTrue(xml.contains(ApiTransactionCodes.INVENTORY_VENDOR_ITEM_ASSIGN));
     }
 }

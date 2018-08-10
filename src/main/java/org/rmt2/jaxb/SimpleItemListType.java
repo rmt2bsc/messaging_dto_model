@@ -13,23 +13,21 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import com.RMT2Base;
 
 
 /**
- * <p>Java class for full_group_type complex type.
+ * <p>Java class for simple_item_list_type complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="full_group_type">
+ * &lt;complexType name="simple_item_list_type">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="code_group" type="{}code_group_type"/>
- *         &lt;element name="code_detail" type="{}code_detail_type" maxOccurs="unbounded"/>
+ *         &lt;element name="item" type="{}simple_item_type" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -39,72 +37,44 @@ import com.RMT2Base;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "full_group_type", propOrder = {
-    "codeGroup",
-    "codeDetail"
+@XmlType(name = "simple_item_list_type", propOrder = {
+    "item"
 })
-public class FullGroupType
+public class SimpleItemListType
     extends RMT2Base
     implements Serializable
 {
 
     private final static long serialVersionUID = 1L;
-    @XmlElement(name = "code_group", required = true)
-    protected CodeGroupType codeGroup;
-    @XmlElement(name = "code_detail", required = true)
-    protected List<CodeDetailType> codeDetail;
+    protected List<SimpleItemType> item;
 
     /**
-     * Gets the value of the codeGroup property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CodeGroupType }
-     *     
-     */
-    public CodeGroupType getCodeGroup() {
-        return codeGroup;
-    }
-
-    /**
-     * Sets the value of the codeGroup property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link CodeGroupType }
-     *     
-     */
-    public void setCodeGroup(CodeGroupType value) {
-        this.codeGroup = value;
-    }
-
-    /**
-     * Gets the value of the codeDetail property.
+     * Gets the value of the item property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the codeDetail property.
+     * This is why there is not a <CODE>set</CODE> method for the item property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getCodeDetail().add(newItem);
+     *    getItem().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link CodeDetailType }
+     * {@link SimpleItemType }
      * 
      * 
      */
-    public List<CodeDetailType> getCodeDetail() {
-        if (codeDetail == null) {
-            codeDetail = new ArrayList<CodeDetailType>();
+    public List<SimpleItemType> getItem() {
+        if (item == null) {
+            item = new ArrayList<SimpleItemType>();
         }
-        return this.codeDetail;
+        return this.item;
     }
 
 }
