@@ -688,10 +688,23 @@
 			</xsd:sequence>
 		</xsd:complexType>
 	
+	  <xsd:complexType name="simple_item_type">
+			<xsd:sequence>
+			  <xsd:element name="item_id" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+			  <xsd:element name="item_name" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			</xsd:sequence>
+	  </xsd:complexType>
+	  
+	  <xsd:complexType name="simple_item_list_type">
+			<xsd:sequence>
+			  <xsd:element name="item" type="simple_item_type" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+	  </xsd:complexType>
+	  
     <xsd:complexType name="item_criteria_type">
 			<xsd:sequence>
 			  <xsd:element name="item_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
-			  <xsd:element name="item_id_list" type="xsd:integer" minOccurs="0" maxOccurs="unbounded"/>
+			  <xsd:element name="items" type="simple_item_list_type" minOccurs="0" maxOccurs="1"/>
 	 			<xsd:element name="item_type" type="inventory_itemtype_type" minOccurs="1" maxOccurs="1"/>
 	 			<xsd:element name="vendor" type="creditor_type" minOccurs="1" maxOccurs="1"/>
 				<xsd:element name="item_name" type="xsd:string" minOccurs="1" maxOccurs="1"/>
@@ -740,7 +753,7 @@
 	  <xsd:complexType name="vendor_item_criteria_type">
 			<xsd:sequence>
 			  <xsd:element name="item_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
-			  <xsd:element name="item_id_list" type="xsd:integer" minOccurs="0" maxOccurs="unbounded"/>
+			  <xsd:element name="items" type="simple_item_list_type" minOccurs="0" maxOccurs="1"/>
 			  <xsd:element name="creditor_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
 				<xsd:element name="item_serial_no" type="xsd:string" minOccurs="1" maxOccurs="1"/>
 				<xsd:element name="vendor_item_no" type="xsd:string" minOccurs="1" maxOccurs="1"/>
