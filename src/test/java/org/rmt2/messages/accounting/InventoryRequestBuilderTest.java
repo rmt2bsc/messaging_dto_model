@@ -586,17 +586,14 @@ public class InventoryRequestBuilderTest {
         SimpleItemListType itemList = fact.createSimpleItemListType();
         SimpleItemType item = fact.createSimpleItemType();
         item.setItemId(BigInteger.valueOf(100));
-        item.setItemName("Iten Name 1");
         itemList.getItem().add(item);
         
         item = fact.createSimpleItemType();
         item.setItemId(BigInteger.valueOf(200));
-        item.setItemName("Iten Name 2");
         itemList.getItem().add(item);
         
         item = fact.createSimpleItemType();
         item.setItemId(BigInteger.valueOf(300));
-        item.setItemName("Iten Name 3");
         itemList.getItem().add(item);
         
         criteria.setItems(itemList);
@@ -610,5 +607,51 @@ public class InventoryRequestBuilderTest {
         System.out.println(xml);
         Assert.assertNotNull(xml);
         Assert.assertTrue(xml.contains(ApiTransactionCodes.INVENTORY_VENDOR_ITEM_ASSIGN));
+    }
+    
+    @Test
+    public void testBuildRemoveVendorItemRequest() {
+        ObjectFactory fact = new ObjectFactory();
+        InventoryRequest req = fact.createInventoryRequest();
+        
+        HeaderType head =  HeaderTypeBuilder.Builder.create()
+                .withApplication("accounting")
+                .withModule("inventory")
+                .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
+                .withDeliveryDate(new Date())
+                
+                // Set these header elements with dummy values in order to be properly assigned later.
+                .withTransaction(ApiTransactionCodes.INVENTORY_VENDOR_ITEM_REMOVE)
+                .withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
+                .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
+        
+        
+        VendorItemCriteriaType criteria = fact.createVendorItemCriteriaType();
+        criteria.setCreditorId(BigInteger.valueOf(1234567));
+        
+        SimpleItemListType itemList = fact.createSimpleItemListType();
+        SimpleItemType item = fact.createSimpleItemType();
+        item.setItemId(BigInteger.valueOf(100));
+        itemList.getItem().add(item);
+        
+        item = fact.createSimpleItemType();
+        item.setItemId(BigInteger.valueOf(200));
+        itemList.getItem().add(item);
+        
+        item = fact.createSimpleItemType();
+        item.setItemId(BigInteger.valueOf(300));
+        itemList.getItem().add(item);
+        
+        criteria.setItems(itemList);
+        
+        InventoryCriteriaGroup criteriaGroup = fact.createInventoryCriteriaGroup();
+        criteriaGroup.setVendorItemCriteria(criteria);
+        req.setCriteria(criteriaGroup);
+        req.setHeader(head);
+        
+        String xml = jaxb.marshalJsonMessage(req);
+        System.out.println(xml);
+        Assert.assertNotNull(xml);
+        Assert.assertTrue(xml.contains(ApiTransactionCodes.INVENTORY_VENDOR_ITEM_REMOVE));
     }
 }

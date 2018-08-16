@@ -48,6 +48,7 @@ public class ApiTransactionCodes {
     public static final String INVENTORY_VENDOR_ASSIGNED_ITEMS_GET = "GET_VENDOR_ASSIGNED_ITEMS";
     public static final String INVENTORY_VENDOR_UNASSIGNED_ITEMS_GET = "GET_VENDOR_UNASSIGNED_ITEMS";
     public static final String INVENTORY_VENDOR_ITEM_ASSIGN = "ASSIGN_VENDOR_ITEM";
+    public static final String INVENTORY_VENDOR_ITEM_REMOVE = "REMOVE_VENDOR_ITEM";
     
     public static final String ACCOUNTING_SALESORDER_CREATE = "CREATE_SALES_ORDER";
     
