@@ -26,6 +26,7 @@ import org.rmt2.jaxb.RecordTrackingType;
 import org.rmt2.jaxb.SimpleItemListType;
 import org.rmt2.jaxb.SimpleItemType;
 import org.rmt2.jaxb.VendorItemCriteriaType;
+import org.rmt2.jaxb.VendorItemType;
 import org.rmt2.util.HeaderTypeBuilder;
 import org.rmt2.util.RecordTrackingTypeBuilder;
 import org.rmt2.util.accounting.inventory.InventoryItemTypeBuilder;
@@ -653,5 +654,46 @@ public class InventoryRequestBuilderTest {
         System.out.println(xml);
         Assert.assertNotNull(xml);
         Assert.assertTrue(xml.contains(ApiTransactionCodes.INVENTORY_VENDOR_ITEM_REMOVE));
+    }
+    
+    
+    @Test
+    public void testBuildUpdateVendorItemRequest() {
+        ObjectFactory fact = new ObjectFactory();
+        InventoryRequest req = fact.createInventoryRequest();
+        
+        HeaderType head =  HeaderTypeBuilder.Builder.create()
+                .withApplication("accounting")
+                .withModule("inventory")
+                .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
+                .withDeliveryDate(new Date())
+                
+                // Set these header elements with dummy values in order to be properly assigned later.
+                .withTransaction(ApiTransactionCodes.INVENTORY_VENDOR_ITEM_UPDATE)
+                .withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
+                .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
+        
+        
+        VendorItemType data = fact.createVendorItemType();
+        
+        CreditorType vendor = fact.createCreditorType();
+        vendor.setCreditorId(BigInteger.valueOf(1234567));
+        data.setCreditor(vendor);
+        
+        data.setDescription("Vendor item description");
+        data.setItemId(BigInteger.valueOf(77777));
+        data.setItemSerialNo("111-111-111");
+        data.setVendorItemNo("8473848");
+        data.setUnitCost(BigDecimal.valueOf(500.99));
+        
+        InventoryDetailGroup dataGroup = fact.createInventoryDetailGroup();
+        dataGroup.getVendorItem().add(data);
+        req.setProfile(dataGroup);
+        req.setHeader(head);
+        
+        String xml = jaxb.marshalJsonMessage(req);
+        System.out.println(xml);
+        Assert.assertNotNull(xml);
+        Assert.assertTrue(xml.contains(ApiTransactionCodes.INVENTORY_VENDOR_ITEM_UPDATE));
     }
 }
