@@ -1,4 +1,4 @@
-package org.rmt2.util.subsidiary;
+package org.rmt2.util.accounting.subsidiary;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -32,6 +32,7 @@ public class CustomerTypeBuilder {
         subject.setCustomerId(builder.customerId);
         subject.setAcctId(builder.acctId);
         subject.setBusinessContactDetails(builder.businessContactDetails);
+        subject.setPersonContactDetails(builder.personContactDetails);
         subject.setAccountNo(builder.accountNo);
         subject.setCreditLimit(builder.creditLimit);
         subject.setAcctDescription(builder.acctDescription);
@@ -124,8 +125,21 @@ public class CustomerTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withBusinessType(BusinessType businessContactDetails) {
-            Verifier.verifyNotNull(businessContactDetails, "Busines Type object must not be a null");
             this.businessContactDetails = businessContactDetails;
+            return this;
+        }
+        
+        /**
+         * Set up PersonType.
+         * 
+         * @param personContactDetails
+         *            an instance of PersonType
+         * @return Non-null Builder used to continue building the object
+         * @throws VerifyException
+         *             if the parameter conditions are not met.
+         */
+        public Builder withPersonType(PersonType personContactDetails) {
+            this.personContactDetails = personContactDetails;
             return this;
         }
         
@@ -228,7 +242,7 @@ public class CustomerTypeBuilder {
          * @throws VerifyException
          *             if the parameter conditions are not met.
          */
-        public Builder withAddress(RecordTrackingType tracking) {
+        public Builder withRecordTracking(RecordTrackingType tracking) {
             Verifier.verifyNotNull(tracking, "Tracking info cannot be null");
             this.tracking = tracking;
             return this;
