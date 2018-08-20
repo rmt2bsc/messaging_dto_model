@@ -51,6 +51,9 @@ public class ApiTransactionCodes {
     public static final String INVENTORY_VENDOR_ITEM_REMOVE = "REMOVE_VENDOR_ITEM";
     public static final String INVENTORY_VENDOR_ITEM_UPDATE = "UPDATE_VENDOR_ITEM";
     
+    // Accounting - Subsidiary
+    public static final String SUBSIDIARY_CUSTOMER_GET = "GET_CUSTOMER";
+    
     public static final String ACCOUNTING_SALESORDER_CREATE = "CREATE_SALES_ORDER";
     
     public ApiTransactionCodes() {
