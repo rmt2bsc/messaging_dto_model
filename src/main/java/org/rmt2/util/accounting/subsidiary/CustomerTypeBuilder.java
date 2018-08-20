@@ -38,7 +38,9 @@ public class CustomerTypeBuilder {
         subject.setAcctDescription(builder.acctDescription);
         subject.setBalance(builder.balance);
         subject.setActive(builder.active);
-        subject.getTransactions().addAll(builder.transactions);
+        if (builder.transactions != null) {
+            subject.getTransactions().addAll(builder.transactions);    
+        }
         subject.setTracking(builder.tracking);
     }
 
