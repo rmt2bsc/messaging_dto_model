@@ -178,13 +178,12 @@ public class CustomerTypeBuilder {
          * Set up Account description.
          * 
          * @param acctDescription
-         *            an String value that must not be blank
+         *            an String value
          * @return Non-null Builder used to continue building the object
          * @throws VerifyException
          *             if the parameter conditions are not met.
          */
         public Builder withAcctDescription(String acctDescription) {
-            Verifier.verifyNotBlank(acctDescription, "Account description cannot be blank");
             this.acctDescription = acctDescription;
             return this;
         }
@@ -229,7 +228,6 @@ public class CustomerTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withTransactions(List<CustomerActivityType> transactions) {
-            Verifier.verifyNotNull(transactions, "Transactions cannot be blank");
             this.transactions = transactions;
             return this;
         }
