@@ -91,13 +91,12 @@ public class CustomerTypeBuilder {
          * Set up customer id.
          * 
          * @param customerId
-         *            an int value that must be greater than or equal to zero
+         *            an int value
          * @return Non-null Builder used to continue building the object
          * @throws VerifyException
          *             if the parameter conditions are not met.
          */
         public Builder withCustomerId(int customerId) {
-            Verifier.verifyNotNegative(customerId, "Customer id must not be a negative value");
             this.customerId = BigInteger.valueOf(customerId);
             return this;
         }
@@ -106,13 +105,12 @@ public class CustomerTypeBuilder {
          * Set up acct id.
          * 
          * @param acctId
-         *            an int value that must be greater than or equal to zero
+         *            an int value
          * @return Non-null Builder used to continue building the object
          * @throws VerifyException
          *             if the parameter conditions are not met.
          */
         public Builder withAcctId(int acctId) {
-            Verifier.verifyNotNegative(acctId, "Acct id must not be a negative value");
             this.acctId = BigInteger.valueOf(acctId);
             return this;
         }
@@ -149,13 +147,12 @@ public class CustomerTypeBuilder {
          * Set up account number.
          * 
          * @param accountNo
-         *            an String value that must not be blank
+         *            an String value
          * @return Non-null Builder used to continue building the object
          * @throws VerifyException
          *             if the parameter conditions are not met.
          */
         public Builder withAccountNo(String accountNo) {
-            Verifier.verifyNotBlank(accountNo, "AccountNo cannot be blank");
             this.accountNo = accountNo;
             return this;
         }
