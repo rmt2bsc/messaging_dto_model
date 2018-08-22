@@ -39,7 +39,8 @@ public class CustomerTypeBuilder {
         subject.setBalance(builder.balance);
         subject.setActive(builder.active);
         if (builder.transactions != null) {
-            subject.getTransactions().addAll(builder.transactions);    
+            subject.setTransactions(f.createCustomerTransactionListType());
+            subject.getTransactions().getTransaction().addAll(builder.transactions);    
         }
         subject.setTracking(builder.tracking);
     }
