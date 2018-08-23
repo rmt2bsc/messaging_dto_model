@@ -13,23 +13,21 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import com.RMT2Base;
 
 
 /**
- * <p>Java class for full_group_type complex type.
+ * <p>Java class for creditor_activity_list_type complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="full_group_type">
+ * &lt;complexType name="creditor_activity_list_type">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="code_group" type="{}code_group_type"/>
- *         &lt;element name="code_detail" type="{}code_detail_type" maxOccurs="unbounded"/>
+ *         &lt;element name="transaction" type="{}creditor_activity_type" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -39,72 +37,44 @@ import com.RMT2Base;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "full_group_type", propOrder = {
-    "codeGroup",
-    "codeDetail"
+@XmlType(name = "creditor_activity_list_type", propOrder = {
+    "transaction"
 })
-public class FullGroupType
+public class CreditorActivityListType
     extends RMT2Base
     implements Serializable
 {
 
     private final static long serialVersionUID = 1L;
-    @XmlElement(name = "code_group", required = true)
-    protected CodeGroupType codeGroup;
-    @XmlElement(name = "code_detail", required = true)
-    protected List<CodeDetailType> codeDetail;
+    protected List<CreditorActivityType> transaction;
 
     /**
-     * Gets the value of the codeGroup property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CodeGroupType }
-     *     
-     */
-    public CodeGroupType getCodeGroup() {
-        return codeGroup;
-    }
-
-    /**
-     * Sets the value of the codeGroup property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link CodeGroupType }
-     *     
-     */
-    public void setCodeGroup(CodeGroupType value) {
-        this.codeGroup = value;
-    }
-
-    /**
-     * Gets the value of the codeDetail property.
+     * Gets the value of the transaction property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the codeDetail property.
+     * This is why there is not a <CODE>set</CODE> method for the transaction property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getCodeDetail().add(newItem);
+     *    getTransaction().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link CodeDetailType }
+     * {@link CreditorActivityType }
      * 
      * 
      */
-    public List<CodeDetailType> getCodeDetail() {
-        if (codeDetail == null) {
-            codeDetail = new ArrayList<CodeDetailType>();
+    public List<CreditorActivityType> getTransaction() {
+        if (transaction == null) {
+            transaction = new ArrayList<CreditorActivityType>();
         }
-        return this.codeDetail;
+        return this.transaction;
     }
 
 }
