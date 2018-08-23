@@ -53,6 +53,7 @@ public class ApiTransactionCodes {
     
     // Accounting - Subsidiary
     public static final String SUBSIDIARY_CUSTOMER_GET = "GET_CUSTOMER";
+    public static final String SUBSIDIARY_CUSTOMER_UPDATE = "UPDATE_CUSTOMER";
     public static final String SUBSIDIARY_CUSTOMER_TRAN_HIST_GET = "GET_CUSTOMER_TRAN_HIST";
     
     public static final String ACCOUNTING_SALESORDER_CREATE = "CREATE_SALES_ORDER";
