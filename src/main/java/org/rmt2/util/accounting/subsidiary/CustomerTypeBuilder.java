@@ -38,8 +38,10 @@ public class CustomerTypeBuilder {
         subject.setAcctDescription(builder.acctDescription);
         subject.setBalance(builder.balance);
         subject.setActive(builder.active);
+        
+        // Always create a transactions node.
+        subject.setTransactions(f.createCustomerTransactionListType());
         if (builder.transactions != null) {
-            subject.setTransactions(f.createCustomerTransactionListType());
             subject.getTransactions().getTransaction().addAll(builder.transactions);    
         }
         subject.setTracking(builder.tracking);
