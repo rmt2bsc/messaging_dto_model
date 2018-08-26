@@ -24,7 +24,7 @@ public class CustomerTypeBuilder {
     private CustomerType subject;
     
     /**
-     * Create a PersonTypeBuilder
+     * Create a CustomerTypeBuilder
      */
     private CustomerTypeBuilder(Builder builder) {
         ObjectFactory f = new ObjectFactory();
