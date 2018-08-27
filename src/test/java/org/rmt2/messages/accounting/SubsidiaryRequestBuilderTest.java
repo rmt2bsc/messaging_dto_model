@@ -1,5 +1,6 @@
 package org.rmt2.messages.accounting;
 
+import java.math.BigInteger;
 import java.util.Date;
 
 import org.junit.Assert;
@@ -10,6 +11,7 @@ import org.rmt2.constants.ApiTransactionCodes;
 import org.rmt2.constants.MessagingConstants;
 import org.rmt2.jaxb.AccountingTransactionRequest;
 import org.rmt2.jaxb.BusinessType;
+import org.rmt2.jaxb.CreditorCriteriaType;
 import org.rmt2.jaxb.CustomerCriteriaType;
 import org.rmt2.jaxb.CustomerType;
 import org.rmt2.jaxb.HeaderType;
@@ -194,5 +196,41 @@ public class SubsidiaryRequestBuilderTest {
         System.out.println(xml);
         Assert.assertNotNull(xml);
         Assert.assertTrue(xml.contains(ApiTransactionCodes.SUBSIDIARY_CUSTOMER_DELETE));
+    }
+    
+    @Test
+    public void testBuildCreditorQueryRequest() {
+        ObjectFactory fact = new ObjectFactory();
+        AccountingTransactionRequest req = fact.createAccountingTransactionRequest();
+        
+        HeaderType head =  HeaderTypeBuilder.Builder.create()
+                .withApplication("accounting")
+                .withModule("subsidiary")
+                .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
+                .withDeliveryDate(new Date())
+                
+                // Set these header elements with dummy values in order to be properly assigned later.
+                .withTransaction(ApiTransactionCodes.SUBSIDIARY_CREDITOR_GET)
+                .withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
+                .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
+        
+        CreditorCriteriaType criteria = fact.createCreditorCriteriaType();
+        criteria.setCreditorId(BigInteger.valueOf(3333));
+        criteria.setAcctId(BigInteger.valueOf(1234567));
+        criteria.setBusinessId(BigInteger.valueOf(1351));
+        criteria.setCreditorTypeId(BigInteger.valueOf(4444));
+        criteria.setBusinessName("Business Type Description");
+        criteria.setAccountNo("ACCT-NO-8888");
+        criteria.setExtAccountNo("43A-567-989");
+        
+        TransactionCriteriaGroup criteriaGroup = fact.createTransactionCriteriaGroup();
+        criteriaGroup.setCreditorCriteria(criteria);
+        req.setCriteria(criteriaGroup);
+        req.setHeader(head);
+        
+        String xml = jaxb.marshalJsonMessage(req);
+        System.out.println(xml);
+        Assert.assertNotNull(xml);
+        Assert.assertTrue(xml.contains(ApiTransactionCodes.SUBSIDIARY_CREDITOR_GET));
     }
 }
