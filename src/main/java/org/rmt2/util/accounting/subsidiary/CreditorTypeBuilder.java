@@ -7,6 +7,7 @@ import java.util.List;
 import org.rmt2.jaxb.BusinessType;
 import org.rmt2.jaxb.CreditorActivityType;
 import org.rmt2.jaxb.CreditorType;
+import org.rmt2.jaxb.CreditortypeType;
 import org.rmt2.jaxb.ObjectFactory;
 import org.rmt2.jaxb.RecordTrackingType;
 
@@ -31,6 +32,7 @@ public class CreditorTypeBuilder {
         subject.setCreditorId(builder.creditorId);
         subject.setAcctId(builder.acctId);
         subject.setContactDetails(builder.businessContactDetails);
+        subject.setCreditorType(builder.creditorType);
         subject.setAccountNo(builder.accountNo);
         subject.setCreditLimit(builder.creditLimit);
         subject.setExtAccountNo(builder.extAccountNo);
@@ -56,6 +58,7 @@ public class CreditorTypeBuilder {
         private BigInteger creditorId;
         private BigInteger acctId;
         private BusinessType businessContactDetails;
+        private CreditortypeType creditorType;
         private String accountNo;
         private String extAccountNo;
         private BigDecimal apr;
@@ -69,6 +72,7 @@ public class CreditorTypeBuilder {
             this.creditorId = null;
             this.acctId = null;
             this.businessContactDetails = null;
+            this.creditorType = null;
             this.accountNo = null;
             this.extAccountNo = null;
             this.apr = null;
@@ -90,7 +94,7 @@ public class CreditorTypeBuilder {
         }
 
         /**
-         * Set up customer id.
+         * Set up creditor id.
          * 
          * @param creditorId
          *            an int value
@@ -128,6 +132,20 @@ public class CreditorTypeBuilder {
          */
         public Builder withBusinessType(BusinessType businessContactDetails) {
             this.businessContactDetails = businessContactDetails;
+            return this;
+        }
+        
+        /**
+         * Set up Creditor Type.
+         * 
+         * @param creditorType
+         *            an instance of CreditortypeType
+         * @return Non-null Builder used to continue building the object
+         * @throws VerifyException
+         *             if the parameter conditions are not met.
+         */
+        public Builder withCreditorytypeType(CreditortypeType creditorType) {
+            this.creditorType = creditorType;
             return this;
         }
         
