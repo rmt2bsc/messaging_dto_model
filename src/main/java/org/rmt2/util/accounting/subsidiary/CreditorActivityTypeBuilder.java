@@ -29,6 +29,7 @@ public class CreditorActivityTypeBuilder {
         subject.setCreditorId(builder.creditorId);
         subject.setCreditorActivityId(builder.creditorActivityId);
         subject.setAmount(builder.amount);
+        subject.setXactId(builder.xactId);
         subject.setXactDetails(builder.xactDetails);
         subject.setTracking(builder.tracking);
     }
@@ -43,12 +44,14 @@ public class CreditorActivityTypeBuilder {
         private BigInteger creditorActivityId;
         private BigInteger creditorId;
         private BigDecimal amount;
+        private BigInteger xactId;
         private XactType xactDetails;
         private RecordTrackingType tracking;
 
         private Builder() {
             this.creditorId = null;
             this.creditorActivityId = null;
+            this.xactId = null;
             this.amount = null;
             this.xactDetails = null;
             this.tracking = null;
@@ -106,6 +109,7 @@ public class CreditorActivityTypeBuilder {
             ObjectFactory f = new ObjectFactory();
             this.xactDetails = f.createXactType();
             this.xactDetails.setXactId(BigInteger.valueOf(xactId));
+            this.xactId = BigInteger.valueOf(xactId);
             return this;
         }
         
