@@ -145,6 +145,7 @@
 			  <xsd:element name="creditor_activity_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
 	 			<xsd:element name="creditor_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
 				<xsd:element name="amount" type="xsd:decimal" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="xact_id" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
 				<xsd:element name="xact_details" type="xact_type" minOccurs="0" maxOccurs="1"/>
 				<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
 			</xsd:sequence>
