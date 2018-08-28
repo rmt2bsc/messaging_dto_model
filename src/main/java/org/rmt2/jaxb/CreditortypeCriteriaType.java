@@ -18,19 +18,17 @@ import com.RMT2Base;
 
 
 /**
- * The master list of genres for audio/video types.
- * 
- * <p>Java class for audio_video_genre_lookup complex type.
+ * <p>Java class for creditortype_criteria_type complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="audio_video_genre_lookup">
+ * &lt;complexType name="creditortype_criteria_type">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}integer"/>
- *         &lt;element name="description" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="creditor_type_id" type="{http://www.w3.org/2001/XMLSchema}integer" minOccurs="0"/>
+ *         &lt;element name="decription" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -40,66 +38,66 @@ import com.RMT2Base;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "audio_video_genre_lookup", propOrder = {
-    "id",
-    "description"
+@XmlType(name = "creditortype_criteria_type", propOrder = {
+    "creditorTypeId",
+    "decription"
 })
-public class AudioVideoGenreLookup
+public class CreditortypeCriteriaType
     extends RMT2Base
     implements Serializable
 {
 
     private final static long serialVersionUID = 1L;
-    @XmlElement(required = true)
-    protected BigInteger id;
-    protected String description;
+    @XmlElement(name = "creditor_type_id")
+    protected BigInteger creditorTypeId;
+    protected String decription;
 
     /**
-     * Gets the value of the id property.
+     * Gets the value of the creditorTypeId property.
      * 
      * @return
      *     possible object is
      *     {@link BigInteger }
      *     
      */
-    public BigInteger getId() {
-        return id;
+    public BigInteger getCreditorTypeId() {
+        return creditorTypeId;
     }
 
     /**
-     * Sets the value of the id property.
+     * Sets the value of the creditorTypeId property.
      * 
      * @param value
      *     allowed object is
      *     {@link BigInteger }
      *     
      */
-    public void setId(BigInteger value) {
-        this.id = value;
+    public void setCreditorTypeId(BigInteger value) {
+        this.creditorTypeId = value;
     }
 
     /**
-     * Gets the value of the description property.
+     * Gets the value of the decription property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getDescription() {
-        return description;
+    public String getDecription() {
+        return decription;
     }
 
     /**
-     * Sets the value of the description property.
+     * Sets the value of the decription property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setDescription(String value) {
-        this.description = value;
+    public void setDecription(String value) {
+        this.decription = value;
     }
 
 }

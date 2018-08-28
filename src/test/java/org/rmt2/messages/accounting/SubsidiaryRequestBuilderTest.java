@@ -12,6 +12,7 @@ import org.rmt2.constants.MessagingConstants;
 import org.rmt2.jaxb.AccountingTransactionRequest;
 import org.rmt2.jaxb.BusinessType;
 import org.rmt2.jaxb.CreditorCriteriaType;
+import org.rmt2.jaxb.CreditortypeCriteriaType;
 import org.rmt2.jaxb.CustomerCriteriaType;
 import org.rmt2.jaxb.CustomerType;
 import org.rmt2.jaxb.HeaderType;
@@ -262,5 +263,36 @@ public class SubsidiaryRequestBuilderTest {
         System.out.println(xml);
         Assert.assertNotNull(xml);
         Assert.assertTrue(xml.contains(ApiTransactionCodes.SUBSIDIARY_CREDITOR_TRAN_HIST_GET));
+    }
+    
+    @Test
+    public void testBuildCreditorTypeQueryRequest() {
+        ObjectFactory fact = new ObjectFactory();
+        AccountingTransactionRequest req = fact.createAccountingTransactionRequest();
+        
+        HeaderType head =  HeaderTypeBuilder.Builder.create()
+                .withApplication("accounting")
+                .withModule("subsidiary")
+                .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
+                .withDeliveryDate(new Date())
+                
+                // Set these header elements with dummy values in order to be properly assigned later.
+                .withTransaction(ApiTransactionCodes.SUBSIDIARY_CREDITOR_TYPE_GET)
+                .withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
+                .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
+        
+        CreditortypeCriteriaType criteria = fact.createCreditortypeCriteriaType();
+        criteria.setCreditorTypeId(BigInteger.valueOf(3333));
+        criteria.setDecription("Creditor Type Description");
+
+        TransactionCriteriaGroup criteriaGroup = fact.createTransactionCriteriaGroup();
+        criteriaGroup.setCreditortypeCriteria(criteria);
+        req.setCriteria(criteriaGroup);
+        req.setHeader(head);
+        
+        String xml = jaxb.marshalJsonMessage(req);
+        System.out.println(xml);
+        Assert.assertNotNull(xml);
+        Assert.assertTrue(xml.contains(ApiTransactionCodes.SUBSIDIARY_CREDITOR_TYPE_GET));
     }
 }
