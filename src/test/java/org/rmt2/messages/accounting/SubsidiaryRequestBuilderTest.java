@@ -12,14 +12,20 @@ import org.rmt2.constants.MessagingConstants;
 import org.rmt2.jaxb.AccountingTransactionRequest;
 import org.rmt2.jaxb.BusinessType;
 import org.rmt2.jaxb.CreditorCriteriaType;
+import org.rmt2.jaxb.CreditorType;
 import org.rmt2.jaxb.CreditortypeCriteriaType;
+import org.rmt2.jaxb.CreditortypeType;
 import org.rmt2.jaxb.CustomerCriteriaType;
 import org.rmt2.jaxb.CustomerType;
 import org.rmt2.jaxb.HeaderType;
 import org.rmt2.jaxb.ObjectFactory;
+import org.rmt2.jaxb.RecordTrackingType;
 import org.rmt2.jaxb.TransactionCriteriaGroup;
 import org.rmt2.jaxb.TransactionDetailGroup;
 import org.rmt2.util.HeaderTypeBuilder;
+import org.rmt2.util.RecordTrackingTypeBuilder;
+import org.rmt2.util.accounting.subsidiary.CreditorTypeBuilder;
+import org.rmt2.util.accounting.subsidiary.CreditortypeTypeBuilder;
 import org.rmt2.util.accounting.subsidiary.CustomerTypeBuilder;
 import org.rmt2.util.addressbook.BusinessTypeBuilder;
 
@@ -294,5 +300,63 @@ public class SubsidiaryRequestBuilderTest {
         System.out.println(xml);
         Assert.assertNotNull(xml);
         Assert.assertTrue(xml.contains(ApiTransactionCodes.SUBSIDIARY_CREDITOR_TYPE_GET));
+    }
+    
+    @Test
+    public void testBuildCreditorUpdateRequest() {
+        ObjectFactory fact = new ObjectFactory();
+        AccountingTransactionRequest req = fact.createAccountingTransactionRequest();
+        
+        HeaderType head =  HeaderTypeBuilder.Builder.create()
+                .withApplication("accounting")
+                .withModule("subsidiary")
+                .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
+                .withDeliveryDate(new Date())
+                
+                // Set these header elements with dummy values in order to be properly assigned later.
+                .withTransaction(ApiTransactionCodes.SUBSIDIARY_CREDITOR_UPDATE)
+                .withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
+                .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
+        
+        RecordTrackingType rtt = RecordTrackingTypeBuilder.Builder.create()
+                .withDateCreated("2018-01-01")
+                .withDateUpdate("2018-01-01")
+                .withUserId("rterrell")
+                .withIpCreated("192.168.0.1")
+                .withIpUpdate("192.168.0.1").build();
+        
+        BusinessType busType = BusinessTypeBuilder.Builder.create()
+                .withBusinessId(1351)
+                .withLongname("Business Type Description").build();
+        
+        CreditortypeType creditorType = CreditortypeTypeBuilder.Builder.create()
+                .withCreditorTypeId(3456)
+                .withDescription("Creditor type description")
+                .build();
+      
+        CreditorType creditor = CreditorTypeBuilder.Builder.create()
+                .withCreditorId(3333)
+                .withAcctId(1234567)
+                .withBusinessType(busType)
+                .withCreditorytypeType(creditorType)
+                .withAccountNo("ACCT-NO-8888")
+                .withExtAccountNo("A943943-349394")
+                .withApr(2.456)
+                .withCreditLimit(10000.00)
+                .withBalance(4000.00)
+                .withActive(1)
+                .withTransactions(null)
+                .withRecordTracking(rtt).build();
+                
+        TransactionDetailGroup profileGroup = fact.createTransactionDetailGroup();
+        profileGroup.setCreditors(fact.createCreditorListType());
+        profileGroup.getCreditors().getCreditor().add(creditor);
+        req.setHeader(head);
+        req.setProfile(profileGroup);
+        
+        String xml = jaxb.marshalJsonMessage(req);
+        System.out.println(xml);
+        Assert.assertNotNull(xml);
+        Assert.assertTrue(xml.contains(ApiTransactionCodes.SUBSIDIARY_CREDITOR_UPDATE));
     }
 }

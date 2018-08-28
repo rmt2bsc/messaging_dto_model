@@ -57,6 +57,7 @@ public class ApiTransactionCodes {
     public static final String SUBSIDIARY_CUSTOMER_DELETE = "DELETE_CUSTOMER";
     public static final String SUBSIDIARY_CUSTOMER_TRAN_HIST_GET = "GET_CUSTOMER_TRAN_HIST";
     public static final String SUBSIDIARY_CREDITOR_GET = "GET_CREDITOR";
+    public static final String SUBSIDIARY_CREDITOR_UPDATE = "UPDATE_CREDITOR";
     public static final String SUBSIDIARY_CREDITOR_TRAN_HIST_GET = "GET_CREDITOR_TRAN_HIST";
     public static final String SUBSIDIARY_CREDITOR_TYPE_GET = "GET_CREDITOR_TYPE";
     
