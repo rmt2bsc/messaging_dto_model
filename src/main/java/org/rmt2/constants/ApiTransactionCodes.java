@@ -62,6 +62,10 @@ public class ApiTransactionCodes {
     public static final String SUBSIDIARY_CREDITOR_TRAN_HIST_GET = "GET_CREDITOR_TRAN_HIST";
     public static final String SUBSIDIARY_CREDITOR_TYPE_GET = "GET_CREDITOR_TYPE";
     
+    public static final String ACCOUNTING_TRANSACTION_BY_ID_GET = "GET_TRANS_BY_ID";
+    
+    
+    
     public static final String ACCOUNTING_SALESORDER_CREATE = "CREATE_SALES_ORDER";
     
     public ApiTransactionCodes() {
