@@ -359,4 +359,35 @@ public class SubsidiaryRequestBuilderTest {
         Assert.assertNotNull(xml);
         Assert.assertTrue(xml.contains(ApiTransactionCodes.SUBSIDIARY_CREDITOR_UPDATE));
     }
+    
+    
+    @Test
+    public void testBuildCreditorDeleteRequest() {
+        ObjectFactory fact = new ObjectFactory();
+        AccountingTransactionRequest req = fact.createAccountingTransactionRequest();
+        
+        HeaderType head =  HeaderTypeBuilder.Builder.create()
+                .withApplication("accounting")
+                .withModule("subsidiary")
+                .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
+                .withDeliveryDate(new Date())
+                
+                // Set these header elements with dummy values in order to be properly assigned later.
+                .withTransaction(ApiTransactionCodes.SUBSIDIARY_CREDITOR_DELETE)
+                .withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
+                .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
+        
+        CreditorCriteriaType criteria = fact.createCreditorCriteriaType();
+        criteria.setCreditorId(BigInteger.valueOf(3333));
+        
+        TransactionCriteriaGroup criteriaGroup = fact.createTransactionCriteriaGroup();
+        criteriaGroup.setCreditorCriteria(criteria);
+        req.setCriteria(criteriaGroup);
+        req.setHeader(head);
+        
+        String xml = jaxb.marshalJsonMessage(req);
+        System.out.println(xml);
+        Assert.assertNotNull(xml);
+        Assert.assertTrue(xml.contains(ApiTransactionCodes.SUBSIDIARY_CREDITOR_DELETE));
+    }
 }
