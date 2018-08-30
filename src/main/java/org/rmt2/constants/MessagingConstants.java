@@ -53,7 +53,24 @@ public class MessagingConstants {
      */
     public static final String RETURN_STATUS_BAD_REQUEST = "400";
 
+    /**
+     * 
+     */
+    public static final String XACT_CUSTOM_CRITERIA_LEVEL_BASE = "BASE";
     
+    /**
+     * 
+     */
+    public static final String XACT_CUSTOM_CRITERIA_LEVEL_LINEITEM = "LINEITEM";
+    
+    /**
+     * 
+     */
+    public static final String XACT_CUSTOM_CRITERIA_LEVEL_OTHER = "OTHER";
+    
+    /**
+     * 
+     */
     public MessagingConstants() {
 
     }

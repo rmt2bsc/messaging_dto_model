@@ -534,33 +534,56 @@
 
     <xsd:complexType name="xact_criteria_type">
 		      <xsd:sequence>
-					  <xsd:element name="xactId" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
-					  <xsd:element name="account_no" type="xsd:string" minOccurs="1" maxOccurs="1" />
-					  <xsd:element name="from_xact_amount" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
-					  <xsd:element name="to_xact_amount" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
-					  <xsd:element name="from_xact_date" type="xsd:string" minOccurs="1" maxOccurs="1"/>
-					  <xsd:element name="to_xact_date" type="xsd:string" minOccurs="1" maxOccurs="1"/>
-					  <xsd:element name="xact_reason" type="xsd:string" minOccurs="1" maxOccurs="1"/>
-					  <xsd:element name="xact_reason_options" type="xsd:string" minOccurs="1" maxOccurs="1"/>
-					  <xsd:element name="xact_subtype" type="xsd:string" minOccurs="1" maxOccurs="1"/>
-					  <xsd:element name="xact_type" type="xsd:string" minOccurs="1" maxOccurs="1"/>
-					  <xsd:element name="business_name" type="xsd:string" minOccurs="1" maxOccurs="1"/>
-					  <xsd:element name="confirm_no" type="xsd:string" minOccurs="1" maxOccurs="1"/>
-					  <xsd:element name="invoice_no" type="xsd:string" minOccurs="1" maxOccurs="1"/>
-					  <xsd:element name="from_item_amount" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
-					  <xsd:element name="to_item_amount" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
-					  <xsd:element name="from_rel_op_item_amount" type="xsd:string" minOccurs="1" maxOccurs="1"/>
-					  <xsd:element name="to_rel_op_item_amount" type="xsd:string" minOccurs="1" maxOccurs="1"/>
-					  <xsd:element name="from_rel_op_xact_amount" type="xsd:string" minOccurs="1" maxOccurs="1"/>
-					  <xsd:element name="to_rel_op_xact_amount" type="xsd:string" minOccurs="1" maxOccurs="1"/>
-					  <xsd:element name="from_rel_op_xact_date" type="xsd:string" minOccurs="1" maxOccurs="1"/>
-					  <xsd:element name="to_rel_op_xact_date" type="xsd:string" minOccurs="1" maxOccurs="1"/>
-					  <xsd:element name="date_created" type="xsd:string" minOccurs="1" maxOccurs="1"/>
-					  <xsd:element name="date_updated" type="xsd:string" minOccurs="1" maxOccurs="1"/>
-					  <xsd:element name="user_id" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+					  <xsd:element name="basic_criteria" type="xact_basic_criteria_type" minOccurs="0" maxOccurs="1"/>
+					  <xsd:element name="custom_criteria" type="xact_custom_relational_criteria_type" minOccurs="0" maxOccurs="1"/>
 		      </xsd:sequence>
 	  </xsd:complexType>
     
+    <xsd:complexType name="xact_basic_criteria_type">
+		      <xsd:sequence>
+					  <xsd:element name="xactId" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+					  <xsd:element name="business_name" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+					  <xsd:element name="account_no" type="xsd:string" minOccurs="0" maxOccurs="1" />
+					  <xsd:element name="xact_amount" type="xsd:decimal" minOccurs="0" maxOccurs="1"/>
+					  <xsd:element name="xact_date" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+					  <xsd:element name="xact_reason" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+					  <xsd:element name="xact_subtype" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+					  <xsd:element name="xact_type" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+					  <xsd:element name="confirm_no" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+					  <xsd:element name="invoice_no" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+		      </xsd:sequence>
+	  </xsd:complexType>
+	  
+	  <xsd:simpleType name="xact_custom_criteria_target_type">
+			<xsd:annotation>
+				<xsd:documentation>Determines the level custom criteria data should be used such as the base transaction level or the transaction line item level</xsd:documentation>
+			</xsd:annotation>
+			<xsd:restriction base="xsd:string">
+				<xsd:enumeration value="BASE"/>
+				<xsd:enumeration value="LINEITEM"/>
+				<xsd:enumeration value="OTHER"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	
+    <xsd:complexType name="xact_custom_relational_criteria_type">
+		    <xsd:sequence>
+		        <xsd:element name="target_level" type="xact_custom_criteria_target_type" minOccurs="1" maxOccurs="1"/>
+		        <xsd:element name="xact_reason_options" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+					  <xsd:element name="from_xact_amount" type="xsd:decimal" minOccurs="0" maxOccurs="1"/>
+					  <xsd:element name="from_rel_op_xact_amount" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+					  <xsd:element name="to_xact_amount" type="xsd:decimal" minOccurs="0" maxOccurs="1"/>
+					  <xsd:element name="to_rel_op_xact_amount" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+					  <xsd:element name="from_xact_date" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+ 					  <xsd:element name="from_rel_op_xact_date" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+					  <xsd:element name="to_xact_date" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+					  <xsd:element name="to_rel_op_xact_date" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+					  <xsd:element name="from_item_amount" type="xsd:decimal" minOccurs="0" maxOccurs="1"/>
+					  <xsd:element name="from_rel_op_item_amount" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+					  <xsd:element name="to_item_amount" type="xsd:decimal" minOccurs="0" maxOccurs="1"/>
+					  <xsd:element name="to_rel_op_item_amount" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			   </xsd:sequence>
+	  </xsd:complexType>
+	  
     <xsd:complexType name="xact_category_criteria_type">
 		    <xsd:sequence>
 		        <xsd:element name="xact_catg_id" type="xsd:integer"/>
@@ -754,10 +777,9 @@
 					</xsd:element>
 					<xsd:element name="xact_criteria" type="xact_criteria_type" minOccurs="0" maxOccurs="1">
 						<xsd:annotation>
-							<xsd:documentation>The genreal transaction criteria</xsd:documentation> 
+							<xsd:documentation>Basic and custom transaction criteria</xsd:documentation> 
 						</xsd:annotation>
 					</xsd:element>
-					
 					<xsd:element name="xact_category_criteria" type="xact_category_criteria_type" minOccurs="0" maxOccurs="1">
 						<xsd:annotation>
 							<xsd:documentation>Transaction category criteria</xsd:documentation> 
