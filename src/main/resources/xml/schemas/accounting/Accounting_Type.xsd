@@ -547,8 +547,10 @@
 					  <xsd:element name="xact_amount" type="xsd:decimal" minOccurs="0" maxOccurs="1"/>
 					  <xsd:element name="xact_date" type="xsd:string" minOccurs="0" maxOccurs="1"/>
 					  <xsd:element name="xact_reason" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-					  <xsd:element name="xact_subtype" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-					  <xsd:element name="xact_type" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+					  <xsd:element name="xact_subtype_id" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+					  <xsd:element name="xact_catg_id" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+					  <xsd:element name="xact_type_id" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+					  <xsd:element name="tender_id" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
 					  <xsd:element name="confirm_no" type="xsd:string" minOccurs="0" maxOccurs="1"/>
 					  <xsd:element name="invoice_no" type="xsd:string" minOccurs="0" maxOccurs="1"/>
 		      </xsd:sequence>

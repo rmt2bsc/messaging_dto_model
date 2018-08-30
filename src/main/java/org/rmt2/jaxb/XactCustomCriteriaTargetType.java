@@ -13,32 +13,34 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for zip_result_format_type.
+ * <p>Java class for xact_custom_criteria_target_type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
  * <pre>
- * &lt;simpleType name="zip_result_format_type">
+ * &lt;simpleType name="xact_custom_criteria_target_type">
  *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *     &lt;enumeration value="FULL"/>
- *     &lt;enumeration value="SHORT"/>
+ *     &lt;enumeration value="BASE"/>
+ *     &lt;enumeration value="LINEITEM"/>
+ *     &lt;enumeration value="OTHER"/>
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
  * 
  */
-@XmlType(name = "zip_result_format_type")
+@XmlType(name = "xact_custom_criteria_target_type")
 @XmlEnum
-public enum ZipResultFormatType {
+public enum XactCustomCriteriaTargetType {
 
-    FULL,
-    SHORT;
+    BASE,
+    LINEITEM,
+    OTHER;
 
     public String value() {
         return name();
     }
 
-    public static ZipResultFormatType fromValue(String v) {
+    public static XactCustomCriteriaTargetType fromValue(String v) {
         return valueOf(v);
     }
 
