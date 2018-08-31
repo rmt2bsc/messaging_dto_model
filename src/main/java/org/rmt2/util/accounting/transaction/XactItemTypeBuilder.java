@@ -5,26 +5,26 @@ import java.math.BigInteger;
 
 import org.rmt2.jaxb.ObjectFactory;
 import org.rmt2.jaxb.RecordTrackingType;
-import org.rmt2.jaxb.XactItemType;
+import org.rmt2.jaxb.XactLineitemType;
 
 import com.api.util.assistants.Verifier;
 
 /**
- * XactItemType Builder.
+ * XactLineitemType Builder.
  * 
  * @author Roy Terrell
  *
  */
 public class XactItemTypeBuilder {
 
-    private XactItemType subject;
+    private XactLineitemType subject;
     
     /**
      * Create a XacttypeTypeBuilder
      */
     private XactItemTypeBuilder(Builder builder) {
         ObjectFactory f = new ObjectFactory();
-        subject = f.createXactItemType();
+        subject = f.createXactLineitemType();
         subject.setItemId(builder.itemId);
         subject.setName(builder.name);
         subject.setXactId(builder.xactId);
@@ -34,7 +34,7 @@ public class XactItemTypeBuilder {
     }
 
     /**
-     * Builder for {@link XactItemType}
+     * Builder for {@link XactLineitemType}
      * 
      * @author Roy Terrell
      *
@@ -144,11 +144,11 @@ public class XactItemTypeBuilder {
         }
 
         /**
-         * Completes the building of the XactItemType
+         * Completes the building of the XactLineitemType
          * 
-         * @return an instance of {@link XactItemType}
+         * @return an instance of {@link XactLineitemType}
          */
-        public XactItemType build() {
+        public XactLineitemType build() {
             XactItemTypeBuilder obj = new XactItemTypeBuilder(this);
             return obj.subject;
         }
