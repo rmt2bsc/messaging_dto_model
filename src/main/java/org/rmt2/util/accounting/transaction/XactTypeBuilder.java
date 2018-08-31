@@ -37,7 +37,7 @@ public class XactTypeBuilder {
         ObjectFactory f = new ObjectFactory();
         subject = f.createXactType();
         subject.setXactType(builder.xactType);
-        subject.setXactSubtypeId(builder.xactSubtypeId);
+        subject.setXactSubtype(builder.xactSubtype);
         subject.setXactId(builder.xactId);
         subject.setCustomer(builder.customer);
         subject.setCreditor(builder.creditor);
@@ -71,7 +71,7 @@ public class XactTypeBuilder {
     public static final class Builder {
         private BigInteger xactId;
         private XacttypeType xactType;
-        private XacttypeType xactSubtypeId;
+        private XacttypeType xactSubtype;
         private CustomerType customer;
         private CreditorType creditor;
         private XactCodeType xactCode;
@@ -126,7 +126,7 @@ public class XactTypeBuilder {
          * @return Non-null Builder used to continue building the object
          */
         public Builder withXactSubtypeId(XacttypeType xactSubtypeId) {
-            this.xactSubtypeId = xactSubtypeId;
+            this.xactSubtype = xactSubtypeId;
             return this;
         }
         
