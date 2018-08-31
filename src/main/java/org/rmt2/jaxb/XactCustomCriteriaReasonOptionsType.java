@@ -13,34 +13,36 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for xact_custom_criteria_target_type.
+ * <p>Java class for xact_custom_criteria_reason_options_type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
  * <pre>
- * &lt;simpleType name="xact_custom_criteria_target_type">
+ * &lt;simpleType name="xact_custom_criteria_reason_options_type">
  *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *     &lt;enumeration value="BASE"/>
- *     &lt;enumeration value="LINEITEM"/>
- *     &lt;enumeration value="OTHER"/>
+ *     &lt;enumeration value="BEGIN"/>
+ *     &lt;enumeration value="END"/>
+ *     &lt;enumeration value="CONTAIN"/>
+ *     &lt;enumeration value="EXACT"/>
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
  * 
  */
-@XmlType(name = "xact_custom_criteria_target_type")
+@XmlType(name = "xact_custom_criteria_reason_options_type")
 @XmlEnum
-public enum XactCustomCriteriaTargetType {
+public enum XactCustomCriteriaReasonOptionsType {
 
-    BASE,
-    LINEITEM,
-    OTHER;
+    BEGIN,
+    END,
+    CONTAIN,
+    EXACT;
 
     public String value() {
         return name();
     }
 
-    public static XactCustomCriteriaTargetType fromValue(String v) {
+    public static XactCustomCriteriaReasonOptionsType fromValue(String v) {
         return valueOf(v);
     }
 
