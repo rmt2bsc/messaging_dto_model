@@ -19,21 +19,21 @@ import com.RMT2Base;
 
 
 /**
- * <p>Java class for vendor_item_type complex type.
+ * <p>Java class for xact_lineitem_type complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="vendor_item_type">
+ * &lt;complexType name="xact_lineitem_type">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="item_id" type="{http://www.w3.org/2001/XMLSchema}integer"/>
- *         &lt;element name="creditor" type="{}creditor_type"/>
- *         &lt;element name="description" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="vendor_item_no" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="item_serial_no" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="unit_cost" type="{http://www.w3.org/2001/XMLSchema}decimal"/>
+ *         &lt;element name="xact_id" type="{http://www.w3.org/2001/XMLSchema}integer"/>
+ *         &lt;element name="itemtype_id" type="{http://www.w3.org/2001/XMLSchema}integer"/>
+ *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="amount" type="{http://www.w3.org/2001/XMLSchema}decimal"/>
+ *         &lt;element name="tracking" type="{}record_tracking_type" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -43,15 +43,15 @@ import com.RMT2Base;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "vendor_item_type", propOrder = {
+@XmlType(name = "xact_lineitem_type", propOrder = {
     "itemId",
-    "creditor",
-    "description",
-    "vendorItemNo",
-    "itemSerialNo",
-    "unitCost"
+    "xactId",
+    "itemtypeId",
+    "name",
+    "amount",
+    "tracking"
 })
-public class VendorItemType
+public class XactLineitemType
     extends RMT2Base
     implements Serializable
 {
@@ -59,16 +59,15 @@ public class VendorItemType
     private final static long serialVersionUID = 1L;
     @XmlElement(name = "item_id", required = true)
     protected BigInteger itemId;
+    @XmlElement(name = "xact_id", required = true)
+    protected BigInteger xactId;
+    @XmlElement(name = "itemtype_id", required = true)
+    protected BigInteger itemtypeId;
     @XmlElement(required = true)
-    protected CreditorType creditor;
+    protected String name;
     @XmlElement(required = true)
-    protected String description;
-    @XmlElement(name = "vendor_item_no", required = true)
-    protected String vendorItemNo;
-    @XmlElement(name = "item_serial_no", required = true)
-    protected String itemSerialNo;
-    @XmlElement(name = "unit_cost", required = true)
-    protected BigDecimal unitCost;
+    protected BigDecimal amount;
+    protected RecordTrackingType tracking;
 
     /**
      * Gets the value of the itemId property.
@@ -95,123 +94,123 @@ public class VendorItemType
     }
 
     /**
-     * Gets the value of the creditor property.
+     * Gets the value of the xactId property.
      * 
      * @return
      *     possible object is
-     *     {@link CreditorType }
+     *     {@link BigInteger }
      *     
      */
-    public CreditorType getCreditor() {
-        return creditor;
+    public BigInteger getXactId() {
+        return xactId;
     }
 
     /**
-     * Sets the value of the creditor property.
+     * Sets the value of the xactId property.
      * 
      * @param value
      *     allowed object is
-     *     {@link CreditorType }
+     *     {@link BigInteger }
      *     
      */
-    public void setCreditor(CreditorType value) {
-        this.creditor = value;
+    public void setXactId(BigInteger value) {
+        this.xactId = value;
     }
 
     /**
-     * Gets the value of the description property.
+     * Gets the value of the itemtypeId property.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link BigInteger }
      *     
      */
-    public String getDescription() {
-        return description;
+    public BigInteger getItemtypeId() {
+        return itemtypeId;
     }
 
     /**
-     * Sets the value of the description property.
+     * Sets the value of the itemtypeId property.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link BigInteger }
      *     
      */
-    public void setDescription(String value) {
-        this.description = value;
+    public void setItemtypeId(BigInteger value) {
+        this.itemtypeId = value;
     }
 
     /**
-     * Gets the value of the vendorItemNo property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getVendorItemNo() {
-        return vendorItemNo;
-    }
-
-    /**
-     * Sets the value of the vendorItemNo property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setVendorItemNo(String value) {
-        this.vendorItemNo = value;
-    }
-
-    /**
-     * Gets the value of the itemSerialNo property.
+     * Gets the value of the name property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getItemSerialNo() {
-        return itemSerialNo;
+    public String getName() {
+        return name;
     }
 
     /**
-     * Sets the value of the itemSerialNo property.
+     * Sets the value of the name property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setItemSerialNo(String value) {
-        this.itemSerialNo = value;
+    public void setName(String value) {
+        this.name = value;
     }
 
     /**
-     * Gets the value of the unitCost property.
+     * Gets the value of the amount property.
      * 
      * @return
      *     possible object is
      *     {@link BigDecimal }
      *     
      */
-    public BigDecimal getUnitCost() {
-        return unitCost;
+    public BigDecimal getAmount() {
+        return amount;
     }
 
     /**
-     * Sets the value of the unitCost property.
+     * Sets the value of the amount property.
      * 
      * @param value
      *     allowed object is
      *     {@link BigDecimal }
      *     
      */
-    public void setUnitCost(BigDecimal value) {
-        this.unitCost = value;
+    public void setAmount(BigDecimal value) {
+        this.amount = value;
+    }
+
+    /**
+     * Gets the value of the tracking property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link RecordTrackingType }
+     *     
+     */
+    public RecordTrackingType getTracking() {
+        return tracking;
+    }
+
+    /**
+     * Sets the value of the tracking property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link RecordTrackingType }
+     *     
+     */
+    public void setTracking(RecordTrackingType value) {
+        this.tracking = value;
     }
 
 }

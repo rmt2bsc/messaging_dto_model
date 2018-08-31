@@ -11,7 +11,9 @@ import org.rmt2.jaxb.CreditorType;
 import org.rmt2.jaxb.CustomerType;
 import org.rmt2.jaxb.ObjectFactory;
 import org.rmt2.jaxb.RecordTrackingType;
-import org.rmt2.jaxb.XactItemType;
+import org.rmt2.jaxb.XactCodeGroupType;
+import org.rmt2.jaxb.XactCodeType;
+import org.rmt2.jaxb.XactLineitemType;
 import org.rmt2.jaxb.XactType;
 import org.rmt2.jaxb.XacttypeType;
 
@@ -39,16 +41,23 @@ public class XactTypeBuilder {
         subject.setXactId(builder.xactId);
         subject.setCustomer(builder.customer);
         subject.setCreditor(builder.creditor);
+        subject.setXactCode(builder.xactCode);
+        subject.setXactCodeGroup(builder.xactCodeGrp);
         subject.setXactAmount(builder.xactAmount);
         subject.setXactDate(builder.xactDate);
+        subject.setPostedDate(builder.postedDate);
         subject.setXactReason(builder.xactReason);
-        subject.setAccountNo(builder.accountNo);
+        subject.setEntityRefNo(builder.entityRefNo);
+        subject.setNegInstrNo(builder.negInstrNo);
+        subject.setBankTransInd(builder.bankTransInd);
+        subject.setTenderId(builder.tenderId);
         subject.setConfirmNo(builder.confirmNo);
         subject.setDocumentId(builder.documentId);
         subject.setInvoiceNo(builder.invoiceNo);
         subject.setItemTotal(builder.itemTotal);
         if (builder.items != null) {
-            subject.getItems().addAll(builder.items);    
+            subject.setLineitems(f.createXactLineitemListType());
+            subject.getLineitems().getLineitem().addAll(builder.items);    
         }
         subject.setTracking(builder.tracking);
     }
@@ -65,16 +74,23 @@ public class XactTypeBuilder {
         private XacttypeType xactSubtypeId;
         private CustomerType customer;
         private CreditorType creditor;
+        private XactCodeType xactCode;
+        private XactCodeGroupType xactCodeGrp;
         private BigDecimal xactAmount;
         private XMLGregorianCalendar xactDate;
+        private XMLGregorianCalendar postedDate;
         private String xactReason;
-        private String accountNo;
         private String confirmNo;
+        private String entityRefNo;
+        private String negInstrNo;
+        private BigInteger tenderId;
+        private String bankTransInd;
         private BigInteger documentId;
         private String invoiceNo;
         private BigDecimal itemTotal;
-        private List<XactItemType> items;
+        private List<XactLineitemType> items;
         private RecordTrackingType tracking;
+        
 
         private Builder() {
             this.tracking = null;
@@ -111,6 +127,30 @@ public class XactTypeBuilder {
          */
         public Builder withXactSubtypeId(XacttypeType xactSubtypeId) {
             this.xactSubtypeId = xactSubtypeId;
+            return this;
+        }
+        
+        /**
+         * Set up xact code.
+         * 
+         * @param xactCode
+         *            XactCodeType value
+         * @return Non-null Builder used to continue building the object
+         */
+        public Builder withXactCode(XactCodeType xactCode) {
+            this.xactCode = xactCode;
+            return this;
+        }
+        
+        /**
+         * Set up xact code group.
+         * 
+         * @param XactCodeGroupType
+         *            XactCodeType value
+         * @return Non-null Builder used to continue building the object
+         */
+        public Builder withXactCodeGroup(XactCodeGroupType xactCodeGrp) {
+            this.xactCodeGrp = xactCodeGrp;
             return this;
         }
         
@@ -162,6 +202,29 @@ public class XactTypeBuilder {
             return this;
         }
         
+        /**
+         * Set up posted Date.
+         * 
+         * @param xactDate
+         *            an Date value
+         * @return Non-null Builder used to continue building the object
+         */
+        public Builder withPostedDate(Date postedDate) {
+            this.postedDate = RMT2Date.toXmlDate(postedDate);
+            return this;
+        }
+        
+        /**
+         * Set up  posted Date.
+         * 
+         * @param postedDate
+         *            an String value
+         * @return Non-null Builder used to continue building the object
+         */
+        public Builder withPostedDate(String postedDate) {
+            this.postedDate = RMT2Date.toXmlDate(postedDate);
+            return this;
+        }
        
         /**
          * Set up xactId.
@@ -200,14 +263,38 @@ public class XactTypeBuilder {
         }
         
         /**
-         * Set up account No.
+         * Set up entity ref No.
          * 
-         * @param accountNo
+         * @param entityRefNo
          *            an String value
          * @return Non-null Builder used to continue building the object
          */
-        public Builder withAccountNo(String accountNo) {
-            this.accountNo = accountNo;
+        public Builder withEntityRefNo(String entityRefNo) {
+            this.entityRefNo = entityRefNo;
+            return this;
+        }
+        
+        /**
+         * Set up entity ref No.
+         * 
+         * @param negInstrNo
+         *            an String value
+         * @return Non-null Builder used to continue building the object
+         */
+        public Builder withNegInstrNo(String negInstrNo) {
+            this.negInstrNo = negInstrNo;
+            return this;
+        }
+        
+        /**
+         * Set up bank Trans Ind
+         * 
+         * @param bankTransInd
+         *            an String value
+         * @return Non-null Builder used to continue building the object
+         */
+        public Builder withBankTransInd(String bankTransInd) {
+            this.bankTransInd = bankTransInd;
             return this;
         }
         
@@ -236,6 +323,18 @@ public class XactTypeBuilder {
         }
         
         /**
+         * Set up tender Id.
+         * 
+         * @param tenderId
+         *            an int value
+         * @return Non-null Builder used to continue building the object
+         */
+        public Builder withTenderId(int tenderId) {
+            this.tenderId = BigInteger.valueOf(tenderId);
+            return this;
+        }
+        
+        /**
          * Set up invoice No.
          * 
          * @param invoiceNo
@@ -260,13 +359,13 @@ public class XactTypeBuilder {
         }
         
         /**
-         * Set up transaction items.
+         * Set up transaction line items.
          * 
          * @param items
-         *            an List<XactItemType> value
+         *            an List<XactLineitemType> value
          * @return Non-null Builder used to continue building the object
          */
-        public Builder withXactItems(List<XactItemType> items) {
+        public Builder withXactItems(List<XactLineitemType> items) {
             this.items = items;
             return this;
         }
