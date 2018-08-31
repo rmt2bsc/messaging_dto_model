@@ -567,10 +567,22 @@
 			</xsd:restriction>
 		</xsd:simpleType>
 	
+	  <xsd:simpleType name="xact_custom_criteria_reason_options_type">
+			<xsd:annotation>
+				<xsd:documentation>Determines the level custom criteria data should be used such as the base transaction level or the transaction line item level</xsd:documentation>
+			</xsd:annotation>
+			<xsd:restriction base="xsd:string">
+				<xsd:enumeration value="BEGIN"/>
+				<xsd:enumeration value="END"/>
+				<xsd:enumeration value="CONTAIN"/>
+				<xsd:enumeration value="EXACT"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+		
     <xsd:complexType name="xact_custom_relational_criteria_type">
 		    <xsd:sequence>
 		        <xsd:element name="target_level" type="xact_custom_criteria_target_type" minOccurs="1" maxOccurs="1"/>
-		        <xsd:element name="xact_reason_options" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+		        <xsd:element name="xact_reason_options" type="xact_custom_criteria_reason_options_type" minOccurs="0" maxOccurs="1"/>
 					  <xsd:element name="from_xact_amount" type="xsd:decimal" minOccurs="0" maxOccurs="1"/>
 					  <xsd:element name="from_rel_op_xact_amount" type="xsd:string" minOccurs="0" maxOccurs="1"/>
 					  <xsd:element name="to_xact_amount" type="xsd:decimal" minOccurs="0" maxOccurs="1"/>
