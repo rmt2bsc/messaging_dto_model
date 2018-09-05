@@ -25,10 +25,10 @@ public class XactItemTypeBuilder {
     private XactItemTypeBuilder(Builder builder) {
         ObjectFactory f = new ObjectFactory();
         subject = f.createXactLineitemType();
+        subject.setItemtypeId(builder.xactTypeItemActvId);
         subject.setItemId(builder.itemId);
-        subject.setName(builder.name);
+        subject.setName(builder.description);
         subject.setXactId(builder.xactId);
-        subject.setItemtypeId(builder.itemtypeId);
         subject.setAmount(builder.amount);
         subject.setTracking(builder.tracking);
     }
@@ -40,18 +40,18 @@ public class XactItemTypeBuilder {
      *
      */
     public static final class Builder {
+        private BigInteger xactTypeItemActvId;
         private BigInteger itemId;
         private BigInteger xactId;
-        private BigInteger itemtypeId;
-        private String name;
+        private String description;
         private BigDecimal amount;
         private RecordTrackingType tracking;
 
         private Builder() {
             this.itemId = null;
             this.xactId = null;
-            this.itemtypeId = null;
-            this.name = null;
+            this.xactTypeItemActvId = null;
+            this.description = null;
             this.amount = null;
             this.tracking = null;
         }
@@ -64,6 +64,18 @@ public class XactItemTypeBuilder {
          */
         public static Builder create() {
             return new Builder();
+        }
+
+        /**
+         * Set up xact type item activity Id.
+         * 
+         * @param xactTypeItemActvId
+         *            an int value
+         * @return Non-null Builder used to continue building the object
+         */
+        public Builder withXactTypeItemActvId(int xactTypeItemActvId) {
+            this.xactTypeItemActvId = BigInteger.valueOf(xactTypeItemActvId);
+            return this;
         }
 
         /**
@@ -91,27 +103,14 @@ public class XactItemTypeBuilder {
         }
         
         /**
-         * Set up item type Id.
+         * Set up description.
          * 
-         * @param itemtypeId
-         *            an int value
-         * @return Non-null Builder used to continue building the object
-         */
-        public Builder withItemtypeId(int itemtypeId) {
-            this.itemtypeId = BigInteger.valueOf(itemtypeId);
-            return this;
-        }
-        
-       
-        /**
-         * Set up name.
-         * 
-         * @param name
+         * @param description
          *            an String value
          * @return Non-null Builder used to continue building the object
          */
-        public Builder withCode(String name) {
-            this.name = name;
+        public Builder withDescription(String description) {
+            this.description = description;
             return this;
         }
         
