@@ -25,9 +25,10 @@ public class XactCodeTypeBuilder {
     private XactCodeTypeBuilder(Builder builder) {
         ObjectFactory f = new ObjectFactory();
         subject = f.createXactCodeType();
+        subject.setXactCodeId(builder.xactCodeId);
         subject.setXactCodeGrp(builder.xactCodeGroup);
         subject.setDescription(builder.description);
-         subject.setTracking(builder.tracking);
+        subject.setTracking(builder.tracking);
     }
 
     /**
@@ -54,6 +55,18 @@ public class XactCodeTypeBuilder {
          */
         public static Builder create() {
             return new Builder();
+        }
+
+        /**
+         * Set up xact Code Id.
+         * 
+         * @param xactCodeId
+         *            an int value
+         * @return Non-null Builder used to continue building the object
+         */
+        public Builder withXactCodeId(int xactCodeId) {
+            this.xactCodeId = BigInteger.valueOf(xactCodeId);
+            return this;
         }
 
         /**
