@@ -46,7 +46,7 @@ public class TransactionGroupRequestBuilderTest {
                 .withDeliveryDate(new Date())
                 
                 // Set these header elements with dummy values in order to be properly assigned later.
-                .withTransaction(ApiTransactionCodes.ACCOUNTING_TRANSACTION_GROUP)
+                .withTransaction(ApiTransactionCodes.ACCOUNTING_TRANSACTION_GROUP_GET)
                 .withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
         
@@ -61,6 +61,6 @@ public class TransactionGroupRequestBuilderTest {
         String xml = jaxb.marshalJsonMessage(req);
         System.out.println(xml);
         Assert.assertNotNull(xml);
-        Assert.assertTrue(xml.contains(ApiTransactionCodes.ACCOUNTING_TRANSACTION_GROUP));
+        Assert.assertTrue(xml.contains(ApiTransactionCodes.ACCOUNTING_TRANSACTION_GROUP_GET));
     }
   }

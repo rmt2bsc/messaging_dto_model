@@ -63,8 +63,9 @@ public class ApiTransactionCodes {
     public static final String SUBSIDIARY_CREDITOR_TYPE_GET = "GET_CREDITOR_TYPE";
     
     // Accounting - Transaction Code
-    public static final String ACCOUNTING_TRANSACTION_GROUP = "GET_TRANS_GROUP";
-    public static final String ACCOUNTING_TRANSACTION_CODE = "GET_TRANS_CODE";
+    public static final String ACCOUNTING_TRANSACTION_GROUP_GET = "GET_TRANS_GROUP";
+    public static final String ACCOUNTING_TRANSACTION_CODE_GET = "GET_TRANS_CODE";
+    
     
     
     public static final String ACCOUNTING_TRANSACTION_BY_ID_GET = "GET_TRANS_BY_ID";

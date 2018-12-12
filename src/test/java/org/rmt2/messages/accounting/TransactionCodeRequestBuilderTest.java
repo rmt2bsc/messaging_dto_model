@@ -47,7 +47,7 @@ public class TransactionCodeRequestBuilderTest {
                 .withDeliveryDate(new Date())
                 
                 // Set these header elements with dummy values in order to be properly assigned later.
-                .withTransaction(ApiTransactionCodes.ACCOUNTING_TRANSACTION_CODE)
+                .withTransaction(ApiTransactionCodes.ACCOUNTING_TRANSACTION_CODE_GET)
                 .withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
         
@@ -66,6 +66,6 @@ public class TransactionCodeRequestBuilderTest {
         String xml = jaxb.marshalJsonMessage(req);
         System.out.println(xml);
         Assert.assertNotNull(xml);
-        Assert.assertTrue(xml.contains(ApiTransactionCodes.ACCOUNTING_TRANSACTION_CODE));
+        Assert.assertTrue(xml.contains(ApiTransactionCodes.ACCOUNTING_TRANSACTION_CODE_GET));
     }
   }
