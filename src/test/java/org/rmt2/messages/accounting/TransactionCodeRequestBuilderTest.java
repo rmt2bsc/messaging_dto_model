@@ -13,14 +13,15 @@ import org.rmt2.jaxb.AccountingTransactionRequest;
 import org.rmt2.jaxb.HeaderType;
 import org.rmt2.jaxb.ObjectFactory;
 import org.rmt2.jaxb.TransactionCriteriaGroup;
-import org.rmt2.jaxb.XactCodeGroupCriteriaType;
+import org.rmt2.jaxb.XactCodeCriteriaType;
+import org.rmt2.jaxb.XactCodeGroupType;
 import org.rmt2.util.HeaderTypeBuilder;
 
 import com.api.config.ConfigConstants;
 import com.api.config.SystemConfigurator;
 import com.api.xml.jaxb.JaxbUtil;
 
-public class TransactionGroupRequestBuilderTest {
+public class TransactionCodeRequestBuilderTest {
 
     private JaxbUtil jaxb;
     
@@ -46,21 +47,25 @@ public class TransactionGroupRequestBuilderTest {
                 .withDeliveryDate(new Date())
                 
                 // Set these header elements with dummy values in order to be properly assigned later.
-                .withTransaction(ApiTransactionCodes.ACCOUNTING_TRANSACTION_GROUP)
+                .withTransaction(ApiTransactionCodes.ACCOUNTING_TRANSACTION_CODE)
                 .withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
         
-        XactCodeGroupCriteriaType criteria = fact.createXactCodeGroupCriteriaType();
-        criteria.setXactCodeGrpId(BigInteger.valueOf(34567));
+        XactCodeCriteriaType criteria = fact.createXactCodeCriteriaType();
+        XactCodeGroupType grp = fact.createXactCodeGroupType();
+        grp.setXactCodeGrpId(BigInteger.valueOf(101));
+        criteria.setXactCodeGrp(grp);
+        criteria.setXactCodeId(BigInteger.valueOf(201));
+        criteria.setDescription("Test code description");
         
         TransactionCriteriaGroup criteriaGroup = fact.createTransactionCriteriaGroup();
-        criteriaGroup.setXactCodeGroupCriteria(criteria);
+        criteriaGroup.setXactCodeCriteria(criteria);
         req.setCriteria(criteriaGroup);
         req.setHeader(head);
         
         String xml = jaxb.marshalJsonMessage(req);
         System.out.println(xml);
         Assert.assertNotNull(xml);
-        Assert.assertTrue(xml.contains(ApiTransactionCodes.ACCOUNTING_TRANSACTION_GROUP));
+        Assert.assertTrue(xml.contains(ApiTransactionCodes.ACCOUNTING_TRANSACTION_CODE));
     }
   }
