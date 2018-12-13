@@ -54,6 +54,7 @@ public class TransactionRequestBuilderTest {
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
         
         XactCriteriaType criteria = fact.createXactCriteriaType();
+        criteria.setTargetLevel(XactCustomCriteriaTargetType.FULL);
         XactBasicCriteriaType xb = fact.createXactBasicCriteriaType();
         xb.setXactId(BigInteger.valueOf(34567));
         xb.setAccountNo("123-345-678");
@@ -64,7 +65,6 @@ public class TransactionRequestBuilderTest {
         xb.setTenderId(BigInteger.valueOf(100));
         
         XactCustomRelationalCriteriaType customCriteria = fact.createXactCustomRelationalCriteriaType();
-        customCriteria.setTargetLevel(XactCustomCriteriaTargetType.FULL);
         
         criteria.setBasicCriteria(xb);
         criteria.setCustomCriteria(customCriteria);

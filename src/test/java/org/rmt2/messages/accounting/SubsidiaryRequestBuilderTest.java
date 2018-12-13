@@ -22,6 +22,7 @@ import org.rmt2.jaxb.ObjectFactory;
 import org.rmt2.jaxb.RecordTrackingType;
 import org.rmt2.jaxb.TransactionCriteriaGroup;
 import org.rmt2.jaxb.TransactionDetailGroup;
+import org.rmt2.jaxb.XactCustomCriteriaTargetType;
 import org.rmt2.util.HeaderTypeBuilder;
 import org.rmt2.util.RecordTrackingTypeBuilder;
 import org.rmt2.util.accounting.subsidiary.CreditorTypeBuilder;
@@ -78,6 +79,7 @@ public class SubsidiaryRequestBuilderTest {
                 .withActive(1).build();
                 
         CustomerCriteriaType criteria = fact.createCustomerCriteriaType();
+        criteria.setTargetLevel(XactCustomCriteriaTargetType.FULL);
         
         criteria.setCustomer(custType);
         criteria.setContactDetails(busType);
@@ -222,6 +224,7 @@ public class SubsidiaryRequestBuilderTest {
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
         
         CreditorCriteriaType criteria = fact.createCreditorCriteriaType();
+        criteria.setTargetLevel(XactCustomCriteriaTargetType.FULL);
         criteria.setCreditorId(BigInteger.valueOf(3333));
         criteria.setAcctId(BigInteger.valueOf(1234567));
         criteria.setBusinessId(BigInteger.valueOf(1351));
