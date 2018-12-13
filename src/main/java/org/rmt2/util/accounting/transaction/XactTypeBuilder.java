@@ -117,16 +117,42 @@ public class XactTypeBuilder {
             this.xactType = xactType;
             return this;
         }
+        
+        /**
+         * Set up xactType.
+         * 
+         * @param xactType
+         *            transaction type id
+         * @return Non-null Builder used to continue building the object
+         */
+        public Builder withXactType(int xactTypeId) {
+            XacttypeType code = XacttypeTypeBuilder.Builder.create().withXactTypeId(xactTypeId).build();
+            this.xactType = code;
+            return this;
+        }
 
         /**
          * Set up xactSubtypeId.
          * 
-         * @param xactSubtypeId
+         * @param xactSubtype
          *            XacttypeType value
          * @return Non-null Builder used to continue building the object
          */
-        public Builder withXactSubtypeId(XacttypeType xactSubtypeId) {
-            this.xactSubtype = xactSubtypeId;
+        public Builder withXactSubtypeId(XacttypeType xactSubtype) {
+            this.xactSubtype = xactSubtype;
+            return this;
+        }
+        
+        /**
+         * Set up xactSubtypeId.
+         * 
+         * @param xactSubtypeId
+         *            transaction sub type id
+         * @return Non-null Builder used to continue building the object
+         */
+        public Builder withXactSubtypeId(int xactSubtypeId) {
+            XacttypeType code = XacttypeTypeBuilder.Builder.create().withXactTypeId(xactSubtypeId).build();
+            this.xactSubtype = code;
             return this;
         }
         
@@ -143,6 +169,20 @@ public class XactTypeBuilder {
         }
         
         /**
+         * Setup xact code.
+         * 
+         * @param xactCode
+         *            the transaction code id
+         * @return
+         */
+        public Builder withXactCode(int xactCode) {
+            XactCodeType code = XactCodeTypeBuilder.Builder.create()
+                    .withXactCodeId(xactCode).build();
+            this.xactCode = code;
+            return this;
+        }
+        
+        /**
          * Set up xact code group.
          * 
          * @param XactCodeGroupType
@@ -151,6 +191,20 @@ public class XactTypeBuilder {
          */
         public Builder withXactCodeGroup(XactCodeGroupType xactCodeGrp) {
             this.xactCodeGrp = xactCodeGrp;
+            return this;
+        }
+        
+        /**
+         * Set up xact code group.
+         * 
+         * @param xactCodeGrp
+         *            transaction code group id
+         * @return Non-null Builder used to continue building the object
+         */
+        public Builder withXactCodeGroup(int xactCodeGrp) {
+            XactCodeGroupType code = XactCodeGroupTypeBuilder.Builder.create()
+                    .withGroupId(xactCodeGrp).build();
+            this.xactCodeGrp = code;
             return this;
         }
         
