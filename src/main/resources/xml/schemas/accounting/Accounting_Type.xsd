@@ -153,6 +153,7 @@
 		
 		<xsd:complexType name="creditor_criteria_type">
         <xsd:sequence>
+        	<xsd:element name="target_level" type="xact_custom_criteria_target_type" minOccurs="1" maxOccurs="1"/>
             <xsd:element name="creditor_id" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
             <xsd:element name="acct_id" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
             <xsd:element name="account_no" type="xsd:string" minOccurs="0" maxOccurs="1"/>
@@ -211,6 +212,7 @@
 	
 		<xsd:complexType name="customer_criteria_type">
 			<xsd:sequence>
+				<xsd:element name="target_level" type="xact_custom_criteria_target_type" minOccurs="1" maxOccurs="1"/>
 				<xsd:element name="customer" type="customer_type" minOccurs="0" maxOccurs="1"/>
 				<xsd:element name="contact_details" type="business_type" minOccurs="0" maxOccurs="1"/>
 			</xsd:sequence>
@@ -218,6 +220,7 @@
 	
 	  <xsd:complexType name="purchase_order_criteria">
 			<xsd:sequence>
+				<xsd:element name="target_level" type="xact_custom_criteria_target_type" minOccurs="1" maxOccurs="1"/>
 	 			<xsd:element name="purchase_order_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
 	 			<xsd:element name="status_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
 	 			<xsd:element name="Vendor" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
@@ -347,6 +350,7 @@
 		
 		<xsd:complexType name="sales_order_criteria">
 			<xsd:sequence>
+				<xsd:element name="target_level" type="xact_custom_criteria_target_type" minOccurs="1" maxOccurs="1"/>
 	 			<xsd:element name="sales_order_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
 	 			<xsd:element name="customer_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
 	 			<xsd:element name="account_no" type="xsd:string" minOccurs="1" maxOccurs="1"/>
@@ -534,6 +538,7 @@
 
     <xsd:complexType name="xact_criteria_type">
 		      <xsd:sequence>
+		      	      <xsd:element name="target_level" type="xact_custom_criteria_target_type" minOccurs="1" maxOccurs="1"/>
 					  <xsd:element name="basic_criteria" type="xact_basic_criteria_type" minOccurs="0" maxOccurs="1"/>
 					  <xsd:element name="custom_criteria" type="xact_custom_relational_criteria_type" minOccurs="0" maxOccurs="1"/>
 		      </xsd:sequence>
@@ -581,21 +586,20 @@
 		
     <xsd:complexType name="xact_custom_relational_criteria_type">
 		    <xsd:sequence>
-		        <xsd:element name="target_level" type="xact_custom_criteria_target_type" minOccurs="1" maxOccurs="1"/>
 		        <xsd:element name="xact_reason_options" type="xact_custom_criteria_reason_options_type" minOccurs="0" maxOccurs="1"/>
-					  <xsd:element name="from_xact_amount" type="xsd:decimal" minOccurs="0" maxOccurs="1"/>
-					  <xsd:element name="from_rel_op_xact_amount" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-					  <xsd:element name="to_xact_amount" type="xsd:decimal" minOccurs="0" maxOccurs="1"/>
-					  <xsd:element name="to_rel_op_xact_amount" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-					  <xsd:element name="from_xact_date" type="xsd:string" minOccurs="0" maxOccurs="1"/>
- 					  <xsd:element name="from_rel_op_xact_date" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-					  <xsd:element name="to_xact_date" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-					  <xsd:element name="to_rel_op_xact_date" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-					  <xsd:element name="from_item_amount" type="xsd:decimal" minOccurs="0" maxOccurs="1"/>
-					  <xsd:element name="from_rel_op_item_amount" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-					  <xsd:element name="to_item_amount" type="xsd:decimal" minOccurs="0" maxOccurs="1"/>
-					  <xsd:element name="to_rel_op_item_amount" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-			   </xsd:sequence>
+			    <xsd:element name="from_xact_amount" type="xsd:decimal" minOccurs="0" maxOccurs="1"/>
+			    <xsd:element name="from_rel_op_xact_amount" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			    <xsd:element name="to_xact_amount" type="xsd:decimal" minOccurs="0" maxOccurs="1"/>
+			    <xsd:element name="to_rel_op_xact_amount" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			    <xsd:element name="from_xact_date" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+ 			    <xsd:element name="from_rel_op_xact_date" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			    <xsd:element name="to_xact_date" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			    <xsd:element name="to_rel_op_xact_date" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			    <xsd:element name="from_item_amount" type="xsd:decimal" minOccurs="0" maxOccurs="1"/>
+			    <xsd:element name="from_rel_op_item_amount" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			    <xsd:element name="to_item_amount" type="xsd:decimal" minOccurs="0" maxOccurs="1"/>
+			    <xsd:element name="to_rel_op_item_amount" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+	       </xsd:sequence>
 	  </xsd:complexType>
 	  
     <xsd:complexType name="xact_category_criteria_type">
