@@ -15,6 +15,8 @@ import org.rmt2.jaxb.ObjectFactory;
 import org.rmt2.jaxb.TransactionCriteriaGroup;
 import org.rmt2.jaxb.XactBasicCriteriaType;
 import org.rmt2.jaxb.XactCriteriaType;
+import org.rmt2.jaxb.XactCustomCriteriaTargetType;
+import org.rmt2.jaxb.XactCustomRelationalCriteriaType;
 import org.rmt2.util.HeaderTypeBuilder;
 
 import com.api.config.ConfigConstants;
@@ -36,7 +38,7 @@ public class TransactionRequestBuilderTest {
     }
     
     @Test
-    public void testBuildTransactionByIdQueryRequest() {
+    public void testBuildTransactionQueryRequest() {
         ObjectFactory fact = new ObjectFactory();
         AccountingTransactionRequest req = fact.createAccountingTransactionRequest();
         
@@ -47,14 +49,25 @@ public class TransactionRequestBuilderTest {
                 .withDeliveryDate(new Date())
                 
                 // Set these header elements with dummy values in order to be properly assigned later.
-                .withTransaction(ApiTransactionCodes.ACCOUNTING_TRANSACTION_BY_ID_GET)
+                .withTransaction(ApiTransactionCodes.ACCOUNTING_TRANSACTION_GET)
                 .withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
         
         XactCriteriaType criteria = fact.createXactCriteriaType();
         XactBasicCriteriaType xb = fact.createXactBasicCriteriaType();
         xb.setXactId(BigInteger.valueOf(34567));
+        xb.setAccountNo("123-345-678");
+        xb.setBusinessName("ABC Complay");
+        xb.setXactDate("2018-12-01");
+        xb.setInvoiceNo("1234566");
+        xb.setConfirmNo("ADB-49384343");
+        xb.setTenderId(BigInteger.valueOf(100));
+        
+        XactCustomRelationalCriteriaType customCriteria = fact.createXactCustomRelationalCriteriaType();
+        customCriteria.setTargetLevel(XactCustomCriteriaTargetType.FULL);
+        
         criteria.setBasicCriteria(xb);
+        criteria.setCustomCriteria(customCriteria);
         
         TransactionCriteriaGroup criteriaGroup = fact.createTransactionCriteriaGroup();
         criteriaGroup.setXactCriteria(criteria);
@@ -64,6 +77,6 @@ public class TransactionRequestBuilderTest {
         String xml = jaxb.marshalJsonMessage(req);
         System.out.println(xml);
         Assert.assertNotNull(xml);
-        Assert.assertTrue(xml.contains(ApiTransactionCodes.ACCOUNTING_TRANSACTION_BY_ID_GET));
+        Assert.assertTrue(xml.contains(ApiTransactionCodes.ACCOUNTING_TRANSACTION_GET));
     }
   }

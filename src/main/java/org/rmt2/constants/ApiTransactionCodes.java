@@ -66,6 +66,9 @@ public class ApiTransactionCodes {
     public static final String ACCOUNTING_TRANSACTION_GROUP_GET = "GET_TRANS_GROUP";
     public static final String ACCOUNTING_TRANSACTION_CODE_GET = "GET_TRANS_CODE";
     
+    // Accounting - Basic Transaction
+    public static final String ACCOUNTING_TRANSACTION_GET = "GET_TRANSACTION";
+    
     
     
     public static final String ACCOUNTING_TRANSACTION_BY_ID_GET = "GET_TRANS_BY_ID";
