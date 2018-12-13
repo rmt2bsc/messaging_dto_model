@@ -107,8 +107,6 @@ public class CreditorActivityTypeBuilder {
          */
         public Builder withXactId(int xactId) {
             ObjectFactory f = new ObjectFactory();
-            this.xactDetails = f.createXactType();
-            this.xactDetails.setXactId(BigInteger.valueOf(xactId));
             this.xactId = BigInteger.valueOf(xactId);
             return this;
         }
