@@ -107,7 +107,7 @@ public class XactTypeBuilder {
         }
 
         /**
-         * Set up xactType.
+         * Set up transactoin type object.
          * 
          * @param xactType
          *            XacttypeType value
@@ -119,45 +119,115 @@ public class XactTypeBuilder {
         }
         
         /**
-         * Set up xactType.
+         * Set up Transaction Type id.
          * 
          * @param xactType
          *            transaction type id
          * @return Non-null Builder used to continue building the object
          */
-        public Builder withXactType(int xactTypeId) {
-            XacttypeType code = XacttypeTypeBuilder.Builder.create().withXactTypeId(xactTypeId).build();
-            this.xactType = code;
+        public Builder withXactTypeId(int xactTypeId) {
+            if (this.xactType == null) {
+                this.xactType = XacttypeTypeBuilder.Builder.create().withXactTypeId(xactTypeId).build();
+            } else {
+                this.xactType.setXactTypeId(BigInteger.valueOf(xactTypeId));
+            }
+            return this;
+        }
+        
+        /**
+         * Set up transaction type code.
+         * 
+         * @param code
+         *            transaction type code
+         * @return Non-null Builder used to continue building the object
+         */
+        public Builder withXactTypeCode(String code) {
+            if (this.xactType == null) {
+                this.xactType = XacttypeTypeBuilder.Builder.create().withCode(code).build();
+            } else {
+                this.xactType.setCode(code);
+            }
             return this;
         }
 
         /**
-         * Set up xactSubtypeId.
+         * Set up transaction type description.
+         * 
+         * @param description
+         *            transaction type description
+         * @return Non-null Builder used to continue building the object
+         */
+        public Builder withXactTypeDescription(String description) {
+            if (this.xactType == null) {
+                this.xactType = XacttypeTypeBuilder.Builder.create().withDescription(description).build();
+            } else {
+                this.xactType.setDescription(description);
+            }
+            return this;
+        }
+        
+        /**
+         * Set up transacton sub type.
          * 
          * @param xactSubtype
          *            XacttypeType value
          * @return Non-null Builder used to continue building the object
          */
-        public Builder withXactSubtypeId(XacttypeType xactSubtype) {
+        public Builder withXactSubtype(XacttypeType xactSubtype) {
             this.xactSubtype = xactSubtype;
             return this;
         }
         
         /**
-         * Set up xactSubtypeId.
+         * Set up transacton sub type id.
          * 
          * @param xactSubtypeId
-         *            transaction sub type id
+         *            XacttypeType value
          * @return Non-null Builder used to continue building the object
          */
         public Builder withXactSubtypeId(int xactSubtypeId) {
-            XacttypeType code = XacttypeTypeBuilder.Builder.create().withXactTypeId(xactSubtypeId).build();
-            this.xactSubtype = code;
+            if (this.xactSubtype == null) {
+                this.xactSubtype = XacttypeTypeBuilder.Builder.create().withXactTypeId(xactSubtypeId).build();    
+            } else {
+                this.xactSubtype.setXactTypeId(BigInteger.valueOf(xactSubtypeId));
+            }
             return this;
         }
         
         /**
-         * Set up xact code.
+         * Set up transacton sub type code.
+         * 
+         * @param code
+         *            transaction sub type code
+         * @return Non-null Builder used to continue building the object
+         */
+        public Builder withXactSubtypeCode(String code) {
+            if (this.xactSubtype == null) {
+                this.xactSubtype = XacttypeTypeBuilder.Builder.create().withCode(code).build();
+            } else {
+                this.xactSubtype.setCode(code);
+            }
+            return this;
+        }
+        
+        /**
+         * Set up transacton sub type description.
+         * 
+         * @param description
+         *            transaction sub type description
+         * @return Non-null Builder used to continue building the object
+         */
+        public Builder withXactSubtypeDescription(String description) {
+            if (this.xactSubtype == null) {
+                this.xactSubtype = XacttypeTypeBuilder.Builder.create().withDescription(description).build();
+            } else {
+                this.xactSubtype.setDescription(description);
+            }
+            return this;
+        }
+        
+        /**
+         * Set up tranasction code object.
          * 
          * @param xactCode
          *            XactCodeType value
@@ -169,21 +239,41 @@ public class XactTypeBuilder {
         }
         
         /**
-         * Setup xact code.
+         * Setup transaction code id.
          * 
-         * @param xactCode
+         * @param xactCodeId
          *            the transaction code id
          * @return
          */
-        public Builder withXactCode(int xactCode) {
-            XactCodeType code = XactCodeTypeBuilder.Builder.create()
-                    .withXactCodeId(xactCode).build();
-            this.xactCode = code;
+        public Builder withXactCodeId(int xactCodeId) {
+            if (this.xactCode == null) {
+                this.xactCode = XactCodeTypeBuilder.Builder.create()
+                        .withXactCodeId(xactCodeId).build();   
+            } else {
+                this.xactCode.setXactCodeId(BigInteger.valueOf(xactCodeId));
+            }
             return this;
         }
         
         /**
-         * Set up xact code group.
+         * Setup transaction code description.
+         * 
+         * @param description
+         *            the transaction code description
+         * @return
+         */
+        public Builder withXactCodeDescription(String description) {
+            if (this.xactCode == null) {
+                this.xactCode = XactCodeTypeBuilder.Builder.create()
+                        .withDescription(description).build();   
+            } else {
+                this.xactCode.setDescription(description);
+            }
+            return this;
+        }
+        
+        /**
+         * Set up transaction group object.
          * 
          * @param XactCodeGroupType
          *            XactCodeType value
@@ -195,16 +285,36 @@ public class XactTypeBuilder {
         }
         
         /**
-         * Set up xact code group.
+         * Set up transaction group id.
          * 
-         * @param xactCodeGrp
-         *            transaction code group id
+         * @param xactCodeGrpId
+         *            transaction group id
          * @return Non-null Builder used to continue building the object
          */
-        public Builder withXactCodeGroup(int xactCodeGrp) {
-            XactCodeGroupType code = XactCodeGroupTypeBuilder.Builder.create()
-                    .withGroupId(xactCodeGrp).build();
-            this.xactCodeGrp = code;
+        public Builder withXactCodeGroupId(int xactGrpId) {
+            if (this.xactCodeGrp == null) {
+                this.xactCodeGrp = XactCodeGroupTypeBuilder.Builder.create()
+                        .withGroupId(xactGrpId).build();    
+            } else {
+                this.xactCodeGrp.setXactCodeGrpId(BigInteger.valueOf(xactGrpId));
+            }
+            return this;
+        }
+        
+        /**
+         * Set up transaction group description.
+         * 
+         * @param description
+         *            transaction group description
+         * @return Non-null Builder used to continue building the object
+         */
+        public Builder withXactCodeGroupDescription(String description) {
+            if (this.xactCodeGrp == null) {
+                this.xactCodeGrp = XactCodeGroupTypeBuilder.Builder.create()
+                        .withDescription(description).build();    
+            } else {
+                this.xactCodeGrp.setDescription(description);;
+            }
             return this;
         }
         
