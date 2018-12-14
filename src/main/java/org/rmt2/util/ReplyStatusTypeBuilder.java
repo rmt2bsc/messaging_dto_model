@@ -25,6 +25,7 @@ public class ReplyStatusTypeBuilder {
         subject.setMessage(builder.message);
         subject.setExtMessage(builder.detailMessage);
         subject.setReturnCode(BigInteger.valueOf(builder.returnCode));
+        subject.setRecordCount(BigInteger.valueOf(builder.recordCount));
     }
 
     /**
@@ -38,6 +39,7 @@ public class ReplyStatusTypeBuilder {
         private String message;
         private String detailMessage;
         private int returnCode;
+        private int recordCount;
         
         private Builder() {
             this.status = null;
@@ -93,6 +95,16 @@ public class ReplyStatusTypeBuilder {
          */
         public Builder withReturnCode(int returnCode) {
             this.returnCode = returnCode;
+            return this;
+        }
+        
+        /**
+         * 
+         * @param returnCode
+         * @return
+         */
+        public Builder withRecordCount(int count) {
+            this.recordCount = count;
             return this;
         }
 
