@@ -404,6 +404,11 @@
 									<xsd:documentation>The customer's name</xsd:documentation>
 								</xsd:annotation>
 							</xsd:attribute>
+							<xsd:attribute name="customer_account_no" type="xsd:string">
+								<xsd:annotation>
+									<xsd:documentation>The customer's account number</xsd:documentation>
+								</xsd:annotation>
+							</xsd:attribute>
 							<xsd:attribute name="invoiced" type="xsd:boolean">
 								<xsd:annotation>
 									<xsd:documentation>Has the sales order been invoiced? Set to true when invoiced and false otherwise.</xsd:documentation>
