@@ -25,7 +25,8 @@ public class XactItemTypeBuilder {
     private XactItemTypeBuilder(Builder builder) {
         ObjectFactory f = new ObjectFactory();
         subject = f.createXactLineitemType();
-        subject.setItemtypeId(builder.xactTypeItemActvId);
+        subject.setXactTypeItemActvId(builder.xactTypeItemActvId);
+        subject.setItemtypeId(builder.itemTypeId);
         subject.setItemId(builder.itemId);
         subject.setName(builder.description);
         subject.setXactId(builder.xactId);
@@ -42,6 +43,7 @@ public class XactItemTypeBuilder {
     public static final class Builder {
         private BigInteger xactTypeItemActvId;
         private BigInteger itemId;
+        private BigInteger itemTypeId;
         private BigInteger xactId;
         private String description;
         private BigDecimal amount;
@@ -49,6 +51,7 @@ public class XactItemTypeBuilder {
 
         private Builder() {
             this.itemId = null;
+            this.itemTypeId = null;
             this.xactId = null;
             this.xactTypeItemActvId = null;
             this.description = null;
@@ -90,6 +93,18 @@ public class XactItemTypeBuilder {
             return this;
         }
 
+        /**
+         * Set up item type id.
+         * 
+         * @param itemTypeId
+         *            an int value
+         * @return Non-null Builder used to continue building the object
+         */
+        public Builder withItemTypeId(int itemTypeId) {
+            this.itemTypeId = BigInteger.valueOf(itemTypeId);
+            return this;
+        }
+        
         /**
          * Set up transaction id.
          * 

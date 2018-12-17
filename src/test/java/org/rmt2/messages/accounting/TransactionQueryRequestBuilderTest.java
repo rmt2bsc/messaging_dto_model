@@ -23,7 +23,7 @@ import com.api.config.ConfigConstants;
 import com.api.config.SystemConfigurator;
 import com.api.xml.jaxb.JaxbUtil;
 
-public class TransactionRequestBuilderTest {
+public class TransactionQueryRequestBuilderTest {
 
     private JaxbUtil jaxb;
     
@@ -38,7 +38,7 @@ public class TransactionRequestBuilderTest {
     }
     
     @Test
-    public void testBuildTransactionQueryRequest() {
+    public void testBuildRequest() {
         ObjectFactory fact = new ObjectFactory();
         AccountingTransactionRequest req = fact.createAccountingTransactionRequest();
         
