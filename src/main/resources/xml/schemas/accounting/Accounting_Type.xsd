@@ -387,20 +387,31 @@
 			<xsd:annotation>
 				<xsd:documentation>Sales order header</xsd:documentation>
 			</xsd:annotation>
-			<xsd:element name="sales_order_id" type="xsd:integer" default="0" minOccurs="1" maxOccurs="1">
+			<xsd:element name="sales_order_id" default="0" minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The unique id of the sales order</xsd:documentation>
 				</xsd:annotation>
-			</xsd:element>
-			<xsd:element name="customer" type="customer_type" minOccurs="1" maxOccurs="1">
-				<xsd:annotation>
-					<xsd:documentation>The customer's unique id.</xsd:documentation>
-				</xsd:annotation>
-			</xsd:element>
-			<xsd:element name="invoiced" type="xsd:boolean" minOccurs="0" maxOccurs="1">
-				<xsd:annotation>
-					<xsd:documentation>Has the sales order been invoiced? Set to true when invoiced and false otherwise.</xsd:documentation>
-				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:integer">
+							<xsd:attribute name="customer_id" type="xsd:integer">
+								<xsd:annotation>
+									<xsd:documentation>The unique identifier of the customer</xsd:documentation>
+								</xsd:annotation>
+							</xsd:attribute>
+							<xsd:attribute name="customer_name" type="xsd:string">
+								<xsd:annotation>
+									<xsd:documentation>The customer's name</xsd:documentation>
+								</xsd:annotation>
+							</xsd:attribute>
+							<xsd:attribute name="invoiced" type="xsd:boolean">
+								<xsd:annotation>
+									<xsd:documentation>Has the sales order been invoiced? Set to true when invoiced and false otherwise.</xsd:documentation>
+								</xsd:annotation>
+							</xsd:attribute>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
 			</xsd:element>
 			<xsd:element name="invoice_details" type="sales_invoice_type" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
@@ -442,20 +453,21 @@
 			<xsd:documentation>The sales order item record.</xsd:documentation>
 		</xsd:annotation>
 		<xsd:sequence>
-			<xsd:element name="sales_order_item_id" type="xsd:integer" default="0" minOccurs="1" maxOccurs="1">
+			<xsd:element name="sales_order_item_id" default="0" minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The unique id of the sales order item.</xsd:documentation>
 				</xsd:annotation>
-			</xsd:element>
-			<xsd:element name="sales_order" type="sales_order_type" minOccurs="1" maxOccurs="1">
-				<xsd:annotation>
-					<xsd:documentation>The unique id of the sales order for this item</xsd:documentation>
-				</xsd:annotation>
-			</xsd:element>
-			<xsd:element name="customer" type="customer_type" minOccurs="1" maxOccurs="1">
-				<xsd:annotation>
-					<xsd:documentation>The customer's unique id for this sales order item.</xsd:documentation>
-				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:integer">
+							<xsd:attribute name="sales_order_id" type="xsd:integer">
+								<xsd:annotation>
+									<xsd:documentation>The id of the sales order in which this item belongs.</xsd:documentation>
+								</xsd:annotation>
+							</xsd:attribute>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
 			</xsd:element>
 			<xsd:element name="item" type="inventory_item_type" minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
