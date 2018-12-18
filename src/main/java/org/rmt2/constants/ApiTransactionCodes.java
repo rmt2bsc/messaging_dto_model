@@ -69,6 +69,7 @@ public class ApiTransactionCodes {
     // Accounting - Basic Transaction
     public static final String ACCOUNTING_TRANSACTION_GET = "GET_TRANSACTION";
     public static final String ACCOUNTING_TRANSACTION_CREATE = "CREATE_TRANSACTION";
+    public static final String ACCOUNTING_TRANSACTION_REVERSE = "REVERSE_TRANSACTION";
     
     
     
