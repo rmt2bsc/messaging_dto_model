@@ -571,8 +571,8 @@
 			<xsd:documentation>Indicates the level in which data is loaded into the transaction structure such as base, line item, or full.</xsd:documentation>
 		</xsd:annotation>
 		<xsd:restriction base="xsd:string">
-			<xsd:enumeration value="BASE"/>
-			<xsd:enumeration value="LINEITEM"/>
+			<xsd:enumeration value="HEADER"/>
+			<xsd:enumeration value="DETAILS"/>
 			<xsd:enumeration value="FULL"/>
 		</xsd:restriction>
 	</xsd:simpleType>
