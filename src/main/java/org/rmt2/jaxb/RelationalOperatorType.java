@@ -14,37 +14,42 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for generation_type.
+ * <p>Java class for relational_operator_type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
  * <pre>
- * &lt;simpleType name="generation_type">
+ * &lt;simpleType name="relational_operator_type">
  *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *     &lt;enumeration value="Sr"/>
- *     &lt;enumeration value="Jr"/>
- *     &lt;enumeration value="III"/>
- *     &lt;enumeration value="IV"/>
- *     &lt;enumeration value="V"/>
+ *     &lt;enumeration value="EQUALS"/>
+ *     &lt;enumeration value="NOT EQUAL"/>
+ *     &lt;enumeration value="GREATER THAN"/>
+ *     &lt;enumeration value="LESS THAN"/>
+ *     &lt;enumeration value="LESS THAN OR EQUAL"/>
+ *     &lt;enumeration value="GREATER THAN OR EQUAL"/>
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
  * 
  */
-@XmlType(name = "generation_type")
+@XmlType(name = "relational_operator_type")
 @XmlEnum
-public enum GenerationType {
+public enum RelationalOperatorType {
 
-    @XmlEnumValue("Sr")
-    SR("Sr"),
-    @XmlEnumValue("Jr")
-    JR("Jr"),
-    III("III"),
-    IV("IV"),
-    V("V");
+    EQUALS("EQUALS"),
+    @XmlEnumValue("NOT EQUAL")
+    NOT_EQUAL("NOT EQUAL"),
+    @XmlEnumValue("GREATER THAN")
+    GREATER_THAN("GREATER THAN"),
+    @XmlEnumValue("LESS THAN")
+    LESS_THAN("LESS THAN"),
+    @XmlEnumValue("LESS THAN OR EQUAL")
+    LESS_THAN_OR_EQUAL("LESS THAN OR EQUAL"),
+    @XmlEnumValue("GREATER THAN OR EQUAL")
+    GREATER_THAN_OR_EQUAL("GREATER THAN OR EQUAL");
     private final String value;
 
-    GenerationType(String v) {
+    RelationalOperatorType(String v) {
         value = v;
     }
 
@@ -52,8 +57,8 @@ public enum GenerationType {
         return value;
     }
 
-    public static GenerationType fromValue(String v) {
-        for (GenerationType c: GenerationType.values()) {
+    public static RelationalOperatorType fromValue(String v) {
+        for (RelationalOperatorType c: RelationalOperatorType.values()) {
             if (c.value.equals(v)) {
                 return c;
             }
