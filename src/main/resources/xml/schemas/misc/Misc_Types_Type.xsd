@@ -52,4 +52,17 @@
 		  </xsd:restriction>
 		</xsd:simpleType>
 
+	<xsd:simpleType name="relational_operator_type">
+		<xsd:annotation>
+			<xsd:documentation>Identifies relational operators to be used in condition statements.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="EQUALS"/>
+			<xsd:enumeration value="NOT EQUAL"/>
+			<xsd:enumeration value="GREATER THAN"/>
+			<xsd:enumeration value="LESS THAN"/>
+			<xsd:enumeration value="LESS THAN OR EQUAL"/>
+			<xsd:enumeration value="GREATER THAN OR EQUAL"/>
+		</xsd:restriction>
+	</xsd:simpleType>
 </xsd:schema>
