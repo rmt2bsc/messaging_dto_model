@@ -593,17 +593,17 @@
 		<xsd:sequence>
 			<xsd:element name="xact_reason_options" type="xact_custom_criteria_reason_options_type" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="from_xact_amount" type="xsd:decimal" minOccurs="0" maxOccurs="1"/>
-			<xsd:element name="from_rel_op_xact_amount" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="from_rel_op_xact_amount" type="relational_operator_type" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="to_xact_amount" type="xsd:decimal" minOccurs="0" maxOccurs="1"/>
-			<xsd:element name="to_rel_op_xact_amount" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="to_rel_op_xact_amount" type="relational_operator_type" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="from_xact_date" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-			<xsd:element name="from_rel_op_xact_date" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="from_rel_op_xact_date" type="relational_operator_type" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="to_xact_date" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-			<xsd:element name="to_rel_op_xact_date" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="to_rel_op_xact_date" type="relational_operator_type" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="from_item_amount" type="xsd:decimal" minOccurs="0" maxOccurs="1"/>
-			<xsd:element name="from_rel_op_item_amount" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="from_rel_op_item_amount" type="relational_operator_type" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="to_item_amount" type="xsd:decimal" minOccurs="0" maxOccurs="1"/>
-			<xsd:element name="to_rel_op_item_amount" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="to_rel_op_item_amount" type="relational_operator_type" minOccurs="0" maxOccurs="1"/>
 		</xsd:sequence>
 	</xsd:complexType>
 
