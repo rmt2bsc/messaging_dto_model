@@ -100,6 +100,6 @@ public class CashDisbursementCreateCustomRequestBuilderTest {
         String xml = jaxb.marshalJsonMessage(req);
         System.out.println(xml);
         Assert.assertNotNull(xml);
-        Assert.assertTrue(xml.contains(ApiTransactionCodes.ACCOUNTING_CASHDISBURSE_GET));
+        Assert.assertTrue(xml.contains(ApiTransactionCodes.ACCOUNTING_CASHDISBURSE_CREATE));
     }
   }
