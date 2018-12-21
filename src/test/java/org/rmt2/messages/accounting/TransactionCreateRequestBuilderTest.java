@@ -56,9 +56,9 @@ public class TransactionCreateRequestBuilderTest {
                 .withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
         
-        TransactionDetailGroup criteria = fact.createTransactionDetailGroup();
+        TransactionDetailGroup data = fact.createTransactionDetailGroup();
         XactListType xlt = fact.createXactListType();
-        criteria.setTransactions(xlt);
+        data.setTransactions(xlt);
         XactType xt = fact.createXactType();
         xlt.getTransaction().add(xt);
         XactLineitemListType xlilt = fact.createXactLineitemListType();
@@ -93,7 +93,7 @@ public class TransactionCreateRequestBuilderTest {
         .add(XactItemTypeBuilder.Builder.create().withXactTypeItemActvId(0).withAmount(20)
                 .withXactId(0).withItemId(605).withItemTypeId(7005)
                 .withDescription("item5").build());
-        req.setProfile(criteria);
+        req.setProfile(data);
         req.setHeader(head);
         
         String xml = jaxb.marshalJsonMessage(req);
