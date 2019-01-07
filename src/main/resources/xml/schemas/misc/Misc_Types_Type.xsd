@@ -65,4 +65,17 @@
 			<xsd:enumeration value="GREATER THAN OR EQUAL"/>
 		</xsd:restriction>
 	</xsd:simpleType>
+	
+	<xsd:simpleType name="string_search_pattern_type">
+		<xsd:annotation>
+			<xsd:documentation>Used to indicate a specified search pattern for String values.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="BEGIN"/>
+			<xsd:enumeration value="END"/>
+			<xsd:enumeration value="CONTAIN"/>
+			<xsd:enumeration value="EXACT"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
 </xsd:schema>
