@@ -9,50 +9,41 @@
 package org.rmt2.jaxb;
 
 import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for contacttype_type.
+ * <p>Java class for string_search_pattern_type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
  * <pre>
- * &lt;simpleType name="contacttype_type">
+ * &lt;simpleType name="string_search_pattern_type">
  *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *     &lt;enumeration value="per"/>
- *     &lt;enumeration value="bus"/>
+ *     &lt;enumeration value="BEGIN"/>
+ *     &lt;enumeration value="END"/>
+ *     &lt;enumeration value="CONTAIN"/>
+ *     &lt;enumeration value="EXACT"/>
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
  * 
  */
-@XmlType(name = "contacttype_type")
+@XmlType(name = "string_search_pattern_type")
 @XmlEnum
-public enum ContacttypeType {
+public enum StringSearchPatternType {
 
-    @XmlEnumValue("per")
-    PER("per"),
-    @XmlEnumValue("bus")
-    BUS("bus");
-    private final String value;
-
-    ContacttypeType(String v) {
-        value = v;
-    }
+    BEGIN,
+    END,
+    CONTAIN,
+    EXACT;
 
     public String value() {
-        return value;
+        return name();
     }
 
-    public static ContacttypeType fromValue(String v) {
-        for (ContacttypeType c: ContacttypeType.values()) {
-            if (c.value.equals(v)) {
-                return c;
-            }
-        }
-        throw new IllegalArgumentException(v);
+    public static StringSearchPatternType fromValue(String v) {
+        return valueOf(v);
     }
 
 }
