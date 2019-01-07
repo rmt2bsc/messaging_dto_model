@@ -72,6 +72,7 @@ public class ApiTransactionCodes {
     public static final String ACCOUNTING_TRANSACTION_REVERSE = "REVERSE_TRANSACTION";
     public static final String ACCOUNTING_CASHDISBURSE_GET = "GET_CASH_DISBURSEMENT";
     public static final String ACCOUNTING_CASHDISBURSE_CREATE = "CREATE_CASH_DISBURSEMENT";
+    public static final String ACCOUNTING_CASHDISBURSE_CREDITOR_CREATE = "CREATE_CASH_DISBURSEMENT_CREDITOR";
     
     public static final String ACCOUNTING_TRANSACTION_BY_ID_GET = "GET_TRANS_BY_ID";
     
