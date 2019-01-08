@@ -1,4 +1,4 @@
-package org.rmt2.messages.accounting;
+package org.rmt2.messages.accounting.common;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -26,7 +26,7 @@ import com.api.config.SystemConfigurator;
 import com.api.util.RMT2Date;
 import com.api.xml.jaxb.JaxbUtil;
 
-public class CashDisbursementCreateRequestBuilderTest {
+public class TransactionCreateRequestBuilderTest {
 
     private JaxbUtil jaxb;
     
@@ -52,7 +52,7 @@ public class CashDisbursementCreateRequestBuilderTest {
                 .withDeliveryDate(new Date())
                 
                 // Set these header elements with dummy values in order to be properly assigned later.
-                .withTransaction(ApiTransactionCodes.ACCOUNTING_CASHDISBURSE_CREATE)
+                .withTransaction(ApiTransactionCodes.ACCOUNTING_TRANSACTION_CREATE)
                 .withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
         
@@ -68,7 +68,7 @@ public class CashDisbursementCreateRequestBuilderTest {
         xt.setXactType(XacttypeTypeBuilder.Builder.create().withXactTypeId(60).build());
         xt.setXactAmount(BigDecimal.valueOf(100.00));
         xt.setXactDate(RMT2Date.toXmlDate("2018-12-01"));
-        xt.setXactReason("Test creating a cash disbursement transaction via message handler");
+        xt.setXactReason("Test creating a transaction via message handler");
         xt.setConfirmNo("ADB-49384343");
         xt.setNegInstrNo("1111-1111-1111-1111");
         xt.setTenderId(BigInteger.valueOf(100));
@@ -94,12 +94,11 @@ public class CashDisbursementCreateRequestBuilderTest {
                 .withXactId(0).withItemId(605).withItemTypeId(7005)
                 .withDescription("item5").build());
         req.setProfile(data);
-        
         req.setHeader(head);
         
         String xml = jaxb.marshalJsonMessage(req);
         System.out.println(xml);
         Assert.assertNotNull(xml);
-        Assert.assertTrue(xml.contains(ApiTransactionCodes.ACCOUNTING_CASHDISBURSE_CREATE));
+        Assert.assertTrue(xml.contains(ApiTransactionCodes.ACCOUNTING_TRANSACTION_CREATE));
     }
   }

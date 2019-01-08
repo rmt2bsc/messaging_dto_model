@@ -1,4 +1,4 @@
-package org.rmt2.messages.accounting;
+package org.rmt2.messages.accounting.disbursements;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -26,7 +26,7 @@ import com.api.config.SystemConfigurator;
 import com.api.util.RMT2Date;
 import com.api.xml.jaxb.JaxbUtil;
 
-public class TransactionReverseRequestBuilderTest {
+public class CashDisbursementCreateRequestBuilderTest {
 
     private JaxbUtil jaxb;
     
@@ -52,23 +52,23 @@ public class TransactionReverseRequestBuilderTest {
                 .withDeliveryDate(new Date())
                 
                 // Set these header elements with dummy values in order to be properly assigned later.
-                .withTransaction(ApiTransactionCodes.ACCOUNTING_TRANSACTION_REVERSE)
+                .withTransaction(ApiTransactionCodes.ACCOUNTING_CASHDISBURSE_CREATE)
                 .withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
         
-        TransactionDetailGroup criteria = fact.createTransactionDetailGroup();
+        TransactionDetailGroup data = fact.createTransactionDetailGroup();
         XactListType xlt = fact.createXactListType();
-        criteria.setTransactions(xlt);
+        data.setTransactions(xlt);
         XactType xt = fact.createXactType();
         xlt.getTransaction().add(xt);
         XactLineitemListType xlilt = fact.createXactLineitemListType();
         xt.setLineitems(xlilt);
         
-        xt.setXactId(BigInteger.valueOf(1234567));
+        xt.setXactId(BigInteger.valueOf(0));
         xt.setXactType(XacttypeTypeBuilder.Builder.create().withXactTypeId(60).build());
         xt.setXactAmount(BigDecimal.valueOf(100.00));
         xt.setXactDate(RMT2Date.toXmlDate("2018-12-01"));
-        xt.setXactReason("Test reversing a transaction via message handler");
+        xt.setXactReason("Test creating a cash disbursement transaction via message handler");
         xt.setConfirmNo("ADB-49384343");
         xt.setNegInstrNo("1111-1111-1111-1111");
         xt.setTenderId(BigInteger.valueOf(100));
@@ -93,12 +93,13 @@ public class TransactionReverseRequestBuilderTest {
         .add(XactItemTypeBuilder.Builder.create().withXactTypeItemActvId(0).withAmount(20)
                 .withXactId(0).withItemId(605).withItemTypeId(7005)
                 .withDescription("item5").build());
-        req.setProfile(criteria);
+        req.setProfile(data);
+        
         req.setHeader(head);
         
         String xml = jaxb.marshalJsonMessage(req);
         System.out.println(xml);
         Assert.assertNotNull(xml);
-        Assert.assertTrue(xml.contains(ApiTransactionCodes.ACCOUNTING_TRANSACTION_REVERSE));
+        Assert.assertTrue(xml.contains(ApiTransactionCodes.ACCOUNTING_CASHDISBURSE_CREATE));
     }
   }

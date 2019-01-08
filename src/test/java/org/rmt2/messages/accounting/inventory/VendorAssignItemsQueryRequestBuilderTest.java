@@ -1,4 +1,4 @@
-package org.rmt2.messages.accounting;
+package org.rmt2.messages.accounting.inventory;
 
 import java.math.BigInteger;
 import java.util.Date;
@@ -9,21 +9,18 @@ import org.junit.Test;
 import org.rmt2.constants.ApiHeaderNames;
 import org.rmt2.constants.ApiTransactionCodes;
 import org.rmt2.constants.MessagingConstants;
-import org.rmt2.jaxb.AccountingTransactionRequest;
 import org.rmt2.jaxb.HeaderType;
+import org.rmt2.jaxb.InventoryCriteriaGroup;
+import org.rmt2.jaxb.InventoryRequest;
 import org.rmt2.jaxb.ObjectFactory;
-import org.rmt2.jaxb.TransactionCriteriaGroup;
-import org.rmt2.jaxb.XactBasicCriteriaType;
-import org.rmt2.jaxb.XactCriteriaType;
-import org.rmt2.jaxb.XactCustomCriteriaTargetType;
-import org.rmt2.jaxb.XactCustomRelationalCriteriaType;
+import org.rmt2.jaxb.VendorItemCriteriaType;
 import org.rmt2.util.HeaderTypeBuilder;
 
 import com.api.config.ConfigConstants;
 import com.api.config.SystemConfigurator;
 import com.api.xml.jaxb.JaxbUtil;
 
-public class TransactionQueryRequestBuilderTest {
+public class VendorAssignItemsQueryRequestBuilderTest {
 
     private JaxbUtil jaxb;
     
@@ -36,47 +33,37 @@ public class TransactionQueryRequestBuilderTest {
             jaxb = new JaxbUtil(MessagingConstants.JAXB_RMT2_PKG);
         }
     }
-    
+
+
     @Test
     public void testBuildRequest() {
         ObjectFactory fact = new ObjectFactory();
-        AccountingTransactionRequest req = fact.createAccountingTransactionRequest();
+        InventoryRequest req = fact.createInventoryRequest();
         
         HeaderType head =  HeaderTypeBuilder.Builder.create()
                 .withApplication("accounting")
-                .withModule("transaction")
+                .withModule("inventory")
                 .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
                 .withDeliveryDate(new Date())
                 
                 // Set these header elements with dummy values in order to be properly assigned later.
-                .withTransaction(ApiTransactionCodes.ACCOUNTING_TRANSACTION_GET)
+                .withTransaction(ApiTransactionCodes.INVENTORY_VENDOR_ASSIGNED_ITEMS_GET)
                 .withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
         
-        XactCriteriaType criteria = fact.createXactCriteriaType();
-        criteria.setTargetLevel(XactCustomCriteriaTargetType.FULL);
-        XactBasicCriteriaType xb = fact.createXactBasicCriteriaType();
-        xb.setXactId(BigInteger.valueOf(34567));
-        xb.setAccountNo("123-345-678");
-        xb.setBusinessName("ABC Complay");
-        xb.setXactDate("2018-12-01");
-        xb.setInvoiceNo("1234566");
-        xb.setConfirmNo("ADB-49384343");
-        xb.setTenderId(BigInteger.valueOf(100));
         
-        XactCustomRelationalCriteriaType customCriteria = fact.createXactCustomRelationalCriteriaType();
+        VendorItemCriteriaType criteria = fact.createVendorItemCriteriaType();
+        criteria.setCreditorId(BigInteger.valueOf(1234567));
         
-        criteria.setBasicCriteria(xb);
-        criteria.setCustomCriteria(customCriteria);
-        
-        TransactionCriteriaGroup criteriaGroup = fact.createTransactionCriteriaGroup();
-        criteriaGroup.setXactCriteria(criteria);
+        InventoryCriteriaGroup criteriaGroup = fact.createInventoryCriteriaGroup();
+        criteriaGroup.setVendorItemCriteria(criteria);
         req.setCriteria(criteriaGroup);
         req.setHeader(head);
         
         String xml = jaxb.marshalJsonMessage(req);
         System.out.println(xml);
         Assert.assertNotNull(xml);
-        Assert.assertTrue(xml.contains(ApiTransactionCodes.ACCOUNTING_TRANSACTION_GET));
+        Assert.assertTrue(xml.contains(ApiTransactionCodes.INVENTORY_VENDOR_ASSIGNED_ITEMS_GET));
     }
-  }
+
+}

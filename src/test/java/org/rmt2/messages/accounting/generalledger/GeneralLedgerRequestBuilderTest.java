@@ -1,4 +1,4 @@
-package org.rmt2.messages.accounting;
+package org.rmt2.messages.accounting.generalledger;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
