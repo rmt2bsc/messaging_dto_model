@@ -551,18 +551,76 @@
 
 	<xsd:complexType name="xact_basic_criteria_type">
 		<xsd:sequence>
-			<xsd:element name="xactId" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
-			<xsd:element name="business_name" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-			<xsd:element name="account_no" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-			<xsd:element name="xact_amount" type="xsd:decimal" minOccurs="0" maxOccurs="1"/>
-			<xsd:element name="xact_date" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-			<xsd:element name="xact_reason" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-			<xsd:element name="xact_subtype_id" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
-			<xsd:element name="xact_catg_id" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
-			<xsd:element name="xact_type_id" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
-			<xsd:element name="tender_id" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
-			<xsd:element name="confirm_no" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-			<xsd:element name="invoice_no" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="xact_id" type="xsd:integer" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>This is the unique identifier which is mapped to the transaction id</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="subsidiary_id" type="xsd:integer" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>This is the unique identifier which is mapped to either the creditor id or customer id of a subsidiary entity</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="contact_id" type="xsd:integer" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The unique identifier which is mapped to either the business id or the person id pertaining to a contact entity</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="business_name" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The business name that is mapped to long name of the business contact</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="account_no" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The internal account number of the business contact</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="xact_amount" type="xsd:decimal" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The transaction amount</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="xact_date" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The date of the transaction</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="xact_reason" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>A description detailing the reason for the transaction or the identity of the transaction</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="xact_type_id" type="xsd:integer" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The transacton type id</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="xact_subtype_id" type="xsd:integer" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The transaction's sub type id</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="xact_catg_id" type="xsd:integer" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The transaction's category</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="tender_id" type="xsd:integer" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The id of the tender type used to secure the transaction amount</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="confirm_no" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The unique identifier that was generated to represent the completion of the transaction</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="invoice_no" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The unique identifier that was generated to indicate the transaction has been invoiced</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
 		</xsd:sequence>
 	</xsd:complexType>
 
