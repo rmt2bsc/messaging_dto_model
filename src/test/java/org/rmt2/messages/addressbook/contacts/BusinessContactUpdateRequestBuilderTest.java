@@ -1,4 +1,4 @@
-package org.rmt2.messages.addressbook;
+package org.rmt2.messages.addressbook.contacts;
 
 import java.math.BigInteger;
 import java.util.Date;
@@ -11,9 +11,7 @@ import org.rmt2.constants.ApiTransactionCodes;
 import org.rmt2.constants.MessagingConstants;
 import org.rmt2.jaxb.AddressBookRequest;
 import org.rmt2.jaxb.AddressType;
-import org.rmt2.jaxb.BusinessContactCriteria;
 import org.rmt2.jaxb.BusinessType;
-import org.rmt2.jaxb.ContactCriteriaGroup;
 import org.rmt2.jaxb.ContactDetailGroup;
 import org.rmt2.jaxb.HeaderType;
 import org.rmt2.jaxb.ObjectFactory;
@@ -24,7 +22,7 @@ import com.api.config.ConfigConstants;
 import com.api.config.SystemConfigurator;
 import com.api.xml.jaxb.JaxbUtil;
 
-public class BusinessContactRequestBuilderTest {
+public class BusinessContactUpdateRequestBuilderTest {
 
     private JaxbUtil jaxb;
     
@@ -37,42 +35,9 @@ public class BusinessContactRequestBuilderTest {
             jaxb = new JaxbUtil(MessagingConstants.JAXB_RMT2_PKG);
         }
     }
-    
+   
     @Test
-    public void testBuildBusinessContactQueryRequest() {
-        ObjectFactory fact = new ObjectFactory();
-        AddressBookRequest req = fact.createAddressBookRequest();
-        
-        HeaderType head =  HeaderTypeBuilder.Builder.create()
-                .withApplication("App Name")
-                .withModule(ConfigConstants.API_APP_MODULE_VALUE)
-                .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
-                .withDeliveryDate(new Date())
-                
-                // Set these header elements with dummy values in order to be properly assigned later.
-                .withTransaction(ApiTransactionCodes.CONTACTS_GET)
-                .withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
-                .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
-        
-        ContactCriteriaGroup ccg = fact.createContactCriteriaGroup();
-        BusinessContactCriteria criteria = fact.createBusinessContactCriteria();
-        criteria.setBusinessName("ABC Company");
-        criteria.setContactFname("john");
-        criteria.setContactLname("smith");
-        criteria.setContactEmail("johnn.smith@gte.net");
-        ccg.setBusinessCriteria(criteria);
-        req.setCriteria(ccg);
-        req.setHeader(head);
-        
-        String xml = jaxb.marshalJsonMessage(req);
-        System.out.println(xml);
-        Assert.assertNotNull(xml);
-        Assert.assertTrue(xml.contains(ApiTransactionCodes.CONTACTS_GET));
-    }
- 
-    
-    @Test
-    public void testBuildBusinessContactUpdateRequest() {
+    public void testBuildRequest() {
         ObjectFactory fact = new ObjectFactory();
         AddressBookRequest req = fact.createAddressBookRequest();
         
