@@ -75,9 +75,10 @@ public class ApiTransactionCodes {
     public static final String ACCOUNTING_CASHDISBURSE_CREDITOR_CREATE = "CREATE_CASH_DISBURSEMENT_CREDITOR";
     public static final String ACCOUNTING_CREDITPURCHASE_GET = "GET_CREDITOR_PURCHASES";
     public static final String ACCOUNTING_CREDITPURCHASE_CREATE = "CREATE_CREDITOR_PURCHASES";
+    public static final String ACCOUNTING_CASHRECEIPT_GET = "GET_CASH_RECEIPT";
+    public static final String ACCOUNTING_CASHRECEIPT_CREATE = "CREATE_CASH_RECEIPT";
     
     public static final String ACCOUNTING_TRANSACTION_BY_ID_GET = "GET_TRANS_BY_ID";
-    
     
     
     public static final String ACCOUNTING_SALESORDER_CREATE = "CREATE_SALES_ORDER";
