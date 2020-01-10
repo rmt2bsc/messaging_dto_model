@@ -350,14 +350,56 @@
 
 	<xsd:complexType name="sales_order_criteria">
 		<xsd:sequence>
-			<xsd:element name="target_level" type="xact_custom_criteria_target_type" minOccurs="1" maxOccurs="1"/>
-			<xsd:element name="sales_order_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
-			<xsd:element name="customer_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
-			<xsd:element name="account_no" type="xsd:string" minOccurs="1" maxOccurs="1"/>
-			<xsd:element name="business_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
-			<xsd:element name="business_name" type="xsd:string" minOccurs="1" maxOccurs="1"/>
-			<xsd:element name="tax_id" type="xsd:string" minOccurs="1" maxOccurs="1"/>
-			<xsd:element name="phone" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="target_level" type="xact_custom_criteria_target_type" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Indicates the amount of detail to include in the response XML.  Valid values: HEADER=header info only, DETAILS=detail info only, FULL=include header and details </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="sales_order_id" type="xsd:integer" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Unique identifier of the sales order</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="customer_id" type="xsd:integer" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Unique identifier of the customer</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="account_no" type="xsd:string" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The customer's account number</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="business_id" type="xsd:integer" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The unique identifier pointing to the customer's business contact data</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="business_name" type="xsd:string" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The customer's business contact name</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="tax_id" type="xsd:string" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The customer's EIN (Employer Identification Number) or TIN (Tax Indentification Number)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="phone" type="xsd:string" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The customer's phone number</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="invoice_on_sales_order_creation" type="xsd:boolean" minOccurs="1" maxOccurs="1" default="false">
+				<xsd:annotation>
+					<xsd:documentation>Indicates whether or not to invoice sales order immediately after the sales order is created.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="apply_payment_on_sales_order_creation" type="xsd:boolean" minOccurs="1" maxOccurs="1" default="false">
+				<xsd:annotation>
+					<xsd:documentation>Indicates whether or not to recognize cash receipt on sales order immediately after the sales order is created.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
 		</xsd:sequence>
 	</xsd:complexType>
 

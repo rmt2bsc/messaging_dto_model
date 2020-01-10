@@ -31,7 +31,7 @@ public class ApiTransactionCodes {
     public static final String GL_ACCOUNT_CATG_GET = "GET_GL_ACCOUNT_CATG";
     public static final String GL_ACCOUNT_CATG_UPDATE = "UPDATE_GL_ACCOUNT_CATG";
     public static final String GL_ACCOUNT_CATG_DELETE = "DELETE_GL_ACCOUNT_CATG";
-    
+
     // Accounting - Inventory
     public static final String INVENTORY_ITEM_STATUS_GET = "GET_ITEM_STATUS";
     public static final String INVENTORY_ITEM_STATUS_HIST_GET = "GET_ITEM_STATUS_HIST";
@@ -50,7 +50,7 @@ public class ApiTransactionCodes {
     public static final String INVENTORY_VENDOR_ITEM_ASSIGN = "ASSIGN_VENDOR_ITEM";
     public static final String INVENTORY_VENDOR_ITEM_REMOVE = "REMOVE_VENDOR_ITEM";
     public static final String INVENTORY_VENDOR_ITEM_UPDATE = "UPDATE_VENDOR_ITEM";
-    
+
     // Accounting - Subsidiary
     public static final String SUBSIDIARY_CUSTOMER_GET = "GET_CUSTOMER";
     public static final String SUBSIDIARY_CUSTOMER_UPDATE = "UPDATE_CUSTOMER";
@@ -61,11 +61,11 @@ public class ApiTransactionCodes {
     public static final String SUBSIDIARY_CREDITOR_DELETE = "DELETE_CREDITOR";
     public static final String SUBSIDIARY_CREDITOR_TRAN_HIST_GET = "GET_CREDITOR_TRAN_HIST";
     public static final String SUBSIDIARY_CREDITOR_TYPE_GET = "GET_CREDITOR_TYPE";
-    
+
     // Accounting - Transaction Code
     public static final String ACCOUNTING_TRANSACTION_GROUP_GET = "GET_TRANS_GROUP";
     public static final String ACCOUNTING_TRANSACTION_CODE_GET = "GET_TRANS_CODE";
-    
+
     // Accounting - Basic Transaction
     public static final String ACCOUNTING_TRANSACTION_GET = "GET_TRANSACTION";
     public static final String ACCOUNTING_TRANSACTION_CREATE = "CREATE_TRANSACTION";
@@ -77,12 +77,13 @@ public class ApiTransactionCodes {
     public static final String ACCOUNTING_CREDITPURCHASE_CREATE = "CREATE_CREDITOR_PURCHASES";
     public static final String ACCOUNTING_CASHRECEIPT_GET = "GET_CASH_RECEIPT";
     public static final String ACCOUNTING_CASHRECEIPT_CREATE = "CREATE_CASH_RECEIPT";
-    
-    public static final String ACCOUNTING_TRANSACTION_BY_ID_GET = "GET_TRANS_BY_ID";
-    
-    
+
     public static final String ACCOUNTING_SALESORDER_CREATE = "CREATE_SALES_ORDER";
-    
+    public static final String ACCOUNTING_SALESORDER_INVOICE_CREATE = "CREATE_SALES_ORDER_AND_INVOICE";
+    public static final String ACCOUNTING_SALESORDER_INVOICE_PAYMENT_CREATE = "CREATE_SALES_ORDER_AND_INVOICE_AND_CASHRECEIPT";
+
+    public static final String ACCOUNTING_TRANSACTION_BY_ID_GET = "GET_TRANS_BY_ID";
+
     public ApiTransactionCodes() {
         // TODO Auto-generated constructor stub
     }
