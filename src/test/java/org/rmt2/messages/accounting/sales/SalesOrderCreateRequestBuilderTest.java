@@ -152,7 +152,7 @@ public class SalesOrderCreateRequestBuilderTest {
                 .withItemSerialNo("22222222").withMarkup(3).withUnitCost(100.99).withQtyOnHand(20).withVendorItemNo("4444-4839").build();
 
         InventoryItemtypeType iit2 = fact.createInventoryItemtypeType();
-        iit.setItemTypeId(BigInteger.valueOf(222));
+        iit2.setItemTypeId(BigInteger.valueOf(222));
         item2.setItemType(iit2);
 
         SalesOrderItemType soit1 = SalesOrderItemTypeBuilder.Builder.create().withSalesOrderItemId(100).withSalesOrderId(0).withSalesOrderType(item1)
@@ -161,7 +161,7 @@ public class SalesOrderCreateRequestBuilderTest {
                 .withUnitCost(100.99).withMarkup(3).withOrderQty(1).build();
 
         SalesOrderType sot = SalesOrderTypeBuilder.Builder.create().withSalesOrderId(0).withCustomerId(3333).withCustomerName("ABC Company")
-                .withCustomerAcctNo("ACCT-NO-8888").withInvoiced(false).withOrderTotal(123.00).withEffectiveDate(RMT2Date.stringToDate("2020-01-01"))
+                .withCustomerAcctNo("ACCT-NO-8888").withInvoiced(false).withOrderTotal(755.94).withEffectiveDate(RMT2Date.stringToDate("2020-01-01"))
                 .withSalesOrderItem(soit1).withSalesOrderItem(soit2).build();
 
         TransactionDetailGroup data = fact.createTransactionDetailGroup();
