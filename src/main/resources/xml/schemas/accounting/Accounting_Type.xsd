@@ -469,6 +469,11 @@
 					<xsd:documentation>The description of the sales order reason.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
+			<xsd:element name="status" type="sales_order_status_type" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The current status of the sales order.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
 			<xsd:element name="status_history" type="sales_order_status_history_type" minOccurs="0" maxOccurs="unbounded">
 				<xsd:annotation>
 					<xsd:documentation>The status history of this order.</xsd:documentation>
