@@ -1,5 +1,6 @@
 package org.rmt2.messages.accounting.sales;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Date;
 
@@ -19,6 +20,7 @@ import org.rmt2.util.HeaderTypeBuilder;
 
 import com.api.config.ConfigConstants;
 import com.api.config.SystemConfigurator;
+import com.api.util.RMT2Date;
 import com.api.xml.jaxb.JaxbUtil;
 
 public class SalesOrderQueryRequestBuilderTest {
@@ -56,10 +58,10 @@ public class SalesOrderQueryRequestBuilderTest {
         soCriteria.setBusinessId(BigInteger.valueOf(11111));
         soCriteria.setBusinessName("ABC Company");
         soCriteria.setCustomerId(BigInteger.valueOf(222222));
-        soCriteria.setPhone("999-999-9999");
+        soCriteria.setSalesOrderDate(RMT2Date.toXmlDate("2020-01-01-06:00"));
         soCriteria.setSalesOrderId(BigInteger.valueOf(33333));
         soCriteria.setTargetLevel(XactCustomCriteriaTargetType.HEADER);
-        soCriteria.setTaxId("77-7777777");
+        soCriteria.setSalesOrderTotal(BigDecimal.valueOf(1000.00));
         req.setCriteria(criteria);
 
         req.setHeader(head);
@@ -93,10 +95,10 @@ public class SalesOrderQueryRequestBuilderTest {
         soCriteria.setBusinessId(BigInteger.valueOf(11111));
         soCriteria.setBusinessName("ABC Company");
         soCriteria.setCustomerId(BigInteger.valueOf(222222));
-        soCriteria.setPhone("999-999-9999");
+        soCriteria.setSalesOrderDate(RMT2Date.toXmlDate("2020-01-01"));
         soCriteria.setSalesOrderId(BigInteger.valueOf(33333));
         soCriteria.setTargetLevel(XactCustomCriteriaTargetType.DETAILS);
-        soCriteria.setTaxId("77-7777777");
+        soCriteria.setSalesOrderTotal(BigDecimal.valueOf(1000.00));
         req.setCriteria(criteria);
 
         req.setHeader(head);
@@ -130,10 +132,10 @@ public class SalesOrderQueryRequestBuilderTest {
         soCriteria.setBusinessId(BigInteger.valueOf(11111));
         soCriteria.setBusinessName("ABC Company");
         soCriteria.setCustomerId(BigInteger.valueOf(222222));
-        soCriteria.setPhone("999-999-9999");
+        soCriteria.setSalesOrderDate(RMT2Date.toXmlDate("2020-01-01"));
         soCriteria.setSalesOrderId(BigInteger.valueOf(33333));
         soCriteria.setTargetLevel(XactCustomCriteriaTargetType.FULL);
-        soCriteria.setTaxId("77-7777777");
+        soCriteria.setSalesOrderTotal(BigDecimal.valueOf(1000.00));
         req.setCriteria(criteria);
 
         req.setHeader(head);
