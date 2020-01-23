@@ -141,17 +141,6 @@ public class SalesOrderTypeBuilder {
             return this;
         }
 
-        /**
-         * Set up invoiced.
-         * 
-         * @param invoiced
-         *            flag indicating if sales order is invoiced
-         * @return Non-null Builder used to continue building the object
-         */
-        public Builder withCustomerAcctNo(boolean invoiced) {
-            this.invoiced = invoiced;
-            return this;
-        }
 
         /**
          * Set up orderTotal.
