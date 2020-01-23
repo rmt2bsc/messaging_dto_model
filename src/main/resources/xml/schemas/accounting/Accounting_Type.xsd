@@ -380,12 +380,12 @@
 					<xsd:documentation>The customer's business contact name</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="tax_id" type="xsd:string" minOccurs="1" maxOccurs="1">
+			<xsd:element name="sales_order_date" type="xsd:date" minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The customer's EIN (Employer Identification Number) or TIN (Tax Indentification Number)</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="phone" type="xsd:string" minOccurs="1" maxOccurs="1">
+			<xsd:element name="sales_order_total" type="xsd:decimal" minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The customer's phone number</xsd:documentation>
 				</xsd:annotation>
