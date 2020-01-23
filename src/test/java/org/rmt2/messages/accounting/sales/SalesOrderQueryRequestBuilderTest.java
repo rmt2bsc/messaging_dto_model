@@ -11,12 +11,20 @@ import org.rmt2.constants.ApiHeaderNames;
 import org.rmt2.constants.ApiTransactionCodes;
 import org.rmt2.constants.MessagingConstants;
 import org.rmt2.jaxb.AccountingTransactionRequest;
+import org.rmt2.jaxb.AccountingTransactionResponse;
 import org.rmt2.jaxb.HeaderType;
 import org.rmt2.jaxb.ObjectFactory;
+import org.rmt2.jaxb.RecordTrackingType;
 import org.rmt2.jaxb.SalesOrderCriteria;
+import org.rmt2.jaxb.SalesOrderItemType;
+import org.rmt2.jaxb.SalesOrderType;
 import org.rmt2.jaxb.TransactionCriteriaGroup;
+import org.rmt2.jaxb.TransactionDetailGroup;
 import org.rmt2.jaxb.XactCustomCriteriaTargetType;
 import org.rmt2.util.HeaderTypeBuilder;
+import org.rmt2.util.RecordTrackingTypeBuilder;
+import org.rmt2.util.accounting.transaction.sales.SalesOrderItemTypeBuilder;
+import org.rmt2.util.accounting.transaction.sales.SalesOrderTypeBuilder;
 
 import com.api.config.ConfigConstants;
 import com.api.config.SystemConfigurator;
@@ -147,4 +155,76 @@ public class SalesOrderQueryRequestBuilderTest {
         Assert.assertTrue(xml.contains("<target_level>FULL</target_level>"));
     }
 
+    @Test
+    public void testBuildFullResponse() {
+        ObjectFactory fact = new ObjectFactory();
+        AccountingTransactionResponse req = fact.createAccountingTransactionResponse();
+
+        HeaderType head = HeaderTypeBuilder.Builder.create().withApplication("accounting").withModule("transaction")
+                .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
+                .withDeliveryDate(new Date())
+
+                // Set these header elements with dummy values in order to be
+                // properly assigned later.
+                .withTransaction(ApiTransactionCodes.ACCOUNTING_SALESORDER_GET).withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
+                .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
+
+        RecordTrackingType tracking = RecordTrackingTypeBuilder.Builder.create()
+                .withDateCreated(RMT2Date.stringToDate("2020-01-01"))
+                .withDateUpdate(RMT2Date.stringToDate("2020-01-01"))
+                .withUserId("testuser")
+                .build();
+
+        SalesOrderItemType item1 = SalesOrderItemTypeBuilder.Builder.create()
+                .withSalesOrderItemId(4321)
+                .withSalesOrderId(777777)
+                .withBackOrderQty(0)
+                .withMarkup(2)
+                .withUnitCost(100.00)
+                .withOrderQty(3)
+                .withRecordTracking(tracking)
+                .build();
+        SalesOrderItemType item2 = SalesOrderItemTypeBuilder.Builder.create()
+                .withSalesOrderItemId(5432)
+                .withSalesOrderId(777777)
+                .withBackOrderQty(0)
+                .withMarkup(2)
+                .withUnitCost(100.00)
+                .withOrderQty(2)
+                .withRecordTracking(tracking)
+                .build();
+
+        RecordTrackingType tracking2 = RecordTrackingTypeBuilder.Builder.create()
+                .withDateCreated(RMT2Date.stringToDate("2020-01-01"))
+                .withDateUpdate(RMT2Date.stringToDate("2020-02-01"))
+                .withUserId("testuser")
+                .build();
+        SalesOrderType so = SalesOrderTypeBuilder.Builder.create()
+                .withCustomerAcctNo("111-111-111")
+                .withInvoiced(false)
+                .withSalesOrderId(777777)
+                .withCustomerId(1111111)
+                .withCustomerName("ABC Company")
+                .withOrderTotal(1000.00)
+                .withEffectiveDate(RMT2Date.stringToDate("2020-01-15"))
+                .withStatusId(1)
+                .withStatusDescription("Quote")
+                .withSalesOrderItem(item1)
+                .withSalesOrderItem(item2)
+                .withRecordTracking(tracking2)
+                .build();
+
+        // Build transaction criteria group
+        TransactionDetailGroup profile = fact.createTransactionDetailGroup();
+        profile.setSalesOrders(fact.createSalesOrderListType());
+        profile.getSalesOrders().getSalesOrder().add(so);
+
+        req.setProfile(profile);
+        req.setHeader(head);
+
+        String xml = jaxb.marshalJsonMessage(req);
+        System.out.println(xml);
+        Assert.assertNotNull(xml);
+        Assert.assertTrue(xml.contains(ApiTransactionCodes.ACCOUNTING_SALESORDER_GET));
+    }
 }
