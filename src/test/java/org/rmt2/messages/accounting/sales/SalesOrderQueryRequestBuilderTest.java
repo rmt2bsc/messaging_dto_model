@@ -35,7 +35,7 @@ public class SalesOrderQueryRequestBuilderTest {
     }
 
     @Test
-    public void testBuildRequestSalesOrder() {
+    public void testBuildRequestSalesOrderHeader() {
         ObjectFactory fact = new ObjectFactory();
         AccountingTransactionRequest req = fact.createAccountingTransactionRequest();
 
@@ -51,6 +51,81 @@ public class SalesOrderQueryRequestBuilderTest {
         // Build transaction criteria group
         TransactionCriteriaGroup criteria = fact.createTransactionCriteriaGroup();
         SalesOrderCriteria soCriteria = fact.createSalesOrderCriteria();
+        criteria.setSalesCriteria(soCriteria);
+        soCriteria.setAccountNo("ACCTNO-1234");
+        soCriteria.setBusinessId(BigInteger.valueOf(11111));
+        soCriteria.setBusinessName("ABC Company");
+        soCriteria.setCustomerId(BigInteger.valueOf(222222));
+        soCriteria.setPhone("999-999-9999");
+        soCriteria.setSalesOrderId(BigInteger.valueOf(33333));
+        soCriteria.setTargetLevel(XactCustomCriteriaTargetType.HEADER);
+        soCriteria.setTaxId("77-7777777");
+        req.setCriteria(criteria);
+
+        req.setHeader(head);
+
+        String xml = jaxb.marshalJsonMessage(req);
+        System.out.println(xml);
+        Assert.assertNotNull(xml);
+        Assert.assertTrue(xml.contains(ApiTransactionCodes.ACCOUNTING_SALESORDER_GET));
+        Assert.assertTrue(xml.contains("<target_level>HEADER</target_level>"));
+    }
+
+    @Test
+    public void testBuildRequestSalesOrderDetails() {
+        ObjectFactory fact = new ObjectFactory();
+        AccountingTransactionRequest req = fact.createAccountingTransactionRequest();
+
+        HeaderType head = HeaderTypeBuilder.Builder.create().withApplication("accounting").withModule("transaction")
+                .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
+                .withDeliveryDate(new Date())
+
+                // Set these header elements with dummy values in order to be
+                // properly assigned later.
+                .withTransaction(ApiTransactionCodes.ACCOUNTING_SALESORDER_GET).withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
+                .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
+
+        // Build transaction criteria group
+        TransactionCriteriaGroup criteria = fact.createTransactionCriteriaGroup();
+        SalesOrderCriteria soCriteria = fact.createSalesOrderCriteria();
+        criteria.setSalesCriteria(soCriteria);
+        soCriteria.setAccountNo("ACCTNO-1234");
+        soCriteria.setBusinessId(BigInteger.valueOf(11111));
+        soCriteria.setBusinessName("ABC Company");
+        soCriteria.setCustomerId(BigInteger.valueOf(222222));
+        soCriteria.setPhone("999-999-9999");
+        soCriteria.setSalesOrderId(BigInteger.valueOf(33333));
+        soCriteria.setTargetLevel(XactCustomCriteriaTargetType.DETAILS);
+        soCriteria.setTaxId("77-7777777");
+        req.setCriteria(criteria);
+
+        req.setHeader(head);
+
+        String xml = jaxb.marshalJsonMessage(req);
+        System.out.println(xml);
+        Assert.assertNotNull(xml);
+        Assert.assertTrue(xml.contains(ApiTransactionCodes.ACCOUNTING_SALESORDER_GET));
+        Assert.assertTrue(xml.contains("<target_level>DETAILS</target_level>"));
+    }
+
+    @Test
+    public void testBuildRequestSalesOrderFull() {
+        ObjectFactory fact = new ObjectFactory();
+        AccountingTransactionRequest req = fact.createAccountingTransactionRequest();
+
+        HeaderType head = HeaderTypeBuilder.Builder.create().withApplication("accounting").withModule("transaction")
+                .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
+                .withDeliveryDate(new Date())
+
+                // Set these header elements with dummy values in order to be
+                // properly assigned later.
+                .withTransaction(ApiTransactionCodes.ACCOUNTING_SALESORDER_GET).withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
+                .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
+
+        // Build transaction criteria group
+        TransactionCriteriaGroup criteria = fact.createTransactionCriteriaGroup();
+        SalesOrderCriteria soCriteria = fact.createSalesOrderCriteria();
+        criteria.setSalesCriteria(soCriteria);
         soCriteria.setAccountNo("ACCTNO-1234");
         soCriteria.setBusinessId(BigInteger.valueOf(11111));
         soCriteria.setBusinessName("ABC Company");
@@ -67,6 +142,7 @@ public class SalesOrderQueryRequestBuilderTest {
         System.out.println(xml);
         Assert.assertNotNull(xml);
         Assert.assertTrue(xml.contains(ApiTransactionCodes.ACCOUNTING_SALESORDER_GET));
+        Assert.assertTrue(xml.contains("<target_level>FULL</target_level>"));
     }
 
 }
