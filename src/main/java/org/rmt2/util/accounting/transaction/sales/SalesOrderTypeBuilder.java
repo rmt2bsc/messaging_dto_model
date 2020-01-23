@@ -14,6 +14,7 @@ import org.rmt2.jaxb.SalesInvoiceType;
 import org.rmt2.jaxb.SalesOrderItemListType;
 import org.rmt2.jaxb.SalesOrderItemType;
 import org.rmt2.jaxb.SalesOrderStatusHistoryType;
+import org.rmt2.jaxb.SalesOrderStatusType;
 import org.rmt2.jaxb.SalesOrderType;
 
 import com.api.util.RMT2Date;
@@ -42,6 +43,12 @@ public class SalesOrderTypeBuilder {
         subject.setInvoiced(builder.invoiced);
         subject.setOrderTotal(builder.orderTotal);
         subject.setEffectiveDate(builder.effectiveDate);
+
+        // Setup sales order status object
+        SalesOrderStatusType sost = f.createSalesOrderStatusType();
+        sost.setStatusId(builder.statusId);
+        sost.setDescription(builder.statusDescription);
+        subject.setStatus(sost);
 
         // Ensure every sales order status history item points to this sales
         // order object
@@ -72,6 +79,8 @@ public class SalesOrderTypeBuilder {
         private String customerAcctNo;
         private boolean invoiced;
         private BigDecimal orderTotal;
+        private BigInteger statusId;
+        private String statusDescription;
         private XMLGregorianCalendar effectiveDate;
         private List<SalesOrderStatusHistoryType> statusHist;
         private SalesOrderItemListType salesOrderItems;
@@ -114,6 +123,29 @@ public class SalesOrderTypeBuilder {
          */
         public Builder withCustomerId(int customerId) {
             this.customerId = BigInteger.valueOf(customerId);
+            return this;
+        }
+
+        /**
+         * Set up statusId.
+         * 
+         * @param statusId
+         *            an int value
+         * @return Non-null Builder used to continue building the object
+         */
+        public Builder withStatusId(int statusId) {
+            this.statusId = BigInteger.valueOf(statusId);
+            return this;
+        }
+
+        /**
+         * Set up status description
+         * 
+         * @param statusDescription
+         * @return
+         */
+        public Builder withStatusDescription(String statusDescription) {
+            this.statusDescription = statusDescription;
             return this;
         }
 
