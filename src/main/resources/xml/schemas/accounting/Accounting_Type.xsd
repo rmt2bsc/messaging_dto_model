@@ -929,6 +929,12 @@
 
 	<xsd:complexType name="transaction_detail_group">
 		<xsd:sequence>
+			<xsd:element name="company" type="business_type" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The main compnay's details</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
 			<xsd:element name="transactions" type="xact_list_type" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The genreal transaction details</xsd:documentation>
