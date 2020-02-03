@@ -559,7 +559,7 @@
 					<xsd:documentation>This is the primary key.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="sales_order" type="sales_order_type" minOccurs="1" maxOccurs="1">
+			<xsd:element name="sales_order_id" type="xsd:integer" minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>A message describing the results of invoicing the sales order.</xsd:documentation>
 				</xsd:annotation>

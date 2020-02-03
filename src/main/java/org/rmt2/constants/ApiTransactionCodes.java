@@ -89,6 +89,7 @@ public class ApiTransactionCodes {
     public static final String ACCOUNTING_SALESORDER_DELETE = "DELETE_SALES_ORDER";
     public static final String ACCOUNTING_SALESORDER_CANCEL = "CANCEL_SALES_ORDER";
     public static final String ACCOUNTING_SALESORDER_REFUND = "REFUND_SALES_ORDER";
+    public static final String ACCOUNTING_SALESORDER_PRINT = "PRINT_SALES_ORDER";
 
     public static final String ACCOUNTING_TRANSACTION_BY_ID_GET = "GET_TRANS_BY_ID";
 
