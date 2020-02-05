@@ -60,7 +60,7 @@ public class SalesOrderTypeBuilder {
 
         // Ensure Invoice Details object is assigned the sales order object
         if (builder.invoiceDetails != null) {
-            builder.invoiceDetails.setSalesOrder(subject);
+            builder.invoiceDetails.setSalesOrderId(subject.getSalesOrderId());
         }
         subject.setInvoiceDetails(builder.invoiceDetails);
         subject.setTracking(builder.tracking);

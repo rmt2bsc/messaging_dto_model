@@ -6,7 +6,6 @@ import java.math.BigInteger;
 import org.rmt2.jaxb.ObjectFactory;
 import org.rmt2.jaxb.RecordTrackingType;
 import org.rmt2.jaxb.SalesInvoiceType;
-import org.rmt2.jaxb.SalesOrderType;
 import org.rmt2.jaxb.XactType;
 
 import com.api.util.assistants.Verifier;
@@ -28,7 +27,7 @@ public class SalesInvoiceTypeBuilder {
         ObjectFactory f = new ObjectFactory();
         subject = f.createSalesInvoiceType();
         subject.setInvoiceId(builder.invoiceId);
-        subject.setSalesOrder(builder.salesOrder);
+        subject.setSalesOrderId(builder.salesOrder);
         subject.setTransaction(builder.transaction);
         subject.setInvoiceNo(builder.invoiceNo);
         subject.setItemCount(builder.itemCount);
@@ -44,7 +43,7 @@ public class SalesInvoiceTypeBuilder {
      */
     public static final class Builder {
         private BigInteger invoiceId;
-        private SalesOrderType salesOrder;
+        private BigInteger salesOrder;
         private XactType transaction;
         private String invoiceNo;
         private BigInteger itemCount;
@@ -80,12 +79,12 @@ public class SalesInvoiceTypeBuilder {
         /**
          * Set up salesOrder.
          * 
-         * @param salesOrder
-         *            Sales Order Type
+         * @param salesOrderId
+         *            Sales Order Id
          * @return Non-null Builder used to continue building the object
          */
-        public Builder withSalesOrderType(SalesOrderType salesOrder) {
-            this.salesOrder = salesOrder;
+        public Builder withSalesOrderId(int salesOrderId) {
+            this.salesOrder = BigInteger.valueOf(salesOrderId);
             return this;
         }
 
@@ -132,7 +131,7 @@ public class SalesInvoiceTypeBuilder {
          *            BigDecimal
          * @return Non-null Builder used to continue building the object
          */
-        public Builder withUnitCost(double invoiceTotal) {
+        public Builder withInvoiceTotal(double invoiceTotal) {
             this.invoiceTotal = BigDecimal.valueOf(invoiceTotal);
             return this;
         }
