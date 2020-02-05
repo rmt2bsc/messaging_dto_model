@@ -466,7 +466,7 @@
 			</xsd:element>
 			<xsd:element name="effective_date" type="xsd:date" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
-					<xsd:documentation>The description of the sales order reason.</xsd:documentation>
+					<xsd:documentation>The date sales order became effective.   Basically it is the sales order date.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
 			<xsd:element name="status" type="sales_order_status_type" minOccurs="1" maxOccurs="1">
