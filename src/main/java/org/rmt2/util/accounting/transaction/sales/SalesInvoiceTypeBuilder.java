@@ -2,12 +2,16 @@ package org.rmt2.util.accounting.transaction.sales;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.Date;
+
+import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.rmt2.jaxb.ObjectFactory;
 import org.rmt2.jaxb.RecordTrackingType;
 import org.rmt2.jaxb.SalesInvoiceType;
 import org.rmt2.jaxb.XactType;
 
+import com.api.util.RMT2Date;
 import com.api.util.assistants.Verifier;
 
 /**
@@ -30,6 +34,7 @@ public class SalesInvoiceTypeBuilder {
         subject.setSalesOrderId(builder.salesOrder);
         subject.setTransaction(builder.transaction);
         subject.setInvoiceNo(builder.invoiceNo);
+        subject.setInvoiceDate(builder.invoiceDate);
         subject.setItemCount(builder.itemCount);
         subject.setInvoiceTotal(builder.invoiceTotal);
         subject.setTracking(builder.tracking);
@@ -46,6 +51,7 @@ public class SalesInvoiceTypeBuilder {
         private BigInteger salesOrder;
         private XactType transaction;
         private String invoiceNo;
+        private XMLGregorianCalendar invoiceDate;
         private BigInteger itemCount;
         private BigDecimal invoiceTotal;
         private RecordTrackingType tracking;
@@ -109,6 +115,30 @@ public class SalesInvoiceTypeBuilder {
          */
         public Builder withInvoiceNo(String invoiceNo) {
             this.invoiceNo = (invoiceNo);
+            return this;
+        }
+
+        /**
+         * Set up xactDate.
+         * 
+         * @param invoiceDate
+         *            a Date value
+         * @return Non-null Builder used to continue building the object
+         */
+        public Builder withInvoiceDate(Date invoiceDate) {
+            this.invoiceDate = RMT2Date.toXmlDate(invoiceDate);
+            return this;
+        }
+
+        /**
+         * Set up xactDate.
+         * 
+         * @param invoiceDate
+         *            an String value
+         * @return Non-null Builder used to continue building the object
+         */
+        public Builder withInvoiceDate(String invoiceDate) {
+            this.invoiceDate = RMT2Date.toXmlDate(invoiceDate);
             return this;
         }
 

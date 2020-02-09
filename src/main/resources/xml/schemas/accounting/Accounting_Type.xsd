@@ -574,6 +574,11 @@
 					<xsd:documentation>The invoice reference number of the processed sales order.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
+			<xsd:element name="invoice_date" type="xsd:date" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The date the sales order was invoiced.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
 			<xsd:element name="item_count" type="xsd:integer" default="0" minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The total number of sales order items processed.</xsd:documentation>
