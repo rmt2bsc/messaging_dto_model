@@ -970,23 +970,24 @@
 					<xsd:documentation>The sales order transaction details</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-
-
 			<xsd:element name="xact_codes" type="xact_code_list_type" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The transaction codes</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-
 			<xsd:element name="xact_code_groups" type="xact_code_group_list_type" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The transaction code groups</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-
 			<xsd:element name="xact_categories" type="xact_category_list_type" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The transaction categories</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="attachment" type="report_attachment_type" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Contains details of the report that is to be sent as part of teh response.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
 		</xsd:sequence>
