@@ -111,7 +111,7 @@ public class SalesOrderItemTypeBuilder {
          *            InventoryItemType
          * @return Non-null Builder used to continue building the object
          */
-        public Builder withSalesOrderType(InventoryItemType item) {
+        public Builder withInventoryItem(InventoryItemType item) {
             this.item = item;
             return this;
         }

@@ -155,9 +155,9 @@ public class SalesOrderCreateRequestBuilderTest {
         iit2.setItemTypeId(BigInteger.valueOf(222));
         item2.setItemType(iit2);
 
-        SalesOrderItemType soit1 = SalesOrderItemTypeBuilder.Builder.create().withSalesOrderItemId(100).withSalesOrderId(0).withSalesOrderType(item1)
+        SalesOrderItemType soit1 = SalesOrderItemTypeBuilder.Builder.create().withSalesOrderItemId(100).withSalesOrderId(0).withInventoryItem(item1)
                 .withUnitCost(150.99).withMarkup(3).withOrderQty(1).build();
-        SalesOrderItemType soit2 = SalesOrderItemTypeBuilder.Builder.create().withSalesOrderItemId(200).withSalesOrderId(0).withSalesOrderType(item2)
+        SalesOrderItemType soit2 = SalesOrderItemTypeBuilder.Builder.create().withSalesOrderItemId(200).withSalesOrderId(0).withInventoryItem(item2)
                 .withUnitCost(100.99).withMarkup(3).withOrderQty(1).build();
 
         SalesOrderType sot = SalesOrderTypeBuilder.Builder.create().withSalesOrderId(0).withCustomerId(3333).withCustomerName("ABC Company")

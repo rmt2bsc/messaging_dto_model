@@ -113,6 +113,16 @@ public class ReportAttachmentTypeBuilder {
         }
         
         /**
+         * 
+         * @param returnCode
+         * @return
+         */
+        public Builder withReportContent(byte[] value) {
+            this.reportData = value;
+            return this;
+        }
+
+        /**
          * Completes the building of the ReportAttachmentType
          * 
          * @return an instance of {@link ReportAttachmentType}
