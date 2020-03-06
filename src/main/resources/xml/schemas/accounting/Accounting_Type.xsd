@@ -820,26 +820,106 @@
 
 	<xsd:complexType name="xact_type">
 		<xsd:sequence>
-			<xsd:element name="xact_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
-			<xsd:element name="xact_type" type="xacttype_type" minOccurs="1" maxOccurs="1"/>
-			<xsd:element name="xact_subtype" type="xacttype_type" minOccurs="0" maxOccurs="1"/>
-			<xsd:element name="customer" type="customer_type" minOccurs="0" maxOccurs="1"/>
-			<xsd:element name="creditor" type="creditor_type" minOccurs="0" maxOccurs="1"/>
-			<xsd:element name="xact_code_group" type="xact_code_group_type" minOccurs="0" maxOccurs="1"/>
-			<xsd:element name="xact_code" type="xact_code_type" minOccurs="0" maxOccurs="1"/>
-			<xsd:element name="xact_amount" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
-			<xsd:element name="xact_date" type="xsd:date" minOccurs="1" maxOccurs="1"/>
-			<xsd:element name="posted_date" type="xsd:date" minOccurs="1" maxOccurs="1"/>
-			<xsd:element name="xact_reason" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-			<xsd:element name="entity_ref_no" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-			<xsd:element name="neg_instr_no" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-			<xsd:element name="tender_id" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
-			<xsd:element name="confirm_no" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-			<xsd:element name="document_id" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
-			<xsd:element name="invoice_no" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-			<xsd:element name="bank_trans_ind" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-			<xsd:element name="item_total" type="xsd:decimal" minOccurs="0" maxOccurs="1"/>
-			<xsd:element name="lineitems" type="xact_lineitem_list_type" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="xact_id" type="xsd:integer" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Unique id for the transaction</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="xact_type" type="xacttype_type" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Transaction type complex type of the transaction</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="xact_subtype" type="xacttype_type" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Transaction subtype complex type of the transaction</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="customer" type="customer_type" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Customer complex type of the transaction</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="creditor" type="creditor_type" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Creditor complex type of the transaction</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="xact_code_group" type="xact_code_group_type" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Transaction code group complex type of the transaction</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="xact_code" type="xact_code_type" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Transaction code complex type of the transaction</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="xact_amount" type="xsd:decimal" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The total amount of the transaction</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="xact_date" type="xsd:date" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The date of the transaction</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="posted_date" type="xsd:date" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The date transaction was actually posted</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="xact_reason" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The reason of the transaction.  Sometimes used as the source of transaction</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="entity_ref_no" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>An external reference number representing the transaction.  Sometimes this can be the confirmation number coming fromt he creditor or customer.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="neg_instr_no" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>An external value representing the identity of a ckeck, debit/credit card, money order, cashier's check etc</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="tender_id" type="xsd:integer" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>An identifier representing how the transation was settled: ckeck, debit/credit card, money order, cashier's check etc</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="confirm_no" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The transction's confirmation number</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="document_id" type="xsd:integer" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>An identifier pointing to a document related to this transaction</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="invoice_no" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The invoice number pertaiing to the transaction</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="bank_trans_ind" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Indicates whether or not this is a bank transaction</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="item_total" type="xsd:decimal" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Sum of all line items</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="lineitems" type="xact_lineitem_list_type" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>A complex structure which houses a list of one or more line items of the transaction</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
 			<xsd:element name="account_no" type="xsd:string" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>Typlically used with fetching generic transaction.  The account number of the creditor or customer when available.  Should be null for other transction types.</xsd:documentation>
