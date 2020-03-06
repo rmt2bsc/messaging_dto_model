@@ -840,6 +840,46 @@
 			<xsd:element name="bank_trans_ind" type="xsd:string" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="item_total" type="xsd:decimal" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="lineitems" type="xact_lineitem_list_type" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="account_no" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Typlically used with fetching generic transaction.  The account number of the creditor or customer when available.  Should be null for other transction types.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="business_id" type="xsd:integer" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Typlically used with fetching generic transaction.  The business id of the creditor or customer when available.  Should be null for other transction types.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="business_name" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Typlically used with fetching generic transaction.  The business name of the creditor or customer when available.  Should be null for other transction types.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="parent_entity_id" type="xsd:integer" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Typlically used with fetching generic transaction.  Represents a) customer id for sales order and cash receipts transactions, b) creditor id for creditor/vendor cash disbursment transactions.  Should be null for other transction types.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="special_xact_level_1_id" type="xsd:integer" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Typlically used with fetching generic transaction.  Represents a) sales order id for sales order invoice transactions adn b) purchase order id for vendor purchases transactions. Should be null for other transction types.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="special_xact_level_1_date" type="xsd:dateTime" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Typlically used with fetching generic transaction.  Represents creation date when special_xact_level_1_id is populate.   Should be null for other transction types.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="special_xact_level_2_id" type="xsd:integer" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Typlically used with fetching generic transaction.  Represents a) sales order invoice id for sales order invoice transactions.  Should be null for other transction types.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="special_xact_level_2_date" type="xsd:dateTime" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Typlically used with fetching generic transaction.  Represents sales order invoice creation date when special_xact_level_2_id is populate.   Should be null for other transction types.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
 			<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
 		</xsd:sequence>
 	</xsd:complexType>
