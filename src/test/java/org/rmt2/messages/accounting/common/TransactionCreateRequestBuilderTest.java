@@ -72,6 +72,14 @@ public class TransactionCreateRequestBuilderTest {
         xt.setConfirmNo("ADB-49384343");
         xt.setNegInstrNo("1111-1111-1111-1111");
         xt.setTenderId(BigInteger.valueOf(100));
+        xt.setAccountNo("R-20200109-82");
+        xt.setParentEntityId(BigInteger.valueOf(7777));
+        xt.setSpecialXactLevel1Id(BigInteger.valueOf(4444));
+        xt.setSpecialXactLevel1Date(RMT2Date.toXmlDate("2020-01-01"));
+        xt.setSpecialXactLevel2Id(BigInteger.valueOf(5555));
+        xt.setSpecialXactLevel2Date(RMT2Date.toXmlDate("2020-01-01"));
+        xt.setBusinessId(BigInteger.valueOf(1351));
+        xt.setBusinessName("XYZ Company");
 
         xt.getLineitems().getLineitem()
                 .add(XactItemTypeBuilder.Builder.create().withXactTypeItemActvId(0).withAmount(20)

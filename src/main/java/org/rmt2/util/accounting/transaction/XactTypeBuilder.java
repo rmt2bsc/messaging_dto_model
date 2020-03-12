@@ -47,6 +47,7 @@ public class XactTypeBuilder {
         subject.setXactDate(builder.xactDate);
         subject.setPostedDate(builder.postedDate);
         subject.setXactReason(builder.xactReason);
+        subject.setAccountNo(builder.accountNo);
         subject.setEntityRefNo(builder.entityRefNo);
         subject.setNegInstrNo(builder.negInstrNo);
         subject.setBankTransInd(builder.bankTransInd);
@@ -60,6 +61,15 @@ public class XactTypeBuilder {
             subject.getLineitems().getLineitem().addAll(builder.items);    
         }
         subject.setTracking(builder.tracking);
+
+        /* Adding new fields for generic transactions */
+        subject.setParentEntityId(builder.parentEntityId);
+        subject.setSpecialXactLevel1Id(builder.specialXactLevel1Id);
+        subject.setSpecialXactLevel1Date(builder.specialXactLevel1Date);
+        subject.setSpecialXactLevel2Id(builder.specialXactLevel2Id);
+        subject.setSpecialXactLevel2Date(builder.specialXactLevel2Date);
+        subject.setBusinessId(builder.businessId);
+        subject.setBusinessName(builder.businessName);
     }
 
     /**
@@ -80,9 +90,12 @@ public class XactTypeBuilder {
         private XMLGregorianCalendar xactDate;
         private XMLGregorianCalendar postedDate;
         private String xactReason;
+        private String businessName;
+        private BigInteger businessId;
         private String confirmNo;
         private String entityRefNo;
         private String negInstrNo;
+        private String accountNo;
         private BigInteger tenderId;
         private String bankTransInd;
         private BigInteger documentId;
@@ -91,6 +104,12 @@ public class XactTypeBuilder {
         private List<XactLineitemType> items;
         private RecordTrackingType tracking;
         
+        /* Adding new fields for generic transactions */
+        private BigInteger parentEntityId;
+        private BigInteger specialXactLevel1Id;
+        private XMLGregorianCalendar specialXactLevel1Date;
+        private BigInteger specialXactLevel2Id;
+        private XMLGregorianCalendar specialXactLevel2Date;
 
         private Builder() {
             this.tracking = null;
@@ -427,6 +446,18 @@ public class XactTypeBuilder {
         }
         
         /**
+         * Set up Account No.
+         * 
+         * @param accountNo
+         *            an String value
+         * @return Non-null Builder used to continue building the object
+         */
+        public Builder withAccountNo(String accountNo) {
+            this.accountNo = accountNo;
+            return this;
+        }
+
+        /**
          * Set up entity ref No.
          * 
          * @param entityRefNo
@@ -535,11 +566,95 @@ public class XactTypeBuilder {
         }
         
         /**
+         * Set up Business Id.
+         * 
+         * @param businessId
+         *            an int value
+         * @return Non-null Builder used to continue building the object
+         */
+        public Builder withBusinessId(int businessId) {
+            this.businessId = BigInteger.valueOf(businessId);
+            return this;
+        }
+
+        /**
+         * Set up Business Name
+         * 
+         * @param businessName
+         *            an String value
+         * @return Non-null Builder used to continue building the object
+         */
+        public Builder withBusinessName(String businessName) {
+            this.businessName = businessName;
+            return this;
+        }
+
+        /**
+         * Set up Parent Entity Id.
+         * 
+         * @param parentEntityId
+         *            an int value
+         * @return Non-null Builder used to continue building the object
+         */
+        public Builder withParentEntityId(int parentEntityId) {
+            this.parentEntityId = BigInteger.valueOf(parentEntityId);
+            return this;
+        }
+
+        /**
+         * Set up Special Xact Level 1 Id.
+         * 
+         * @param specialXactLevel1Id
+         *            an int value
+         * @return Non-null Builder used to continue building the object
+         */
+        public Builder withSpecialXactLevel1Id(int specialXactLevel1Id) {
+            this.parentEntityId = BigInteger.valueOf(specialXactLevel1Id);
+            return this;
+        }
+
+        /**
+         * Set up Special Xact Level 1 Date.
+         * 
+         * @param specialXactLevel1Date
+         *            an int value
+         * @return Non-null Builder used to continue building the object
+         */
+        public Builder withSpecialXactLevel1Date(Date specialXactLevel1Date) {
+            this.specialXactLevel1Date = RMT2Date.toXmlDate(specialXactLevel1Date);
+            return this;
+        }
+
+        /**
+         * Set up Special Xact Level 2 Id.
+         * 
+         * @param specialXactLevel2Id
+         *            an int value
+         * @return Non-null Builder used to continue building the object
+         */
+        public Builder withSpecialXactLevel2Id(int specialXactLevel2Id) {
+            this.parentEntityId = BigInteger.valueOf(specialXactLevel2Id);
+            return this;
+        }
+
+        /**
+         * Set up Special Xact Level 2 Date.
+         * 
+         * @param specialXactLevel2Date
+         *            an int value
+         * @return Non-null Builder used to continue building the object
+         */
+        public Builder withSpecialXactLevel2Date(Date specialXactLevel2Date) {
+            this.specialXactLevel2Date = RMT2Date.toXmlDate(specialXactLevel2Date);
+            return this;
+        }
+
+        /**
          * Set up Record Tracking Info.
          * 
          * @param tracking
-         *            an instance of {@link RecordTrackingType} value that must not be
-         *            blank
+         *            an instance of {@link RecordTrackingType} value that must
+         *            not be blank
          * @return Non-null Builder used to continue building the object
          * @throws VerifyException
          *             if the parameter conditions are not met.
