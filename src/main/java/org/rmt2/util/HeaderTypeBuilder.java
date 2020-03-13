@@ -5,7 +5,7 @@ import java.util.Date;
 import org.rmt2.jaxb.HeaderType;
 import org.rmt2.jaxb.ObjectFactory;
 
-import com.util.RMT2Date;
+import com.api.util.RMT2Date;
 
 /**
  * HeaderType Builder.

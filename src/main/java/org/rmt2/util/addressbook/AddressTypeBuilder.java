@@ -6,7 +6,7 @@ import org.rmt2.jaxb.AddressType;
 import org.rmt2.jaxb.ObjectFactory;
 import org.rmt2.jaxb.ZipcodeType;
 
-import com.util.assistants.Verifier;
+import com.api.util.assistants.Verifier;
 
 /**
  * AddressType Builder.

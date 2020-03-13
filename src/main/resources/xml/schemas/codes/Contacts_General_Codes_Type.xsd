@@ -5,17 +5,22 @@
 			<xsd:documentation>Describes general code details data </xsd:documentation>
 		</xsd:annotation>
 		<xsd:sequence>
-			<xsd:element name="code_id" type="xsd:integer" minOccurs="1" nillable="false" default="0">
+			<xsd:element name="code_id" type="xsd:integer" minOccurs="1" maxOccurs="1" default="0">
 				<xsd:annotation>
 					<xsd:documentation>The unique identifier of the code</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="shortdesc" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="true">
+			<xsd:element name="group_id" type="xsd:integer" minOccurs="1" maxOccurs="1" default="0">
+				<xsd:annotation>
+					<xsd:documentation>The group in which this code detail belongs</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="shortdesc" type="xsd:string" minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>A description of the code in abbreviated form.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="longdesc" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="true">
+			<xsd:element name="longdesc" type="xsd:string" minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The long description of the code.</xsd:documentation>
 				</xsd:annotation>
@@ -33,17 +38,17 @@
 			<xsd:documentation>Manages a list of general codes grouped by their respective general code groups.</xsd:documentation>
 		</xsd:annotation>
 		<xsd:sequence>
-			<xsd:element name="group_id" type="xsd:integer" minOccurs="1" maxOccurs="1" nillable="true">
+			<xsd:element name="group_id" type="xsd:integer" minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The unique identifier of the general code group.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="group_desc" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="true">
+			<xsd:element name="group_desc" type="xsd:string" minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The description of the group.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="codes" minOccurs="1" maxOccurs="1" nillable="true" >
+			<xsd:element name="codes" minOccurs="1" maxOccurs="1" >
 				<xsd:annotation>
 					<xsd:documentation>A list of one or more general codes as it pertains to the group.</xsd:documentation>
 				</xsd:annotation>
@@ -84,27 +89,42 @@
 	</xsd:complexType>
 	<xsd:complexType name="lookup_code_criteria_type">
 		<xsd:sequence>
-			<xsd:element name="all" type="xsd:boolean" minOccurs="1" maxOccurs="1" nillable="true">
+			<xsd:element name="all" type="xsd:boolean" minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>Obtain of list of all codes related to every group.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="group" type="xsd:integer" minOccurs="1" maxOccurs="1" nillable="true">
+			<xsd:element name="group" type="xsd:integer" minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>Obtain a list of all codes related to a single group.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="groups" type="xsd:integer" minOccurs="1" maxOccurs="unbounded" nillable="true">
+			<xsd:element name="groups" type="xsd:integer" minOccurs="1" maxOccurs="unbounded">
 				<xsd:annotation>
 					<xsd:documentation>Obtain a list of codes based on one or more selected groups</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="code" type="xsd:integer" minOccurs="1" maxOccurs="1" nillable="true">
+			<xsd:element name="group_description" type="xsd:string" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Obtain one or more groups based on their description</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="code" type="xsd:integer" minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>Obtain a single general code record by code id.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="codes" type="xsd:integer" minOccurs="1" maxOccurs="unbounded" nillable="true">
+			<xsd:element name="code_short_description" type="xsd:string" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Obtain one or more general codes based on their short description</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="code_long_description" type="xsd:string" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Obtain one or more general codes based on their long description</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="codes" type="xsd:integer" minOccurs="1" maxOccurs="unbounded">
 				<xsd:annotation>
 					<xsd:documentation>Obtain a list of general code records based on one or more unique code id's.</xsd:documentation>
 				</xsd:annotation>
@@ -115,13 +135,13 @@
 	<xsd:complexType name="code_group_type">
 		<xsd:sequence>
 			<xsd:element name="group_id" type="xsd:integer" minOccurs="1" nillable="false" maxOccurs="1" default="0"/>
-			<xsd:element name="group_desc" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="true"/>
+			<xsd:element name="group_desc" type="xsd:string" minOccurs="1" maxOccurs="1"/>
 		</xsd:sequence>
 	</xsd:complexType>
 	<xsd:complexType name="full_group_type">
 		<xsd:sequence>
 			<xsd:element name="code_group" type="code_group_type" minOccurs="1" maxOccurs="1" nillable="false"/>
-			<xsd:element name="code_detail" type="code_detail_type" minOccurs="1" maxOccurs="unbounded" nillable="true"/>
+			<xsd:element name="code_detail" type="code_detail_type" minOccurs="1" maxOccurs="unbounded"/>
 		</xsd:sequence>
 	</xsd:complexType>
 </xsd:schema>

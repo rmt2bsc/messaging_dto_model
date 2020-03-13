@@ -52,4 +52,60 @@
 		  </xsd:restriction>
 		</xsd:simpleType>
 
+	<xsd:simpleType name="relational_operator_type">
+		<xsd:annotation>
+			<xsd:documentation>Identifies relational operators to be used in condition statements.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="EQUALS"/>
+			<xsd:enumeration value="NOT EQUAL"/>
+			<xsd:enumeration value="GREATER THAN"/>
+			<xsd:enumeration value="LESS THAN"/>
+			<xsd:enumeration value="LESS THAN OR EQUAL"/>
+			<xsd:enumeration value="GREATER THAN OR EQUAL"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="string_search_pattern_type">
+		<xsd:annotation>
+			<xsd:documentation>Used to indicate a specified search pattern for String values.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="BEGIN"/>
+			<xsd:enumeration value="END"/>
+			<xsd:enumeration value="CONTAIN"/>
+			<xsd:enumeration value="EXACT"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:complexType name="report_attachment_type">
+		<xsd:sequence>
+			<xsd:element name="report_id" type="xsd:string" minOccurs="1" maxOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>The id of the report.</xsd:documentation>
+					</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="file_path" type="xsd:string" minOccurs="0" maxOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>The file path of the where the report was gathered.</xsd:documentation>
+					</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="file_size" type="xsd:integer" default="0" minOccurs="1" maxOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>The size of the report content in bytes.</xsd:documentation>
+					</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="mime_type" type="xsd:string" minOccurs="1" maxOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>Provides MIME type/sub type details.</xsd:documentation>
+					</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="content" type="xsd:base64Binary" minOccurs="0" maxOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>The report data in binary form.</xsd:documentation>
+					</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+		
 </xsd:schema>

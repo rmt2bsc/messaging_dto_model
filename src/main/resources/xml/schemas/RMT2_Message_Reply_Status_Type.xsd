@@ -28,6 +28,11 @@
 					<xsd:documentation xml:lang="en">The return code indicating success or failure</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
+			<xsd:element name="record_count" minOccurs="1" maxOccurs="1" type="xsd:integer" >
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">The total number of records returned</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
 		</xsd:sequence>
 	</xsd:complexType>
 </xsd:schema>

@@ -8,7 +8,7 @@ import org.rmt2.jaxb.CodeDetailType;
 import org.rmt2.jaxb.CodeGroupType;
 import org.rmt2.jaxb.ObjectFactory;
 
-import com.util.assistants.Verifier;
+import com.api.util.assistants.Verifier;
 
 /**
  * BusinessType Builder.
@@ -111,13 +111,12 @@ public class BusinessTypeBuilder {
          * Set up business long name.
          * 
          * @param longName
-         *            an String value that must not be blank
+         *            an String value
          * @return Non-null Builder used to continue building the object
          * @throws VerifyException
          *             if the parameter conditions are not met.
          */
         public Builder withLongname(String longName) {
-            Verifier.verifyNotBlank(longName, "Business long name description cannot be blank");
             this.longName = longName;
             return this;
         }

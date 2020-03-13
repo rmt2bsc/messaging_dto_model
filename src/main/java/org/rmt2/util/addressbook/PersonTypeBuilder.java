@@ -9,8 +9,8 @@ import org.rmt2.jaxb.GenerationType;
 import org.rmt2.jaxb.ObjectFactory;
 import org.rmt2.jaxb.PersonType;
 
-import com.util.RMT2Date;
-import com.util.assistants.Verifier;
+import com.api.util.RMT2Date;
+import com.api.util.assistants.Verifier;
 
 /**
  * PersonType Builder.

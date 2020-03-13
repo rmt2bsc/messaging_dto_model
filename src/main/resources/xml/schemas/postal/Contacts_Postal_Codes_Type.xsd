@@ -19,10 +19,10 @@
 	<xsd:complexType name="state_type">
 		<xsd:sequence>
 			<xsd:element name="state_id" type="xsd:integer" nillable="false" default="0"/>
-			<xsd:element name="state_name" nillable="true" type="xsd:string"/>
-			<xsd:element name="state_code" nillable="true" type="xsd:string"/>
-			<xsd:element name="country_id" type="xsd:integer" nillable="true" default="0"/>
-			<xsd:element name="country_name" nillable="true" type="xsd:string"/>
+			<xsd:element name="state_name" type="xsd:string"/>
+			<xsd:element name="state_code" type="xsd:string"/>
+			<xsd:element name="country_id" type="xsd:integer" default="0"/>
+			<xsd:element name="country_name" type="xsd:string"/>
 		</xsd:sequence>
 	</xsd:complexType>
 
@@ -128,17 +128,16 @@
 			<xsd:element name="state" type="xsd:string" nillable="false" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="areaCode" type="xsd:string" nillable="false" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="countyName" type="xsd:string" nillable="false" minOccurs="0" maxOccurs="1"/>
-			<xsd:element name="result_format" nillable="false" minOccurs="1" maxOccurs="1" default="SHORT">
-				<xsd:simpleType>
-					<xsd:restriction base="xsd:string" id="zip_result_format_type">
-						<xsd:enumeration value="FULL"/>
-						<xsd:enumeration value="SHORT"/>
-					</xsd:restriction>
-				</xsd:simpleType>
-			</xsd:element>
-			
+			<xsd:element name="result_format" type="zip_result_format_type" minOccurs="1" maxOccurs="1" default="SHORT"/>
 		</xsd:sequence>
 	</xsd:complexType>
+
+    <xsd:simpleType name="zip_result_format_type">
+		  <xsd:restriction base="xsd:string">
+		    <xsd:enumeration value="FULL"/>
+		    <xsd:enumeration value="SHORT"/>
+		  </xsd:restriction>
+    </xsd:simpleType>
 
     <xsd:complexType name="country_criteria_type">
 		<xsd:annotation>
@@ -188,7 +187,7 @@
 						<xsd:documentation xml:lang="en">The user's login id.</xsd:documentation>
 					</xsd:annotation>
 				</xsd:element>
-				<xsd:element name="order_by" type="order_by_type" minOccurs="0" maxOccurs="unbounded" nillable="true">
+				<xsd:element name="order_by" type="order_by_type" minOccurs="0" maxOccurs="unbounded">
 					<xsd:annotation>
 						<xsd:documentation xml:lang="en">A comma separated list of properties and sequencing direction indicators which is used to indicate how the result set is to be ordered.  The expressions should resemble the syntax of SQL order by clause.  For example, "first_name asc, last_name desc"</xsd:documentation>
 					</xsd:annotation>
@@ -199,7 +198,7 @@
 	<xsd:complexType name="ip_criteria_type">
 		<xsd:sequence>
 			<xsd:element name="ip_standard" type="xsd:string" nillable="false" minOccurs="0" maxOccurs="1"/>
-			<xsd:element name="ip_network" type="xsd:long" nillable="false" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="ip_network" type="xsd:int" nillable="false" minOccurs="0" maxOccurs="1"/>
 		</xsd:sequence>
 	</xsd:complexType>
 

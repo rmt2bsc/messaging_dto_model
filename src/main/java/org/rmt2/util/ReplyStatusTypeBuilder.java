@@ -21,10 +21,11 @@ public class ReplyStatusTypeBuilder {
     private ReplyStatusTypeBuilder(Builder builder) {
         ObjectFactory f = new ObjectFactory();
         subject = f.createReplyStatusType();
-        subject.setReturnStatus(builder.successful ? "SUCCESS" : "ERROR");
+        subject.setReturnStatus(builder.status);
         subject.setMessage(builder.message);
         subject.setExtMessage(builder.detailMessage);
         subject.setReturnCode(BigInteger.valueOf(builder.returnCode));
+        subject.setRecordCount(BigInteger.valueOf(builder.recordCount));
     }
 
     /**
@@ -34,13 +35,14 @@ public class ReplyStatusTypeBuilder {
      *
      */
     public static final class Builder {
-        private boolean successful;
+        private String status;
         private String message;
         private String detailMessage;
         private int returnCode;
+        private int recordCount;
         
         private Builder() {
-            this.successful = false;
+            this.status = null;
             this.message = null;
             this.detailMessage = null;
             this.returnCode = 0;
@@ -58,11 +60,11 @@ public class ReplyStatusTypeBuilder {
 
         /**
          * 
-         * @param successful
+         * @param status
          * @return
          */
-        public Builder withStatus(boolean successful) {
-            this.successful = successful;
+        public Builder withStatus(String status) {
+            this.status = status;
             return this;
         }
 
@@ -93,6 +95,16 @@ public class ReplyStatusTypeBuilder {
          */
         public Builder withReturnCode(int returnCode) {
             this.returnCode = returnCode;
+            return this;
+        }
+        
+        /**
+         * 
+         * @param returnCode
+         * @return
+         */
+        public Builder withRecordCount(int count) {
+            this.recordCount = count;
             return this;
         }
 
