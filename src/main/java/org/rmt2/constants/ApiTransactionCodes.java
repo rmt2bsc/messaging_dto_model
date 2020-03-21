@@ -79,6 +79,7 @@ public class ApiTransactionCodes {
     public static final String ACCOUNTING_CASHRECEIPT_GET = "GET_CASH_RECEIPT";
     public static final String ACCOUNTING_CASHRECEIPT_CREATE = "CREATE_CASH_RECEIPT";
 
+    // Accounting - Sales Order Transactions
     public static final String ACCOUNTING_SALESORDER_GET = "GET_SALES_ORDER";
     public static final String ACCOUNTING_SALESORDER_CREATE = "CREATE_SALES_ORDER";
     public static final String ACCOUNTING_SALESORDER_INVOICE_CREATE = "CREATE_SALES_ORDER_AND_INVOICE";
@@ -92,8 +93,10 @@ public class ApiTransactionCodes {
     public static final String ACCOUNTING_SALESORDER_REFUND = "REFUND_SALES_ORDER";
     public static final String ACCOUNTING_SALESORDER_PRINT = "PRINT_SALES_ORDER";
     public static final String ACCOUNTING_SALESORDER_GET_CUSTOMER_SPECIFIC = "GET_CUSTOMER_SALES_ORDER";
-
     public static final String ACCOUNTING_TRANSACTION_BY_ID_GET = "GET_TRANS_BY_ID";
+
+    // Project Tracker - Employee Transactions
+    public static final String PROJTRACK_EMPLOYEE_GET = "GET_EMPLOYEE";
 
     public ApiTransactionCodes() {
         // TODO Auto-generated constructor stub
