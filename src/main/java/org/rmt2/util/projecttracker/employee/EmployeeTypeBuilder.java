@@ -5,11 +5,9 @@ import java.util.Date;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 
-import org.rmt2.jaxb.CodeDetailType;
 import org.rmt2.jaxb.EmployeeTitleType;
 import org.rmt2.jaxb.EmployeeType;
 import org.rmt2.jaxb.EmployeetypeType;
-import org.rmt2.jaxb.GenerationType;
 import org.rmt2.jaxb.ObjectFactory;
 import org.rmt2.jaxb.PersonType;
 import org.rmt2.jaxb.RecordTrackingType;
@@ -42,22 +40,23 @@ public class EmployeeTypeBuilder {
         subject.setLoginName(builder.loginName);
         subject.setContactDetails(builder.contactDetails);
         subject.setStartDate(builder.startDate);
+        subject.setTerminationDate(builder.termDate);
         subject.setTracking(builder.tracking);
     }
 
     /**
-     * Builder for {@link BusinessType}
+     * Builder for {@link EmployeeTypeBuilder}
      * 
      * @author Roy Terrell
      *
      */
     public static final class Builder {
-        private Integer employeeId;
+        private int employeeId;
         private EmployeetypeType employeeType;
         private boolean isManager;
-        private Integer managerId;
+        private int managerId;
         private EmployeeTitleType employeeTitle;
-        private Integer loginId;
+        private int loginId;
         private String loginName;
         private PersonType contactDetails;
         private XMLGregorianCalendar startDate;
@@ -65,12 +64,12 @@ public class EmployeeTypeBuilder {
         private RecordTrackingType tracking;
 
         private Builder() {
-            this.employeeId = null;
+            this.employeeId = 0;
             this.employeeType = null;
             this.isManager = false;
-            this.managerId = null;
+            this.managerId = 0;
             this.employeeTitle = null;
-            this.loginId = null;
+            this.loginId = 0;
             this.loginName = null;
             this.contactDetails = null;
             this.startDate = null;
@@ -89,7 +88,7 @@ public class EmployeeTypeBuilder {
         }
 
         /**
-         * Set up person id.
+         * Set up employee id.
          * 
          * @param employeeId
          *            an int value that must be greater than or equal to zero
@@ -97,9 +96,9 @@ public class EmployeeTypeBuilder {
          * @throws VerifyException
          *             if the parameter conditions are not met.
          */
-        public Builder withPersonId(int personId) {
-            Verifier.verifyNotNegative(personId, "Person id must not be a negative value");
-            this.employeeId = personId;
+        public Builder withEmployeeId(int employeeId) {
+            Verifier.verifyNotNegative(employeeId, "Employee id must not be a negative value");
+            this.employeeId = employeeId;
             return this;
         }
 
@@ -108,80 +107,67 @@ public class EmployeeTypeBuilder {
          * Set up first name.
          * 
          * @param employeeType
-         *            an String value that must not be blank
+         *            an EmployeetypeType value
          * @return Non-null Builder used to continue building the object
-         * @throws VerifyException
-         *             if the parameter conditions are not met.
          */
-        public Builder withFirstName(String firstName) {
-            Verifier.verifyNotBlank(firstName, "First name cannot be blank");
-            this.employeeType = firstName;
+        public Builder withEmployeeType(EmployeetypeType employeeType) {
+            this.employeeType = employeeType;
             return this;
         }
 
         /**
-         * Set up middle name.
+         * Set up manager indicator.
          * 
-         * @param isManager
-         *            an String value that must not be blank
+         * @param managerFlag
+         *            an boolean value that must not be blank
          * @return Non-null Builder used to continue building the object
-         * @throws VerifyException
-         *             if the parameter conditions are not met.
          */
-        public Builder withMiddleName(String midName) {
-            Verifier.verifyNotBlank(midName, "Middle name cannot be blank");
-            this.isManager = midName;
+        public Builder withManagerFlag(boolean managerFlag) {
+            this.isManager = managerFlag;
             return this;
         }
 
         /**
-         * Set up last name.
+         * Set up manager id.
          * 
-         * @param lastName
-         *            an String value that must not be blank
+         * @param managerId
+         *            an int value that must not be blank
          * @return Non-null Builder used to continue building the object
-         * @throws VerifyException
-         *             if the parameter conditions are not met.
          */
-        public Builder withLastName(String lastName) {
-            Verifier.verifyNotBlank(lastName, "Last name cannot be blank");
-            this.managerId = lastName;
+        public Builder withManagerId(int managerId) {
+            this.managerId = managerId;
             return this;
         }
 
 
         /**
-         * Set up maiden name.
+         * Set up employee titlee.
          * 
          * @param employeeTitle
-         *            an String value that must not be blank
+         *            an EmployeeTitleType value that must not be blank
          * @return Non-null Builder used to continue building the object
-         * @throws VerifyException
-         *             if the parameter conditions are not met.
          */
-        public Builder withMaidenName(String maidenName) {
-            Verifier.verifyNotBlank(maidenName, "Maiden name cannot be blank");
-            this.employeeTitle = maidenName;
+        public Builder withEmployeeTitleType(EmployeeTitleType employeeTitle) {
+            this.employeeTitle = employeeTitle;
             return this;
         }
 
         /**
-         * Set up short name.
+         * Set up login id.
          * 
-         * @param shortName
-         *            an String value that must not be blank
+         * @param loginId
+         *            an int value that must not be blank
          * @return Non-null Builder used to continue building the object
          * @throws VerifyException
          *             if the parameter conditions are not met.
          */
-        public Builder withShortName(String shortName) {
-            Verifier.verifyNotBlank(shortName, "Short name cannot be blank");
-            this.loginId = shortName;
+        public Builder withLoginId(int loginId) {
+            this.loginId = loginId;
             return this;
         }
 
         /**
-         * Set up birth date.
+         * Set up login name
          * 
          * @param loginName
          *            an String value that must not be blank
@@ -189,30 +175,29 @@ public class EmployeeTypeBuilder {
          * @throws VerifyException
          *             if the parameter conditions are not met.
          */
-        public Builder withBirthDate(Date birthDate) {
-            Verifier.verifyNotNull(birthDate, "Birth day cannot be null");
-            String dateStr = RMT2Date.formatDate(birthDate, "MM/dd/yyyy");
-            this.loginName = dateStr;
+        public Builder withLoginName(String loginName) {
+            Verifier.verifyNotBlank(loginName, "Login Name cannot be blank");
+            this.loginName = loginName;
             return this;
         }
 
-        /**
-         * Set up SSN.
+
+                /**
+         * Set up contact details
          * 
          * @param contactDetails
-         *            an String value that must not be blank
+         *            an PersonType value that must not be blank
          * @return Non-null Builder used to continue building the object
          * @throws VerifyException
          *             if the parameter conditions are not met.
          */
-        public Builder withSocialSecurityNumber(String ssn) {
-            Verifier.verifyNotBlank(ssn, "Social Security Number cannot be blank");
-            this.contactDetails = ssn;
+        public Builder withContactDetails(PersonType contactDetails) {
+            this.contactDetails = contactDetails;
             return this;
         }
 
         /**
-         * Set up Email.
+         * Set up start date.
          * 
          * @param startDate
          *            an String value that must not be blank
@@ -220,14 +205,28 @@ public class EmployeeTypeBuilder {
          * @throws VerifyException
          *             if the parameter conditions are not met.
          */
-        public Builder withEmail(String email) {
-            Verifier.verifyNotBlank(contactDetails, "Email cannot be blank");
-            this.startDate = email;
+        public Builder withStartDate(String startDate) {
+            Verifier.verifyNotNull(startDate, "Start date String cannot be null");
+            this.startDate = RMT2Date.toXmlDate(startDate);
             return this;
         }
 
         /**
-         * Set up termDate.
+         * Set up start date.
+         * 
+         * @param startDate
+         *            an Date value that must not be blank
+         * @return Non-null Builder used to continue building the object
+         * @throws VerifyException
+         *             if the parameter conditions are not met.
+         */
+        public Builder withStartDate(Date startDate) {
+            this.startDate = RMT2Date.toXmlDate(startDate);
+            return this;
+        }
+
+        /**
+         * Set up termination date.
          * 
          * @param termDate
          *            an String value that must not be blank
@@ -235,95 +234,23 @@ public class EmployeeTypeBuilder {
          * @throws VerifyException
          *             if the parameter conditions are not met.
          */
-        public Builder withGeneration(String generation) {
-            Verifier.verifyNotBlank(contactDetails, "Generation cannot be blank");
-            GenerationType genType = null;
-            try {
-                genType = GenerationType.fromValue(generation);
-            } catch (IllegalArgumentException e) {
-                Verifier.verifyNotNull(genType, "Invalid value passed as Generation");
-            }
-            this.termDate = genType;
+        public Builder withTermDate(String termDate) {
+            Verifier.verifyNotNull(termDate, "Termination date String cannot be null");
+            this.termDate = RMT2Date.toXmlDate(termDate);
             return this;
         }
 
         /**
-         * Set up title.
+         * Set up termination date.
          * 
-         * @param title
-         *            an instance of {@link CodeDetailType} value that must not
-         *            be blank
+         * @param termDate
+         *            an Date value that must not be blank
          * @return Non-null Builder used to continue building the object
          * @throws VerifyException
          *             if the parameter conditions are not met.
          */
-        public Builder withTitle(CodeDetailType title) {
-            Verifier.verifyNotNull(title, "Name title object cannot be null");
-            this.title = title;
-            return this;
-        }
-
-        /**
-         * Set up gender.
-         * 
-         * @param gender
-         *            an instance of {@link CodeDetailType} value that must not
-         *            be blank
-         * @return Non-null Builder used to continue building the object
-         * @throws VerifyException
-         *             if the parameter conditions are not met.
-         */
-        public Builder withGender(CodeDetailType gender) {
-            Verifier.verifyNotNull(gender, "Gender object cannot be null");
-            this.gender = gender;
-            return this;
-        }
-
-        /**
-         * Set up Marital Status.
-         * 
-         * @param maritalStatus
-         *            an instance of {@link CodeDetailType} value that must not
-         *            be blank
-         * @return Non-null Builder used to continue building the object
-         * @throws VerifyException
-         *             if the parameter conditions are not met.
-         */
-        public Builder withMaritalStatus(CodeDetailType maritalStatus) {
-            Verifier.verifyNotNull(gender, "Gender object cannot be null");
-            this.maritalStatus = maritalStatus;
-            return this;
-        }
-
-        /**
-         * Set up race.
-         * 
-         * @param race
-         *            an instance of {@link CodeDetailType} value that must not
-         *            be blank
-         * @return Non-null Builder used to continue building the object
-         * @throws VerifyException
-         *             if the parameter conditions are not met.
-         */
-        public Builder withRace(CodeDetailType race) {
-            Verifier.verifyNotNull(race, "Race object cannot be null");
-            this.race = race;
-            return this;
-        }
-
-        /**
-         * Set up category.
-         * 
-         * @param category
-         *            an instance of {@link CodeDetailType} value that must not
-         *            be blank
-         * @return Non-null Builder used to continue building the object
-         * @throws VerifyException
-         *             if the parameter conditions are not met.
-         */
-        public Builder withCategory(CodeDetailType category) {
-            Verifier.verifyNotNull(category, "Category object cannot be null");
-            this.category = category;
+        public Builder withTermDate(Date termDate) {
+            this.termDate = RMT2Date.toXmlDate(termDate);
             return this;
         }
 

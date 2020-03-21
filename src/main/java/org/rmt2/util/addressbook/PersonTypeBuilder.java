@@ -232,7 +232,7 @@ public class PersonTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withEmail(String email) {
-            Verifier.verifyNotBlank(ssn, "Email cannot be blank");
+            Verifier.verifyNotBlank(email, "Email cannot be blank");
             this.email = email;
             return this;
         }
@@ -301,7 +301,7 @@ public class PersonTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withMaritalStatus(CodeDetailType maritalStatus) {
-            Verifier.verifyNotNull(gender, "Gender object cannot be null");
+            Verifier.verifyNotNull(maritalStatus, "Gender object cannot be null");
             this.maritalStatus = maritalStatus;
             return this;
         }
