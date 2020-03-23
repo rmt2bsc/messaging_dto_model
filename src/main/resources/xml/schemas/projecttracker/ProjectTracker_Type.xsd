@@ -181,6 +181,11 @@
 					<xsd:documentation>This is the empoyee's end of employment date</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
+			<xsd:element name="project_count" type="xsd:integer" minOccurs="1" maxOccurs="1" default="0">
+				<xsd:annotation>
+					<xsd:documentation>This is the empoyee's total count of projects worked</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
 			<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
 		</xsd:sequence>
 	</xsd:complexType>
