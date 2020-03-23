@@ -41,6 +41,7 @@ public class EmployeeTypeBuilder {
         subject.setContactDetails(builder.contactDetails);
         subject.setStartDate(builder.startDate);
         subject.setTerminationDate(builder.termDate);
+        subject.setProjectCount(BigInteger.valueOf(builder.projectCount));
         subject.setTracking(builder.tracking);
     }
 
@@ -61,6 +62,7 @@ public class EmployeeTypeBuilder {
         private PersonType contactDetails;
         private XMLGregorianCalendar startDate;
         private XMLGregorianCalendar termDate;
+        private int projectCount;
         private RecordTrackingType tracking;
 
         private Builder() {
@@ -74,6 +76,7 @@ public class EmployeeTypeBuilder {
             this.contactDetails = null;
             this.startDate = null;
             this.termDate = null;
+            this.projectCount = 0;
             this.tracking = null;
         }
 
@@ -251,6 +254,20 @@ public class EmployeeTypeBuilder {
          */
         public Builder withTermDate(Date termDate) {
             this.termDate = RMT2Date.toXmlDate(termDate);
+            return this;
+        }
+
+        /**
+         * Set up project count.
+         * 
+         * @param projectCount
+         *            an int value that must not be blank
+         * @return Non-null Builder used to continue building the object
+         * @throws VerifyException
+         *             if the parameter conditions are not met.
+         */
+        public Builder withProjectCount(int projectCount) {
+            this.projectCount = projectCount;
             return this;
         }
 
