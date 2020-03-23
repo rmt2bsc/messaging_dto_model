@@ -56,7 +56,7 @@ public class EmployeeQueryRequestBuilderTest {
         
         HeaderType head =  HeaderTypeBuilder.Builder.create()
                 .withApplication("projecttracker")
-                .withModule(ConfigConstants.API_APP_MODULE_VALUE)
+                .withModule("employee")
                 .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
                 .withDeliveryDate(new Date())
                 
