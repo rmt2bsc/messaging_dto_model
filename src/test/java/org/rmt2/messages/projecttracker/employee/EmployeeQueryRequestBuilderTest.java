@@ -164,7 +164,8 @@ public class EmployeeQueryRequestBuilderTest {
                 .withLoginId(3333)
                 .withLoginName("roy.terrell")
                 .withContactDetails(pt)
-                .withStartDate(RMT2Date.stringToDate("2020-01-01"))
+                .withStartDate(RMT2Date.stringToDate("2000-01-01"))
+                .withTermDate(RMT2Date.stringToDate("2020-03-30"))
                 .withProjectCount(28)
                 .build();
 
