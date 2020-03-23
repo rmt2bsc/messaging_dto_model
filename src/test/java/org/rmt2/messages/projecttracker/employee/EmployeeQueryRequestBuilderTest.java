@@ -165,6 +165,7 @@ public class EmployeeQueryRequestBuilderTest {
                 .withLoginName("roy.terrell")
                 .withContactDetails(pt)
                 .withStartDate(RMT2Date.stringToDate("2020-01-01"))
+                .withProjectCount(28)
                 .build();
 
         ProjectDetailGroup profile = fact.createProjectDetailGroup();
