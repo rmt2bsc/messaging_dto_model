@@ -12,8 +12,6 @@ import org.rmt2.jaxb.InventoryStatusHistoryType;
 import org.rmt2.jaxb.ObjectFactory;
 import org.rmt2.jaxb.RecordTrackingType;
 
-import com.api.util.assistants.Verifier;
-
 /**
  * InventoryItemType Builder.
  * 
@@ -104,7 +102,6 @@ public class InventoryItemTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withItemId(int itemId) {
-            Verifier.verifyNotNegative(itemId, "Inventory item id must not be a negative value");
             this.itemId = BigInteger.valueOf(itemId);
             return this;
         }
@@ -119,7 +116,6 @@ public class InventoryItemTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withItemTypeId(int itemTypeId) {
-            Verifier.verifyPositive(itemTypeId, "Inventory item type id must be greater than zero");
             ObjectFactory f = new ObjectFactory();
             InventoryItemtypeType o = f.createInventoryItemtypeType();
             o.setItemTypeId(BigInteger.valueOf(itemTypeId));
@@ -138,10 +134,16 @@ public class InventoryItemTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withCreditorId(int creditorId) {
-            Verifier.verifyPositive(creditorId, "Inventory creditor id must be greater than zero");
             ObjectFactory f = new ObjectFactory();
             CreditorType o = f.createCreditorType();
-            o.setCreditorId(BigInteger.valueOf(creditorId));
+            if (creditorId < 1) {
+                // Inventory item is service type
+                o.setCreditorId(null);
+            }
+            else {
+                // Inventory item is merchandise type
+                o.setCreditorId(BigInteger.valueOf(creditorId));
+            }
             this.creditor = o;
             return this;
         }
@@ -156,7 +158,6 @@ public class InventoryItemTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withItemName(String itemName) {
-            Verifier.verifyNotNull(itemName, "Inventory item name can not be a null");
             this.description = itemName;
             return this;
         }
@@ -171,7 +172,6 @@ public class InventoryItemTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withVendorItemNo(String vendorItemNo) {
-            Verifier.verifyNotNull(vendorItemNo, "Inventory vendor item number can not be a null");
             this.vendorItemNo = vendorItemNo;
             return this;
         }
@@ -186,7 +186,6 @@ public class InventoryItemTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withItemSerialNo(String itemSerialNo) {
-            Verifier.verifyNotNull(itemSerialNo, "Inventory item serial number can not be a null");
             this.itemSerialNo = itemSerialNo;
             return this;
         }
@@ -201,7 +200,6 @@ public class InventoryItemTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withQtyOnHand(int qtyOnHand) {
-            Verifier.verifyNotNegative(qtyOnHand, "Inventory item quantity on hand must not be a negative value");
             this.qtyOnHand = BigInteger.valueOf(qtyOnHand);
             return this;
         }
@@ -216,7 +214,6 @@ public class InventoryItemTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withOverrideRetail(int overrideRetail) {
-            Verifier.verifyNotNegative(overrideRetail, "Inventory item override reatil indicator must not be a negative value");
             this.overrideRetail = BigInteger.valueOf(overrideRetail);
             return this;
         }
@@ -288,7 +285,6 @@ public class InventoryItemTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withStatusHistory(InventoryStatusHistoryType  statusHist) {
-            Verifier.verifyNotNull(statusHist, "Inventory status history objec cannot be null");
             if (this.statusHistory == null) {
                 this.statusHistory = new ArrayList<InventoryStatusHistoryType>();
             }
@@ -307,7 +303,6 @@ public class InventoryItemTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withRecordTrackingType(RecordTrackingType tracking) {
-            Verifier.verifyNotNull(tracking, "Inventory record tracking object cannot be null");
             this.tracking = tracking;
             return this;
         }
