@@ -62,6 +62,7 @@ public class GLAccountQueryRequestBuilderTest {
         criteria.setAccountDescription("GL ACcount Description Test");
         criteria.setAccountName("GL Account Name Test");
         criteria.setAccountNo("GL Account Number Test");
+        criteria.setAccountCode("Account Code");
 
         GlBalancetypeType gbtt = GlAccountBalanceTypeBuilder.Builder.create()
                 .withAcctBalanceTypeId(1).build();
@@ -76,7 +77,7 @@ public class GLAccountQueryRequestBuilderTest {
         criteria.setBalanceType(gbtt);
         
         GlCriteriaGroup criteriaGroup = fact.createGlCriteriaGroup();
-        criteriaGroup.setCriteria(criteria);
+        criteriaGroup.setGlCriteria(criteria);
         req.setCriteria(criteriaGroup);
         req.setHeader(head);
         
