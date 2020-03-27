@@ -93,7 +93,6 @@ public class GlAccountTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withAcctId(int acctId) {
-            Verifier.verifyNotNegative(acctId, "Account id must not be a negative value");
             this.acctId = BigInteger.valueOf(acctId);
             return this;
         }
@@ -109,7 +108,6 @@ public class GlAccountTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withAccountType(GlAccounttypeType acctType) {
-            Verifier.verifyNotNull(acctType, "GL Account Type cannot be null");
             this.acctType = acctType;
             return this;
         }
@@ -124,7 +122,6 @@ public class GlAccountTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withAccountCategory(GlAccountcatgType acctCatg) {
-            Verifier.verifyNotNull(acctCatg, "GL Account Category cannot be null");
             this.acctCatg = acctCatg;
             return this;
         }
@@ -139,7 +136,6 @@ public class GlAccountTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withBalanceType(GlBalancetypeType balType) {
-            Verifier.verifyNotNull(balType, "Balance Type cannot be null");
             this.balanceType = balType;
             return this;
         }
@@ -154,7 +150,6 @@ public class GlAccountTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withAcctSeq(int acctSeq) {
-            Verifier.verifyNotNegative(acctSeq, "Account Sequence must not be a negative value");
             this.acctSeq = BigInteger.valueOf(acctSeq);
             return this;
         }
@@ -199,7 +194,6 @@ public class GlAccountTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withAccountCode(String accountCode) {
-            Verifier.verifyNotEmpty(accountCode, "Account code cannot be empty");
             this.accountCode = accountCode;
             return this;
         }
@@ -214,7 +208,6 @@ public class GlAccountTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withAccountDescription(String accountDescription) {
-            Verifier.verifyNotEmpty(accountDescription, "Account description cannot be empty");
             this.accountDescription = accountDescription;
             return this;
         }
@@ -229,8 +222,6 @@ public class GlAccountTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withActive(int activeInd) {
-            Verifier.verifyNotNegative(activeInd, "Account active indicator must not be a negative value");
-            Verifier.verify((activeInd >= 0 && activeInd <= 1), "Account active indicator must equal either 0 or 1");
             this.active = BigInteger.valueOf(activeInd);
             return this;
         }
@@ -247,7 +238,6 @@ public class GlAccountTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withRecordTrackingType(RecordTrackingType tracking) {
-            Verifier.verifyNotNull(tracking, "GL Account record tracking object cannot be null");
             this.tracking = tracking;
             return this;
         }
