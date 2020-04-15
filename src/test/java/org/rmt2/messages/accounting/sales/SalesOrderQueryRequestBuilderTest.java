@@ -197,6 +197,8 @@ public class SalesOrderQueryRequestBuilderTest {
         RecordTrackingType tracking2 = RecordTrackingTypeBuilder.Builder.create()
                 .withDateCreated(RMT2Date.stringToDate("2020-01-01"))
                 .withDateUpdate(RMT2Date.stringToDate("2020-02-01"))
+                .withIpCreated("192.168.0.11")
+                .withIpUpdate("192.168.0.11")
                 .withUserId("testuser")
                 .build();
         SalesOrderType so = SalesOrderTypeBuilder.Builder.create()
