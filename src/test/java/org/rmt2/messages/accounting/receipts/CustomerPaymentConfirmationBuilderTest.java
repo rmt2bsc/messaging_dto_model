@@ -71,6 +71,6 @@ public class CustomerPaymentConfirmationBuilderTest {
         String xml = jaxb.marshalJsonMessage(pc);
         System.out.println(xml);
         Assert.assertNotNull(xml);
-        Assert.assertTrue(xml.contains("ACCI_NUMBER"));
+        Assert.assertTrue(xml.contains("ACCT-1234-1920"));
     }
 }
