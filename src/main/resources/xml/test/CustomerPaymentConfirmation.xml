@@ -1,0 +1,107 @@
+<RSPayload>
+    <appRoot>c:/tmp/</appRoot>
+    <pageTitle>Customer Payment Confirmation</pageTitle>
+    <CustomerExt>
+        <beanClassName>org.dto.adapter.orm.account.subsidiary.CustomerExt</beanClassName>
+        <accountNo>U1440-20090531</accountNo>
+        <active>0</active>
+        <addr1/>
+        <addr2/>
+        <addr3/>
+        <addr4/>
+        <addrBusinessId>0</addrBusinessId>
+        <addrId>0</addrId>
+        <addrPersonId>0</addrPersonId>
+        <addrPhoneCell/>
+        <addrPhoneExt/>
+        <addrPhoneFax/>
+        <addrPhoneHome/>
+        <addrPhoneMain/>
+        <addrPhonePager/>
+        <addrPhoneWork/>
+        <addrZip>0</addrZip>
+        <addrZipext>0</addrZipext>
+        <balance>50062.98</balance>
+        <busType>0</busType>
+        <businessId>1440</businessId>
+        <contactEmail/>
+        <contactExt/>
+        <contactFirstname/>
+        <contactLastname/>
+        <contactPhone/>
+        <creditLimit>0.0</creditLimit>
+        <customerId>11</customerId>
+        <dateCreated>Fri Jun 12 17:04:17 CDT 2009</dateCreated>
+        <dateUpdated>Fri Jun 12 17:04:17 CDT 2009</dateUpdated>
+        <description/>
+        <glAccountId>10</glAccountId>
+        <name/>
+        <servType>0</servType>
+        <shortname/>
+        <taxId/>
+        <userId>admin</userId>
+        <website/>
+        <zipCity/>
+        <zipState/>
+    </CustomerExt>
+    <SalesOrder>
+        <beanClassName>org.dao.mapping.orm.rmt2.SalesOrder</beanClassName>
+        <criteriaAvailable>false</criteriaAvailable>
+        <customCriteriaAvailable>false</customCriteriaAvailable>
+        <customerId>11</customerId>
+        <dataSourceClassName>org.dao.mapping.orm.rmt2.SalesOrder</dataSourceClassName>
+        <dataSourceName>SalesOrderView</dataSourceName>
+        <dataSourcePackage>org.dao.mapping.orm.rmt2</dataSourcePackage>
+        <dataSourceRoot>SalesOrder</dataSourceRoot>
+        <dateCreated>Mon Apr 20 00:02:14 CDT 2020</dateCreated>
+        <dateUpdated>Mon Apr 20 00:02:14 CDT 2020</dateUpdated>
+        <effectiveDate>Wed Apr 01 00:00:00 CDT 2020</effectiveDate>
+        <fileName/>
+        <inClauseAvailable>false</inClauseAvailable>
+        <invoiced>1</invoiced>
+        <ipCreated/>
+        <ipUpdated/>
+        <null/>
+        <orderByAvailable>false</orderByAvailable>
+        <orderTotal>755.94</orderTotal>
+        <resultsetType>0</resultsetType>
+        <rowLimitClause/>
+        <serializeXml>false</serializeXml>
+        <soId>1292</soId>
+        <userId>Unknown</userId>
+    </SalesOrder>
+    <Xact>
+        <beanClassName>org.dao.mapping.orm.rmt2.Xact</beanClassName>
+        <bankTransInd/>
+        <confirmNo/>
+        <criteriaAvailable>false</criteriaAvailable>
+        <customCriteriaAvailable>false</customCriteriaAvailable>
+        <dataSourceClassName>org.dao.mapping.orm.rmt2.Xact</dataSourceClassName>
+        <dataSourceName>XactView</dataSourceName>
+        <dataSourcePackage>org.dao.mapping.orm.rmt2</dataSourcePackage>
+        <dataSourceRoot>Xact</dataSourceRoot>
+        <dateCreated>Mon Apr 20 00:02:14 CDT 2020</dateCreated>
+        <dateUpdated/>
+        <documentId>0</documentId>
+        <entityRefNo/>
+        <fileName/>
+        <inClauseAvailable>false</inClauseAvailable>
+        <ipCreated/>
+        <ipUpdated/>
+        <negInstrNo/>
+        <null/>
+        <orderByAvailable>false</orderByAvailable>
+        <postedDate/>
+        <reason>Cash Receipt: Full payment received for sales order #1292</reason>
+        <resultsetType>0</resultsetType>
+        <rowLimitClause/>
+        <serializeXml>false</serializeXml>
+        <tenderId>11</tenderId>
+        <userId/>
+        <xactAmount>755.94</xactAmount>
+        <xactDate>Mon Apr 20 00:00:00 CDT 2020</xactDate>
+        <xactId>26507</xactId>
+        <xactSubtypeId>0</xactSubtypeId>
+        <xactTypeId>2</xactTypeId>
+    </Xact>
+</RSPayload>

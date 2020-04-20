@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="CustomerPaymentConfirmation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="appRoot" type="xs:string"/>
+        <xs:element name="pageTitle" type="xs:string"/>
+        <xs:element ref="CustomerData"/>
+        <xs:element ref="SalesOrderData"/>
+        <xs:element ref="XactData"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+ 
+  <xs:element name="CustomerData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="beanClassName"/>
+        <xs:element ref="accountNo"/>
+        <xs:element ref="active"/>
+        <xs:element ref="addr1"/>
+        <xs:element ref="addr2"/>
+        <xs:element ref="addr3"/>
+        <xs:element ref="addr4"/>
+        <xs:element ref="addrBusinessId"/>
+        <xs:element ref="addrId"/>
+        <xs:element ref="addrPersonId"/>
+        <xs:element ref="addrPhoneCell"/>
+        <xs:element ref="addrPhoneExt"/>
+        <xs:element ref="addrPhoneFax"/>
+        <xs:element ref="addrPhoneHome"/>
+        <xs:element ref="addrPhoneMain"/>
+        <xs:element ref="addrPhonePager"/>
+        <xs:element ref="addrPhoneWork"/>
+        <xs:element ref="addrZip"/>
+        <xs:element ref="addrZipext"/>
+        <xs:element ref="balance"/>
+        <xs:element ref="busType"/>
+        <xs:element ref="businessId"/>
+        <xs:element ref="contactEmail"/>
+        <xs:element ref="contactExt"/>
+        <xs:element ref="contactFirstname"/>
+        <xs:element ref="contactLastname"/>
+        <xs:element ref="contactPhone"/>
+        <xs:element ref="creditLimit"/>
+        <xs:element ref="customerId"/>
+        <xs:element ref="dateCreated"/>
+        <xs:element ref="dateUpdated"/>
+        <xs:element ref="description"/>
+        <xs:element ref="glAccountId"/>
+        <xs:element ref="name"/>
+        <xs:element ref="servType"/>
+        <xs:element ref="shortname"/>
+        <xs:element ref="taxId"/>
+        <xs:element ref="userId"/>
+        <xs:element ref="website"/>
+        <xs:element ref="zipCity"/>
+        <xs:element ref="zipState"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="accountNo" type="xs:NCName"/>
+  <xs:element name="active" type="xs:integer"/>
+  <xs:element name="addr1">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="addr2">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="addr3">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="addr4">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="addrBusinessId" type="xs:integer"/>
+  <xs:element name="addrId" type="xs:integer"/>
+  <xs:element name="addrPersonId" type="xs:integer"/>
+  <xs:element name="addrPhoneCell">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="addrPhoneExt">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="addrPhoneFax">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="addrPhoneHome">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="addrPhoneMain">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="addrPhonePager">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="addrPhoneWork">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="addrZip" type="xs:integer"/>
+  <xs:element name="addrZipext" type="xs:integer"/>
+  <xs:element name="balance" type="xs:decimal"/>
+  <xs:element name="busType" type="xs:integer"/>
+  <xs:element name="businessId" type="xs:integer"/>
+  <xs:element name="contactEmail">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="contactExt">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="contactFirstname">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="contactLastname">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="contactPhone">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="creditLimit" type="xs:decimal"/>
+  <xs:element name="description">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="glAccountId" type="xs:integer"/>
+  <xs:element name="name">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="servType" type="xs:integer"/>
+  <xs:element name="shortname">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="taxId">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="website">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="zipCity">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="zipState">
+    <xs:complexType/>
+  </xs:element>
+  
+  
+  <xs:element name="SalesOrderData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="beanClassName"/>
+        <xs:element ref="criteriaAvailable"/>
+        <xs:element ref="customCriteriaAvailable"/>
+        <xs:element ref="customerId"/>
+        <xs:element ref="dataSourceClassName"/>
+        <xs:element ref="dataSourceName"/>
+        <xs:element ref="dataSourcePackage"/>
+        <xs:element ref="dataSourceRoot"/>
+        <xs:element ref="dateCreated"/>
+        <xs:element ref="dateUpdated"/>
+        <xs:element ref="effectiveDate"/>
+        <xs:element ref="fileName"/>
+        <xs:element ref="inClauseAvailable"/>
+        <xs:element ref="invoiced"/>
+        <xs:element ref="ipCreated"/>
+        <xs:element ref="ipUpdated"/>
+        <xs:element ref="null"/>
+        <xs:element ref="orderByAvailable"/>
+        <xs:element ref="orderTotal"/>
+        <xs:element ref="resultsetType"/>
+        <xs:element ref="rowLimitClause"/>
+        <xs:element ref="serializeXml"/>
+        <xs:element ref="soId"/>
+        <xs:element ref="userId"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="effectiveDate" type="xs:string"/>
+  <xs:element name="invoiced" type="xs:integer"/>
+  <xs:element name="orderTotal" type="xs:decimal"/>
+  <xs:element name="soId" type="xs:integer"/>
+  
+  <xs:element name="XactData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="beanClassName"/>
+        <xs:element ref="bankTransInd"/>
+        <xs:element ref="confirmNo"/>
+        <xs:element ref="criteriaAvailable"/>
+        <xs:element ref="customCriteriaAvailable"/>
+        <xs:element ref="dataSourceClassName"/>
+        <xs:element ref="dataSourceName"/>
+        <xs:element ref="dataSourcePackage"/>
+        <xs:element ref="dataSourceRoot"/>
+        <xs:element ref="dateCreated"/>
+        <xs:element ref="dateUpdated"/>
+        <xs:element ref="documentId"/>
+        <xs:element ref="entityRefNo"/>
+        <xs:element ref="fileName"/>
+        <xs:element ref="inClauseAvailable"/>
+        <xs:element ref="ipCreated"/>
+        <xs:element ref="ipUpdated"/>
+        <xs:element ref="negInstrNo"/>
+        <xs:element ref="null"/>
+        <xs:element ref="orderByAvailable"/>
+        <xs:element ref="postedDate"/>
+        <xs:element ref="reason"/>
+        <xs:element ref="resultsetType"/>
+        <xs:element ref="rowLimitClause"/>
+        <xs:element ref="serializeXml"/>
+        <xs:element ref="tenderId"/>
+        <xs:element ref="userId"/>
+        <xs:element ref="xactAmount"/>
+        <xs:element ref="xactDate"/>
+        <xs:element ref="xactId"/>
+        <xs:element ref="xactSubtypeId"/>
+        <xs:element ref="xactTypeId"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="bankTransInd">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="confirmNo">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="documentId" type="xs:integer"/>
+  <xs:element name="entityRefNo">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="negInstrNo">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="postedDate">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="reason" type="xs:string"/>
+  <xs:element name="tenderId" type="xs:integer"/>
+  <xs:element name="xactAmount" type="xs:decimal"/>
+  <xs:element name="xactDate" type="xs:string"/>
+  <xs:element name="xactId" type="xs:integer"/>
+  <xs:element name="xactSubtypeId" type="xs:integer"/>
+  <xs:element name="xactTypeId" type="xs:integer"/>
+  <xs:element name="beanClassName" type="xs:NCName"/>
+  <xs:element name="customerId" type="xs:integer"/>
+  <xs:element name="dateCreated" type="xs:string"/>
+  <xs:element name="dateUpdated" type="xs:string"/>
+  <xs:element name="userId" type="xs:string"/>
+  <xs:element name="criteriaAvailable" type="xs:boolean"/>
+  <xs:element name="customCriteriaAvailable" type="xs:boolean"/>
+  <xs:element name="dataSourceClassName" type="xs:NCName"/>
+  <xs:element name="dataSourceName" type="xs:NCName"/>
+  <xs:element name="dataSourcePackage" type="xs:NCName"/>
+  <xs:element name="dataSourceRoot" type="xs:NCName"/>
+  <xs:element name="fileName">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="inClauseAvailable" type="xs:boolean"/>
+  <xs:element name="ipCreated">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="ipUpdated">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="null">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="orderByAvailable" type="xs:boolean"/>
+  <xs:element name="resultsetType" type="xs:integer"/>
+  <xs:element name="rowLimitClause">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="serializeXml" type="xs:boolean"/>
+  
+</xs:schema>
