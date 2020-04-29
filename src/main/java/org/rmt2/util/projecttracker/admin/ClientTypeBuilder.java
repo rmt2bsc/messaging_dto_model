@@ -31,6 +31,7 @@ public class ClientTypeBuilder {
         subject.setCustomer(builder.customer);
         subject.setBillRate(builder.billRate);
         subject.setOtBillRate(builder.otBillRate);
+        subject.setFlatRate(builder.flatRate);
         subject.setTracking(builder.tracking);
     }
 
@@ -46,6 +47,7 @@ public class ClientTypeBuilder {
         private CustomerType customer;
         private BigDecimal billRate;
         private BigDecimal otBillRate;
+        private BigDecimal flatRate;
         private RecordTrackingType tracking;
 
         private Builder() {
@@ -123,6 +125,18 @@ public class ClientTypeBuilder {
          */
         public Builder withOvertimeBillRate(double otBillRate) {
             this.otBillRate = BigDecimal.valueOf(otBillRate);
+            return this;
+        }
+
+        /**
+         * Set up flat rate.
+         * 
+         * @param flatRate
+         *            an double value that must not be blank
+         * @return Non-null Builder used to continue building the object
+         */
+        public Builder withFlatRate(double flatRate) {
+            this.flatRate = BigDecimal.valueOf(flatRate);
             return this;
         }
 
