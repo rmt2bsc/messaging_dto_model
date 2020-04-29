@@ -10,6 +10,12 @@
 
 	<xsd:complexType name="project_criteria_group">
 		<xsd:sequence>
+			<xsd:element name="client_criteria" type="client_criteria_type" minOccurs="0"
+				maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The client selection criteria</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
 			<xsd:element name="employee_criteria" type="employee_criteria_type" minOccurs="0"
 				maxOccurs="1">
 				<xsd:annotation>
@@ -17,9 +23,15 @@
 				</xsd:annotation>
 			</xsd:element>
 			<xsd:element name="timesheet_criteria" type="timesheet_criteria_type" minOccurs="0"
-				maxOccurs="unbounded">
+				maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The timesheet selection criteria</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="employee_project_criteria" type="employee_project_criteria_type" minOccurs="0"
+				maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The employee/project selection criteria</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
 		</xsd:sequence>
@@ -192,7 +204,17 @@
 
 	<xsd:complexType name="client_type">
 		<xsd:sequence>
-			<xsd:element name="client" type="customer_type" minOccurs="1" maxOccurs="1">
+			<xsd:element name="client_id" type="xsd:integer" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>This is the client id</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="name" type="xsd:string" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>This is the client's name</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="customer" type="customer_type" minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>This is the client id</xsd:documentation>
 				</xsd:annotation>
@@ -517,8 +539,30 @@
 			<xsd:element name="status_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
 			<xsd:element name="employee_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
 			<xsd:element name="client_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="project_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
 			<xsd:element name="period_begin" type="xsd:date" minOccurs="1" maxOccurs="1"/>
 			<xsd:element name="period_end" type="xsd:date" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="client_criteria_type">
+		<xsd:sequence>
+			<xsd:element name="client_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="business_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="client_name" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="account_no" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="employee_project_criteria_type">
+		<xsd:sequence>
+			<xsd:element name="emp_proj_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="emp_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="proj_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="effective_date" type="xsd:date" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="end_date" type="xsd:date" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="hourly_rate" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="flat_rate" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
 		</xsd:sequence>
 	</xsd:complexType>
 
