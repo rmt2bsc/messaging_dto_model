@@ -96,6 +96,7 @@ public class ApiTransactionCodes {
     public static final String ACCOUNTING_TRANSACTION_BY_ID_GET = "GET_TRANS_BY_ID";
 
     // Project Tracker - Employee Transactions
+    public static final String PROJTRACK_CLIENT_GET = "GET_CLIENT";
     public static final String PROJTRACK_EMPLOYEE_GET = "GET_EMPLOYEE";
 
     public ApiTransactionCodes() {
