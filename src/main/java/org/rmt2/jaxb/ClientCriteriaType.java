@@ -18,19 +18,19 @@ import com.RMT2Base;
 
 
 /**
- * <p>Java class for item_association_criteria_type complex type.
+ * <p>Java class for client_criteria_type complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="item_association_criteria_type">
+ * &lt;complexType name="client_criteria_type">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="assoc_id" type="{http://www.w3.org/2001/XMLSchema}integer"/>
- *         &lt;element name="assoc_item_id" type="{http://www.w3.org/2001/XMLSchema}integer"/>
- *         &lt;element name="item_id" type="{http://www.w3.org/2001/XMLSchema}integer"/>
- *         &lt;element name="assoc_type" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="client_id" type="{http://www.w3.org/2001/XMLSchema}integer"/>
+ *         &lt;element name="business_id" type="{http://www.w3.org/2001/XMLSchema}integer"/>
+ *         &lt;element name="client_name" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="account_no" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -40,121 +40,121 @@ import com.RMT2Base;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "item_association_criteria_type", propOrder = {
-    "assocId",
-    "assocItemId",
-    "itemId",
-    "assocType"
+@XmlType(name = "client_criteria_type", propOrder = {
+    "clientId",
+    "businessId",
+    "clientName",
+    "accountNo"
 })
-public class ItemAssociationCriteriaType
+public class ClientCriteriaType
     extends RMT2Base
     implements Serializable
 {
 
     private final static long serialVersionUID = 1L;
-    @XmlElement(name = "assoc_id", required = true)
-    protected BigInteger assocId;
-    @XmlElement(name = "assoc_item_id", required = true)
-    protected BigInteger assocItemId;
-    @XmlElement(name = "item_id", required = true)
-    protected BigInteger itemId;
-    @XmlElement(name = "assoc_type", required = true)
-    protected String assocType;
+    @XmlElement(name = "client_id", required = true)
+    protected BigInteger clientId;
+    @XmlElement(name = "business_id", required = true)
+    protected BigInteger businessId;
+    @XmlElement(name = "client_name", required = true)
+    protected String clientName;
+    @XmlElement(name = "account_no", required = true)
+    protected String accountNo;
 
     /**
-     * Gets the value of the assocId property.
+     * Gets the value of the clientId property.
      * 
      * @return
      *     possible object is
      *     {@link BigInteger }
      *     
      */
-    public BigInteger getAssocId() {
-        return assocId;
+    public BigInteger getClientId() {
+        return clientId;
     }
 
     /**
-     * Sets the value of the assocId property.
+     * Sets the value of the clientId property.
      * 
      * @param value
      *     allowed object is
      *     {@link BigInteger }
      *     
      */
-    public void setAssocId(BigInteger value) {
-        this.assocId = value;
+    public void setClientId(BigInteger value) {
+        this.clientId = value;
     }
 
     /**
-     * Gets the value of the assocItemId property.
+     * Gets the value of the businessId property.
      * 
      * @return
      *     possible object is
      *     {@link BigInteger }
      *     
      */
-    public BigInteger getAssocItemId() {
-        return assocItemId;
+    public BigInteger getBusinessId() {
+        return businessId;
     }
 
     /**
-     * Sets the value of the assocItemId property.
+     * Sets the value of the businessId property.
      * 
      * @param value
      *     allowed object is
      *     {@link BigInteger }
      *     
      */
-    public void setAssocItemId(BigInteger value) {
-        this.assocItemId = value;
+    public void setBusinessId(BigInteger value) {
+        this.businessId = value;
     }
 
     /**
-     * Gets the value of the itemId property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
-     */
-    public BigInteger getItemId() {
-        return itemId;
-    }
-
-    /**
-     * Sets the value of the itemId property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
-     */
-    public void setItemId(BigInteger value) {
-        this.itemId = value;
-    }
-
-    /**
-     * Gets the value of the assocType property.
+     * Gets the value of the clientName property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getAssocType() {
-        return assocType;
+    public String getClientName() {
+        return clientName;
     }
 
     /**
-     * Sets the value of the assocType property.
+     * Sets the value of the clientName property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setAssocType(String value) {
-        this.assocType = value;
+    public void setClientName(String value) {
+        this.clientName = value;
+    }
+
+    /**
+     * Gets the value of the accountNo property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getAccountNo() {
+        return accountNo;
+    }
+
+    /**
+     * Sets the value of the accountNo property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setAccountNo(String value) {
+        this.accountNo = value;
     }
 
 }
