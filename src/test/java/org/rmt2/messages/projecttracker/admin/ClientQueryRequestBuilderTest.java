@@ -126,6 +126,7 @@ public class ClientQueryRequestBuilderTest {
                 .withCustomerData(customer)
                 .withBillRate(120.00)
                 .withOvertimeBillRate(130.00)
+                .withFlatRate(200000.00)
                 .withRecordTracking(tracking)
                 .build();
 
