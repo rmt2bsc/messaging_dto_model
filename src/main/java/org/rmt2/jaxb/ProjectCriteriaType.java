@@ -13,24 +13,27 @@ import java.math.BigInteger;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.datatype.XMLGregorianCalendar;
 import com.RMT2Base;
 
 
 /**
- * <p>Java class for client_criteria_type complex type.
+ * <p>Java class for project_criteria_type complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="client_criteria_type">
+ * &lt;complexType name="project_criteria_type">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
+ *         &lt;element name="project_id" type="{http://www.w3.org/2001/XMLSchema}integer"/>
+ *         &lt;element name="project_name" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="client_id" type="{http://www.w3.org/2001/XMLSchema}integer"/>
- *         &lt;element name="business_id" type="{http://www.w3.org/2001/XMLSchema}integer"/>
  *         &lt;element name="client_name" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="account_no" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="project_effective_date" type="{http://www.w3.org/2001/XMLSchema}date"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -40,26 +43,78 @@ import com.RMT2Base;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "client_criteria_type", propOrder = {
+@XmlType(name = "project_criteria_type", propOrder = {
+    "projectId",
+    "projectName",
     "clientId",
-    "businessId",
     "clientName",
-    "accountNo"
+    "projectEffectiveDate"
 })
-public class ClientCriteriaType
+public class ProjectCriteriaType
     extends RMT2Base
     implements Serializable
 {
 
     private final static long serialVersionUID = 1L;
+    @XmlElement(name = "project_id", required = true)
+    protected BigInteger projectId;
+    @XmlElement(name = "project_name", required = true)
+    protected String projectName;
     @XmlElement(name = "client_id", required = true)
     protected BigInteger clientId;
-    @XmlElement(name = "business_id", required = true)
-    protected BigInteger businessId;
     @XmlElement(name = "client_name", required = true)
     protected String clientName;
-    @XmlElement(name = "account_no", required = true)
-    protected String accountNo;
+    @XmlElement(name = "project_effective_date", required = true)
+    @XmlSchemaType(name = "date")
+    protected XMLGregorianCalendar projectEffectiveDate;
+
+    /**
+     * Gets the value of the projectId property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link BigInteger }
+     *     
+     */
+    public BigInteger getProjectId() {
+        return projectId;
+    }
+
+    /**
+     * Sets the value of the projectId property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link BigInteger }
+     *     
+     */
+    public void setProjectId(BigInteger value) {
+        this.projectId = value;
+    }
+
+    /**
+     * Gets the value of the projectName property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getProjectName() {
+        return projectName;
+    }
+
+    /**
+     * Sets the value of the projectName property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setProjectName(String value) {
+        this.projectName = value;
+    }
 
     /**
      * Gets the value of the clientId property.
@@ -83,30 +138,6 @@ public class ClientCriteriaType
      */
     public void setClientId(BigInteger value) {
         this.clientId = value;
-    }
-
-    /**
-     * Gets the value of the businessId property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
-     */
-    public BigInteger getBusinessId() {
-        return businessId;
-    }
-
-    /**
-     * Sets the value of the businessId property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
-     */
-    public void setBusinessId(BigInteger value) {
-        this.businessId = value;
     }
 
     /**
@@ -134,27 +165,27 @@ public class ClientCriteriaType
     }
 
     /**
-     * Gets the value of the accountNo property.
+     * Gets the value of the projectEffectiveDate property.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link XMLGregorianCalendar }
      *     
      */
-    public String getAccountNo() {
-        return accountNo;
+    public XMLGregorianCalendar getProjectEffectiveDate() {
+        return projectEffectiveDate;
     }
 
     /**
-     * Sets the value of the accountNo property.
+     * Sets the value of the projectEffectiveDate property.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link XMLGregorianCalendar }
      *     
      */
-    public void setAccountNo(String value) {
-        this.accountNo = value;
+    public void setProjectEffectiveDate(XMLGregorianCalendar value) {
+        this.projectEffectiveDate = value;
     }
 
 }
