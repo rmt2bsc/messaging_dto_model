@@ -34,6 +34,11 @@
 					<xsd:documentation>The employee/project selection criteria</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
+			<xsd:element name="project_criteria" type="project_criteria_type" minOccurs="0"	maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The project selection criteria</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
 		</xsd:sequence>
 	</xsd:complexType>
 
@@ -571,4 +576,13 @@
 		</xsd:sequence>
 	</xsd:complexType>
 
+	<xsd:complexType name="project_criteria_type">
+		<xsd:sequence>
+			<xsd:element name="project_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="project_name" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="client_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="client_name" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="project_effective_date" type="xsd:date" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
 </xsd:schema>
