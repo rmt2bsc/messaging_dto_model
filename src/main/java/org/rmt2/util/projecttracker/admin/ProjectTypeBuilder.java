@@ -70,6 +70,7 @@ public class ProjectTypeBuilder {
         private BigInteger projectId;
         private String projectName;
         private XMLGregorianCalendar effectiveDate;
+        private XMLGregorianCalendar endDate;
         private double billRate;
         private double otBillRate;
         private RecordTrackingType tracking;
@@ -164,6 +165,18 @@ public class ProjectTypeBuilder {
             this.effectiveDate = RMT2Date.toXmlDate(effectiveDate);
             return this;
         }
+
+        /**
+         * Set up end date
+         * 
+         * @param endDate
+         * @return
+         */
+        public Builder withEndDate(Date endDate) {
+            this.endDate = RMT2Date.toXmlDate(endDate);
+            return this;
+        }
+
         /**
          * Set up bill rate.
          * 
