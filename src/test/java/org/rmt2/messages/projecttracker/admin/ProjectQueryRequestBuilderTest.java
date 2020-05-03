@@ -65,6 +65,8 @@ public class ProjectQueryRequestBuilderTest {
         criteria.setClientBusinessId(BigInteger.valueOf(333));
         criteria.setProjectId(BigInteger.valueOf(200));
         criteria.setProjectName("Project Name");
+        criteria.setProjectEffectiveDate(RMT2Date.toXmlDate("2020-01-01"));
+        criteria.setProjectEndDate(RMT2Date.toXmlDate("2020-05-01"));
 
         ProjectCriteriaGroup pcg = fact.createProjectCriteriaGroup();
         pcg.setProjectCriteria(criteria);
@@ -115,7 +117,8 @@ public class ProjectQueryRequestBuilderTest {
                 .withOvertimeBillRate(130.00)
                 .withProjectId(10000)
                 .withProjectName("Project Name")
-                .withEffectiveDate(RMT2Date.stringToDate("2020/5/01"))
+                .withEffectiveDate(RMT2Date.stringToDate("2020/1/01"))
+                .withEndDate(RMT2Date.stringToDate("2020/5/01"))
                 .withRecordTracking(tracking)
                 .build();
 
