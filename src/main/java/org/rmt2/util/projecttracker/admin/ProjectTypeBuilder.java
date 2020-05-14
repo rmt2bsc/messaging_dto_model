@@ -54,6 +54,7 @@ public class ProjectTypeBuilder {
         subject.setProjectId(builder.projectId);
         subject.setDescription(builder.projectName);
         subject.setEffectiveDate(builder.effectiveDate);
+        subject.setEndDate(builder.endDate);
         subject.setTracking(builder.tracking);
     }
 
