@@ -99,6 +99,7 @@ public class ApiTransactionCodes {
     public static final String PROJTRACK_CLIENT_GET = "GET_CLIENT";
     public static final String PROJTRACK_PROJECT_GET = "GET_PROJECT";
     public static final String PROJTRACK_PROJECT_UPDATE = "UPDATE_PROJECT";
+    public static final String PROJTRACK_PROJECT_DELETE = "DELETE_PROJECT";
     public static final String PROJTRACK_EMPLOYEE_GET = "GET_EMPLOYEE";
 
     public ApiTransactionCodes() {
