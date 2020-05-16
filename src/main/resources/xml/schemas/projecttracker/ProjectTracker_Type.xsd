@@ -462,7 +462,7 @@
 					<xsd:documentation>This is the description of the task</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="billable" type="on_off_indicator_type" minOccurs="1" maxOccurs="1">
+			<xsd:element name="billable" type="xsd:integer" minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>This is the task billable. </xsd:documentation>
 				</xsd:annotation>
