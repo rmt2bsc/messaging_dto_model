@@ -18,19 +18,18 @@ import com.RMT2Base;
 
 
 /**
- * The master list of genres for audio/video types.
- * 
- * <p>Java class for audio_video_genre_lookup complex type.
+ * <p>Java class for task_criteria_type complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="audio_video_genre_lookup">
+ * &lt;complexType name="task_criteria_type">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}integer"/>
- *         &lt;element name="description" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="task_id" type="{http://www.w3.org/2001/XMLSchema}integer"/>
+ *         &lt;element name="billable" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
+ *         &lt;element name="description" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -40,42 +39,61 @@ import com.RMT2Base;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "audio_video_genre_lookup", propOrder = {
-    "id",
+@XmlType(name = "task_criteria_type", propOrder = {
+    "taskId",
+    "billable",
     "description"
 })
-public class AudioVideoGenreLookup
+public class TaskCriteriaType
     extends RMT2Base
     implements Serializable
 {
 
     private final static long serialVersionUID = 1L;
+    @XmlElement(name = "task_id", required = true)
+    protected BigInteger taskId;
+    protected boolean billable;
     @XmlElement(required = true)
-    protected BigInteger id;
     protected String description;
 
     /**
-     * Gets the value of the id property.
+     * Gets the value of the taskId property.
      * 
      * @return
      *     possible object is
      *     {@link BigInteger }
      *     
      */
-    public BigInteger getId() {
-        return id;
+    public BigInteger getTaskId() {
+        return taskId;
     }
 
     /**
-     * Sets the value of the id property.
+     * Sets the value of the taskId property.
      * 
      * @param value
      *     allowed object is
      *     {@link BigInteger }
      *     
      */
-    public void setId(BigInteger value) {
-        this.id = value;
+    public void setTaskId(BigInteger value) {
+        this.taskId = value;
+    }
+
+    /**
+     * Gets the value of the billable property.
+     * 
+     */
+    public boolean isBillable() {
+        return billable;
+    }
+
+    /**
+     * Sets the value of the billable property.
+     * 
+     */
+    public void setBillable(boolean value) {
+        this.billable = value;
     }
 
     /**
