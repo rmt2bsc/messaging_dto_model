@@ -572,7 +572,7 @@
 	<xsd:complexType name="task_criteria_type">
 		<xsd:sequence>
 			<xsd:element name="task_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
-			<xsd:element name="billable" type="xsd:boolean" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="billable" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
 			<xsd:element name="description" type="xsd:string" minOccurs="1" maxOccurs="1"/>
 		</xsd:sequence>
 	</xsd:complexType>
