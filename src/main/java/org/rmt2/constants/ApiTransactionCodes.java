@@ -102,6 +102,8 @@ public class ApiTransactionCodes {
     public static final String PROJTRACK_PROJECT_DELETE = "DELETE_PROJECT";
     public static final String PROJTRACK_TASK_GET = "GET_TASK";
     public static final String PROJTRACK_TASK_UPDATE = "UPDATE_TASK";
+    public static final String PROJTRACK_TASK_DELETE = "DELETE_TASK";
+
     public static final String PROJTRACK_EMPLOYEE_GET = "GET_EMPLOYEE";
 
     public ApiTransactionCodes() {
