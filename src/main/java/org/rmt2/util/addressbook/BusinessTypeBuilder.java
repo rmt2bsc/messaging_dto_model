@@ -8,8 +8,6 @@ import org.rmt2.jaxb.CodeDetailType;
 import org.rmt2.jaxb.CodeGroupType;
 import org.rmt2.jaxb.ObjectFactory;
 
-import com.api.util.assistants.Verifier;
-
 /**
  * BusinessType Builder.
  * 
@@ -101,7 +99,6 @@ public class BusinessTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withBusinessId(int businessId) {
-            Verifier.verifyNotNegative(businessId, "Business id must not be a negative value");
             this.businessId = businessId;
             return this;
         }
@@ -131,7 +128,6 @@ public class BusinessTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withShortname(String shortName) {
-            Verifier.verifyNotBlank(shortName, "Business short name description cannot be blank");
             this.shortName = shortName;
             return this;
         }
@@ -146,7 +142,6 @@ public class BusinessTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withContactFirstname(String contactFirstname) {
-            Verifier.verifyNotBlank(contactFirstname, "Contact first name cannot be blank");
             this.contactFirstname = contactFirstname;
             return this;
         }
@@ -161,7 +156,6 @@ public class BusinessTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withContactLastname(String contactLastname) {
-            Verifier.verifyNotBlank(contactLastname, "Contact last name cannot be blank");
             this.contactLastname = contactLastname;
             return this;
         }
@@ -176,7 +170,6 @@ public class BusinessTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withContactPhone(String contactPhone) {
-            Verifier.verifyNotBlank(contactPhone, "Contact phone cannot be blank");
             this.contactPhone = contactPhone;
             return this;
         }
@@ -191,7 +184,6 @@ public class BusinessTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withContactPhoneExt(String contactExt) {
-            Verifier.verifyNotBlank(contactExt, "Contact phone extension cannot be blank");
             this.contactExt = contactExt;
             return this;
         }
@@ -206,7 +198,6 @@ public class BusinessTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withContactEmail(String contactEmail) {
-            Verifier.verifyNotBlank(contactEmail, "Contact email cannot be blank");
             this.contactEmail = contactEmail;
             return this;
         }
@@ -221,7 +212,6 @@ public class BusinessTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withTaxId(String taxId) {
-            Verifier.verifyNotBlank(taxId, "Contact tax id cannot be blank");
             this.taxId = taxId;
             return this;
         }
@@ -236,7 +226,6 @@ public class BusinessTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withWebsite(String website) {
-            Verifier.verifyNotBlank(website, "Web site cannot be blank");
             this.website = website;
             return this;
         }
@@ -252,7 +241,6 @@ public class BusinessTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withEntityType(CodeDetailType entityType) {
-            Verifier.verifyNotNull(website, "Entity type object cannot be null");
             this.entityType = entityType;
             return this;
         }
@@ -268,7 +256,6 @@ public class BusinessTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withServiceType(CodeDetailType serviceType) {
-            Verifier.verifyNotNull(serviceType, "Service type object cannot be null");
             this.serviceType = serviceType;
             return this;
         }
@@ -284,7 +271,6 @@ public class BusinessTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withCategory(CodeGroupType category) {
-            Verifier.verifyNotNull(category, "Category object cannot be null");
             this.category = category;
             return this;
         }
@@ -300,7 +286,6 @@ public class BusinessTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withAddress(AddressType address) {
-            Verifier.verifyNotNull(address, "Address object cannot be null");
             this.address = address;
             return this;
         }
