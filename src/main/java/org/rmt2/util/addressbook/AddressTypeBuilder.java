@@ -6,8 +6,6 @@ import org.rmt2.jaxb.AddressType;
 import org.rmt2.jaxb.ObjectFactory;
 import org.rmt2.jaxb.ZipcodeType;
 
-import com.api.util.assistants.Verifier;
-
 /**
  * AddressType Builder.
  * 
@@ -106,7 +104,6 @@ public class AddressTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withAddrId(int addrId) {
-            Verifier.verifyNotNegative(addrId, "Address Id must not be a negative value");
             this.addrId = addrId;
             return this;
         }
@@ -121,7 +118,6 @@ public class AddressTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withPersonId(int personId) {
-            Verifier.verifyPositive(personId, "Person id must be a positive non-zero value");
             this.personId = personId;
             return this;
         }
@@ -136,7 +132,6 @@ public class AddressTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withBusinessId(int businessId) {
-            Verifier.verifyPositive(businessId, "Business id must be a positive non-zero value");
             this.businessId = businessId;
             return this;
         }
@@ -151,7 +146,6 @@ public class AddressTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withAddressLine1(String addressLine) {
-            Verifier.verifyNotBlank(addressLine, "Address line 1 cannot be blank");
             this.addr1 = addressLine;
             return this;
         }
@@ -166,7 +160,6 @@ public class AddressTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withAddressLine2(String addressLine) {
-            Verifier.verifyNotBlank(addressLine, "Address line 2 cannot be blank");
             this.addr2 = addressLine;
             return this;
         }
@@ -181,7 +174,6 @@ public class AddressTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withAddressLine3(String addressLine) {
-            Verifier.verifyNotBlank(addressLine, "Address line 3 cannot be blank");
             this.addr3 = addressLine;
             return this;
         }
@@ -196,7 +188,6 @@ public class AddressTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withAddressLine4(String addressLine) {
-            Verifier.verifyNotBlank(addressLine, "Address line 4 cannot be blank");
             this.addr4 = addressLine;
             return this;
         }
@@ -212,7 +203,6 @@ public class AddressTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withZipcode(ZipcodeType zipcode) {
-            Verifier.verifyNotNull(zipcode, "Zip code object cannot be null");
             this.zip = zipcode;
             return this;
         }
@@ -227,7 +217,6 @@ public class AddressTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withZipcodeExtension(int zipExt) {
-            Verifier.verifyPositive(zipExt, "Zip code extension must be a positive non-zero value");
             this.zipExt = zipExt;
             return this;
         }
@@ -242,7 +231,6 @@ public class AddressTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withPhoneHome(String phoneNo) {
-            Verifier.verifyNotBlank(phoneNo, "Home phone number cannot be blank");
             this.phoneHome = phoneNo;
             return this;
         }
@@ -257,7 +245,6 @@ public class AddressTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withPhoneWork(String phoneNo) {
-            Verifier.verifyNotBlank(phoneNo, "Work phone number cannot be blank");
             this.phoneWork = phoneNo;
             return this;
         }
@@ -272,7 +259,6 @@ public class AddressTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withPhoneWorkExt(String phoneNo) {
-            Verifier.verifyNotBlank(phoneNo, "Work phone extension number cannot be blank");
             this.phoneWorkExt = phoneNo;
             return this;
         }
@@ -288,7 +274,6 @@ public class AddressTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withPhoneMain(String phoneNo) {
-            Verifier.verifyNotBlank(phoneNo, "Main phone number cannot be blank");
             this.phoneMain = phoneNo;
             return this;
         }
@@ -303,7 +288,6 @@ public class AddressTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withPhoneMobile(String phoneNo) {
-            Verifier.verifyNotBlank(phoneNo, "Mobile phone number cannot be blank");
             this.phoneCell = phoneNo;
             return this;
         }
@@ -318,7 +302,6 @@ public class AddressTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withPhoneFax(String phoneNo) {
-            Verifier.verifyNotBlank(phoneNo, "Fax phone number cannot be blank");
             this.phoneFax = phoneNo;
             return this;
         }
@@ -333,7 +316,6 @@ public class AddressTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withPhonePager(String phoneNo) {
-            Verifier.verifyNotBlank(phoneNo, "Pager number cannot be blank");
             this.phonePager = phoneNo;
             return this;
         }
