@@ -146,7 +146,7 @@ public class EmployeeQueryRequestBuilderTest {
                 .build();
 
         EmployeetypeType ett = EmployeetypeTypeBuilder.Builder.create()
-                .withEmployeeId(1000)
+                .withEmployeeTypeId(1000)
                 .withDescription("Employee Type Description")
                 .build();
 
