@@ -59,7 +59,7 @@ public class EmployeetypeTypeBuilder {
          * @throws VerifyException
          *             if the parameter conditions are not met.
          */
-        public Builder withEmployeeId(int employeeTypeId) {
+        public Builder withEmployeeTypeId(int employeeTypeId) {
             this.employeeTypeId = employeeTypeId;
             return this;
         }
