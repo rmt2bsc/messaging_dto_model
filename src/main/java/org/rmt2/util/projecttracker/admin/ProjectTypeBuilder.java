@@ -39,6 +39,7 @@ public class ProjectTypeBuilder {
                 .build();
 
         CustomerType ct1 = CustomerTypeBuilder.Builder.create()
+                .withAccountNo(builder.clientAccountNo)
                 .withBusinessType(bt)
                 .build();
 
@@ -68,6 +69,7 @@ public class ProjectTypeBuilder {
         private int clientId;
         private int clientBusinessId;
         private String clientName;
+        private String clientAccountNo;
         private BigInteger projectId;
         private String projectName;
         private XMLGregorianCalendar effectiveDate;
@@ -129,6 +131,20 @@ public class ProjectTypeBuilder {
          */
         public Builder withClientName(String name) {
             this.clientName = name;
+            return this;
+        }
+
+        /**
+         * Set up client account number.
+         * 
+         * @param acctNo
+         *            an String value that must not be blank
+         * @return Non-null Builder used to continue building the object
+         * @throws VerifyException
+         *             if the parameter conditions are not met.
+         */
+        public Builder withClientAccountNo(String acctNo) {
+            this.clientAccountNo = acctNo;
             return this;
         }
 
