@@ -13,7 +13,6 @@ import org.rmt2.jaxb.PersonType;
 import org.rmt2.jaxb.RecordTrackingType;
 
 import com.api.util.RMT2Date;
-import com.api.util.assistants.Verifier;
 
 /**
  * EmployeeType Builder.
@@ -100,7 +99,6 @@ public class EmployeeTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withEmployeeId(int employeeId) {
-            Verifier.verifyNotNegative(employeeId, "Employee id must not be a negative value");
             this.employeeId = employeeId;
             return this;
         }
@@ -179,7 +177,6 @@ public class EmployeeTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withLoginName(String loginName) {
-            Verifier.verifyNotBlank(loginName, "Login Name cannot be blank");
             this.loginName = loginName;
             return this;
         }
@@ -209,7 +206,6 @@ public class EmployeeTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withStartDate(String startDate) {
-            Verifier.verifyNotNull(startDate, "Start date String cannot be null");
             this.startDate = RMT2Date.toXmlDate(startDate);
             return this;
         }
@@ -238,7 +234,6 @@ public class EmployeeTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withTermDate(String termDate) {
-            Verifier.verifyNotNull(termDate, "Termination date String cannot be null");
             this.termDate = RMT2Date.toXmlDate(termDate);
             return this;
         }
@@ -282,7 +277,6 @@ public class EmployeeTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withRecordTracking(RecordTrackingType tracking) {
-            Verifier.verifyNotNull(tracking, "Tracking info cannot be null");
             this.tracking = tracking;
             return this;
         }
