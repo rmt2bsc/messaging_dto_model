@@ -69,6 +69,7 @@ public class EmployeeQueryRequestBuilderTest {
         criteria.setEmployeeId(BigInteger.valueOf(200));
         criteria.setEmployeeTypeId(BigInteger.valueOf(1));
         criteria.setManagerId(BigInteger.valueOf(2));
+        criteria.setIsManager(true);
         criteria.setEmployeeTitleId(BigInteger.valueOf(3));
         criteria.setFirstName("Roy");
         criteria.setLastName("Terrell");

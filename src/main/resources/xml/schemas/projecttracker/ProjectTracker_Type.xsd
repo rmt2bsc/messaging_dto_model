@@ -539,6 +539,7 @@
 			<xsd:element name="employee_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
 			<xsd:element name="employee_type_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
 			<xsd:element name="manager_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="is_manager" type="xsd:boolean" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="employee_title_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
 			<xsd:element name="first_name" type="xsd:string" minOccurs="1" maxOccurs="1"/>
 			<xsd:element name="last_name" type="xsd:string" minOccurs="1" maxOccurs="1"/>
