@@ -9,6 +9,7 @@
 package org.rmt2.jaxb;
 
 import java.io.Serializable;
+import java.math.BigInteger;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -17,26 +18,17 @@ import com.RMT2Base;
 
 
 /**
- * This type serves as a basis for specifying SQL order by types.
- * 
- * <p>Java class for order_by_type complex type.
+ * <p>Java class for employee_type_criteria_type complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="order_by_type">
+ * &lt;complexType name="employee_type_criteria_type">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="prop_name" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="direction">
- *           &lt;simpleType>
- *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *               &lt;enumeration value="ASC"/>
- *               &lt;enumeration value="DESC"/>
- *             &lt;/restriction>
- *           &lt;/simpleType>
- *         &lt;/element>
+ *         &lt;element name="employee_type_id" type="{http://www.w3.org/2001/XMLSchema}integer" minOccurs="0"/>
+ *         &lt;element name="description" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -46,67 +38,66 @@ import com.RMT2Base;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "order_by_type", propOrder = {
-    "propName",
-    "direction"
+@XmlType(name = "employee_type_criteria_type", propOrder = {
+    "employeeTypeId",
+    "description"
 })
-public class OrderByType
+public class EmployeeTypeCriteriaType
     extends RMT2Base
     implements Serializable
 {
 
     private final static long serialVersionUID = 1L;
-    @XmlElement(name = "prop_name", required = true)
-    protected String propName;
-    @XmlElement(required = true, defaultValue = "ASC")
-    protected String direction;
+    @XmlElement(name = "employee_type_id")
+    protected BigInteger employeeTypeId;
+    protected String description;
 
     /**
-     * Gets the value of the propName property.
+     * Gets the value of the employeeTypeId property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link BigInteger }
+     *     
+     */
+    public BigInteger getEmployeeTypeId() {
+        return employeeTypeId;
+    }
+
+    /**
+     * Sets the value of the employeeTypeId property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link BigInteger }
+     *     
+     */
+    public void setEmployeeTypeId(BigInteger value) {
+        this.employeeTypeId = value;
+    }
+
+    /**
+     * Gets the value of the description property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getPropName() {
-        return propName;
+    public String getDescription() {
+        return description;
     }
 
     /**
-     * Sets the value of the propName property.
+     * Sets the value of the description property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setPropName(String value) {
-        this.propName = value;
-    }
-
-    /**
-     * Gets the value of the direction property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getDirection() {
-        return direction;
-    }
-
-    /**
-     * Sets the value of the direction property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setDirection(String value) {
-        this.direction = value;
+    public void setDescription(String value) {
+        this.description = value;
     }
 
 }
