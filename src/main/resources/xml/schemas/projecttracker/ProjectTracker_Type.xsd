@@ -44,6 +44,16 @@
 					<xsd:documentation>The project selection criteria</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
+			<xsd:element name="employee_title_criteria" type="employee_title_criteria_type" minOccurs="0"	maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The employee title selection criteria</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="employee_type_criteria" type="employee_type_criteria_type" minOccurs="0"	maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The employee type selection criteria</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
 		</xsd:sequence>
 	</xsd:complexType>
 
@@ -547,6 +557,20 @@
 			<xsd:element name="project_name" type="xsd:string" minOccurs="1" maxOccurs="1"/>
 			<xsd:element name="login_name" type="xsd:string" minOccurs="1" maxOccurs="1"/>
 			<xsd:element name="ssn" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="employee_title_criteria_type">
+		<xsd:sequence>
+			<xsd:element name="employee_title_id" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="description" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="employee_type_criteria_type">
+		<xsd:sequence>
+			<xsd:element name="employee_type_id" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="description" type="xsd:string" minOccurs="0" maxOccurs="1"/>
 		</xsd:sequence>
 	</xsd:complexType>
 
