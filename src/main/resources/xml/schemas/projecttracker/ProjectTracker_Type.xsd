@@ -141,12 +141,12 @@
 
 	<xsd:complexType name="employee_title_type">
 		<xsd:sequence>
-			<xsd:element name="employee_title_id" type="xsd:integer" minOccurs="1" maxOccurs="1">
+			<xsd:element name="employee_title_id" type="xsd:integer" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>This is the employee title id</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="description" type="xsd:string" minOccurs="1" maxOccurs="1">
+			<xsd:element name="description" type="xsd:string" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>This is the emplyoyee title description</xsd:documentation>
 				</xsd:annotation>
@@ -156,54 +156,54 @@
 
 	<xsd:complexType name="employee_type">
 		<xsd:sequence>
-			<xsd:element name="employee_id" type="xsd:integer" minOccurs="1" maxOccurs="1">
+			<xsd:element name="employee_id" type="xsd:integer" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>This is the employee id</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="employee_type" type="employeetype_type" minOccurs="1" maxOccurs="1">
+			<xsd:element name="employee_type" type="employeetype_type" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>This is the emplyoyee details</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="is_manager" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+			<xsd:element name="is_manager" type="xsd:boolean" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>Indicates whether or not the employee is a manager</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="manager_id" type="xsd:integer" minOccurs="1" maxOccurs="1">
+			<xsd:element name="manager_id" type="xsd:integer" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>Manager details</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="employee_title" type="employee_title_type" minOccurs="1"
+			<xsd:element name="employee_title" type="employee_title_type" minOccurs="0"
 				maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>This is the empoyee's title</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="login_id" type="xsd:integer" minOccurs="1" maxOccurs="1">
+			<xsd:element name="login_id" type="xsd:integer" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>This is the empoyee's login id</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="login_name" type="xsd:string" minOccurs="1" maxOccurs="1">
+			<xsd:element name="login_name" type="xsd:string" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>This is the empoyee's login name</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="contact_details" type="person_type" minOccurs="1" maxOccurs="1"/>
-			<xsd:element name="start_date" type="xsd:date" minOccurs="1" maxOccurs="1">
+			<xsd:element name="contact_details" type="person_type" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="start_date" type="xsd:date" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>This is the empoyee's start of employment date</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="termination_date" type="xsd:date" minOccurs="1" maxOccurs="1">
+			<xsd:element name="termination_date" type="xsd:date" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>This is the empoyee's end of employment date</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="project_count" type="xsd:integer" minOccurs="1" maxOccurs="1" default="0">
+			<xsd:element name="project_count" type="xsd:integer" minOccurs="0" maxOccurs="1" default="0">
 				<xsd:annotation>
 					<xsd:documentation>This is the empoyee's total count of projects worked</xsd:documentation>
 				</xsd:annotation>
@@ -214,17 +214,17 @@
 
 	<xsd:complexType name="client_type">
 		<xsd:sequence>
-			<xsd:element name="client_id" type="xsd:integer" minOccurs="1" maxOccurs="1">
+			<xsd:element name="client_id" type="xsd:integer" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>This is the client id</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="name" type="xsd:string" minOccurs="1" maxOccurs="1">
+			<xsd:element name="name" type="xsd:string" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>This is the client's name</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="customer" type="customer_type" minOccurs="1" maxOccurs="1">
+			<xsd:element name="customer" type="customer_type" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>This is the client id</xsd:documentation>
 				</xsd:annotation>
@@ -256,22 +256,22 @@
 					<xsd:documentation>This is the project id</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="client" type="client_type" minOccurs="1" maxOccurs="1">
+			<xsd:element name="client" type="client_type" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>This is the project's client</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="description" type="xsd:string" minOccurs="1" maxOccurs="1">
+			<xsd:element name="description" type="xsd:string" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>This is the description of the project</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="effective_date" type="xsd:date" minOccurs="1" maxOccurs="1">
+			<xsd:element name="effective_date" type="xsd:date" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>This is the project start date</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="end_date" type="xsd:date" minOccurs="1" maxOccurs="1">
+			<xsd:element name="end_date" type="xsd:date" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>This is the project's end date</xsd:documentation>
 				</xsd:annotation>
@@ -287,22 +287,22 @@
 					<xsd:documentation>This is the employee project id</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="project" type="project_type" minOccurs="1" maxOccurs="1">
+			<xsd:element name="project" type="project_type" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>This is the project</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="employee" type="employee_type" minOccurs="1" maxOccurs="1">
+			<xsd:element name="employee" type="employee_type" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>This is the employee</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="effective_date" type="xsd:date" minOccurs="1" maxOccurs="1">
+			<xsd:element name="effective_date" type="xsd:date" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>This is the employee project start date</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="end_date" type="xsd:date" minOccurs="1" maxOccurs="1">
+			<xsd:element name="end_date" type="xsd:date" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>This is the employee project's end date</xsd:documentation>
 				</xsd:annotation>
@@ -322,7 +322,7 @@
 					<xsd:documentation>This is the employee flat rate.  This generally represents the salary of a permanent/full time employee</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="comments" type="xsd:string" minOccurs="1" maxOccurs="1">
+			<xsd:element name="comments" type="xsd:string" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>This is the description of the project</xsd:documentation>
 				</xsd:annotation>
