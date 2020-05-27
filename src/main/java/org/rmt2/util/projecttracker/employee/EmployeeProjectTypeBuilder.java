@@ -38,24 +38,35 @@ public class EmployeeProjectTypeBuilder {
                 .build();
         
         ProjectType ept = ProjectTypeBuilder.Builder.create()
-                .withProjectId(builder.projectId)
+                .withProjectId(builder.projectId == null ? 0 : builder.projectId)
                 .withProjectName(builder.projectName)
                 .withEffectiveDate(builder.projEffectiveDate)
                 .withEndDate(builder.projEndDate)
                 .withClientId(builder.clientId)
                 .withClientName(builder.clientName)
-                .withBillRate(builder.clientBillRate)
-                .withOvertimeBillRate(builder.clientOverTimeBillRate)
+                .withBillRate(builder.clientBillRate == null ? 0 : builder.clientBillRate)
+                .withOvertimeBillRate(builder.clientOverTimeBillRate == null ? 0 : builder.clientOverTimeBillRate)
                 .withClientBusinessId(builder.clientBusinessId)
                 .withClientAccountNo(builder.clientAccountNo)
                 .build();
 
-        subject.setEmployeeProjectId(BigInteger.valueOf(builder.employeeProjectId));
+        if (builder.employeeProjectId != null) {
+            subject.setEmployeeProjectId(BigInteger.valueOf(builder.employeeProjectId));
+        }
+
         subject.setEffectiveDate(builder.empProjEffectiveDate);
         subject.setEndDate(builder.empProjEndDate);
-        subject.setHourlyRate(BigDecimal.valueOf(builder.houlyRate));
-        subject.setHourlyOvertimeRate(BigDecimal.valueOf(builder.houlyOverTimeRate));
-        subject.setFlatRate(BigDecimal.valueOf(builder.flatRate));
+
+        if (builder.houlyRate != null) {
+            subject.setHourlyRate(BigDecimal.valueOf(builder.houlyRate));
+        }
+        if (builder.houlyOverTimeRate != null) {
+            subject.setHourlyOvertimeRate(BigDecimal.valueOf(builder.houlyOverTimeRate));
+        }
+        if (builder.flatRate != null) {
+            subject.setFlatRate(BigDecimal.valueOf(builder.flatRate));
+        }
+
         subject.setComments(builder.comments);
         subject.setTracking(builder.tracking);
         subject.setEmployee(et);
