@@ -103,7 +103,6 @@ public class ApiTransactionCodes {
     public static final String PROJTRACK_TASK_GET = "GET_TASK";
     public static final String PROJTRACK_TASK_UPDATE = "UPDATE_TASK";
     public static final String PROJTRACK_TASK_DELETE = "DELETE_TASK";
-
     public static final String PROJTRACK_EMPLOYEE_GET = "GET_EMPLOYEE";
     public static final String PROJTRACK_EMPLOYEE_UPDATE = "UPDATE_EMPLOYEE";
     public static final String PROJTRACK_EMPLOYEE_PROJECT_GET = "GET_EMPLOYEE_PROJECT";
@@ -111,6 +110,8 @@ public class ApiTransactionCodes {
     public static final String PROJTRACK_EMPLOYEE_TITLE_GET = "GET_EMPLOYEE_TITLE";
     public static final String PROJTRACK_EMPLOYEE_TYPE_GET = "GET_EMPLOYEE_TYPE";
 
+    public static final String PROJTRACK_TIMESHEET_GET = "GET_TIMESHEET";
+    public static final String PROJTRACK_TIMESHEET_STATUS_GET = "GET_TIMESHEET_STATUS";
     public ApiTransactionCodes() {
         // TODO Auto-generated constructor stub
     }

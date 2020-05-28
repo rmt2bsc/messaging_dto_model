@@ -59,14 +59,12 @@
 
 	<xsd:complexType name="project_detail_group">
 		<xsd:sequence>
-			<xsd:element name="employee_type" type="employeetype_type" minOccurs="0"
-				maxOccurs="unbounded">
+			<xsd:element name="employee_type" type="employeetype_type" minOccurs="0" maxOccurs="unbounded">
 				<xsd:annotation>
 					<xsd:documentation>The employee types</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="employee_title" type="employee_title_type" minOccurs="0"
-				maxOccurs="unbounded">
+			<xsd:element name="employee_title" type="employee_title_type" minOccurs="0"	maxOccurs="unbounded">
 				<xsd:annotation>
 					<xsd:documentation>The employee titles</xsd:documentation>
 				</xsd:annotation>
@@ -86,20 +84,17 @@
 					<xsd:documentation>The project details</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="employee_project" type="employee_project_type" minOccurs="0"
-				maxOccurs="unbounded">
+			<xsd:element name="employee_project" type="employee_project_type" minOccurs="0"	maxOccurs="unbounded">
 				<xsd:annotation>
 					<xsd:documentation>The employee project details</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="timesheet_status" type="timesheet_status_type" minOccurs="0"
-				maxOccurs="unbounded">
+			<xsd:element name="timesheet_status" type="timesheet_status_type" minOccurs="0"	maxOccurs="unbounded">
 				<xsd:annotation>
 					<xsd:documentation>The timesheet status details</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="timesheet_status_history" type="timesheet_status_history_type"
-				minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="timesheet_status_history" type="timesheet_status_history_type" minOccurs="0" maxOccurs="unbounded">
 				<xsd:annotation>
 					<xsd:documentation>The timesheet status history details</xsd:documentation>
 				</xsd:annotation>
@@ -114,8 +109,7 @@
 					<xsd:documentation>The task details</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="project_task" type="project_task_type" minOccurs="0"
-				maxOccurs="unbounded">
+			<xsd:element name="project_task" type="project_task_type" minOccurs="0"	maxOccurs="unbounded">
 				<xsd:annotation>
 					<xsd:documentation>The project task details</xsd:documentation>
 				</xsd:annotation>
@@ -125,8 +119,7 @@
 					<xsd:documentation>The timesheet event details</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="project_period" type="project_periods_type" minOccurs="0"
-				maxOccurs="unbounded">
+			<xsd:element name="project_period" type="project_periods_type" minOccurs="0" maxOccurs="unbounded">
 				<xsd:annotation>
 					<xsd:documentation>The project period legend</xsd:documentation>
 				</xsd:annotation>
@@ -261,7 +254,7 @@
 
 	<xsd:complexType name="project_type">
 		<xsd:sequence>
-			<xsd:element name="project_id" type="xsd:integer" minOccurs="1" maxOccurs="1">
+			<xsd:element name="project_id" type="xsd:integer" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>This is the project id</xsd:documentation>
 				</xsd:annotation>
@@ -400,14 +393,29 @@
 					<xsd:documentation>This is the unique identifier of the timesheet</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="project" type="project_type" minOccurs="1" maxOccurs="1">
+			<xsd:element name="proj_id" type="xsd:integer" minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
-					<xsd:documentation>This is the project associated with the timesheet</xsd:documentation>
+					<xsd:documentation>This is the project id.  Legacy system uses this property.  In regards to the new system, this property will no longer be used since a timesheet can managed time for multiple project of a given client</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="employee" type="employee_type" minOccurs="1" maxOccurs="1">
+			<xsd:element name="client" type="client_type" minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
-					<xsd:documentation>This is the associated employee</xsd:documentation>
+					<xsd:documentation>The client data</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="employee" type="employee_type" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The employee data</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="hourly_rate" type="xsd:decimal" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Employee's hourly rate that will be applied to timesheet</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="overtime_hourly_rate" type="xsd:decimal" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Employee's over time hourly rate that will be applied to timesheet</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
 			<xsd:element name="display_value" type="xsd:string" minOccurs="0" maxOccurs="1">
@@ -415,14 +423,34 @@
 					<xsd:documentation>This is the name of the project related to the client</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="period_begin" type="xsd:date" minOccurs="1" maxOccurs="1">
+			<xsd:element name="period_begin" type="xsd:date" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>This is the beginning period of timesheet</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="period_end" type="xsd:date" minOccurs="1" maxOccurs="1">
+			<xsd:element name="period_end" type="xsd:date" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>This is the ending period of timesheet</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="status" type="timesheet_status_type" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Current timessheet status information</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="status_history_id" type="xsd:integer" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The description of the status</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="status_effective_date" type="xsd:date" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The date when the status became effective</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="status_end_date" type="xsd:date" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The date when the status ended</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
 			<xsd:element name="invoice_ref_no" type="xsd:string" minOccurs="0" maxOccurs="1">
@@ -435,13 +463,17 @@
 					<xsd:documentation>This is the external reference number</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="time_log" type="event_type" minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="ext_document_id" type="xsd:integer" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
-					<xsd:documentation>Tracks the time spent per day for the stated begin-end period</xsd:documentation>
+					<xsd:documentation>This is the id of the document or image that represents this timesheet</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="status_history" type="timesheet_status_history_type" minOccurs="1"
-				maxOccurs="unbounded">
+			<xsd:element name="time_log" type="event_type" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Tracks the time spent on a timesheet task on a given date</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="status_history" type="timesheet_status_history_type" minOccurs="0" maxOccurs="unbounded">
 				<xsd:annotation>
 					<xsd:documentation>Tracks the status history belonging to this timesheet.</xsd:documentation>
 				</xsd:annotation>
@@ -454,6 +486,16 @@
 			<xsd:element name="comments" type="xsd:string" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>This is the comments</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="billable_hours" type="xsd:decimal" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Total billable hours for timesheet</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="non_billable_hours" type="xsd:decimal" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Total non billable hours for timesheet</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
 			<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
@@ -488,17 +530,26 @@
 					<xsd:documentation>This is the project task id</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="timesheet" type="timesheet_type" minOccurs="1" maxOccurs="1">
+			<xsd:element name="project_id" type="xsd:integer" minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
-					<xsd:documentation>This is the description of the task</xsd:documentation>
+					<xsd:documentation>The id of the project</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="task" type="task_type" minOccurs="1" maxOccurs="1">
+			<xsd:element name="project_name" type="xsd:string" minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
-					<xsd:documentation>This is the task billable. </xsd:documentation>
+					<xsd:documentation>The name of the project</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="project" type="project_type" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="task_id" type="xsd:integer" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The id of the task </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="task_name" type="xsd:string" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The name of the task</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
 		</xsd:sequence>
 	</xsd:complexType>
 
@@ -509,17 +560,17 @@
 					<xsd:documentation>This is the timesheet event id</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="project_task" type="project_task_type" minOccurs="1" maxOccurs="1">
-				<xsd:annotation>
-					<xsd:documentation>This is the description of the task</xsd:documentation>
-				</xsd:annotation>
-			</xsd:element>
 			<xsd:element name="event_date" type="xsd:dateTime" minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The date and time of the event.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
 			<xsd:element name="hours" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="project_task" type="project_task_type" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Manages details of the project/task data</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
 			<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
 		</xsd:sequence>
 	</xsd:complexType>
@@ -576,6 +627,7 @@
 
 	<xsd:complexType name="timesheet_criteria_type">
 		<xsd:sequence>
+			<xsd:element name="timesheet_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
 			<xsd:element name="status_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
 			<xsd:element name="employee_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
 			<xsd:element name="client_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
