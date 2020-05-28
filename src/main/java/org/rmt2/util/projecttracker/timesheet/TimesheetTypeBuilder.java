@@ -41,7 +41,6 @@ public class TimesheetTypeBuilder {
         subject.setDisplayValue(builder.displayTimesheetId);
         subject.setPeriodBegin(builder.beginPeriod);
         subject.setPeriodEnd(builder.endPeriod);
-        subject.setEmployeeFullName(builder.employeeFullName);
         subject.setInvoiceRefNo(builder.invoiceRefNo);
         subject.setExternalRefNo(builder.extRef);
         subject.setComments(builder.comments);
@@ -237,18 +236,6 @@ public class TimesheetTypeBuilder {
          */
         public Builder withEndPeriod(Date value) {
             this.endPeriod = RMT2Date.toXmlDate(value);
-            return this;
-        }
-
-        /**
-         * Set up employee full name
-         * 
-         * @param value
-         *            an String
-         * @return Non-null Builder used to continue building the object
-         */
-        public Builder withEmployeeFullName(String value) {
-            this.employeeFullName = value;
             return this;
         }
 
