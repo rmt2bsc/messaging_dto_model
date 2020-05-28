@@ -109,6 +109,7 @@ public class ApiTransactionCodes {
     public static final String PROJTRACK_EMPLOYEE_PROJECT_GET = "GET_EMPLOYEE_PROJECT";
     public static final String PROJTRACK_EMPLOYEE_PROJECT_UPDATE = "UPDATE_EMPLOYEE_PROJECT";
     public static final String PROJTRACK_EMPLOYEE_TITLE_GET = "GET_EMPLOYEE_TITLE";
+    public static final String PROJTRACK_EMPLOYEE_TYPE_GET = "GET_EMPLOYEE_TYPE";
 
     public ApiTransactionCodes() {
         // TODO Auto-generated constructor stub
