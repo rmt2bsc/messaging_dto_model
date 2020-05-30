@@ -633,7 +633,9 @@
 			<xsd:element name="client_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
 			<xsd:element name="project_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
 			<xsd:element name="period_begin" type="xsd:date" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="period_begin2" type="xsd:date" minOccurs="1" maxOccurs="1"/>
 			<xsd:element name="period_end" type="xsd:date" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="period_end2" type="xsd:date" minOccurs="1" maxOccurs="1"/>
 		</xsd:sequence>
 	</xsd:complexType>
 	
