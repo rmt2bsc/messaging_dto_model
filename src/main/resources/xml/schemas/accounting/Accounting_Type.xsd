@@ -179,16 +179,16 @@
 
 	<xsd:complexType name="customer_type">
 		<xsd:sequence>
-			<xsd:element name="customer_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="customer_id" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="acct_id" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="business_contact_details" type="business_type" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="person_contact_details" type="person_type" minOccurs="0" maxOccurs="1"/>
-			<xsd:element name="account_no" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="account_no" type="xsd:string" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="credit_limit" type="xsd:decimal" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="acct_description" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-			<xsd:element name="balance" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="balance" type="xsd:decimal" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="active" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
-			<xsd:element name="transactions" type="customer_transaction_list_type" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="transactions" type="customer_transaction_list_type" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
 		</xsd:sequence>
 	</xsd:complexType>
