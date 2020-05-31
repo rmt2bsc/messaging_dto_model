@@ -545,6 +545,11 @@
 					<xsd:documentation>The name of the task</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
+			<xsd:element name="delete_project_task" type="xsd:boolean" minOccurs="1" maxOccurs="1" default="false">
+				<xsd:annotation>
+					<xsd:documentation>Flag which signals whether or not the project task should be deleted</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
 		</xsd:sequence>
 	</xsd:complexType>
 
