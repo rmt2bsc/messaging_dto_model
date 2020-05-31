@@ -463,11 +463,6 @@
 					<xsd:documentation>This is the external reference number</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="ext_document_id" type="xsd:integer" minOccurs="0" maxOccurs="1">
-				<xsd:annotation>
-					<xsd:documentation>This is the id of the document or image that represents this timesheet</xsd:documentation>
-				</xsd:annotation>
-			</xsd:element>
 			<xsd:element name="time_log" type="event_type" minOccurs="0" maxOccurs="unbounded">
 				<xsd:annotation>
 					<xsd:documentation>Tracks the time spent on a timesheet task on a given date</xsd:documentation>

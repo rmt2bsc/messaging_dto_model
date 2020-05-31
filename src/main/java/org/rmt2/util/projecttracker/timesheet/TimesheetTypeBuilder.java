@@ -44,7 +44,7 @@ public class TimesheetTypeBuilder {
         subject.setInvoiceRefNo(builder.invoiceRefNo);
         subject.setExternalRefNo(builder.extRef);
         subject.setComments(builder.comments);
-        subject.setExtDocumentId(builder.documentId);
+        subject.setDocumentId(builder.documentId);
         subject.setHourlyRate(builder.hourlyRate);
         subject.setOvertimeHourlyRate(builder.overtimeRate);
         subject.setStatusHistoryId(builder.statusHistId);
