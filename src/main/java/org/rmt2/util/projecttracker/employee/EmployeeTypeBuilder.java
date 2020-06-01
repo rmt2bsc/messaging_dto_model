@@ -31,17 +31,35 @@ public class EmployeeTypeBuilder {
         ObjectFactory f = new ObjectFactory();
         subject = f.createEmployeeType();
         subject.setEmployeeId(BigInteger.valueOf(builder.employeeId));
-        subject.setEmployeeType(builder.employeeType);
-        subject.setIsManager(builder.isManager);
-        subject.setManagerId(BigInteger.valueOf(builder.managerId));
-        subject.setEmployeeTitle(builder.employeeTitle);
-        subject.setLoginId(BigInteger.valueOf(builder.loginId));
-        subject.setLoginName(builder.loginName);
+        if (builder.employeeType != null) {
+            subject.setEmployeeType(builder.employeeType);
+        }
+        if (builder.isManager != null) {
+            subject.setIsManager(builder.isManager);
+        }
+        if (builder.managerId != null) {
+            subject.setManagerId(BigInteger.valueOf(builder.managerId));
+        }
+        if (builder.employeeTitle != null) {
+            subject.setEmployeeTitle(builder.employeeTitle);
+        }
+        if (builder.loginId != null) {
+            subject.setLoginId(BigInteger.valueOf(builder.loginId));
+        }
+        if (builder.loginName != null) {
+            subject.setLoginName(builder.loginName);
+        }
+
         subject.setContactDetails(builder.contactDetails);
         subject.setStartDate(builder.startDate);
         subject.setTerminationDate(builder.termDate);
-        subject.setProjectCount(BigInteger.valueOf(builder.projectCount));
-        subject.setTracking(builder.tracking);
+        if (builder.projectCount != null) {
+            subject.setProjectCount(BigInteger.valueOf(builder.projectCount));
+        }
+        if (builder.tracking != null) {
+            subject.setTracking(builder.tracking);
+        }
+
     }
 
     /**
@@ -51,31 +69,31 @@ public class EmployeeTypeBuilder {
      *
      */
     public static final class Builder {
-        private int employeeId;
+        private Integer employeeId;
         private EmployeetypeType employeeType;
-        private boolean isManager;
-        private int managerId;
+        private Boolean isManager;
+        private Integer managerId;
         private EmployeeTitleType employeeTitle;
-        private int loginId;
+        private Integer loginId;
         private String loginName;
         private PersonType contactDetails;
         private XMLGregorianCalendar startDate;
         private XMLGregorianCalendar termDate;
-        private int projectCount;
+        private Integer projectCount;
         private RecordTrackingType tracking;
 
         private Builder() {
-            this.employeeId = 0;
+            this.employeeId = null;
             this.employeeType = null;
-            this.isManager = false;
-            this.managerId = 0;
+            this.isManager = null;
+            this.managerId = null;
             this.employeeTitle = null;
-            this.loginId = 0;
+            this.loginId = null;
             this.loginName = null;
             this.contactDetails = null;
             this.startDate = null;
             this.termDate = null;
-            this.projectCount = 0;
+            this.projectCount = null;
             this.tracking = null;
         }
 
