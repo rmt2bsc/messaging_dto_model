@@ -26,6 +26,7 @@ public class ProjectTaskTypeBuilder {
         subject.setTaskName(builder.taskName);
         subject.setProjectId(builder.projId);
         subject.setProjectName(builder.projName);
+        subject.setDeleteProjectTask(builder.deleteProjectTask);
     }
 
     /**
@@ -40,6 +41,7 @@ public class ProjectTaskTypeBuilder {
         private String projName;
         private BigInteger taskId;
         private String taskName;
+        private boolean deleteProjectTask;
 
         private Builder() {
             return;
@@ -112,6 +114,18 @@ public class ProjectTaskTypeBuilder {
          */
         public Builder withProjectName(String value) {
             this.projName = value;
+            return this;
+        }
+
+        /**
+         * Set up delet project task flag
+         * 
+         * @param value
+         *            boolean
+         * @return Non-null Builder used to continue building the object
+         */
+        public Builder withDeleteProjectTask(boolean value) {
+            this.deleteProjectTask = value;
             return this;
         }
 
