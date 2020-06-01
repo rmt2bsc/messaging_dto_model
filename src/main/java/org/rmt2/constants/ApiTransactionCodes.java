@@ -111,7 +111,9 @@ public class ApiTransactionCodes {
     public static final String PROJTRACK_EMPLOYEE_TYPE_GET = "GET_EMPLOYEE_TYPE";
 
     public static final String PROJTRACK_TIMESHEET_GET = "GET_TIMESHEET";
+    public static final String PROJTRACK_TIMESHEET_UPDATE = "UPDATE_TIMESHEET";
     public static final String PROJTRACK_TIMESHEET_STATUS_GET = "GET_TIMESHEET_STATUS";
+
     public ApiTransactionCodes() {
         // TODO Auto-generated constructor stub
     }
