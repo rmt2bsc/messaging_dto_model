@@ -1,7 +1,10 @@
 package org.rmt2.util.projecttracker.timesheet;
 
 import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
 
+import org.rmt2.jaxb.EventType;
 import org.rmt2.jaxb.ObjectFactory;
 import org.rmt2.jaxb.ProjectTaskType;
 
@@ -27,6 +30,9 @@ public class ProjectTaskTypeBuilder {
         subject.setProjectId(builder.projId);
         subject.setProjectName(builder.projName);
         subject.setDeleteProjectTask(builder.deleteProjectTask);
+        if (builder.hours != null) {
+            subject.getDailyHours().addAll(builder.hours);
+        }
     }
 
     /**
@@ -42,6 +48,7 @@ public class ProjectTaskTypeBuilder {
         private BigInteger taskId;
         private String taskName;
         private boolean deleteProjectTask;
+        private List<EventType> hours;
 
         private Builder() {
             return;
@@ -126,6 +133,24 @@ public class ProjectTaskTypeBuilder {
          */
         public Builder withDeleteProjectTask(boolean value) {
             this.deleteProjectTask = value;
+            return this;
+        }
+
+        /**
+         * Adds an {@link EventType} to the work log for a project task.
+         * 
+         * @param event
+         *            an instance of {@link EventType}
+         * @return Non-null Builder used to continue building the object
+         */
+        public Builder addHours(EventType event) {
+            if (event == null) {
+                return this;
+            }
+            if (this.hours == null) {
+                this.hours = new ArrayList<>();
+            }
+            this.hours.add(event);
             return this;
         }
 

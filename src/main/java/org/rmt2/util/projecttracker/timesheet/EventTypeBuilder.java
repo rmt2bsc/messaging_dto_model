@@ -8,7 +8,6 @@ import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.rmt2.jaxb.EventType;
 import org.rmt2.jaxb.ObjectFactory;
-import org.rmt2.jaxb.ProjectTaskType;
 import org.rmt2.jaxb.RecordTrackingType;
 
 import com.api.util.RMT2Date;
@@ -30,7 +29,6 @@ public class EventTypeBuilder {
         ObjectFactory f = new ObjectFactory();
         subject = f.createEventType();
         subject.setEventId(builder.eventId);
-        subject.setProjectTask(builder.projectTask);
         subject.setEventDate(builder.eventDate);
         subject.setHours(builder.hours);
         subject.setTracking(builder.tracking);
@@ -44,7 +42,6 @@ public class EventTypeBuilder {
      */
     public static final class Builder {
         private BigInteger eventId;
-        private ProjectTaskType projectTask;
         private XMLGregorianCalendar eventDate;
         private BigDecimal hours;
         private RecordTrackingType tracking;
@@ -72,18 +69,6 @@ public class EventTypeBuilder {
          */
         public Builder withEventId(int value) {
             this.eventId = BigInteger.valueOf(value);
-            return this;
-        }
-
-        /**
-         * Set up timesheet project task data.
-         * 
-         * @param value
-         *            an instance of {@link ProjectTaskType}
-         * @return Non-null Builder used to continue building the object
-         */
-        public Builder withProjectTask(ProjectTaskType value) {
-            this.projectTask = value;
             return this;
         }
 

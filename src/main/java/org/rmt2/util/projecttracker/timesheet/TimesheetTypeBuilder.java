@@ -10,8 +10,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.rmt2.jaxb.ClientType;
 import org.rmt2.jaxb.EmployeeType;
-import org.rmt2.jaxb.EventType;
 import org.rmt2.jaxb.ObjectFactory;
+import org.rmt2.jaxb.ProjectTaskType;
 import org.rmt2.jaxb.RecordTrackingType;
 import org.rmt2.jaxb.TimesheetStatusHistoryType;
 import org.rmt2.jaxb.TimesheetStatusType;
@@ -56,8 +56,8 @@ public class TimesheetTypeBuilder {
         subject.setEmployee(builder.employee);
         subject.setStatus(builder.status);
 
-        if (builder.timeLog != null && builder.timeLog.size() > 0) {
-            subject.getTimeLog().addAll(builder.timeLog);
+        if (builder.workLog != null && builder.workLog.size() > 0) {
+            subject.getWorkLog().addAll(builder.workLog);
         }
         if (builder.statusHistory != null && builder.statusHistory.size() > 0) {
             subject.getStatusHistory().addAll(builder.statusHistory);
@@ -77,7 +77,6 @@ public class TimesheetTypeBuilder {
         private String displayTimesheetId;
         private XMLGregorianCalendar beginPeriod;
         private XMLGregorianCalendar endPeriod;
-        private String employeeFullName;
         private String invoiceRefNo;
         private String extRef;
         private String comments;
@@ -93,7 +92,7 @@ public class TimesheetTypeBuilder {
         private ClientType client;
         private EmployeeType employee;
         private TimesheetStatusType status;
-        private List<EventType> timeLog;
+        private List<ProjectTaskType> workLog;
         private List<TimesheetStatusHistoryType> statusHistory;
         private RecordTrackingType tracking;
 
@@ -101,7 +100,7 @@ public class TimesheetTypeBuilder {
             this.client = null;
             this.employee = null;
             this.status = null;
-            this.timeLog = null;
+            this.workLog = null;
             this.statusHistory = null;
             this.tracking = null;
             return;
@@ -396,21 +395,21 @@ public class TimesheetTypeBuilder {
         }
 
         /**
-         * Adds an event type (time for a given day) to the Set up employee's
-         * non-billable hours for timesheet
+         * Adds an project task (weekly time for a given project task) to the
+         * timesheet
          * 
          * @param value
-         *            an instance of {@link EventType}
+         *            an instance of {@link ProjectTaskType}
          * @return Non-null Builder used to continue building the object
          */
-        public Builder addTimeLog(EventType value) {
+        public Builder addWorkLog(ProjectTaskType value) {
             if (value == null) {
                 return this;
             }
-            if (this.timeLog == null) {
-                this.timeLog = new ArrayList<>();
+            if (this.workLog == null) {
+                this.workLog = new ArrayList<>();
             }
-            this.timeLog.add(value);
+            this.workLog.add(value);
             return this;
         }
 

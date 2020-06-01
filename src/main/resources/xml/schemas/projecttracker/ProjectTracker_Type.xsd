@@ -94,11 +94,6 @@
 					<xsd:documentation>The timesheet status details</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="timesheet_status_history" type="timesheet_status_history_type" minOccurs="0" maxOccurs="unbounded">
-				<xsd:annotation>
-					<xsd:documentation>The timesheet status history details</xsd:documentation>
-				</xsd:annotation>
-			</xsd:element>
 			<xsd:element name="timesheet" type="timesheet_type" minOccurs="0" maxOccurs="unbounded">
 				<xsd:annotation>
 					<xsd:documentation>The timesheet details</xsd:documentation>
@@ -107,16 +102,6 @@
 			<xsd:element name="task" type="task_type" minOccurs="0" maxOccurs="unbounded">
 				<xsd:annotation>
 					<xsd:documentation>The task details</xsd:documentation>
-				</xsd:annotation>
-			</xsd:element>
-			<xsd:element name="project_task" type="project_task_type" minOccurs="0"	maxOccurs="unbounded">
-				<xsd:annotation>
-					<xsd:documentation>The project task details</xsd:documentation>
-				</xsd:annotation>
-			</xsd:element>
-			<xsd:element name="time_log" type="event_type" minOccurs="0" maxOccurs="unbounded">
-				<xsd:annotation>
-					<xsd:documentation>The timesheet event details</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
 			<xsd:element name="project_period" type="project_periods_type" minOccurs="0" maxOccurs="unbounded">
@@ -463,16 +448,6 @@
 					<xsd:documentation>This is the external reference number</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="time_log" type="event_type" minOccurs="0" maxOccurs="unbounded">
-				<xsd:annotation>
-					<xsd:documentation>Tracks the time spent on a timesheet task on a given date</xsd:documentation>
-				</xsd:annotation>
-			</xsd:element>
-			<xsd:element name="status_history" type="timesheet_status_history_type" minOccurs="0" maxOccurs="unbounded">
-				<xsd:annotation>
-					<xsd:documentation>Tracks the status history belonging to this timesheet.</xsd:documentation>
-				</xsd:annotation>
-			</xsd:element>
 			<xsd:element name="document_id" type="xsd:integer" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>This is the id of the document or image that represents this timesheet</xsd:documentation>
@@ -491,6 +466,16 @@
 			<xsd:element name="non_billable_hours" type="xsd:decimal" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>Total non billable hours for timesheet</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="work_log" type="project_task_type" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Trackes the hours for each applicable for each project/task</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="status_history" type="timesheet_status_history_type" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Tracks the status history belonging to this timesheet.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
 			<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
@@ -550,6 +535,11 @@
 					<xsd:documentation>Flag which signals whether or not the project task should be deleted</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
+			<xsd:element name="daily_hours" type="event_type" minOccurs="1" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Tracks the hours worked for each day of a given week regarding the project task</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
 		</xsd:sequence>
 	</xsd:complexType>
 
@@ -566,11 +556,6 @@
 				</xsd:annotation>
 			</xsd:element>
 			<xsd:element name="hours" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
-			<xsd:element name="project_task" type="project_task_type" minOccurs="1" maxOccurs="1">
-				<xsd:annotation>
-					<xsd:documentation>Manages details of the project/task data</xsd:documentation>
-				</xsd:annotation>
-			</xsd:element>
 			<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
 		</xsd:sequence>
 	</xsd:complexType>

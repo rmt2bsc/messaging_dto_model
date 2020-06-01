@@ -279,11 +279,10 @@ public class TimesheetQueryRequestBuilderTest {
                 .withClient(client)
                 .withEmployee(et)
                 .withStatus(tsst)
-                .addTimeLog(this.createEventType(1, "2020-01-01", 8, 2, 30, "About Objects", 4, "Development"))
-                .addTimeLog(this.createEventType(2, "2020-01-02", 3, 2, 30, "About Objects", 4, "Development"))
-                .addTimeLog(this.createEventType(3, "2020-01-03", 8, 2, 30, "About Objects", 4, "Development"))
-                .addTimeLog(this.createEventType(4, "2020-01-04", 5, 2, 30, "About Objects", 4, "Development"))
-                .addTimeLog(this.createEventType(4, "2020-01-04", 7, 2, 30, "About Objects", 4, "Development"))
+                .addWorkLog(this.createProjectTaskType(1, 2, "About Objects", 10, "Analysis and Design"))
+                .addWorkLog(this.createProjectTaskType(2, 2, "About Objects", 20, "Development"))
+                .addWorkLog(this.createProjectTaskType(3, 2, "About Objects", 30, "Testing"))
+                .addWorkLog(this.createProjectTaskType(4, 2, "About Objects", 40, "Meetings"))
 
                 // Don't forget that timesheet status history can be loaded in
                 // this process...
@@ -303,8 +302,7 @@ public class TimesheetQueryRequestBuilderTest {
         Assert.assertTrue(xml.contains(ApiTransactionCodes.PROJTRACK_TIMESHEET_GET));
     }
 
-    private EventType createEventType(int eventId, String eventDate, double hours, int projTaskId, int projId, String projName,
-            int taskId, String taskName) {
+    private ProjectTaskType createProjectTaskType(int projTaskId, int projId, String projName, int taskId, String taskName) {
 
         ProjectTaskType ptt = ProjectTaskTypeBuilder.Builder.create()
                 .withProjectTaskId(projTaskId)
@@ -312,15 +310,24 @@ public class TimesheetQueryRequestBuilderTest {
                 .withTaskName(taskName)
                 .withProjectId(projId)
                 .withProjectName(projName)
+                .addHours(this.createWorkEvent(1, RMT2Date.stringToDate("2020-01-01"), 2))
+                .addHours(this.createWorkEvent(2, RMT2Date.stringToDate("2020-01-02"), 2))
+                .addHours(this.createWorkEvent(3, RMT2Date.stringToDate("2020-01-03"), 2))
+                .addHours(this.createWorkEvent(4, RMT2Date.stringToDate("2020-01-04"), 2))
+                .addHours(this.createWorkEvent(5, RMT2Date.stringToDate("2020-01-05"), 2))
                 .build();
 
+        return ptt;
+    }
+
+    private EventType createWorkEvent(int eventId, Date workDate, int hours) {
         EventType evt = EventTypeBuilder.Builder.create()
                 .withEventId(eventId)
-                .withProjectTask(ptt)
-                .withEventDate(eventDate)
+                .withEventDate(workDate)
                 .withHours(hours)
                 .build();
 
         return evt;
     }
+
 }
