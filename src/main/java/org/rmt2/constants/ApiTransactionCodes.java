@@ -113,6 +113,7 @@ public class ApiTransactionCodes {
     public static final String PROJTRACK_TIMESHEET_GET = "GET_TIMESHEET";
     public static final String PROJTRACK_TIMESHEET_UPDATE = "UPDATE_TIMESHEET";
     public static final String PROJTRACK_TIMESHEET_DELETE = "DELETE_TIMESHEET";
+    public static final String PROJTRACK_TIMESHEET_SUBMIT = "SUBMIT_TIMESHEET";
     public static final String PROJTRACK_TIMESHEET_STATUS_GET = "GET_TIMESHEET_STATUS";
 
     public ApiTransactionCodes() {
