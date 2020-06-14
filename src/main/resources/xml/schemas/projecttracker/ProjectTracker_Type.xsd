@@ -383,6 +383,11 @@
 					<xsd:documentation>This is the project id.  Legacy system uses this property.  In regards to the new system, this property will no longer be used since a timesheet can managed time for multiple project of a given client</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
+			<xsd:element name="service_provider" type="business_type" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Data of the company providing the service to the client</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
 			<xsd:element name="client" type="client_type" minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The client data</xsd:documentation>
