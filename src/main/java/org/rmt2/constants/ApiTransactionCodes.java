@@ -116,6 +116,8 @@ public class ApiTransactionCodes {
     public static final String PROJTRACK_TIMESHEET_SUBMIT = "SUBMIT_TIMESHEET";
     public static final String PROJTRACK_TIMESHEET_APPROVE = "APPROVE_TIMESHEET";
     public static final String PROJTRACK_TIMESHEET_DECLINE = "DECLINE_TIMESHEET";
+    public static final String PROJTRACK_TIMESHEET_PRINT_SUMMARY = "PRINT_TIMESHEET_SUMMARY";
+    public static final String PROJTRACK_TIMESHEET_PRINT_WORKLOG = "PRINT_TIMESHEET_WORKLOG";
     public static final String PROJTRACK_TIMESHEET_STATUS_GET = "GET_TIMESHEET_STATUS";
 
     public ApiTransactionCodes() {

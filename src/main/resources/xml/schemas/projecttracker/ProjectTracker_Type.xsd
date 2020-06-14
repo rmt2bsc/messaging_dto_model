@@ -109,6 +109,11 @@
 					<xsd:documentation>The project period legend</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
+			<xsd:element name="attachment" type="report_attachment_type" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Contains details of the report that is to be sent as part of the response.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
 		</xsd:sequence>
 	</xsd:complexType>
 
@@ -473,6 +478,11 @@
 					<xsd:documentation>Total non billable hours for timesheet</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
+			<xsd:element name="work_log_summary" type="timesheet_hours_summary_type" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Summary of hours workded each day of the timesheet period.  Also contains the sum of all hours worked.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
 			<xsd:element name="work_log" type="project_task_type" minOccurs="0" maxOccurs="unbounded">
 				<xsd:annotation>
 					<xsd:documentation>Trackes the hours for each applicable for each project/task</xsd:documentation>
@@ -487,6 +497,51 @@
 		</xsd:sequence>
 	</xsd:complexType>
 
+	<xsd:complexType name="timesheet_hours_summary_type">
+		<xsd:sequence>
+			<xsd:element name="day1_hrs" type="xsd:decimal" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Hours worked for day 1 of timesheet period</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="day2_hrs" type="xsd:decimal" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Hours worked for day 2 of timesheet period</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="day3_hrs" type="xsd:decimal" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Hours worked for day 3 of timesheet period</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="day4_hrs" type="xsd:decimal" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Hours worked for day 4 of timesheet period</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="day5_hrs" type="xsd:decimal" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Hours worked for day 5 of timesheet period</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="day6_hrs" type="xsd:decimal" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Hours worked for day 6 of timesheet period</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="day7_hrs" type="xsd:decimal" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Hours worked for day 7 of timesheet period</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="hours_total" type="xsd:decimal" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Total hours worked for timesheet period</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	
 	<xsd:complexType name="task_type">
 		<xsd:sequence>
 			<xsd:element name="task_id" type="xsd:integer" minOccurs="1" maxOccurs="1">

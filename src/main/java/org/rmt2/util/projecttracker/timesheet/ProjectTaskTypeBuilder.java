@@ -155,6 +155,25 @@ public class ProjectTaskTypeBuilder {
         }
 
         /**
+         * Adds a list of {@link EventType} objects to the work log for a
+         * project task.
+         * 
+         * @param event
+         *            an instance of List<{@link EventType}>
+         * @return Non-null Builder used to continue building the object
+         */
+        public Builder addHours(List<EventType> events) {
+            if (events == null) {
+                return this;
+            }
+            if (this.hours == null) {
+                this.hours = new ArrayList<>();
+            }
+            this.hours.addAll(events);
+            return this;
+        }
+
+        /**
          * Completes the building of the ProjectTaskType
          * 
          * @return an instance of {@link ProjectTaskType}

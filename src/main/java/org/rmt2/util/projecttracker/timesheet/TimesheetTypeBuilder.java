@@ -8,11 +8,13 @@ import java.util.List;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 
+import org.rmt2.jaxb.BusinessType;
 import org.rmt2.jaxb.ClientType;
 import org.rmt2.jaxb.EmployeeType;
 import org.rmt2.jaxb.ObjectFactory;
 import org.rmt2.jaxb.ProjectTaskType;
 import org.rmt2.jaxb.RecordTrackingType;
+import org.rmt2.jaxb.TimesheetHoursSummaryType;
 import org.rmt2.jaxb.TimesheetStatusHistoryType;
 import org.rmt2.jaxb.TimesheetStatusType;
 import org.rmt2.jaxb.TimesheetType;
@@ -56,6 +58,12 @@ public class TimesheetTypeBuilder {
         subject.setEmployee(builder.employee);
         subject.setStatus(builder.status);
 
+        if (builder.serviceProvider != null) {
+            subject.setServiceProvider(builder.serviceProvider);
+        }
+        if (builder.workLogSummary != null) {
+            subject.setWorkLogSummary(builder.workLogSummary);
+        }
         if (builder.workLog != null && builder.workLog.size() > 0) {
             subject.getWorkLog().addAll(builder.workLog);
         }
@@ -89,9 +97,11 @@ public class TimesheetTypeBuilder {
         private BigDecimal billableHours;
         private BigDecimal nonBillableHours;
 
+        private BusinessType serviceProvider;
         private ClientType client;
         private EmployeeType employee;
         private TimesheetStatusType status;
+        private TimesheetHoursSummaryType workLogSummary;
         private List<ProjectTaskType> workLog;
         private List<TimesheetStatusHistoryType> statusHistory;
         private RecordTrackingType tracking;
@@ -101,6 +111,7 @@ public class TimesheetTypeBuilder {
             this.employee = null;
             this.status = null;
             this.workLog = null;
+            this.workLogSummary = null;
             this.statusHistory = null;
             this.tracking = null;
             return;
@@ -414,6 +425,37 @@ public class TimesheetTypeBuilder {
         }
 
         /**
+         * Set timesheet work log summary
+         * 
+         * @param value
+         *            an instance of {@link TimesheetHoursSummaryType}
+         * @return Non-null Builder used to continue building the object
+         */
+        public Builder withWorkLogSummary(TimesheetHoursSummaryType value) {
+            this.workLogSummary = value;
+            return this;
+        }
+
+        /**
+         * Adds multiple project tasks (weekly time for a given project task) to
+         * the timesheet
+         * 
+         * @param values
+         *            an instance of List<{@link ProjectTaskType}>
+         * @return Non-null Builder used to continue building the object
+         */
+        public Builder addWorkLog(List<ProjectTaskType> values) {
+            if (values == null) {
+                return this;
+            }
+            if (this.workLog == null) {
+                this.workLog = new ArrayList<>();
+            }
+            this.workLog.addAll(values);
+            return this;
+        }
+
+        /**
          * Adds a status history item to the timesheet
          * 
          * @param value
@@ -428,6 +470,18 @@ public class TimesheetTypeBuilder {
                 this.statusHistory = new ArrayList<>();
             }
             this.statusHistory.add(value);
+            return this;
+        }
+
+        /**
+         * Set up service provider Info.
+         * 
+         * @param value
+         *            an instance of {@link BusinessType} not be blank
+         * @return Non-null Builder used to continue building the object
+         */
+        public Builder withServiceProvider(BusinessType value) {
+            this.serviceProvider = value;
             return this;
         }
 
