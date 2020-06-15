@@ -9,6 +9,8 @@ import org.junit.Test;
 import org.rmt2.constants.ApiHeaderNames;
 import org.rmt2.constants.ApiTransactionCodes;
 import org.rmt2.constants.MessagingConstants;
+import org.rmt2.jaxb.AddressType;
+import org.rmt2.jaxb.BusinessType;
 import org.rmt2.jaxb.ClientType;
 import org.rmt2.jaxb.CustomerType;
 import org.rmt2.jaxb.EmployeeType;
@@ -28,11 +30,15 @@ import org.rmt2.jaxb.TimesheetCriteriaType;
 import org.rmt2.jaxb.TimesheetHoursSummaryType;
 import org.rmt2.jaxb.TimesheetStatusType;
 import org.rmt2.jaxb.TimesheetType;
+import org.rmt2.jaxb.ZipcodeType;
 import org.rmt2.util.HeaderTypeBuilder;
 import org.rmt2.util.RecordTrackingTypeBuilder;
 import org.rmt2.util.ReplyStatusTypeBuilder;
 import org.rmt2.util.accounting.subsidiary.CustomerTypeBuilder;
+import org.rmt2.util.addressbook.AddressTypeBuilder;
+import org.rmt2.util.addressbook.BusinessTypeBuilder;
 import org.rmt2.util.addressbook.PersonTypeBuilder;
+import org.rmt2.util.addressbook.ZipcodeTypeBuilder;
 import org.rmt2.util.projecttracker.admin.ClientTypeBuilder;
 import org.rmt2.util.projecttracker.employee.EmployeeTypeBuilder;
 import org.rmt2.util.projecttracker.employee.EmployeetypeTypeBuilder;
@@ -230,6 +236,35 @@ public class TimesheetQueryRequestBuilderTest {
                 .withAccountNo("111-222-333")
                 .build();
 
+        ZipcodeType zt = ZipcodeTypeBuilder.Builder.create()
+                .withCity("Dallas")
+                .withState("Tx")
+                .withZipcode(75232)
+                .build();
+
+        AddressType at = AddressTypeBuilder.Builder.create()
+                .withAddrId(5555)
+                .withAddressLine1("Address Line 1")
+                .withAddressLine2("Address Line 1")
+                .withAddressLine3("Address Line 1")
+                .withAddressLine4("Address Line 1")
+                .withPhoneMain("9725555555")
+                .withPhoneFax("2145555555")
+                .withZipcode(zt)
+                .build();
+
+        BusinessType servProv = BusinessTypeBuilder.Builder.create()
+                .withBusinessId(7777)
+                .withContactFirstname("roy")
+                .withContactLastname("terrell")
+                .withContactPhone("8175555555")
+                .withLongname("Service Provider Name")
+                .withTaxId("777777777")
+                .withWebsite("www.spn.net")
+                .withContactEmail("spn@gte.net")
+                .withAddress(at)
+                .build();
+
         ClientType client = ClientTypeBuilder.Builder.create()
                 .withClientId(200)
                 .withClientName("Client Name")
@@ -287,6 +322,7 @@ public class TimesheetQueryRequestBuilderTest {
                 .withStatusEndDate(new Date())
                 .withEmployeeBillableHours(40)
                 .withEmployeeNonBillableHours(0)
+                .withServiceProvider(servProv)
                 .withClient(client)
                 .withEmployee(et)
                 .withStatus(tsst)
