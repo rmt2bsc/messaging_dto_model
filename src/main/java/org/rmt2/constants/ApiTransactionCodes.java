@@ -2,6 +2,18 @@ package org.rmt2.constants;
 
 public class ApiTransactionCodes {
 
+    public static final String APP_ADDRESSBOOK = "addressbook";
+    public static final String APP_ACCOUNTING = "accounting";
+    public static final String APP_MULTIMEDIA = "multimedia";
+    public static final String APP_SECURITY = "security";
+    public static final String APP_PROJECTTRACKER = "projecttracker";
+
+    public static final String ROUTE_ACCOUNTING = "JMS:rmt2.queue.accounting";
+    public static final String ROUTE_ADDRESSBOOK = "JMS:rmt2.queue.addressbook";
+    public static final String ROUTE_MULTIMEDIA = "JMS:rmt2.queue.multimedia";
+    public static final String ROUTE_PROJECTTRACKER = "JMS:rmt2.queue.projecttracker";
+    public static final String ROUTE_SECURITY = "JMS:rmt2.queue.security";
+
     // AddressBook
     public static final String CONTACTS_GET = "GET_CONTACT";
     public static final String CONTACTS_UPDATE = "UPDATE_CONTACT";
@@ -116,6 +128,7 @@ public class ApiTransactionCodes {
     public static final String PROJTRACK_TIMESHEET_SUBMIT = "SUBMIT_TIMESHEET";
     public static final String PROJTRACK_TIMESHEET_APPROVE = "APPROVE_TIMESHEET";
     public static final String PROJTRACK_TIMESHEET_DECLINE = "DECLINE_TIMESHEET";
+    public static final String PROJTRACK_TIMESHEET_INVOICE = "INVOICE_TIMESHEET";
     public static final String PROJTRACK_TIMESHEET_PRINT_SUMMARY = "PRINT_TIMESHEET_SUMMARY";
     public static final String PROJTRACK_TIMESHEET_PRINT_WORKLOG = "PRINT_TIMESHEET_WORKLOG";
     public static final String PROJTRACK_TIMESHEET_STATUS_GET = "GET_TIMESHEET_STATUS";
