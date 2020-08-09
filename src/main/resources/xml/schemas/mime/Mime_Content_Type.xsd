@@ -206,7 +206,7 @@
 						new.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="mime_type_details" type="mime_type" minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="mime_type" type="mimetype_type" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>Provides MIME type/sub type details.</xsd:documentation>
 				</xsd:annotation>
@@ -516,8 +516,7 @@
 	
 	<xsd:complexType name="mimetype_type">
 		<xsd:sequence>
-			<xsd:element name="mime_type_id" type="xsd:int" default="0" maxOccurs="1"
-				minOccurs="1">
+			<xsd:element name="mime_type_id" type="xsd:int" default="0" maxOccurs="1" minOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The unique identifier of the MIME type.</xsd:documentation>
 				</xsd:annotation>
