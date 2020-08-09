@@ -85,8 +85,8 @@ public class AudioBatchImportRequestBuilderTest {
 
         MimeDetailGroup cgt = fact.createMimeDetailGroup();
         AudioBatchImportType g2t = AudioBatchImportTypeBuilder.Builder.create()
-                .withStartTime(RMT2Date.stringToDate("2020-01-01 01:20:00"))
-                .withEndTime(RMT2Date.stringToDate("2020-01-01 02:20:00"))
+                .withStartTime(RMT2Date.stringToDate("2020-01-01 01:20:45"))
+                .withEndTime(RMT2Date.stringToDate("2020-01-01 02:48:02"))
                 .withProcessTotal(85000)
                 .withSuccessTotal(70000)
                 .withFailureTotal(1000)

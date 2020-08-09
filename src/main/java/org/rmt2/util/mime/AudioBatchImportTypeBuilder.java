@@ -2,11 +2,10 @@ package org.rmt2.util.mime;
 
 import java.util.Date;
 
-import javax.xml.datatype.XMLGregorianCalendar;
-
 import org.rmt2.jaxb.AudioBatchImportType;
 import org.rmt2.jaxb.ObjectFactory;
 
+import com.api.util.ElapsedTime;
 import com.api.util.RMT2Date;
 
 /**
@@ -20,13 +19,23 @@ public class AudioBatchImportTypeBuilder {
     private AudioBatchImportType subject;
     
     /**
-     * Create a AudioBatchImportTypeBuilder
+     * Create a AudioBatchImportType
      */
     private AudioBatchImportTypeBuilder(Builder builder) {
         ObjectFactory f = new ObjectFactory();
         subject = f.createAudioBatchImportType();
-        subject.setStartTime(builder.startTime);
-        subject.setEndTime(builder.endTime);
+        if (builder.startTime != null && builder.endTime != null) {
+            subject.setStartTime(RMT2Date.toXmlDate(builder.startTime));
+            subject.setEndTime(RMT2Date.toXmlDate(builder.endTime));
+            ElapsedTime results = RMT2Date.getDateDiff(builder.startTime, builder.endTime);
+            StringBuilder buf = new StringBuilder();
+            buf.append(results.getHours());
+            buf.append(":");
+            buf.append(results.getMins());
+            buf.append(":");
+            buf.append(results.getSecs());
+            subject.setDuration(buf.toString());
+        }
         subject.setTotalProcessed(builder.totalProcessed);
         subject.setTotalSuccess(builder.totalSuccess);
         subject.setTotalFailure(builder.totalFailure);
@@ -34,14 +43,14 @@ public class AudioBatchImportTypeBuilder {
     }
 
     /**
-     * Builder for {@link AudioBatchImportTypeBuilder}
+     * Builder for {@link ProjecttypeTypeBuilder}
      * 
      * @author Roy Terrell
      *
      */
     public static final class Builder {
-        private XMLGregorianCalendar startTime;
-        private XMLGregorianCalendar endTime;
+        private Date startTime;
+        private Date endTime;
         private int totalProcessed;
         private int totalSuccess;
         private int totalFailure;
@@ -72,7 +81,7 @@ public class AudioBatchImportTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withStartTime(Date value) {
-            this.startTime = RMT2Date.toXmlDate(value);
+            this.startTime = value;
             return this;
         }
 
@@ -86,7 +95,7 @@ public class AudioBatchImportTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withEndTime(Date value) {
-            this.endTime = RMT2Date.toXmlDate(value);
+            this.endTime = value;
             return this;
         }
         
