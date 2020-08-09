@@ -21,6 +21,9 @@ import org.rmt2.jaxb.MultimediaResponse;
 import org.rmt2.jaxb.ObjectFactory;
 import org.rmt2.jaxb.TrackType;
 import org.rmt2.util.HeaderTypeBuilder;
+import org.rmt2.util.mime.AVProjectTypeBuilder;
+import org.rmt2.util.mime.ArtistTypeBuilder;
+import org.rmt2.util.mime.TrackTypeBuilder;
 
 import com.api.config.ConfigConstants;
 import com.api.config.SystemConfigurator;
@@ -88,44 +91,52 @@ public class ArtistsQueryRequestBuilderTest {
         MimeDetailGroup cgt = fact.createMimeDetailGroup();
         cgt.setAudioVideoDetails(fact.createAudioVisualType());
 
-        AvProjectType pt = fact.createAvProjectType();
-        pt.setProjectId(300);
-        pt.setArtistId(200);
-        pt.setCost(12.99);
-        pt.setComments("sommoth jazz");
-        pt.setYear(1984);
-        pt.setTitle("Title #1");
-        pt.setRipped(1);
+        AvProjectType pt = AVProjectTypeBuilder.Builder.create()
+                .withProjectId(300)
+                .withArtistId(200)
+                .withCost(12.99)
+                .withComments("Comments #1")
+                .withYearId(1984)
+                .withTitle("Title #1")
+                .withRipped(1)
+                .build();
 
-        TrackType tt1 = fact.createTrackType();
-        tt1.setTrackId(1000);
-        tt1.setTrackName("Track Name 1");
-        tt1.setDiscNumber(1);
-        tt1.setHours(0);
-        tt1.setMinutes(3);
-        tt1.setSeconds(10);
+        TrackType tt1 = TrackTypeBuilder.Builder.create()
+                .withTrackId(1000)
+                .withTrackName("Track #1")
+                .withDiscNumber(1)
+                .withHours(0)
+                .withMinutes(3)
+                .withSeconds(23)
+                .build();
         pt.getTrack().add(tt1);
 
-        tt1 = fact.createTrackType();
-        tt1.setTrackId(1001);
-        tt1.setTrackName("Track Name 2");
-        tt1.setDiscNumber(1);
-        tt1.setHours(0);
-        tt1.setMinutes(4);
-        tt1.setSeconds(30);
+        tt1 = TrackTypeBuilder.Builder.create()
+                .withTrackId(1001)
+                .withTrackName("Track #2")
+                .withDiscNumber(1)
+                .withHours(0)
+                .withMinutes(6)
+                .withSeconds(33)
+                .build();
         pt.getTrack().add(tt1);
 
-        fact.createTrackType();
-        tt1.setTrackId(1002);
-        tt1.setTrackName("Track Name 3");
-        tt1.setDiscNumber(1);
-        tt1.setHours(0);
-        tt1.setMinutes(6);
-        tt1.setSeconds(44);
+        tt1 = TrackTypeBuilder.Builder.create()
+                .withTrackId(1002)
+                .withTrackName("Track #3")
+                .withDiscNumber(1)
+                .withHours(0)
+                .withMinutes(5)
+                .withSeconds(55)
+                .build();
         pt.getTrack().add(tt1);
 
-        ArtistType at = fact.createArtistType();
-        at.getProject().add(pt);
+        ArtistType at = ArtistTypeBuilder.Builder.create()
+                .withArtistId(222)
+                .withArtistName("Artist Name")
+                .withProject(pt)
+                .build();
+
         cgt.getAudioVideoDetails().getArtist().add(at);
 
         GenreType g = fact.createGenreType();
