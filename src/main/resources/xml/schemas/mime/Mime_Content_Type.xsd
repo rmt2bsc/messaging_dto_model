@@ -69,7 +69,7 @@
 	<!--                          -->
 	<xsd:complexType name="audio_batch_import_criteria_type">
 		<xsd:sequence>
-			<xsd:element name="location" type="xsd:string" default="0" maxOccurs="1" minOccurs="1">
+			<xsd:element name="location" type="xsd:string" maxOccurs="1" minOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The path of the directory where the audio files live.</xsd:documentation>
 				</xsd:annotation>
@@ -79,7 +79,7 @@
 
 	<xsd:complexType name="content_criteria_type">
 		<xsd:sequence>
-			<xsd:element name="content_id" type="xsd:int" default="0" minOccurs="1" maxOccurs="1">
+			<xsd:element name="content_id" type="xsd:int" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The unique identifier of the content to fetch.</xsd:documentation>
 				</xsd:annotation>
@@ -100,7 +100,7 @@
 
 	<xsd:complexType name="audio_visual_criteria_type">
 		<xsd:sequence>
-			<xsd:element name="artist_id" type="xsd:int" default="0" minOccurs="1" maxOccurs="1">
+			<xsd:element name="artist_id" type="xsd:int" default="0" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The artist's unique identifier.</xsd:documentation>
 				</xsd:annotation>
@@ -110,7 +110,7 @@
 					<xsd:documentation>The artist's name.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="project_id" type="xsd:int" default="0" minOccurs="1" maxOccurs="1">
+			<xsd:element name="project_id" type="xsd:int" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The unique identifier of the project.</xsd:documentation>
 				</xsd:annotation>
@@ -120,18 +120,18 @@
 					<xsd:documentation>The project's title.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="year" type="xsd:int" default="0" minOccurs="1" maxOccurs="1">
+			<xsd:element name="year" type="xsd:int" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The year the project was releases.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="ripped" type="xsd:int" default="0" minOccurs="1" maxOccurs="1">
+			<xsd:element name="ripped" type="xsd:int" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>Flag indicating whether or not the project was ripped.
 						1=true, 0= false.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="track_id" type="xsd:int" default="0" minOccurs="1" maxOccurs="1" >
+			<xsd:element name="track_id" type="xsd:int" minOccurs="0" maxOccurs="1" >
 				<xsd:annotation>
 					<xsd:documentation>The unique identifier of the track.</xsd:documentation>
 				</xsd:annotation>
@@ -141,7 +141,7 @@
 					<xsd:documentation>The track's name.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="genre_id" type="xsd:int" default="0" minOccurs="1" maxOccurs="1" >
+			<xsd:element name="genre_id" type="xsd:int" minOccurs="0" maxOccurs="1" >
 				<xsd:annotation>
 					<xsd:documentation>The id of the project's genre.</xsd:documentation>
 				</xsd:annotation>
@@ -151,7 +151,7 @@
 					<xsd:documentation>The name of the project's genre.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="media_type_id" type="xsd:int" default="0" minOccurs="1" maxOccurs="1">
+			<xsd:element name="media_type_id" type="xsd:int" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The id of the project's media type.</xsd:documentation>
 				</xsd:annotation>
@@ -161,7 +161,7 @@
 					<xsd:documentation>The name of the project's media type.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="project_type_id" type="xsd:int" default="0" minOccurs="1" maxOccurs="1">
+			<xsd:element name="project_type_id" type="xsd:int" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The id of the project type which represents either audio or
 						video.</xsd:documentation>
@@ -172,7 +172,7 @@
 					<xsd:documentation>The name of the project type.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="mime_type_id" type="xsd:int" default="0" maxOccurs="1" minOccurs="1">
+			<xsd:element name="mime_type_id" type="xsd:int" minOccurs="0" maxOccurs="1" >
 				<xsd:annotation>
 					<xsd:documentation>The id of the project's MIME type.</xsd:documentation>
 				</xsd:annotation>
@@ -196,7 +196,7 @@
 				other binary forms of data.</xsd:documentation>
 		</xsd:annotation>
 		<xsd:sequence>
-			<xsd:element name="content_id" type="xsd:int" default="0" maxOccurs="1"	minOccurs="1">
+			<xsd:element name="content_id" type="xsd:int" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>This is the primary key. Will default to zero when record is
 						new.</xsd:documentation>
@@ -230,7 +230,7 @@
 						time when persisted.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="filesize" type="xsd:int" default="0" minOccurs="1" maxOccurs="1">
+			<xsd:element name="filesize" type="xsd:int" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The size of the binary data in bytes.</xsd:documentation>
 				</xsd:annotation>
@@ -260,7 +260,7 @@
 
 	<xsd:complexType name="artist_type">
 		<xsd:sequence>
-			<xsd:element name="artist_id" type="xsd:int" default="0" maxOccurs="1" minOccurs="1">
+			<xsd:element name="artist_id" type="xsd:int" minOccurs="0" maxOccurs="1" >
 				<xsd:annotation>
 					<xsd:documentation>The unique identifier of the artist to fetch.</xsd:documentation>
 				</xsd:annotation>
@@ -280,33 +280,33 @@
 
 	<xsd:complexType name="av_project_type">
 		<xsd:sequence>
-			<xsd:element name="project_id" type="xsd:int" default="0" maxOccurs="1"	minOccurs="0">
+			<xsd:element name="project_id" type="xsd:int" minOccurs="0" maxOccurs="1"	>
 				<xsd:annotation>
 					<xsd:documentation>The unique identifier of the project.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="artist_id" type="xsd:int" default="0" maxOccurs="1" minOccurs="0">
+			<xsd:element name="artist_id" type="xsd:int" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The artist's unique identifier.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="project_type_id" type="xsd:int" default="0" maxOccurs="1" minOccurs="0">
+			<xsd:element name="project_type_id" type="xsd:int" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The id of the project type which represents either audio or
 						video.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="genre_id" type="xsd:int" default="0" maxOccurs="1" minOccurs="0">
+			<xsd:element name="genre_id" type="xsd:int" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The id of the project's genre.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="content_id" type="xsd:int" default="0" maxOccurs="1"	minOccurs="0">
+			<xsd:element name="content_id" type="xsd:int" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The id of the media content.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="media_type_id" type="xsd:int" default="0" maxOccurs="1" minOccurs="0">
+			<xsd:element name="media_type_id" type="xsd:int" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The id of the project's media type.</xsd:documentation>
 				</xsd:annotation>
@@ -316,24 +316,24 @@
 					<xsd:documentation>The project's title.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="year" type="xsd:int" default="0" minOccurs="0" maxOccurs="1">
+			<xsd:element name="year" type="xsd:int" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The year the project was releases.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="master_dup_id" type="xsd:int" default="0" minOccurs="0" maxOccurs="1">
+			<xsd:element name="master_dup_id" type="xsd:int" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>Indicates if the audio-video exist as multiple media types in
 						the system. 1 = true, and 0 = false.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="ripped" type="xsd:int" default="0" minOccurs="0" maxOccurs="1">
+			<xsd:element name="ripped" type="xsd:int" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>Flag indicating whether or not the project was ripped.
 						1=true, 0= false.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="cost" type="xsd:double" default="0" minOccurs="0" maxOccurs="1">
+			<xsd:element name="cost" type="xsd:double" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The amound paid for the audio-video asset.</xsd:documentation>
 				</xsd:annotation>
@@ -375,23 +375,22 @@
 
 	<xsd:complexType name="track_type">
 		<xsd:sequence>
-			<xsd:element name="track_id" type="xsd:int" default="0" maxOccurs="1" minOccurs="1">
+			<xsd:element name="track_id" type="xsd:int" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The unique identifier of the track.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="project_id" type="xsd:int" default="0" maxOccurs="1"
-				minOccurs="1">
+			<xsd:element name="project_id" type="xsd:int" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The unique identifier of the track's	project.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="disc_number" type="xsd:int" default="0" maxOccurs="1" minOccurs="1">
+			<xsd:element name="disc_number" type="xsd:int" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The disc number.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="track_number" type="xsd:int" default="0" maxOccurs="1" minOccurs="1">
+			<xsd:element name="track_number" type="xsd:int" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The track number.</xsd:documentation>
 				</xsd:annotation>
@@ -401,17 +400,17 @@
 					<xsd:documentation>The track's name.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="hours" type="xsd:int" default="0" minOccurs="0" maxOccurs="1">
+			<xsd:element name="hours" type="xsd:int" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The hour component of the track duration.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="minutes" type="xsd:int" default="0" minOccurs="0" maxOccurs="1">
+			<xsd:element name="minutes" type="xsd:int" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The minute component of the track duration.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="seconds" type="xsd:int" default="0" minOccurs="0" maxOccurs="1">
+			<xsd:element name="seconds" type="xsd:int" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The second component of the track duration.</xsd:documentation>
 				</xsd:annotation>
@@ -467,7 +466,7 @@
 
 	<xsd:complexType name="genre_type">
 		<xsd:sequence>
-			<xsd:element name="genre_id" type="xsd:int" default="0" maxOccurs="1" minOccurs="1">
+			<xsd:element name="genre_id" type="xsd:int" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The unique identifier of the genre.</xsd:documentation>
 				</xsd:annotation>
@@ -482,7 +481,7 @@
 	
 	<xsd:complexType name="mediatype_type">
 		<xsd:sequence>
-			<xsd:element name="media_type_id" type="xsd:int" default="0" maxOccurs="1" minOccurs="1">
+			<xsd:element name="media_type_id" type="xsd:int" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The unique identifier of the media type.</xsd:documentation>
 				</xsd:annotation>
@@ -497,7 +496,7 @@
 	
 	<xsd:complexType name="projecttype_type">
 		<xsd:sequence>
-			<xsd:element name="project_type_id" type="xsd:int" default="0" maxOccurs="1" minOccurs="1">
+			<xsd:element name="project_type_id" type="xsd:int" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The unique identifier of the project type.</xsd:documentation>
 				</xsd:annotation>
@@ -512,7 +511,7 @@
 	
 	<xsd:complexType name="mimetype_type">
 		<xsd:sequence>
-			<xsd:element name="mime_type_id" type="xsd:int" default="0" maxOccurs="1" minOccurs="1">
+			<xsd:element name="mime_type_id" type="xsd:int" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The unique identifier of the MIME type.</xsd:documentation>
 				</xsd:annotation>
@@ -549,22 +548,22 @@
 					<xsd:documentation>The amout of time it took for the process to complete.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="total_processed" type="xsd:int" default="0" minOccurs="1" maxOccurs="1">
+			<xsd:element name="total_processed" type="xsd:int" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The total number of files processed.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="total_success" type="xsd:int" default="0" minOccurs="1" maxOccurs="1">
+			<xsd:element name="total_success" type="xsd:int" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The total number of files successfully processed.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="total_failure" type="xsd:int" default="0" minOccurs="1" maxOccurs="1">
+			<xsd:element name="total_failure" type="xsd:int" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The total number of files unsuccessfully processed.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="total_non_av_files" type="xsd:int" default="0" minOccurs="1" maxOccurs="1">
+			<xsd:element name="total_non_av_files" type="xsd:int" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The total number of non-audio files encountered during the batch import.</xsd:documentation>
 				</xsd:annotation>
