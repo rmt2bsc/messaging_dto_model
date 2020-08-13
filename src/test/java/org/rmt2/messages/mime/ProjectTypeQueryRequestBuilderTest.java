@@ -18,7 +18,7 @@ import org.rmt2.jaxb.ObjectFactory;
 import org.rmt2.jaxb.ProjectTypes;
 import org.rmt2.jaxb.ProjecttypeType;
 import org.rmt2.util.HeaderTypeBuilder;
-import org.rmt2.util.mime.ProjecttypeTypeBuilder;
+import org.rmt2.util.media.ProjecttypeTypeBuilder;
 
 import com.api.config.ConfigConstants;
 import com.api.config.SystemConfigurator;

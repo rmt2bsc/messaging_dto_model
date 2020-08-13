@@ -17,7 +17,7 @@ import org.rmt2.jaxb.MimeDetailGroup;
 import org.rmt2.jaxb.MultimediaResponse;
 import org.rmt2.jaxb.ObjectFactory;
 import org.rmt2.util.HeaderTypeBuilder;
-import org.rmt2.util.mime.AudioBatchImportTypeBuilder;
+import org.rmt2.util.media.AudioBatchImportTypeBuilder;
 
 import com.api.config.ConfigConstants;
 import com.api.config.SystemConfigurator;

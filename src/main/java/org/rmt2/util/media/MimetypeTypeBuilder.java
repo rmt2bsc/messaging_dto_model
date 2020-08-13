@@ -1,4 +1,4 @@
-package org.rmt2.util.mime;
+package org.rmt2.util.media;
 
 import org.rmt2.jaxb.MimetypeType;
 import org.rmt2.jaxb.ObjectFactory;

@@ -1,31 +1,30 @@
-package org.rmt2.util.mime;
+package org.rmt2.util.media;
 
-import org.rmt2.jaxb.GenreType;
+import org.rmt2.jaxb.MediatypeType;
 import org.rmt2.jaxb.ObjectFactory;
 
 /**
- * GenreType Builder.
+ * MediatypeType Builder.
  * 
  * @author Roy Terrell
  *
  */
-public class GenreTypeBuilder {
+public class MediatypeTypeBuilder {
 
-    private GenreType subject;
+    private MediatypeType subject;
     
     /**
-     * Create a GenreTypeBuilder
+     * Create a MediatypeTypeBuilder
      */
-    private GenreTypeBuilder(Builder builder) {
+    private MediatypeTypeBuilder(Builder builder) {
         ObjectFactory f = new ObjectFactory();
-        subject = f.createGenreType();
-        subject.setGenreId(builder.uid);
-        subject.setGenreName(builder.name);
-
+        subject = f.createMediatypeType();
+        subject.setMediaTypeId(builder.uid);
+        subject.setMediaTypeName(builder.name);
     }
 
     /**
-     * Builder for {@link GenreTypeBuilder}
+     * Builder for {@link MediatypeTypeBuilder}
      * 
      * @author Roy Terrell
      *
@@ -79,12 +78,12 @@ public class GenreTypeBuilder {
         }
 
         /**
-         * Completes the building of the GenreType
+         * Completes the building of the MediatypeType
          * 
-         * @return an instance of {@link GenreType}
+         * @return an instance of {@link MediatypeType}
          */
-        public GenreType build() {
-            GenreTypeBuilder obj = new GenreTypeBuilder(this);
+        public MediatypeType build() {
+            MediatypeTypeBuilder obj = new MediatypeTypeBuilder(this);
             return obj.subject;
         }
     }

@@ -1,30 +1,30 @@
-package org.rmt2.util.mime;
+package org.rmt2.util.media;
 
-import org.rmt2.jaxb.MediatypeType;
 import org.rmt2.jaxb.ObjectFactory;
+import org.rmt2.jaxb.ProjecttypeType;
 
 /**
- * MediatypeType Builder.
+ * ProjecttypeType Builder.
  * 
  * @author Roy Terrell
  *
  */
-public class MediatypeTypeBuilder {
+public class ProjecttypeTypeBuilder {
 
-    private MediatypeType subject;
+    private ProjecttypeType subject;
     
     /**
-     * Create a MediatypeTypeBuilder
+     * Create a ProjecttypeTypeBuilder
      */
-    private MediatypeTypeBuilder(Builder builder) {
+    private ProjecttypeTypeBuilder(Builder builder) {
         ObjectFactory f = new ObjectFactory();
-        subject = f.createMediatypeType();
-        subject.setMediaTypeId(builder.uid);
-        subject.setMediaTypeName(builder.name);
+        subject = f.createProjecttypeType();
+        subject.setProjectTypeId(builder.uid);
+        subject.setProjectTypeName(builder.name);
     }
 
     /**
-     * Builder for {@link MediatypeTypeBuilder}
+     * Builder for {@link ProjecttypeTypeBuilder}
      * 
      * @author Roy Terrell
      *
@@ -78,12 +78,12 @@ public class MediatypeTypeBuilder {
         }
 
         /**
-         * Completes the building of the MediatypeType
+         * Completes the building of the ProjecttypeType
          * 
-         * @return an instance of {@link MediatypeType}
+         * @return an instance of {@link ProjecttypeType}
          */
-        public MediatypeType build() {
-            MediatypeTypeBuilder obj = new MediatypeTypeBuilder(this);
+        public ProjecttypeType build() {
+            ProjecttypeTypeBuilder obj = new ProjecttypeTypeBuilder(this);
             return obj.subject;
         }
     }

@@ -1,30 +1,31 @@
-package org.rmt2.util.mime;
+package org.rmt2.util.media;
 
+import org.rmt2.jaxb.GenreType;
 import org.rmt2.jaxb.ObjectFactory;
-import org.rmt2.jaxb.ProjecttypeType;
 
 /**
- * ProjecttypeType Builder.
+ * GenreType Builder.
  * 
  * @author Roy Terrell
  *
  */
-public class ProjecttypeTypeBuilder {
+public class GenreTypeBuilder {
 
-    private ProjecttypeType subject;
+    private GenreType subject;
     
     /**
-     * Create a ProjecttypeTypeBuilder
+     * Create a GenreTypeBuilder
      */
-    private ProjecttypeTypeBuilder(Builder builder) {
+    private GenreTypeBuilder(Builder builder) {
         ObjectFactory f = new ObjectFactory();
-        subject = f.createProjecttypeType();
-        subject.setProjectTypeId(builder.uid);
-        subject.setProjectTypeName(builder.name);
+        subject = f.createGenreType();
+        subject.setGenreId(builder.uid);
+        subject.setGenreName(builder.name);
+
     }
 
     /**
-     * Builder for {@link ProjecttypeTypeBuilder}
+     * Builder for {@link GenreTypeBuilder}
      * 
      * @author Roy Terrell
      *
@@ -78,12 +79,12 @@ public class ProjecttypeTypeBuilder {
         }
 
         /**
-         * Completes the building of the ProjecttypeType
+         * Completes the building of the GenreType
          * 
-         * @return an instance of {@link ProjecttypeType}
+         * @return an instance of {@link GenreType}
          */
-        public ProjecttypeType build() {
-            ProjecttypeTypeBuilder obj = new ProjecttypeTypeBuilder(this);
+        public GenreType build() {
+            GenreTypeBuilder obj = new GenreTypeBuilder(this);
             return obj.subject;
         }
     }

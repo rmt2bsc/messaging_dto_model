@@ -1,4 +1,4 @@
-package org.rmt2.util.mime;
+package org.rmt2.util.media;
 
 import java.util.ArrayList;
 import java.util.List;

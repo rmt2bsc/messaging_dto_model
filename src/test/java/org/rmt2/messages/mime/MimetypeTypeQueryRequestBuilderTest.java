@@ -18,7 +18,7 @@ import org.rmt2.jaxb.MimetypeType;
 import org.rmt2.jaxb.MultimediaResponse;
 import org.rmt2.jaxb.ObjectFactory;
 import org.rmt2.util.HeaderTypeBuilder;
-import org.rmt2.util.mime.MimetypeTypeBuilder;
+import org.rmt2.util.media.MimetypeTypeBuilder;
 
 import com.api.config.ConfigConstants;
 import com.api.config.SystemConfigurator;

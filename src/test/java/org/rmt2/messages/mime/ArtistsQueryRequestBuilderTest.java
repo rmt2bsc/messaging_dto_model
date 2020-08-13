@@ -19,9 +19,9 @@ import org.rmt2.jaxb.MultimediaResponse;
 import org.rmt2.jaxb.ObjectFactory;
 import org.rmt2.jaxb.TrackType;
 import org.rmt2.util.HeaderTypeBuilder;
-import org.rmt2.util.mime.AVProjectTypeBuilder;
-import org.rmt2.util.mime.ArtistTypeBuilder;
-import org.rmt2.util.mime.TrackTypeBuilder;
+import org.rmt2.util.media.AVProjectTypeBuilder;
+import org.rmt2.util.media.ArtistTypeBuilder;
+import org.rmt2.util.media.TrackTypeBuilder;
 
 import com.api.config.ConfigConstants;
 import com.api.config.SystemConfigurator;
