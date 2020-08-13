@@ -122,6 +122,7 @@ public class ApiTransactionCodes {
     public static final String PROJTRACK_EMPLOYEE_TITLE_GET = "GET_EMPLOYEE_TITLE";
     public static final String PROJTRACK_EMPLOYEE_TYPE_GET = "GET_EMPLOYEE_TYPE";
 
+    // Project Tracker - Timesheet Transactions
     public static final String PROJTRACK_TIMESHEET_GET = "GET_TIMESHEET";
     public static final String PROJTRACK_TIMESHEET_UPDATE = "UPDATE_TIMESHEET";
     public static final String PROJTRACK_TIMESHEET_DELETE = "DELETE_TIMESHEET";
@@ -132,6 +133,9 @@ public class ApiTransactionCodes {
     public static final String PROJTRACK_TIMESHEET_PRINT_SUMMARY = "PRINT_TIMESHEET_SUMMARY";
     public static final String PROJTRACK_TIMESHEET_PRINT_WORKLOG = "PRINT_TIMESHEET_WORKLOG";
     public static final String PROJTRACK_TIMESHEET_STATUS_GET = "GET_TIMESHEET_STATUS";
+
+    // Media - Lookup data Transactions
+    public static final String MEDIA_GENRE_GET = "GET_GENRE";
 
     public ApiTransactionCodes() {
         // TODO Auto-generated constructor stub
