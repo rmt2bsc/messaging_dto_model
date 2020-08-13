@@ -1,4 +1,4 @@
-package org.rmt2.messages.mime;
+package org.rmt2.messages.media;
 
 import java.math.BigInteger;
 import java.util.Date;
@@ -13,18 +13,18 @@ import org.rmt2.jaxb.CodeGroupType;
 import org.rmt2.jaxb.HeaderType;
 import org.rmt2.jaxb.LookupCodesRequest;
 import org.rmt2.jaxb.MimeDetailGroup;
-import org.rmt2.jaxb.MimeTypes;
-import org.rmt2.jaxb.MimetypeType;
 import org.rmt2.jaxb.MultimediaResponse;
 import org.rmt2.jaxb.ObjectFactory;
+import org.rmt2.jaxb.ProjectTypes;
+import org.rmt2.jaxb.ProjecttypeType;
 import org.rmt2.util.HeaderTypeBuilder;
-import org.rmt2.util.media.MimetypeTypeBuilder;
+import org.rmt2.util.media.ProjecttypeTypeBuilder;
 
 import com.api.config.ConfigConstants;
 import com.api.config.SystemConfigurator;
 import com.api.xml.jaxb.JaxbUtil;
 
-public class MimetypeTypeQueryRequestBuilderTest {
+public class ProjectTypeQueryRequestBuilderTest {
 
     private JaxbUtil jaxb;
     
@@ -84,23 +84,21 @@ public class MimetypeTypeQueryRequestBuilderTest {
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
 
         MimeDetailGroup cgt = fact.createMimeDetailGroup();
-        MimeTypes g2t = fact.createMimeTypes();
+        ProjectTypes g2t = fact.createProjectTypes();
         
-        MimetypeType g = MimetypeTypeBuilder.Builder.create()
+        ProjecttypeType g = ProjecttypeTypeBuilder.Builder.create()
                 .withUID(55)
-                .withFileExt(".pdf")
-                .withMediaType("application/pdf")
+                .withName("Audio")
                 .build();
-        g2t.getMimeType().add(g);        
+        g2t.getProjectType().add(g);        
 
-        g = MimetypeTypeBuilder.Builder.create()
+        g = ProjecttypeTypeBuilder.Builder.create()
                 .withUID(55)
-                .withFileExt(".jpg")
-                .withMediaType("image/jpeg")
+                .withName("Video")
                 .build();
-        g2t.getMimeType().add(g);     
+        g2t.getProjectType().add(g); 
         
-        cgt.setMimetypes(g2t);
+        cgt.setProjecttypes(g2t);
 
         req.setProfile(cgt);
         req.setHeader(head);

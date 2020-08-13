@@ -1,4 +1,4 @@
-package org.rmt2.messages.mime;
+package org.rmt2.messages.media;
 
 import java.math.BigInteger;
 import java.util.Date;
@@ -12,19 +12,20 @@ import org.rmt2.constants.MessagingConstants;
 import org.rmt2.jaxb.CodeGroupType;
 import org.rmt2.jaxb.HeaderType;
 import org.rmt2.jaxb.LookupCodesRequest;
-import org.rmt2.jaxb.MediaTypes;
-import org.rmt2.jaxb.MediatypeType;
+import org.rmt2.jaxb.MimeContentType;
 import org.rmt2.jaxb.MimeDetailGroup;
+import org.rmt2.jaxb.MimetypeType;
 import org.rmt2.jaxb.MultimediaResponse;
 import org.rmt2.jaxb.ObjectFactory;
 import org.rmt2.util.HeaderTypeBuilder;
-import org.rmt2.util.media.MediatypeTypeBuilder;
+import org.rmt2.util.media.MimeContentTypeBuilder;
+import org.rmt2.util.media.MimetypeTypeBuilder;
 
 import com.api.config.ConfigConstants;
 import com.api.config.SystemConfigurator;
 import com.api.xml.jaxb.JaxbUtil;
 
-public class MediaTypeQueryRequestBuilderTest {
+public class MimeContentTypeRequestBuilderTest {
 
     private JaxbUtil jaxb;
     
@@ -84,21 +85,24 @@ public class MediaTypeQueryRequestBuilderTest {
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
 
         MimeDetailGroup cgt = fact.createMimeDetailGroup();
-        MediaTypes g2t = fact.createMediaTypes();
-        
-        MediatypeType g = MediatypeTypeBuilder.Builder.create()
-                .withUID(55)
-                .withName("Compact Disc")
+        MimetypeType mt = MimetypeTypeBuilder.Builder.create()
+                .withUID(3333)
+                .withFileExt(".pdf")
+                .withMediaType("application/pdf")
                 .build();
-        g2t.getMediaType().add(g);        
-
-        g = MediatypeTypeBuilder.Builder.create()
-                .withUID(56)
-                .withName("Blue Ray Disc")
-                .build();
-        g2t.getMediaType().add(g); 
         
-        cgt.setMediatypes(g2t);
+        MimeContentType g2t = MimeContentTypeBuilder.Builder.create()
+                .withContentId(4999)
+                .withMimeType(mt)
+                .withApplicationCode("mime")
+                .withModuleCode("audio")
+                .withFileName("abc.pdf")
+                .withFilePath("//rmtdaldb01/rmt2/data/")
+                .withFileSize(121312)
+                .withBinaryData("fkdlsfkdsliekekeidkfidofjeowjiewodkdkd".getBytes())
+                .build();
+    
+        cgt.setAudioVideoContent(g2t);
 
         req.setProfile(cgt);
         req.setHeader(head);

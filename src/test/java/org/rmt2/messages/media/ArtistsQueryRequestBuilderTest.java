@@ -1,4 +1,4 @@
-package org.rmt2.messages.mime;
+package org.rmt2.messages.media;
 
 import java.math.BigInteger;
 import java.util.Date;
@@ -9,23 +9,25 @@ import org.junit.Test;
 import org.rmt2.constants.ApiHeaderNames;
 import org.rmt2.constants.ApiTransactionCodes;
 import org.rmt2.constants.MessagingConstants;
+import org.rmt2.jaxb.ArtistType;
+import org.rmt2.jaxb.AvProjectType;
 import org.rmt2.jaxb.CodeGroupType;
 import org.rmt2.jaxb.HeaderType;
 import org.rmt2.jaxb.LookupCodesRequest;
-import org.rmt2.jaxb.MimeContentType;
 import org.rmt2.jaxb.MimeDetailGroup;
-import org.rmt2.jaxb.MimetypeType;
 import org.rmt2.jaxb.MultimediaResponse;
 import org.rmt2.jaxb.ObjectFactory;
+import org.rmt2.jaxb.TrackType;
 import org.rmt2.util.HeaderTypeBuilder;
-import org.rmt2.util.media.MimeContentTypeBuilder;
-import org.rmt2.util.media.MimetypeTypeBuilder;
+import org.rmt2.util.media.AVProjectTypeBuilder;
+import org.rmt2.util.media.ArtistTypeBuilder;
+import org.rmt2.util.media.TrackTypeBuilder;
 
 import com.api.config.ConfigConstants;
 import com.api.config.SystemConfigurator;
 import com.api.xml.jaxb.JaxbUtil;
 
-public class MimeContentTypeRequestBuilderTest {
+public class ArtistsQueryRequestBuilderTest {
 
     private JaxbUtil jaxb;
     
@@ -85,25 +87,55 @@ public class MimeContentTypeRequestBuilderTest {
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
 
         MimeDetailGroup cgt = fact.createMimeDetailGroup();
-        MimetypeType mt = MimetypeTypeBuilder.Builder.create()
-                .withUID(3333)
-                .withFileExt(".pdf")
-                .withMediaType("application/pdf")
-                .build();
-        
-        MimeContentType g2t = MimeContentTypeBuilder.Builder.create()
-                .withContentId(4999)
-                .withMimeType(mt)
-                .withApplicationCode("mime")
-                .withModuleCode("audio")
-                .withFileName("abc.pdf")
-                .withFilePath("//rmtdaldb01/rmt2/data/")
-                .withFileSize(121312)
-                .withBinaryData("fkdlsfkdsliekekeidkfidofjeowjiewodkdkd".getBytes())
-                .build();
-    
-        cgt.setAudioVideoContent(g2t);
+        cgt.setAudioVideoDetails(fact.createAudioVisualType());
 
+        AvProjectType pt = AVProjectTypeBuilder.Builder.create()
+                .withProjectId(300)
+                .withArtistId(200)
+                .withCost(12.99)
+                .withComments("Comments #1")
+                .withYearId(1984)
+                .withTitle("Title #1")
+                .withRipped(1)
+                .build();
+
+        TrackType tt1 = TrackTypeBuilder.Builder.create()
+                .withTrackId(1000)
+                .withTrackName("Track #1")
+                .withDiscNumber(1)
+                .withHours(0)
+                .withMinutes(3)
+                .withSeconds(23)
+                .build();
+        pt.getTrack().add(tt1);
+
+        tt1 = TrackTypeBuilder.Builder.create()
+                .withTrackId(1001)
+                .withTrackName("Track #2")
+                .withDiscNumber(1)
+                .withHours(0)
+                .withMinutes(6)
+                .withSeconds(33)
+                .build();
+        pt.getTrack().add(tt1);
+
+        tt1 = TrackTypeBuilder.Builder.create()
+                .withTrackId(1002)
+                .withTrackName("Track #3")
+                .withDiscNumber(1)
+                .withHours(0)
+                .withMinutes(5)
+                .withSeconds(55)
+                .build();
+        pt.getTrack().add(tt1);
+
+        ArtistType at = ArtistTypeBuilder.Builder.create()
+                .withArtistId(222)
+                .withArtistName("Artist Name")
+                .withProject(pt)
+                .build();
+
+        cgt.getAudioVideoDetails().getArtist().add(at);
         req.setProfile(cgt);
         req.setHeader(head);
 

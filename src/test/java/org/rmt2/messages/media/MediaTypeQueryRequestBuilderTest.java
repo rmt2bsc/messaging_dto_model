@@ -1,4 +1,4 @@
-package org.rmt2.messages.mime;
+package org.rmt2.messages.media;
 
 import java.math.BigInteger;
 import java.util.Date;
@@ -12,19 +12,19 @@ import org.rmt2.constants.MessagingConstants;
 import org.rmt2.jaxb.CodeGroupType;
 import org.rmt2.jaxb.HeaderType;
 import org.rmt2.jaxb.LookupCodesRequest;
+import org.rmt2.jaxb.MediaTypes;
+import org.rmt2.jaxb.MediatypeType;
 import org.rmt2.jaxb.MimeDetailGroup;
 import org.rmt2.jaxb.MultimediaResponse;
 import org.rmt2.jaxb.ObjectFactory;
-import org.rmt2.jaxb.ProjectTypes;
-import org.rmt2.jaxb.ProjecttypeType;
 import org.rmt2.util.HeaderTypeBuilder;
-import org.rmt2.util.media.ProjecttypeTypeBuilder;
+import org.rmt2.util.media.MediatypeTypeBuilder;
 
 import com.api.config.ConfigConstants;
 import com.api.config.SystemConfigurator;
 import com.api.xml.jaxb.JaxbUtil;
 
-public class ProjectTypeQueryRequestBuilderTest {
+public class MediaTypeQueryRequestBuilderTest {
 
     private JaxbUtil jaxb;
     
@@ -84,21 +84,21 @@ public class ProjectTypeQueryRequestBuilderTest {
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
 
         MimeDetailGroup cgt = fact.createMimeDetailGroup();
-        ProjectTypes g2t = fact.createProjectTypes();
+        MediaTypes g2t = fact.createMediaTypes();
         
-        ProjecttypeType g = ProjecttypeTypeBuilder.Builder.create()
+        MediatypeType g = MediatypeTypeBuilder.Builder.create()
                 .withUID(55)
-                .withName("Audio")
+                .withName("Compact Disc")
                 .build();
-        g2t.getProjectType().add(g);        
+        g2t.getMediaType().add(g);        
 
-        g = ProjecttypeTypeBuilder.Builder.create()
-                .withUID(55)
-                .withName("Video")
+        g = MediatypeTypeBuilder.Builder.create()
+                .withUID(56)
+                .withName("Blue Ray Disc")
                 .build();
-        g2t.getProjectType().add(g); 
+        g2t.getMediaType().add(g); 
         
-        cgt.setProjecttypes(g2t);
+        cgt.setMediatypes(g2t);
 
         req.setProfile(cgt);
         req.setHeader(head);

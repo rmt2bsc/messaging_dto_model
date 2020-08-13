@@ -1,4 +1,4 @@
-package org.rmt2.messages.mime;
+package org.rmt2.messages.media;
 
 import java.math.BigInteger;
 import java.util.Date;
