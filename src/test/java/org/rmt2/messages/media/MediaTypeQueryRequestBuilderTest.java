@@ -1,6 +1,5 @@
 package org.rmt2.messages.media;
 
-import java.math.BigInteger;
 import java.util.Date;
 
 import org.junit.Assert;
@@ -9,12 +8,12 @@ import org.junit.Test;
 import org.rmt2.constants.ApiHeaderNames;
 import org.rmt2.constants.ApiTransactionCodes;
 import org.rmt2.constants.MessagingConstants;
-import org.rmt2.jaxb.CodeGroupType;
+import org.rmt2.jaxb.AudioVisualCriteriaType;
 import org.rmt2.jaxb.HeaderType;
-import org.rmt2.jaxb.LookupCodesRequest;
 import org.rmt2.jaxb.MediaTypes;
 import org.rmt2.jaxb.MediatypeType;
 import org.rmt2.jaxb.MimeDetailGroup;
+import org.rmt2.jaxb.MultimediaRequest;
 import org.rmt2.jaxb.MultimediaResponse;
 import org.rmt2.jaxb.ObjectFactory;
 import org.rmt2.util.HeaderTypeBuilder;
@@ -41,7 +40,7 @@ public class MediaTypeQueryRequestBuilderTest {
     @Test
     public void testBuildRequest() {
         ObjectFactory fact = new ObjectFactory();
-        LookupCodesRequest req = fact.createLookupCodesRequest();
+        MultimediaRequest req = fact.createMultimediaRequest();
         
         HeaderType head =  HeaderTypeBuilder.Builder.create()
                 .withApplication("addressbook")
@@ -50,20 +49,22 @@ public class MediaTypeQueryRequestBuilderTest {
                 .withDeliveryDate(new Date())
                 
                 // Set these header elements with dummy values in order to be properly assigned later.
-                .withTransaction(ApiTransactionCodes.LOOKUP_GROUP_UPDATE)
+                .withTransaction(ApiTransactionCodes.MEDIA_MEDIATYPE_GET)
                 .withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
         
-        CodeGroupType cgt = fact.createCodeGroupType();
-        cgt.setGroupId(BigInteger.valueOf(200));
-        cgt.setGroupDesc("Group Description Test");
-        req.getGroupCodes().add(cgt);
+        AudioVisualCriteriaType cgt = fact.createAudioVisualCriteriaType();
+        cgt.setMediaTypeId(200);
+        cgt.setMediaTypeName("Media Type Description Test");
+
+        req.setCriteria(fact.createMimeCriteriaGroup());
+        req.getCriteria().setAudioVisualCriteria(cgt);
         req.setHeader(head);
         
         String xml = jaxb.marshalJsonMessage(req);
         System.out.println(xml);
         Assert.assertNotNull(xml);
-        Assert.assertTrue(xml.contains(ApiTransactionCodes.LOOKUP_GROUP_UPDATE));
+        Assert.assertTrue(xml.contains(ApiTransactionCodes.MEDIA_MEDIATYPE_GET));
     }
  
     @Test
@@ -79,7 +80,7 @@ public class MediaTypeQueryRequestBuilderTest {
 
                 // Set these header elements with dummy values in order to be
                 // properly assigned later.
-                .withTransaction(ApiTransactionCodes.LOOKUP_GROUP_UPDATE)
+                .withTransaction(ApiTransactionCodes.MEDIA_MEDIATYPE_GET)
                 .withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
 
@@ -106,6 +107,6 @@ public class MediaTypeQueryRequestBuilderTest {
         String xml = jaxb.marshalJsonMessage(req);
         System.out.println(xml);
         Assert.assertNotNull(xml);
-        Assert.assertTrue(xml.contains(ApiTransactionCodes.LOOKUP_GROUP_UPDATE));
+        Assert.assertTrue(xml.contains(ApiTransactionCodes.MEDIA_MEDIATYPE_GET));
     }
 }

@@ -136,6 +136,7 @@ public class ApiTransactionCodes {
 
     // Media - Lookup data Transactions
     public static final String MEDIA_GENRE_GET = "GET_GENRE";
+    public static final String MEDIA_MEDIATYPE_GET = "GET_MEDIA_TYPE";
 
     public ApiTransactionCodes() {
         // TODO Auto-generated constructor stub
