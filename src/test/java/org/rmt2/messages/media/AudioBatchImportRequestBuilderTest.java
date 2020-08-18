@@ -9,7 +9,7 @@ import org.junit.Test;
 import org.rmt2.constants.ApiHeaderNames;
 import org.rmt2.constants.ApiTransactionCodes;
 import org.rmt2.constants.MessagingConstants;
-import org.rmt2.jaxb.AudioBatchImportType;
+import org.rmt2.jaxb.BatchImportType;
 import org.rmt2.jaxb.CodeGroupType;
 import org.rmt2.jaxb.HeaderType;
 import org.rmt2.jaxb.LookupCodesRequest;
@@ -17,7 +17,7 @@ import org.rmt2.jaxb.MimeDetailGroup;
 import org.rmt2.jaxb.MultimediaResponse;
 import org.rmt2.jaxb.ObjectFactory;
 import org.rmt2.util.HeaderTypeBuilder;
-import org.rmt2.util.media.AudioBatchImportTypeBuilder;
+import org.rmt2.util.media.BatchImportTypeBuilder;
 
 import com.api.config.ConfigConstants;
 import com.api.config.SystemConfigurator;
@@ -84,7 +84,7 @@ public class AudioBatchImportRequestBuilderTest {
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
 
         MimeDetailGroup cgt = fact.createMimeDetailGroup();
-        AudioBatchImportType g2t = AudioBatchImportTypeBuilder.Builder.create()
+        BatchImportType g2t = BatchImportTypeBuilder.Builder.create()
                 .withStartTime(RMT2Date.stringToDate("2020-01-01 01:20:45"))
                 .withEndTime(RMT2Date.stringToDate("2020-01-01 02:48:02"))
                 .withProcessTotal(85000)
@@ -93,7 +93,7 @@ public class AudioBatchImportRequestBuilderTest {
                 .withNonAudioFilesEncountered(10000)
                 .build();
         
-        cgt.setAudioBatchDetails(g2t);
+        cgt.setBatchImportResults(g2t);
 
         req.setProfile(cgt);
         req.setHeader(head);

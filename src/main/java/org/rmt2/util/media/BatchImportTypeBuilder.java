@@ -2,7 +2,7 @@ package org.rmt2.util.media;
 
 import java.util.Date;
 
-import org.rmt2.jaxb.AudioBatchImportType;
+import org.rmt2.jaxb.BatchImportType;
 import org.rmt2.jaxb.ObjectFactory;
 
 import com.api.util.ElapsedTime;
@@ -14,16 +14,16 @@ import com.api.util.RMT2Date;
  * @author Roy Terrell
  *
  */
-public class AudioBatchImportTypeBuilder {
+public class BatchImportTypeBuilder {
 
-    private AudioBatchImportType subject;
+    private BatchImportType subject;
     
     /**
      * Create a AudioBatchImportType
      */
-    private AudioBatchImportTypeBuilder(Builder builder) {
+    private BatchImportTypeBuilder(Builder builder) {
         ObjectFactory f = new ObjectFactory();
-        subject = f.createAudioBatchImportType();
+        subject = f.createBatchImportType();
         if (builder.startTime != null && builder.endTime != null) {
             subject.setStartTime(RMT2Date.toXmlDate(builder.startTime));
             subject.setEndTime(RMT2Date.toXmlDate(builder.endTime));
@@ -157,12 +157,12 @@ public class AudioBatchImportTypeBuilder {
         
         
         /**
-         * Completes the building of the AudioBatchImportType
+         * Completes the building of the BatchImportType
          * 
-         * @return an instance of {@link AudioBatchImportType}
+         * @return an instance of {@link BatchImportType}
          */
-        public AudioBatchImportType build() {
-            AudioBatchImportTypeBuilder obj = new AudioBatchImportTypeBuilder(this);
+        public BatchImportType build() {
+            BatchImportTypeBuilder obj = new BatchImportTypeBuilder(this);
             return obj.subject;
         }
     }
