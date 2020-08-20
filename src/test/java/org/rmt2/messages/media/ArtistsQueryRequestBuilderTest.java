@@ -75,7 +75,7 @@ public class ArtistsQueryRequestBuilderTest {
         MultimediaResponse req = fact.createMultimediaResponse();
 
         HeaderType head = HeaderTypeBuilder.Builder.create()
-                .withApplication("mime")
+                .withApplication("media")
                 .withModule(ConfigConstants.API_APP_MODULE_VALUE)
                 .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
                 .withDeliveryDate(new Date())

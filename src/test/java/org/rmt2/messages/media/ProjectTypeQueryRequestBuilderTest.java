@@ -44,7 +44,7 @@ public class ProjectTypeQueryRequestBuilderTest {
         LookupCodesRequest req = fact.createLookupCodesRequest();
         
         HeaderType head =  HeaderTypeBuilder.Builder.create()
-                .withApplication("addressbook")
+                .withApplication("media")
                 .withModule(ConfigConstants.API_APP_MODULE_VALUE)
                 .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
                 .withDeliveryDate(new Date())
