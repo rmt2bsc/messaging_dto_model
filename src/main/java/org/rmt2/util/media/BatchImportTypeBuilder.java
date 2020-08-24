@@ -137,7 +137,7 @@ public class BatchImportTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withFailureTotal(int value) {
-            this.totalSuccess = value;
+            this.totalFailure = value;
             return this;
         }
         
@@ -151,7 +151,7 @@ public class BatchImportTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withNonAudioFilesEncountered(int value) {
-            this.totalSuccess = value;
+            this.totalNonAvFiles = value;
             return this;
         }
         
