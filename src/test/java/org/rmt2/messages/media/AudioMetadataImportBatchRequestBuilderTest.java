@@ -85,7 +85,7 @@ public class AudioMetadataImportBatchRequestBuilderTest {
 
         BatchImportType bit = BatchImportTypeBuilder.Builder.create()
                 .withStartTime(RMT2Date.stringToDate("2020-01-01 03:00:00"))
-                .withEndTime(RMT2Date.stringToDate("2020-01-01 05:23:55"))
+                .withEndTime(RMT2Date.stringToDate("2020-01-01 05:03:45"))
                 .withSuccessTotal(1000)
                 .withFailureTotal(4)
                 .withProcessTotal(1004)
@@ -102,5 +102,10 @@ public class AudioMetadataImportBatchRequestBuilderTest {
         System.out.println(xml);
         Assert.assertNotNull(xml);
         Assert.assertTrue(xml.contains(ApiTransactionCodes.MEDIA_AUDIO_METADATA_IMPORT_BATCH));
+
+        // Verify that duration calculation is working properly as well as
+        // padding the minutes and seconds properties with the accurate number
+        // of zeroes.
+        Assert.assertEquals("2:03:45", bit.getDuration());
     }
 }

@@ -7,6 +7,7 @@ import org.rmt2.jaxb.ObjectFactory;
 
 import com.api.util.ElapsedTime;
 import com.api.util.RMT2Date;
+import com.api.util.RMT2String;
 
 /**
  * AudioBatchImportType Builder.
@@ -31,9 +32,11 @@ public class BatchImportTypeBuilder {
             StringBuilder buf = new StringBuilder();
             buf.append(results.getHours());
             buf.append(":");
-            buf.append(results.getMins());
+            buf.append(results.getMins() < 10 ? RMT2String.padInt(results.getMins(), 2, RMT2String.PAD_LEADING) : results
+                    .getMins());
             buf.append(":");
-            buf.append(results.getSecs());
+            buf.append(results.getSecs() < 10 ? RMT2String.padInt(results.getSecs(), 2, RMT2String.PAD_LEADING) : results
+                    .getSecs());
             subject.setDuration(buf.toString());
         }
         subject.setTotalProcessed(builder.totalProcessed);
