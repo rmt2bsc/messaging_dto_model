@@ -385,6 +385,11 @@
 					<xsd:documentation>The unique identifier of the track's	project.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
+			<xsd:element name="genre_id" type="xsd:int" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>An identifier pertaining to the track's genre.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
 			<xsd:element name="disc_number" type="xsd:int" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The disc number.</xsd:documentation>

@@ -22,6 +22,7 @@ public class TrackTypeBuilder {
         subject = f.createTrackType();
         subject.setTrackId(builder.trackId);
         subject.setProjectId(builder.projectId);
+        subject.setGenreId(builder.genreId);
         subject.setDiscNumber(builder.discNumber);
         subject.setTrackNumber(builder.trackNumber);
         subject.setTrackName(builder.trackName);
@@ -50,6 +51,7 @@ public class TrackTypeBuilder {
 
         private int trackId;
         private int projectId;
+        private int genreId;
         private int discNumber;
         private int trackNumber;
         private String trackName;
@@ -102,6 +104,18 @@ public class TrackTypeBuilder {
          */
         public Builder withProjectId(int value) {
             this.projectId = value;
+            return this;
+        }
+
+        /**
+         * Set up genre id.
+         * 
+         * @param value
+         *            an int value that must be greater than or equal to zero
+         * @return Non-null Builder used to continue building the object
+         */
+        public Builder withGenreId(int value) {
+            this.genreId = value;
             return this;
         }
 

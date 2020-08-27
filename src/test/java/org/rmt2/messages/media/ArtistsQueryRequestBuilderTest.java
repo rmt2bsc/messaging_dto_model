@@ -101,6 +101,7 @@ public class ArtistsQueryRequestBuilderTest {
 
         TrackType tt1 = TrackTypeBuilder.Builder.create()
                 .withTrackId(1000)
+                .withGenreId(124)
                 .withTrackName("Track #1")
                 .withDiscNumber(1)
                 .withHours(0)
@@ -111,6 +112,7 @@ public class ArtistsQueryRequestBuilderTest {
 
         tt1 = TrackTypeBuilder.Builder.create()
                 .withTrackId(1001)
+                .withGenreId(15)
                 .withTrackName("Track #2")
                 .withDiscNumber(1)
                 .withHours(0)
@@ -121,6 +123,7 @@ public class ArtistsQueryRequestBuilderTest {
 
         tt1 = TrackTypeBuilder.Builder.create()
                 .withTrackId(1002)
+                .withGenreId(5)
                 .withTrackName("Track #3")
                 .withDiscNumber(1)
                 .withHours(0)
