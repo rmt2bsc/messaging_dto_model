@@ -138,6 +138,7 @@ public class ApiTransactionCodes {
     public static final String MEDIA_GENRE_GET = "GET_GENRE";
     public static final String MEDIA_MEDIATYPE_GET = "GET_MEDIA_TYPE";
     public static final String MEDIA_AUDIO_METADATA_IMPORT_BATCH = "BATCH_AUDIO_METADATA_IMPORT";
+    public static final String MEDIA_VIDEO_METADATA_IMPORT_BATCH = "BATCH_VIDEO_METADATA_IMPORT";
 
     public ApiTransactionCodes() {
         // TODO Auto-generated constructor stub
