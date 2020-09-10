@@ -321,6 +321,11 @@
 					<xsd:documentation>The year the project was releases.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
+			<xsd:element name="total_time" type="xsd:int" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The total time in minutes for an audio album or video.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
 			<xsd:element name="master_dup_id" type="xsd:int" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>Indicates if the audio-video exist as multiple media types in
