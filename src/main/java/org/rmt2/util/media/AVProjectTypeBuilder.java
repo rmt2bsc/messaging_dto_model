@@ -32,6 +32,7 @@ public class AVProjectTypeBuilder {
         subject.setMediaTypeId(builder.mediaTypeId);
         subject.setTitle(builder.title);
         subject.setYear(builder.year);
+        subject.setTotalTime(builder.totalTime);
         subject.setMasterDupId(builder.masterDupId);
         subject.setRipped(builder.ripped);
         subject.setCost(builder.cost);
@@ -62,6 +63,7 @@ public class AVProjectTypeBuilder {
         private int mediaTypeId;
         private String title;
         private int year;
+        private int totalTime;
         private int masterDupId;
         private int ripped;
         private double cost;
@@ -187,7 +189,7 @@ public class AVProjectTypeBuilder {
         }
 
         /**
-         * Set up year.
+         * Setup year.
          * 
          * @param value
          *            an int value that must be greater than or equal to zero
@@ -197,6 +199,20 @@ public class AVProjectTypeBuilder {
          */
         public Builder withYearId(int value) {
             this.year = value;
+            return this;
+        }
+
+        /**
+         * Setup total time in minutes.
+         * 
+         * @param value
+         *            an int value that must be greater than or equal to zero
+         * @return Non-null Builder used to continue building the object
+         * @throws VerifyException
+         *             if the parameter conditions are not met.
+         */
+        public Builder withTotalTime(int value) {
+            this.totalTime = value;
             return this;
         }
 
