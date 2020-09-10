@@ -33,6 +33,7 @@ public class AVProjectTypeBuilder {
         subject.setTitle(builder.title);
         subject.setYear(builder.year);
         subject.setTotalTime(builder.totalTime);
+        subject.setProducer(builder.producer);
         subject.setMasterDupId(builder.masterDupId);
         subject.setRipped(builder.ripped);
         subject.setCost(builder.cost);
@@ -64,6 +65,7 @@ public class AVProjectTypeBuilder {
         private String title;
         private int year;
         private int totalTime;
+        private String producer;
         private int masterDupId;
         private int ripped;
         private double cost;
@@ -213,6 +215,20 @@ public class AVProjectTypeBuilder {
          */
         public Builder withTotalTime(int value) {
             this.totalTime = value;
+            return this;
+        }
+
+        /**
+         * Setup producer
+         * 
+         * @param value
+         *            an String value that must not be blank
+         * @return Non-null Builder used to continue building the object
+         * @throws VerifyException
+         *             if the parameter conditions are not met.
+         */
+        public Builder withProducer(String value) {
+            this.producer = value;
             return this;
         }
 

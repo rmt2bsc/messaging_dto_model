@@ -98,6 +98,7 @@ public class ArtistsQueryRequestBuilderTest {
                 .withTitle("Title #1")
                 .withRipped(1)
                 .withTotalTime(16)
+                .withProducer("Producer #1")
                 .build();
 
         TrackType tt1 = TrackTypeBuilder.Builder.create()
