@@ -8,7 +8,7 @@ import org.junit.Test;
 import org.rmt2.constants.ApiHeaderNames;
 import org.rmt2.constants.ApiTransactionCodes;
 import org.rmt2.constants.MessagingConstants;
-import org.rmt2.jaxb.AudioVisualCriteriaType;
+import org.rmt2.jaxb.AudioVideoCriteriaType;
 import org.rmt2.jaxb.HeaderType;
 import org.rmt2.jaxb.MediaTypes;
 import org.rmt2.jaxb.MediatypeType;
@@ -53,12 +53,12 @@ public class MediaTypeQueryRequestBuilderTest {
                 .withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
         
-        AudioVisualCriteriaType cgt = fact.createAudioVisualCriteriaType();
+        AudioVideoCriteriaType cgt = fact.createAudioVideoCriteriaType();
         cgt.setMediaTypeId(200);
         cgt.setMediaTypeName("Media Type Description Test");
 
         req.setCriteria(fact.createMimeCriteriaGroup());
-        req.getCriteria().setAudioVisualCriteria(cgt);
+        req.getCriteria().setAudioVideoCriteria(cgt);
         req.setHeader(head);
         
         String xml = jaxb.marshalJsonMessage(req);

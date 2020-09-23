@@ -1,5 +1,6 @@
 package org.rmt2.messages.media;
 
+
 import java.util.Date;
 
 import org.junit.Assert;
@@ -8,7 +9,7 @@ import org.junit.Test;
 import org.rmt2.constants.ApiHeaderNames;
 import org.rmt2.constants.ApiTransactionCodes;
 import org.rmt2.constants.MessagingConstants;
-import org.rmt2.jaxb.AudioVisualCriteriaType;
+import org.rmt2.jaxb.AudioVideoCriteriaType;
 import org.rmt2.jaxb.GenreType;
 import org.rmt2.jaxb.GenresType;
 import org.rmt2.jaxb.HeaderType;
@@ -54,12 +55,11 @@ public class GenreQueryRequestBuilderTest {
                 .withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
         
-        AudioVisualCriteriaType cgt = fact.createAudioVisualCriteriaType();
+        AudioVideoCriteriaType cgt = fact.createAudioVideoCriteriaType();
         cgt.setGenreId(120);
         cgt.setGenreName("Jazz");
 
         MimeCriteriaGroup mcg = fact.createMimeCriteriaGroup();
-        mcg.setAudioVisualCriteria(cgt);
         req.setCriteria(mcg);
         req.setHeader(head);
         

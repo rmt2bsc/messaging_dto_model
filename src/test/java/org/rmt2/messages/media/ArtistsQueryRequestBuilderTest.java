@@ -87,7 +87,7 @@ public class ArtistsQueryRequestBuilderTest {
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
 
         MimeDetailGroup cgt = fact.createMimeDetailGroup();
-        cgt.setAudioVideoDetails(fact.createAudioVisualType());
+        cgt.setAudioVideoDetails(fact.createAudioVideoType());
 
         AvProjectType pt = AVProjectTypeBuilder.Builder.create()
                 .withProjectId(300)
