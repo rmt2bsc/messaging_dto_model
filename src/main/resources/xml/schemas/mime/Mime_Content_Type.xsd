@@ -10,7 +10,7 @@
 					<xsd:documentation>The audio video content selection criteria</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="audio_visual_criteria" type="audio_visual_criteria_type"	minOccurs="0" maxOccurs="1">
+			<xsd:element name="audio_video_criteria" type="audio_video_criteria_type"	minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The audio video selection criteria for retreiving
 						consolidated artis/project/track information</xsd:documentation>
@@ -31,7 +31,7 @@
 					<xsd:documentation>Media content data</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="audio_video_details" type="audio_visual_type" minOccurs="0" maxOccurs="1">
+			<xsd:element name="audio_video_details" type="audio_video_type" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>Audio/Video media metadata information</xsd:documentation>
 				</xsd:annotation>
@@ -98,7 +98,7 @@
 		</xsd:sequence>
 	</xsd:complexType>
 
-	<xsd:complexType name="audio_visual_criteria_type">
+	<xsd:complexType name="audio_video_criteria_type">
 		<xsd:sequence>
 			<xsd:element name="artist_id" type="xsd:int" default="0" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
@@ -248,7 +248,7 @@
 		</xsd:sequence>
 	</xsd:complexType>
 
-	<xsd:complexType name="audio_visual_type">
+	<xsd:complexType name="audio_video_type">
 			<xsd:sequence>
 				<xsd:element name="artist" type="artist_type" minOccurs="0" maxOccurs="unbounded">
 					<xsd:annotation>
