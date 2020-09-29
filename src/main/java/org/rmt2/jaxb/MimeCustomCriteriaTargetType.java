@@ -13,12 +13,12 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for xact_custom_criteria_target_type.
+ * <p>Java class for mime_custom_criteria_target_type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
  * <pre>
- * &lt;simpleType name="xact_custom_criteria_target_type">
+ * &lt;simpleType name="mime_custom_criteria_target_type">
  *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
  *     &lt;enumeration value="HEADER"/>
  *     &lt;enumeration value="DETAILS"/>
@@ -28,19 +28,34 @@ import javax.xml.bind.annotation.XmlType;
  * </pre>
  * 
  */
-@XmlType(name = "xact_custom_criteria_target_type")
+@XmlType(name = "mime_custom_criteria_target_type")
 @XmlEnum
-public enum XactCustomCriteriaTargetType {
+public enum MimeCustomCriteriaTargetType {
 
+
+    /**
+     * Retrieve only the level the client is searching.  Example, a client is requesting artist info:  HEADER would fetch on artist data.
+     * 
+     */
     HEADER,
+
+    /**
+     * Retrieve the entire graph but include basic data only.  Example, a client is requesting artist info: DETAILS would fetch artist id and name, project id and name, and track id, track name, track no.
+     * 
+     */
     DETAILS,
+
+    /**
+     * Retrieve the entire graph with verbose information.  Example, a client is requesting artist info: FULL would fetch the full graph - every piece of infomation under each section is fetched.
+     * 
+     */
     FULL;
 
     public String value() {
         return name();
     }
 
-    public static XactCustomCriteriaTargetType fromValue(String v) {
+    public static MimeCustomCriteriaTargetType fromValue(String v) {
         return valueOf(v);
     }
 
