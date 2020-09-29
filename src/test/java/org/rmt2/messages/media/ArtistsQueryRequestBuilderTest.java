@@ -13,6 +13,7 @@ import org.rmt2.jaxb.AudioVideoCriteriaType;
 import org.rmt2.jaxb.AvProjectType;
 import org.rmt2.jaxb.HeaderType;
 import org.rmt2.jaxb.MimeCriteriaGroup;
+import org.rmt2.jaxb.MimeCustomCriteriaTargetType;
 import org.rmt2.jaxb.MimeDetailGroup;
 import org.rmt2.jaxb.MultimediaRequest;
 import org.rmt2.jaxb.MultimediaResponse;
@@ -59,6 +60,7 @@ public class ArtistsQueryRequestBuilderTest {
         
         MimeCriteriaGroup mcg = fact.createMimeCriteriaGroup();
         AudioVideoCriteriaType avct = fact.createAudioVideoCriteriaType();
+        avct.setFetchFull(MimeCustomCriteriaTargetType.FULL);
         avct.setArtistId(10);
         avct.setArtistName("Artist Name Test");
         avct.setProjectId(200);
