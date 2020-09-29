@@ -24,6 +24,7 @@ public class AVProjectTypeBuilder {
     private AVProjectTypeBuilder(Builder builder) {
         ObjectFactory f = new ObjectFactory();
         subject = f.createAvProjectType();
+        subject.setTracks(f.createTracksType());
         subject.setProjectId(builder.projectId);
         subject.setArtistId(builder.artistId);
         subject.setProjectTypeId(builder.projectTypeId);
@@ -43,7 +44,7 @@ public class AVProjectTypeBuilder {
         subject.setArtWorkFilename(builder.artWorkFilename);
         subject.setComments(builder.comments);
         if (builder.tracks != null && builder.tracks.size() > 0) {
-            subject.getTrack().addAll(builder.tracks);
+            subject.getTracks().getTrack().addAll(builder.tracks);
         }
         subject.setTracking(builder.tracking);
     }

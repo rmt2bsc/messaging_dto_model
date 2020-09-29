@@ -118,7 +118,7 @@ public class ArtistsQueryRequestBuilderTest {
                 .withMinutes(3)
                 .withSeconds(23)
                 .build();
-        pt.getTrack().add(tt1);
+        pt.getTracks().getTrack().add(tt1);
 
         tt1 = TrackTypeBuilder.Builder.create()
                 .withTrackId(1001)
@@ -129,7 +129,7 @@ public class ArtistsQueryRequestBuilderTest {
                 .withMinutes(6)
                 .withSeconds(33)
                 .build();
-        pt.getTrack().add(tt1);
+        pt.getTracks().getTrack().add(tt1);
 
         tt1 = TrackTypeBuilder.Builder.create()
                 .withTrackId(1002)
@@ -140,7 +140,7 @@ public class ArtistsQueryRequestBuilderTest {
                 .withMinutes(5)
                 .withSeconds(55)
                 .build();
-        pt.getTrack().add(tt1);
+        pt.getTracks().getTrack().add(tt1);
 
         ArtistType at = ArtistTypeBuilder.Builder.create()
                 .withArtistId(222)
