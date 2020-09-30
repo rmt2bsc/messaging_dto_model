@@ -19,7 +19,7 @@
 							elements used for querying data.</xsd:documentation>
 					</xsd:annotation>
 				</xsd:element>
-				<xsd:element name="profile" type="mime_detail_group" minOccurs="0" maxOccurs="unbounded">
+				<xsd:element name="profile" type="mime_detail_group" minOccurs="0" maxOccurs="1">
 					<xsd:annotation>
 						<xsd:documentation>A collection of audio/video meta and content data for
 							requests that modifies data.</xsd:documentation>
