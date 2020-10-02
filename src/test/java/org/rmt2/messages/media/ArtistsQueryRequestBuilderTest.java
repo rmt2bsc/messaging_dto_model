@@ -49,7 +49,7 @@ public class ArtistsQueryRequestBuilderTest {
         
         HeaderType head =  HeaderTypeBuilder.Builder.create()
                 .withApplication("media")
-                .withModule(ConfigConstants.API_APP_MODULE_VALUE)
+                .withModule("maint")
                 .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
                 .withDeliveryDate(new Date())
                 
@@ -86,7 +86,7 @@ public class ArtistsQueryRequestBuilderTest {
 
         HeaderType head = HeaderTypeBuilder.Builder.create()
                 .withApplication("media")
-                .withModule(ConfigConstants.API_APP_MODULE_VALUE)
+                .withModule("maint")
                 .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
                 .withDeliveryDate(new Date())
 
