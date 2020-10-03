@@ -112,6 +112,11 @@
 					<xsd:documentation>The relative path where the audio/video files live for meta data importing.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
+			<xsd:element name="import_file_path" type="xsd:string" maxOccurs="1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The path to the external file containing the audio/video metadata to import into the system.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
 		</xsd:sequence>
 	</xsd:complexType>
 
