@@ -61,6 +61,7 @@ public class AudioBatchImportRequestBuilderTest {
         batchCriteria.setShareName("MyBook1");
         batchCriteria.setRootPath("path1/path2");
         batchCriteria.setLocation("multimedia/audio");
+        batchCriteria.setImportFilePath("C:/AppServer/data/video_batch_import.txt");
         mcg.setAudioBatchImportCriteria(batchCriteria);
         req.setCriteria(mcg);
         req.setHeader(head);
