@@ -498,6 +498,11 @@
 					<xsd:documentation>The second component of the track duration.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
+			<xsd:element name="artist" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Captures the artist of this track in cases where project/album contains various artists.  Otherwise, this value should be blank for single artist projects.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
 			<xsd:element name="producer" type="xsd:string" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The track's producer.</xsd:documentation>
