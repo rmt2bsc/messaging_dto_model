@@ -29,6 +29,7 @@ public class TrackTypeBuilder {
         subject.setHours(builder.hours);
         subject.setMinutes(builder.minutes);
         subject.setSeconds(builder.seconds);
+        subject.setArtist(builder.artist);
         subject.setProducer(builder.producer);
         subject.setComposer(builder.composer);
         subject.setLyricist(builder.lyricist);
@@ -58,6 +59,7 @@ public class TrackTypeBuilder {
         private int hours;
         private int minutes;
         private int seconds;
+        private String artist;
         private String producer;
         private String composer;
         private String lyricist;
@@ -191,6 +193,18 @@ public class TrackTypeBuilder {
             return this;
         }
 
+
+        /**
+         * Set up artist.
+         * 
+         * @param value
+         *            an String value that must not be blank
+         * @return Non-null Builder used to continue building the object
+         */
+        public Builder withArtist(String value) {
+            this.artist = value;
+            return this;
+        }
 
         /**
          * Set up producer.
