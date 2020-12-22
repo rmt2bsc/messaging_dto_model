@@ -141,6 +141,7 @@ public class ApiTransactionCodes {
     public static final String MEDIA_VIDEO_METADATA_IMPORT_BATCH = "BATCH_VIDEO_METADATA_IMPORT";
     public static final String MEDIA_ARTIST_GET = "GET_ARTIST";
     public static final String MEDIA_ARTIST_UPDATE = "UPDATE_ARTIST";
+    public static final String MEDIA_ARTIST_DELETE = "DELETE_ARTIST";
 
     public ApiTransactionCodes() {
         // TODO Auto-generated constructor stub
