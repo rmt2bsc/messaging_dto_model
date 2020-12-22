@@ -94,27 +94,27 @@
 		<xsd:sequence>
 			<xsd:element name="server_name" type="xsd:string" maxOccurs="1" minOccurs="0">
 				<xsd:annotation>
-					<xsd:documentation>The server where the audio/video files live for meta data importing.</xsd:documentation>
+					<xsd:documentation>The server where the media files live.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
 			<xsd:element name="share_name" type="xsd:string" maxOccurs="1" minOccurs="0">
 				<xsd:annotation>
-					<xsd:documentation>The share name where the audio/video files live for meta data importing.  This is typically used for Windows OS.</xsd:documentation>
+					<xsd:documentation>Serves as the base directory to server name for locating media files.   For Windows systems, the share name should be suffixed with a "$".</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
 			<xsd:element name="root_path" type="xsd:string" maxOccurs="1" minOccurs="0">
 				<xsd:annotation>
-					<xsd:documentation>The primary or context path where the audio/video files live for meta data importing.  This path will precede the "location" part of the entire path sequence.</xsd:documentation>
+					<xsd:documentation>Can be used as the context part of the path.  If the share name is not used, then this will typically be a drive letter (including the colon) for Windows systems.  Otherwise, it is an additional segment of the path.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
 			<xsd:element name="location" type="xsd:string" maxOccurs="1" minOccurs="0">
 				<xsd:annotation>
-					<xsd:documentation>The relative path where the audio/video files live for meta data importing.</xsd:documentation>
+					<xsd:documentation>The relative path where the media files live on the server.  Alternatively, this parameter could serve as the full path to where the media files live and ignores server_name, share_name, and root_path parameters.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
 			<xsd:element name="import_file_path" type="xsd:string" maxOccurs="1" minOccurs="0">
 				<xsd:annotation>
-					<xsd:documentation>The path to the external file containing the audio/video metadata to import into the system.</xsd:documentation>
+					<xsd:documentation>The path to the external file containing the media metadata to import into the system.  All other paramters are ignored.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
 		</xsd:sequence>
