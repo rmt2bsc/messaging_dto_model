@@ -45,6 +45,7 @@ public class AudioMetadataImportBatchRequestBuilderTest {
         HeaderType head =  HeaderTypeBuilder.Builder.create()
                 .withApplication("media")
                 .withModule(ConfigConstants.API_APP_MODULE_VALUE)
+                .withSessionId(ConfigConstants.API_DUMMY_SESSION_ID)
                 .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
                 .withDeliveryDate(new Date())
                 
@@ -74,6 +75,7 @@ public class AudioMetadataImportBatchRequestBuilderTest {
         HeaderType head = HeaderTypeBuilder.Builder.create()
                 .withApplication("media")
                 .withModule(ConfigConstants.API_APP_MODULE_VALUE)
+                .withSessionId(ConfigConstants.API_DUMMY_SESSION_ID)
                 .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
                 .withDeliveryDate(new Date())
 
