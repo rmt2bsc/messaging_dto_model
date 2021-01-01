@@ -54,7 +54,8 @@ public class SalesOrderCreateRequestBuilderTest {
 
                 // Set these header elements with dummy values in order to be
                 // properly assigned later.
-                .withTransaction(ApiTransactionCodes.ACCOUNTING_SALESORDER_CREATE).withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
+                .withTransaction(ApiTransactionCodes.ACCOUNTING_SALESORDER_CREATE)
+                .withRouting(ApiTransactionCodes.ROUTE_ACCOUNTING)
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
 
         // Build transaction criteria group
@@ -82,7 +83,8 @@ public class SalesOrderCreateRequestBuilderTest {
 
                 // Set these header elements with dummy values in order to be
                 // properly assigned later.
-                .withTransaction(ApiTransactionCodes.ACCOUNTING_SALESORDER_INVOICE_CREATE).withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
+                .withTransaction(ApiTransactionCodes.ACCOUNTING_SALESORDER_INVOICE_CREATE)
+                .withRouting(ApiTransactionCodes.ROUTE_ACCOUNTING)
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
 
         // Build transaction criteria group
@@ -110,7 +112,8 @@ public class SalesOrderCreateRequestBuilderTest {
 
                 // Set these header elements with dummy values in order to be
                 // properly assigned later.
-                .withTransaction(ApiTransactionCodes.ACCOUNTING_SALESORDER_INVOICE_PAYMENT_CREATE).withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
+                .withTransaction(ApiTransactionCodes.ACCOUNTING_SALESORDER_INVOICE_PAYMENT_CREATE)
+                .withRouting(ApiTransactionCodes.ROUTE_ACCOUNTING)
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
 
         // Build transaction criteria group

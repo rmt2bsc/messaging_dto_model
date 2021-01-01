@@ -80,7 +80,7 @@ public class TimesheetQueryRequestBuilderTest {
                 
                 // Set these header elements with dummy values in order to be properly assigned later.
                 .withTransaction(ApiTransactionCodes.PROJTRACK_TIMESHEET_GET)
-                .withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
+                .withRouting(ApiTransactionCodes.ROUTE_PROJECTTRACKER)
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
         
         TimesheetCriteriaType criteria = fact.createTimesheetCriteriaType();
@@ -117,7 +117,7 @@ public class TimesheetQueryRequestBuilderTest {
                 // Set these header elements with dummy values in order to be
                 // properly assigned later.
                 .withTransaction(ApiTransactionCodes.PROJTRACK_TIMESHEET_GET)
-                .withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
+                .withRouting(ApiTransactionCodes.ROUTE_PROJECTTRACKER)
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
 
         ReplyStatusType rst = ReplyStatusTypeBuilder.Builder.create()

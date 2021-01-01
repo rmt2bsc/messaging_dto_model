@@ -69,7 +69,7 @@ public class TimesheetUpdateRequestBuilderTest {
                 
                 // Set these header elements with dummy values in order to be properly assigned later.
                 .withTransaction(ApiTransactionCodes.PROJTRACK_TIMESHEET_UPDATE)
-                .withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
+                .withRouting(ApiTransactionCodes.ROUTE_PROJECTTRACKER)
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
         
         CustomerType customer = CustomerTypeBuilder.Builder.create()
@@ -157,7 +157,7 @@ public class TimesheetUpdateRequestBuilderTest {
                 // Set these header elements with dummy values in order to be
                 // properly assigned later.
                 .withTransaction(ApiTransactionCodes.PROJTRACK_TIMESHEET_UPDATE)
-                .withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
+                .withRouting(ApiTransactionCodes.ROUTE_PROJECTTRACKER)
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
 
         ReplyStatusType rst = ReplyStatusTypeBuilder.Builder.create()

@@ -55,7 +55,8 @@ public class SalesOrderQueryRequestBuilderTest {
 
                 // Set these header elements with dummy values in order to be
                 // properly assigned later.
-                .withTransaction(ApiTransactionCodes.ACCOUNTING_SALESORDER_GET).withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
+                .withTransaction(ApiTransactionCodes.ACCOUNTING_SALESORDER_GET)
+                .withRouting(ApiTransactionCodes.ROUTE_ACCOUNTING)
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
 
         // Build transaction criteria group
@@ -92,7 +93,8 @@ public class SalesOrderQueryRequestBuilderTest {
 
                 // Set these header elements with dummy values in order to be
                 // properly assigned later.
-                .withTransaction(ApiTransactionCodes.ACCOUNTING_SALESORDER_GET).withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
+                .withTransaction(ApiTransactionCodes.ACCOUNTING_SALESORDER_GET)
+                .withRouting(ApiTransactionCodes.ROUTE_ACCOUNTING)
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
 
         // Build transaction criteria group
@@ -129,7 +131,8 @@ public class SalesOrderQueryRequestBuilderTest {
 
                 // Set these header elements with dummy values in order to be
                 // properly assigned later.
-                .withTransaction(ApiTransactionCodes.ACCOUNTING_SALESORDER_GET).withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
+                .withTransaction(ApiTransactionCodes.ACCOUNTING_SALESORDER_GET)
+                .withRouting(ApiTransactionCodes.ROUTE_ACCOUNTING)
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
 
         // Build transaction criteria group
@@ -166,7 +169,8 @@ public class SalesOrderQueryRequestBuilderTest {
 
                 // Set these header elements with dummy values in order to be
                 // properly assigned later.
-                .withTransaction(ApiTransactionCodes.ACCOUNTING_SALESORDER_GET).withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
+                .withTransaction(ApiTransactionCodes.ACCOUNTING_SALESORDER_GET)
+                .withRouting(ApiTransactionCodes.ROUTE_ACCOUNTING)
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
 
         RecordTrackingType tracking = RecordTrackingTypeBuilder.Builder.create()
