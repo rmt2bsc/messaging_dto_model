@@ -10,7 +10,7 @@ public class ApiTransactionCodes {
 
     public static final String ROUTE_ACCOUNTING = "JMS:rmt2.queue.accounting";
     public static final String ROUTE_ADDRESSBOOK = "JMS:rmt2.queue.addressbook";
-    public static final String ROUTE_MULTIMEDIA = "JMS:rmt2.queue.multimedia";
+    public static final String ROUTE_MULTIMEDIA = "JMS:rmt2.queue.media";
     public static final String ROUTE_PROJECTTRACKER = "JMS:rmt2.queue.projecttracker";
     public static final String ROUTE_SECURITY = "JMS:rmt2.queue.security";
 
@@ -143,6 +143,7 @@ public class ApiTransactionCodes {
     public static final String MEDIA_ARTIST_UPDATE = "UPDATE_ARTIST";
     public static final String MEDIA_ARTIST_DELETE = "DELETE_ARTIST";
     public static final String MEDIA_ARTIST_PROJECT_GET = "GET_ARTIST_PROJECT";
+    public static final String MEDIA_ARTIST_PROJECT_UPDATE = "UPDATE_ARTIST_PROJECT";
 
     public ApiTransactionCodes() {
         // TODO Auto-generated constructor stub
