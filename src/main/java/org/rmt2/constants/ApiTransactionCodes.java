@@ -144,6 +144,7 @@ public class ApiTransactionCodes {
     public static final String MEDIA_ARTIST_DELETE = "DELETE_ARTIST";
     public static final String MEDIA_ARTIST_PROJECT_GET = "GET_ARTIST_PROJECT";
     public static final String MEDIA_ARTIST_PROJECT_UPDATE = "UPDATE_ARTIST_PROJECT";
+    public static final String MEDIA_TRACK_GET = "GET_TRACK";
 
     public ApiTransactionCodes() {
         // TODO Auto-generated constructor stub
