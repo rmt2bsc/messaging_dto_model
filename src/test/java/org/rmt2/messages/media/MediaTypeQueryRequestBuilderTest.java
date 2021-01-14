@@ -50,7 +50,8 @@ public class MediaTypeQueryRequestBuilderTest {
                 
                 // Set these header elements with dummy values in order to be properly assigned later.
                 .withTransaction(ApiTransactionCodes.MEDIA_MEDIATYPE_GET)
-                .withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
+                .withRouting(ApiTransactionCodes.ROUTE_MULTIMEDIA)
+                .withSessionId(ConfigConstants.API_DUMMY_SESSION_ID)
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
         
         AudioVideoCriteriaType cgt = fact.createAudioVideoCriteriaType();
@@ -81,7 +82,8 @@ public class MediaTypeQueryRequestBuilderTest {
                 // Set these header elements with dummy values in order to be
                 // properly assigned later.
                 .withTransaction(ApiTransactionCodes.MEDIA_MEDIATYPE_GET)
-                .withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
+                .withRouting(ApiTransactionCodes.ROUTE_MULTIMEDIA)
+                .withSessionId(ConfigConstants.API_DUMMY_SESSION_ID)
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
 
         MimeDetailGroup cgt = fact.createMimeDetailGroup();

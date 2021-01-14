@@ -45,13 +45,13 @@ public class AudioMetadataImportBatchRequestBuilderTest {
         HeaderType head =  HeaderTypeBuilder.Builder.create()
                 .withApplication("media")
                 .withModule(ConfigConstants.API_APP_MODULE_VALUE)
-                .withSessionId(ConfigConstants.API_DUMMY_SESSION_ID)
                 .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
                 .withDeliveryDate(new Date())
                 
                 // Set these header elements with dummy values in order to be properly assigned later.
                 .withTransaction(ApiTransactionCodes.MEDIA_AUDIO_METADATA_IMPORT_BATCH)
-                .withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
+                .withRouting(ApiTransactionCodes.ROUTE_MULTIMEDIA)
+                .withSessionId(ConfigConstants.API_DUMMY_SESSION_ID)
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
         
         AudioBatchImportCriteriaType cgt = fact.createAudioBatchImportCriteriaType();
@@ -75,14 +75,14 @@ public class AudioMetadataImportBatchRequestBuilderTest {
         HeaderType head = HeaderTypeBuilder.Builder.create()
                 .withApplication("media")
                 .withModule(ConfigConstants.API_APP_MODULE_VALUE)
-                .withSessionId(ConfigConstants.API_DUMMY_SESSION_ID)
                 .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
                 .withDeliveryDate(new Date())
 
                 // Set these header elements with dummy values in order to be
                 // properly assigned later.
                 .withTransaction(ApiTransactionCodes.MEDIA_AUDIO_METADATA_IMPORT_BATCH)
-                .withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
+                .withRouting(ApiTransactionCodes.ROUTE_MULTIMEDIA)
+                .withSessionId(ConfigConstants.API_DUMMY_SESSION_ID)
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
 
         BatchImportType bit = BatchImportTypeBuilder.Builder.create()

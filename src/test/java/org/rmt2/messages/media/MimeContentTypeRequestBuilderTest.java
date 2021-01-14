@@ -52,7 +52,8 @@ public class MimeContentTypeRequestBuilderTest {
                 
                 // Set these header elements with dummy values in order to be properly assigned later.
                 .withTransaction(ApiTransactionCodes.LOOKUP_GROUP_UPDATE)
-                .withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
+                .withRouting(ApiTransactionCodes.ROUTE_MULTIMEDIA)
+                .withSessionId(ConfigConstants.API_DUMMY_SESSION_ID)
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
         
         CodeGroupType cgt = fact.createCodeGroupType();
@@ -81,7 +82,8 @@ public class MimeContentTypeRequestBuilderTest {
                 // Set these header elements with dummy values in order to be
                 // properly assigned later.
                 .withTransaction(ApiTransactionCodes.LOOKUP_GROUP_UPDATE)
-                .withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
+                .withRouting(ApiTransactionCodes.ROUTE_MULTIMEDIA)
+                .withSessionId(ConfigConstants.API_DUMMY_SESSION_ID)
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
 
         MimeDetailGroup cgt = fact.createMimeDetailGroup();
