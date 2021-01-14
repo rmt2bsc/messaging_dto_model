@@ -10,7 +10,6 @@ import org.rmt2.constants.ApiTransactionCodes;
 import org.rmt2.constants.MessagingConstants;
 import org.rmt2.jaxb.ArtistType;
 import org.rmt2.jaxb.AudioVideoCriteriaType;
-import org.rmt2.jaxb.AvProjectType;
 import org.rmt2.jaxb.HeaderType;
 import org.rmt2.jaxb.MimeCriteriaGroup;
 import org.rmt2.jaxb.MimeCustomCriteriaTargetType;
@@ -18,11 +17,8 @@ import org.rmt2.jaxb.MimeDetailGroup;
 import org.rmt2.jaxb.MultimediaRequest;
 import org.rmt2.jaxb.MultimediaResponse;
 import org.rmt2.jaxb.ObjectFactory;
-import org.rmt2.jaxb.TrackType;
 import org.rmt2.util.HeaderTypeBuilder;
-import org.rmt2.util.media.AVProjectTypeBuilder;
 import org.rmt2.util.media.ArtistTypeBuilder;
-import org.rmt2.util.media.TrackTypeBuilder;
 
 import com.api.config.ConfigConstants;
 import com.api.config.SystemConfigurator;
@@ -99,57 +95,10 @@ public class ArtistsQueryRequestBuilderTest {
         MimeDetailGroup cgt = fact.createMimeDetailGroup();
         cgt.setAudioVideoDetails(fact.createAudioVideoType());
 
-        AvProjectType pt = AVProjectTypeBuilder.Builder.create()
-                .withProjectId(300)
-                .withArtistId(200)
-                .withCost(12.99)
-                .withComments("Comments #1")
-                .withYearId(1984)
-                .withTitle("Title #1")
-                .withRipped(1)
-                .withTotalTime(16)
-                .withProducer("Producer #1")
-                .build();
-
-        TrackType tt1 = TrackTypeBuilder.Builder.create()
-                .withTrackId(1000)
-                .withGenreId(124)
-                .withTrackName("Track #1")
-                .withArtist(null)
-                .withDiscNumber(1)
-                .withHours(0)
-                .withMinutes(3)
-                .withSeconds(23)
-                .build();
-        pt.getTracks().getTrack().add(tt1);
-
-        tt1 = TrackTypeBuilder.Builder.create()
-                .withTrackId(1001)
-                .withGenreId(15)
-                .withTrackName("Track #2")
-                .withArtist("Various Artist - Artist Name")
-                .withDiscNumber(1)
-                .withHours(0)
-                .withMinutes(6)
-                .withSeconds(33)
-                .build();
-        pt.getTracks().getTrack().add(tt1);
-
-        tt1 = TrackTypeBuilder.Builder.create()
-                .withTrackId(1002)
-                .withGenreId(5)
-                .withTrackName("Track #3")
-                .withDiscNumber(1)
-                .withHours(0)
-                .withMinutes(5)
-                .withSeconds(55)
-                .build();
-        pt.getTracks().getTrack().add(tt1);
-
         ArtistType at = ArtistTypeBuilder.Builder.create()
                 .withArtistId(222)
                 .withArtistName("Artist Name")
-                .withProject(pt)
+                .withProject(null)
                 .build();
 
         cgt.getAudioVideoDetails().getArtist().add(at);
