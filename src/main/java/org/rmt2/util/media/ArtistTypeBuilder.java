@@ -23,7 +23,9 @@ public class ArtistTypeBuilder {
     private ArtistTypeBuilder(Builder builder) {
         ObjectFactory f = new ObjectFactory();
         subject = f.createArtistType();
-        subject.setProjects(f.createAvProjectsType());
+        if (builder.projects != null) {
+            subject.setProjects(f.createAvProjectsType());
+        }
         subject.setArtistId(builder.artistId);
         subject.setArtistName(builder.name);
         if (builder.projects != null && builder.projects.size() > 0) {
