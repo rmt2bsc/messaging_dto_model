@@ -200,7 +200,7 @@ public class AVProjectTypeBuilder {
          * @throws VerifyException
          *             if the parameter conditions are not met.
          */
-        public Builder withYearId(int value) {
+        public Builder withYear(int value) {
             this.year = value;
             return this;
         }
@@ -363,6 +363,26 @@ public class AVProjectTypeBuilder {
                 this.tracks = new ArrayList<>();
             }
             this.tracks.add(value);
+            return this;
+        }
+
+        /**
+         * Add multiple tracks.
+         * 
+         * @param value
+         *            an List of {@link TrackType} instances.
+         * @return Non-null Builder used to continue building the object
+         * @throws VerifyException
+         *             if the parameter conditions are not met.
+         */
+        public Builder withTracks(List<TrackType> value) {
+            if (value == null) {
+                return this;
+            }
+            if (this.tracks == null) {
+                this.tracks = new ArrayList<>();
+            }
+            this.tracks.addAll(value);
             return this;
         }
 

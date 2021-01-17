@@ -104,7 +104,7 @@ public class ProjectQueryRequestBuilderTest {
                 .withArtistId(222)
                 .withCost(12.99)
                 .withComments("Comments #1")
-                .withYearId(1984)
+                .withYear(1984)
                 .withTitle("Title #1")
                 .withRipped(1)
                 .withTotalTime(16)
