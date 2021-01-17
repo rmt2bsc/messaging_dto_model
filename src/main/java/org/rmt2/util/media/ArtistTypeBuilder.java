@@ -110,6 +110,26 @@ public class ArtistTypeBuilder {
         }
 
         /**
+         * Add multiple projects.
+         * 
+         * @param value
+         *            an List of {@link AvProjectType} instances.
+         * @return Non-null Builder used to continue building the object
+         * @throws VerifyException
+         *             if the parameter conditions are not met.
+         */
+        public Builder withProjects(List<AvProjectType> value) {
+            if (value == null) {
+                return this;
+            }
+            if (this.projects == null) {
+                this.projects = new ArrayList<>();
+            }
+            this.projects.addAll(value);
+            return this;
+        }
+
+        /**
          * Completes the building of the ArtistType
          * 
          * @return an instance of {@link ArtistType}
