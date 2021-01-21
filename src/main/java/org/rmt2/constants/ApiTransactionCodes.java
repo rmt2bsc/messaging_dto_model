@@ -149,6 +149,7 @@ public class ApiTransactionCodes {
     public static final String MEDIA_CONSOLIDATED_SEARCH = "SEARCH_MEDIA";
     public static final String MEDIA_MANUAL_UPLOAD_CONTENT = "MANUAL_UPLOAD_CONTENT";
     public static final String MEDIA_CONTENT_GET = "GET_CONTENT";
+    public static final String MEDIA_CONTENT_DELETE = "DELETE_CONTENT";
 
     public ApiTransactionCodes() {
         // TODO Auto-generated constructor stub
