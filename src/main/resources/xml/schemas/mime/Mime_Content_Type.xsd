@@ -64,6 +64,11 @@
 					<xsd:documentation>Audio/Video media metadata information</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
+			<xsd:element name="media_file_listener_details" type="media_file_listener_details_type" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Contains information relative to the media file listener</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
 			<xsd:element name="genres" type="genres_type" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>Genre information</xsd:documentation>
@@ -654,6 +659,16 @@
 			<xsd:element name="total_non_av_files" type="xsd:int" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The total number of non-audio files encountered during the batch import.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="media_file_listener_details_type">
+		<xsd:sequence>
+			<xsd:element name="status" type="xsd:string" minOccurs="0" maxOccurs="1" >
+				<xsd:annotation>
+					<xsd:documentation>The status of the media file listener which should be populated with "Running" or "Stopped".</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
 		</xsd:sequence>
