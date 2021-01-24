@@ -151,6 +151,7 @@ public class ApiTransactionCodes {
     public static final String MEDIA_CONTENT_GET = "GET_CONTENT";
     public static final String MEDIA_CONTENT_DELETE = "DELETE_CONTENT";
     public static final String MEDIA_FILE_LISTENER_START = "START_MEDIA_FILE_LISTENER";
+    public static final String MEDIA_FILE_LISTENER_STOP = "STOP_MEDIA_FILE_LISTENER";
 
     public ApiTransactionCodes() {
         // TODO Auto-generated constructor stub
