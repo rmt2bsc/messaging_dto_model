@@ -91,6 +91,26 @@
 			</xsd:element>
 		</xsd:sequence>
 	</xsd:complexType>
+	
+	<xsd:complexType name="media_link_group">
+		<xsd:sequence>
+			<xsd:element name="media_link_data" type="media_attachment_type" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Details for linking media with the home application</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="media_attachment_type">
+		<xsd:sequence>
+			<xsd:element name="attachment" type="media_attachment_details_type" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Contains information needed to link the home application with the media file content</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
 
 	<!--                          -->
     <!-- Selection Criterai Types -->
@@ -298,6 +318,12 @@
 					<xsd:documentation>The data as text</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
+			<xsd:element name="attachment_details" type="media_attachment_type" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Contains the details needed to establish an assoication to the media content data with the home application.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
 		</xsd:sequence>
 	</xsd:complexType>
 
@@ -669,6 +695,36 @@
 			<xsd:element name="status" type="xsd:string" minOccurs="0" maxOccurs="1" >
 				<xsd:annotation>
 					<xsd:documentation>The status of the media file listener which should be populated with "Running" or "Stopped".</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="media_attachment_details_type">
+		<xsd:sequence>
+			<xsd:element name="content_id" type="xsd:int" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The id of media content that is to be linked to home applicaltion.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="project_name" type="xsd:string" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">The name of the target project to link media content.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="module_name" type="xsd:string" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The name of the project's module to link media content.  This is typically used to determine the datasource object that will house the media content id</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="property_name" type="xsd:string" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The name of the column or property belonging to the datasource responsible for housing the media content id.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="property_id" type="xsd:int" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The primary key value of the home application entity that will be associated with the content_id.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
 		</xsd:sequence>
