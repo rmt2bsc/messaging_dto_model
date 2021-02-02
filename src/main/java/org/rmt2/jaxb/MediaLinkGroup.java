@@ -17,17 +17,16 @@ import com.RMT2Base;
 
 
 /**
- * <p>Java class for genre_type complex type.
+ * <p>Java class for media_link_group complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="genre_type">
+ * &lt;complexType name="media_link_group">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="genre_id" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
- *         &lt;element name="genre_name" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="media_link_data" type="{}media_attachment_type" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -37,67 +36,40 @@ import com.RMT2Base;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "genre_type", propOrder = {
-    "genreId",
-    "genreName"
+@XmlType(name = "media_link_group", propOrder = {
+    "mediaLinkData"
 })
-public class GenreType
+public class MediaLinkGroup
     extends RMT2Base
     implements Serializable
 {
 
     private final static long serialVersionUID = 1L;
-    @XmlElement(name = "genre_id")
-    protected Integer genreId;
-    @XmlElement(name = "genre_name")
-    protected String genreName;
+    @XmlElement(name = "media_link_data")
+    protected MediaAttachmentType mediaLinkData;
 
     /**
-     * Gets the value of the genreId property.
+     * Gets the value of the mediaLinkData property.
      * 
      * @return
      *     possible object is
-     *     {@link Integer }
+     *     {@link MediaAttachmentType }
      *     
      */
-    public Integer getGenreId() {
-        return genreId;
+    public MediaAttachmentType getMediaLinkData() {
+        return mediaLinkData;
     }
 
     /**
-     * Sets the value of the genreId property.
+     * Sets the value of the mediaLinkData property.
      * 
      * @param value
      *     allowed object is
-     *     {@link Integer }
+     *     {@link MediaAttachmentType }
      *     
      */
-    public void setGenreId(Integer value) {
-        this.genreId = value;
-    }
-
-    /**
-     * Gets the value of the genreName property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getGenreName() {
-        return genreName;
-    }
-
-    /**
-     * Sets the value of the genreName property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setGenreName(String value) {
-        this.genreName = value;
+    public void setMediaLinkData(MediaAttachmentType value) {
+        this.mediaLinkData = value;
     }
 
 }

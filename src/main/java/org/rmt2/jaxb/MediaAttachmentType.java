@@ -9,8 +9,6 @@
 package org.rmt2.jaxb;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
@@ -18,16 +16,16 @@ import com.RMT2Base;
 
 
 /**
- * <p>Java class for tracks_type complex type.
+ * <p>Java class for media_attachment_type complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="tracks_type">
+ * &lt;complexType name="media_attachment_type">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="track" type="{}track_type" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="attachment" type="{}media_attachment_details_type" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -37,44 +35,39 @@ import com.RMT2Base;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "tracks_type", propOrder = {
-    "track"
+@XmlType(name = "media_attachment_type", propOrder = {
+    "attachment"
 })
-public class TracksType
+public class MediaAttachmentType
     extends RMT2Base
     implements Serializable
 {
 
     private final static long serialVersionUID = 1L;
-    protected List<TrackType> track;
+    protected MediaAttachmentDetailsType attachment;
 
     /**
-     * Gets the value of the track property.
+     * Gets the value of the attachment property.
      * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the track property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getTrack().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link TrackType }
-     * 
-     * 
+     * @return
+     *     possible object is
+     *     {@link MediaAttachmentDetailsType }
+     *     
      */
-    public List<TrackType> getTrack() {
-        if (track == null) {
-            track = new ArrayList<TrackType>();
-        }
-        return this.track;
+    public MediaAttachmentDetailsType getAttachment() {
+        return attachment;
+    }
+
+    /**
+     * Sets the value of the attachment property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link MediaAttachmentDetailsType }
+     *     
+     */
+    public void setAttachment(MediaAttachmentDetailsType value) {
+        this.attachment = value;
     }
 
 }

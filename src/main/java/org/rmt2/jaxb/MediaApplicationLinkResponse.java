@@ -29,7 +29,7 @@ import com.RMT2Base;
  *       &lt;sequence>
  *         &lt;element name="header" type="{}header_type"/>
  *         &lt;element name="reply_status" type="{}reply_status_type" minOccurs="0"/>
- *         &lt;element name="profile" type="{}contact_detail_group" minOccurs="0"/>
+ *         &lt;element name="profile" type="{}media_link_group" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -44,8 +44,8 @@ import com.RMT2Base;
     "replyStatus",
     "profile"
 })
-@XmlRootElement(name = "AddressBookResponse")
-public class AddressBookResponse
+@XmlRootElement(name = "MediaApplicationLinkResponse")
+public class MediaApplicationLinkResponse
     extends RMT2Base
     implements Serializable
 {
@@ -55,7 +55,7 @@ public class AddressBookResponse
     protected HeaderType header;
     @XmlElement(name = "reply_status")
     protected ReplyStatusType replyStatus;
-    protected ContactDetailGroup profile;
+    protected MediaLinkGroup profile;
 
     /**
      * Gets the value of the header property.
@@ -110,10 +110,10 @@ public class AddressBookResponse
      * 
      * @return
      *     possible object is
-     *     {@link ContactDetailGroup }
+     *     {@link MediaLinkGroup }
      *     
      */
-    public ContactDetailGroup getProfile() {
+    public MediaLinkGroup getProfile() {
         return profile;
     }
 
@@ -122,10 +122,10 @@ public class AddressBookResponse
      * 
      * @param value
      *     allowed object is
-     *     {@link ContactDetailGroup }
+     *     {@link MediaLinkGroup }
      *     
      */
-    public void setProfile(ContactDetailGroup value) {
+    public void setProfile(MediaLinkGroup value) {
         this.profile = value;
     }
 
