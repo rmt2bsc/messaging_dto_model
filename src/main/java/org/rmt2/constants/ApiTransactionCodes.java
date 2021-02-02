@@ -13,6 +13,7 @@ public class ApiTransactionCodes {
     public static final String ROUTE_MULTIMEDIA = "JMS:rmt2.queue.media";
     public static final String ROUTE_PROJECTTRACKER = "JMS:rmt2.queue.projecttracker";
     public static final String ROUTE_SECURITY = "JMS:rmt2.queue.security";
+    public static final String ROUTE_MEDIA_LINK = "JMS:rmt2.topic.media";
 
     // AddressBook
     public static final String CONTACTS_GET = "GET_CONTACT";
@@ -29,11 +30,6 @@ public class ApiTransactionCodes {
     public static final String REGION_GET = "GET_REGION";
     public static final String IP_INFO_GET = "GET_IP_INFO";
     public static final String TIMEZONE_GET = "GET_TIMEZONE";
-
-    // MultiMedia
-    public static final String MEDIA_GET_CONTENT = "GET_CONTENT_ATTACHMENT";
-    public static final String MEDIA_SAVE_CONTENT = "SAVE_CONTENT_ATTACHMENT";
-    public static final String MEDIA_CONTENT_APP_LINK = "LINK_CONTENT_TO_APPLICATION";
 
     // Accounting - General Ledger
     public static final String GL_ACCOUNT_GET = "GET_GL_ACCOUNT";
@@ -153,6 +149,7 @@ public class ApiTransactionCodes {
     public static final String MEDIA_FILE_LISTENER_START = "START_MEDIA_FILE_LISTENER";
     public static final String MEDIA_FILE_LISTENER_STOP = "STOP_MEDIA_FILE_LISTENER";
     public static final String MEDIA_FILE_LISTENER_HEALTH = "HEALTH_CHECK_MEDIA_FILE_LISTENER";
+    public static final String MEDIA_CONTENT_APP_LINK = "LINK_CONTENT_TO_APPLICATION";
 
     public ApiTransactionCodes() {
         // TODO Auto-generated constructor stub
