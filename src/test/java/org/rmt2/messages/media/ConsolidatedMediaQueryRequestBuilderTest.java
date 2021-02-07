@@ -81,6 +81,37 @@ public class ConsolidatedMediaQueryRequestBuilderTest {
     }
  
     @Test
+    public void testBuildsingleSearchTermRequest() {
+        ObjectFactory fact = new ObjectFactory();
+        MultimediaRequest req = fact.createMultimediaRequest();
+
+        HeaderType head = HeaderTypeBuilder.Builder.create()
+                .withApplication("media")
+                .withModule("maint")
+                .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
+                .withDeliveryDate(new Date())
+
+                // Set these header elements with dummy values in order to be
+                // properly assigned later.
+                .withTransaction(ApiTransactionCodes.MEDIA_CONSOLIDATED_SEARCH)
+                .withRouting(ApiTransactionCodes.ROUTE_MULTIMEDIA)
+                .withSessionId(ConfigConstants.API_DUMMY_SESSION_ID)
+                .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
+
+        MimeCriteriaGroup mcg = fact.createMimeCriteriaGroup();
+        AudioVideoCriteriaType avct = fact.createAudioVideoCriteriaType();
+        avct.setSearchTerm("Dennis Chambers");
+        mcg.setAudioVideoCriteria(avct);
+        req.setCriteria(mcg);
+        req.setHeader(head);
+
+        String xml = jaxb.marshalJsonMessage(req);
+        System.out.println(xml);
+        Assert.assertNotNull(xml);
+        Assert.assertTrue(xml.contains(ApiTransactionCodes.MEDIA_CONSOLIDATED_SEARCH));
+    }
+
+    @Test
     public void testBuildResponse() {
         ObjectFactory fact = new ObjectFactory();
         MultimediaResponse req = fact.createMultimediaResponse();
