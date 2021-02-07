@@ -255,6 +255,11 @@
 					<xsd:documentation>The name of the project's MIME type.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
+			<xsd:element name="search_term" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>A single criteria value used for consoldidated audio/video searches.  All other search criteria elements are ignored with the element is present.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
 		</xsd:sequence>
 	</xsd:complexType>
 
