@@ -15,7 +15,6 @@ import org.rmt2.jaxb.RecordTrackingType;
 
 import com.SystemException;
 import com.api.util.RMT2Date;
-import com.api.util.assistants.Verifier;
 
 /**
  * InventoryStatusHistoryType Builder.
@@ -98,7 +97,6 @@ public class InventoryItemStatusHistTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withStatusHistId(int statusHistId) {
-            Verifier.verifyNotNegative(statusHistId, "Inventory item status history id must not be a negative value");
             this.statusHistId = BigInteger.valueOf(statusHistId);
             return this;
         }
@@ -113,7 +111,6 @@ public class InventoryItemStatusHistTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withItemId(int itemId) {
-            Verifier.verifyPositive(itemId, "Inventory item id must be greater than zero");
             ObjectFactory f = new ObjectFactory();
             InventoryItemType o = f.createInventoryItemType();
             o.setItemId(BigInteger.valueOf(itemId));
@@ -134,7 +131,6 @@ public class InventoryItemStatusHistTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withItemStatusId(int statusId, String statusDescription) {
-            Verifier.verifyPositive(statusId, "Inventory creditor id must be greater than zero");
             ObjectFactory f = new ObjectFactory();
             InventoryItemStatusType o = f.createInventoryItemStatusType();
             o.setItemStatusId(BigInteger.valueOf(statusId));
@@ -153,7 +149,6 @@ public class InventoryItemStatusHistTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withEffectiveDate(String effectiveDate) {
-            Verifier.verifyNotNull(effectiveDate, "Inventory item status effective date cannot be a null");
             try {
                 XMLGregorianCalendar dt = RMT2Date.toXmlDate(effectiveDate);
                 this.effectiveDate = dt;    
@@ -174,7 +169,6 @@ public class InventoryItemStatusHistTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withEffectiveDate(Date effectiveDate) {
-            Verifier.verifyNotNull(effectiveDate, "Inventory item status effective date cannot be a null");
             try {
                 XMLGregorianCalendar dt = RMT2Date.toXmlDate(effectiveDate);
                 this.effectiveDate = dt;    
@@ -195,7 +189,6 @@ public class InventoryItemStatusHistTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withEndDate(String endDate) {
-            Verifier.verifyNotNull(endDate, "Inventory item status end date cannot be a null");
             try {
                 XMLGregorianCalendar dt = RMT2Date.toXmlDate(endDate);
                 this.endDate = dt;    
@@ -216,7 +209,6 @@ public class InventoryItemStatusHistTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withEndDate(Date endDate) {
-            Verifier.verifyNotNull(endDate, "Inventory item status end date cannot be a null");
             try {
                 XMLGregorianCalendar dt = RMT2Date.toXmlDate(endDate);
                 this.endDate = dt;    
@@ -295,7 +287,6 @@ public class InventoryItemStatusHistTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withRecordTrackingType(RecordTrackingType tracking) {
-            Verifier.verifyNotNull(tracking, "Inventory record tracking object cannot be null");
             this.tracking = tracking;
             return this;
         }

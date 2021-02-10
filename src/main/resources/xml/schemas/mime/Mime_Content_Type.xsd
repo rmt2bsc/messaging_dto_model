@@ -1,56 +1,777 @@
 <?xml version="1.0"?>
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" >
-		<xsd:include schemaLocation="Mime_Types_Type.xsd"/>
-		<xsd:complexType name="mime_content_type">
-			<xsd:annotation>
-				<xsd:documentation>This is the document that houses binary data and large text which the data elements can be mapped to the content table from the mime database.   The binary data can be of any multimedia resource such as documents, images, audio, video, and other binary forms of data.</xsd:documentation>
-			</xsd:annotation>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:include schemaLocation="Mime_Types_Type.xsd"/>
+	<xsd:include schemaLocation="../misc/Misc_Types_Type.xsd"/>
+
+	<xsd:simpleType name="mime_custom_criteria_target_type">
+		<xsd:annotation>
+			<xsd:documentation>Indicates the level in which data is loaded into the transaction structure such as base, line item, or full.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="HEADER">
+				<xsd:annotation>
+					<xsd:documentation>Retrieve only the level the client is searching.  Example, a client is requesting artist info:  HEADER would fetch on artist data.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="DETAILS">
+				<xsd:annotation>
+					<xsd:documentation>Retrieve the entire graph but include basic data only.  Example, a client is requesting artist info: DETAILS would fetch artist id and name, project id and name, and track id, track name, track no.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="FULL">
+				<xsd:annotation>
+					<xsd:documentation>Retrieve the entire graph with verbose information.  Example, a client is requesting artist info: FULL would fetch the full graph - every piece of infomation under each section is fetched.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:complexType name="mime_criteria_group">
+		<xsd:sequence>
+			<xsd:element name="content_criteria" type="content_criteria_type" minOccurs="0"	maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The audio video content selection criteria</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="audio_video_criteria" type="audio_video_criteria_type"	minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The audio video selection criteria for retreiving
+						consolidated artis/project/track information</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="audio_batch_import_criteria" type="audio_batch_import_criteria_type"	minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The audio batch import selection criteria</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="mime_detail_group">
+		<xsd:sequence>
+			<xsd:element name="audio_video_content" type="mime_content_type" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Media content data</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="audio_video_details" type="audio_video_type" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Audio/Video media metadata information</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="batch_import_results" type="batch_import_type" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Audio/Video media metadata information</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="media_file_listener_details" type="media_file_listener_details_type" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Contains information relative to the media file listener</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="genres" type="genres_type" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Genre information</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="mediatypes" type="media_types" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>media type information</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="projecttypes" type="project_types" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>project type information</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="mimetypes" type="mime_types" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>MIME type information</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="media_link_group">
+		<xsd:sequence>
+			<xsd:element name="media_link_data" type="media_attachment_type" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Details for linking media with the home application</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="media_attachment_type">
+		<xsd:sequence>
+			<xsd:element name="attachment" type="media_attachment_details_type" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Contains information needed to link the home application with the media file content</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!--                          -->
+    <!-- Selection Criterai Types -->
+	<!--                          -->
+	<xsd:complexType name="audio_batch_import_criteria_type">
+		<xsd:sequence>
+			<xsd:element name="server_name" type="xsd:string" maxOccurs="1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The server where the media files live.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="share_name" type="xsd:string" maxOccurs="1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Serves as the base directory to server name for locating media files.   For Windows systems, the share name should be suffixed with a "$".</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="root_path" type="xsd:string" maxOccurs="1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Can be used as the context part of the path.  If the share name is not used, then this will typically be a drive letter (including the colon) for Windows systems.  Otherwise, it is an additional segment of the path.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="location" type="xsd:string" maxOccurs="1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The relative path where the media files live on the server.  Alternatively, this parameter could serve as the full path to where the media files live and ignores server_name, share_name, and root_path parameters.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="import_file_path" type="xsd:string" maxOccurs="1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The path to the external file containing the media metadata to import into the system.  All other paramters are ignored.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="content_criteria_type">
+		<xsd:sequence>
+			<xsd:element name="content_id" type="xsd:int" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The unique identifier of the content to fetch.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="app_code" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Application code. This value can be cross referenced in the
+						Authentication application.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="module_code" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The module of the application.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="audio_video_criteria_type">
+		<xsd:sequence>
+			<xsd:element name="fetch_full" type="mime_custom_criteria_target_type" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Indicates whether or not to fetch the entire object graph for each artist found.  Valid values FULL, DETAILS and HEADER</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="artist_id" type="xsd:int" default="0" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The artist's unique identifier.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="artist_name" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The artist's name.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="project_id" type="xsd:int" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The unique identifier of the project.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="project_title" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The project's title.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="year" type="xsd:int" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The year the project was releases.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ripped" type="xsd:int" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Flag indicating whether or not the project was ripped.
+						1=true, 0= false.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="track_id" type="xsd:int" minOccurs="0" maxOccurs="1" >
+				<xsd:annotation>
+					<xsd:documentation>The unique identifier of the track.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="track_title" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The track's name.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="genre_id" type="xsd:int" minOccurs="0" maxOccurs="1" >
+				<xsd:annotation>
+					<xsd:documentation>The id of the project's genre.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="genre_name" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The name of the project's genre.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="media_type_id" type="xsd:int" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The id of the project's media type.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="media_type_name" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The name of the project's media type.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="project_type_id" type="xsd:int" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The id of the project type which represents either audio or
+						video.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="project_type_name" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The name of the project type.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="mime_type_id" type="xsd:int" minOccurs="0" maxOccurs="1" >
+				<xsd:annotation>
+					<xsd:documentation>The id of the project's MIME type.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="mime_type_name" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The name of the project's MIME type.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="search_term" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>A single criteria value used for consoldidated audio/video searches.  All other search criteria elements are ignored with the element is present.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!--                    -->
+	<!-- Data Profile Types -->
+	<!--                    -->
+	<xsd:complexType name="mime_content_type">
+		<xsd:annotation>
+			<xsd:documentation>This is the document that houses binary data and large text which the
+				data elements can be mapped to the content table from the mime database. The binary
+				data can be of any multimedia resource such as documents, images, audio, video, and
+				other binary forms of data.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="content_id" type="xsd:int" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>This is the primary key. Will default to zero when record is
+						new.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="mime_type" type="mimetype_type" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Provides MIME type/sub type details.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="app_code" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Application code. This value can be cross referenced in the
+						Authentication application.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="module_code" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The module of the application.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="filename" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The file name of the binary data at the time when persisted.
+						This should include the file extension.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="filepath" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The file path of the where the binary data was found at the
+						time when persisted.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="filesize" type="xsd:int" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The size of the binary data in bytes.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="binary_data" type="xsd:base64Binary" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The data in binary code.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="text_data" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The data as text</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="attachment_details" type="media_attachment_type" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Contains the details needed to establish an assoication to the media content data with the home application.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="audio_video_type">
 			<xsd:sequence>
-				<xsd:element name="content_id" type="xsd:integer" default="0" maxOccurs="1" minOccurs="1">
+				<xsd:element name="artist" type="artist_type" minOccurs="0" maxOccurs="unbounded">
 					<xsd:annotation>
-						<xsd:documentation>This is the primary key.  Will default to zero when record is new.</xsd:documentation>
-					</xsd:annotation>
-				</xsd:element>
-				<xsd:element name="mime_type_details" type="mime_type" minOccurs="1" maxOccurs="unbounded">
-					<xsd:annotation>
-						<xsd:documentation>Provides MIME type/sub type details.</xsd:documentation>
-					</xsd:annotation>
-				</xsd:element>
-				<xsd:element name="app_code" type="xsd:string" minOccurs="0" maxOccurs="1">
-					<xsd:annotation>
-						<xsd:documentation>Application code.  This value can be cross referenced in the Authentication application.</xsd:documentation>
-					</xsd:annotation>
-				</xsd:element>
-				<xsd:element name="module_code" type="xsd:string" minOccurs="0" maxOccurs="1">
-					<xsd:annotation>
-						<xsd:documentation>The module of the application.</xsd:documentation>
-					</xsd:annotation>
-				</xsd:element>
-				<xsd:element name="filename" type="xsd:string" minOccurs="0" maxOccurs="1">
-					<xsd:annotation>
-						<xsd:documentation>The file name of the binary data at the time when persisted.   This should include the file extension.</xsd:documentation>
-					</xsd:annotation>
-				</xsd:element>
-				<xsd:element name="filepath" type="xsd:string" minOccurs="0" maxOccurs="1">
-					<xsd:annotation>
-						<xsd:documentation>The file path of the where the binary data was found at the time when persisted.</xsd:documentation>
-					</xsd:annotation>
-				</xsd:element>
-				<xsd:element name="filesize" type="xsd:integer" default="0" minOccurs="1" maxOccurs="1">
-					<xsd:annotation>
-						<xsd:documentation>The size of the binary data in bytes.</xsd:documentation>
-					</xsd:annotation>
-				</xsd:element>
-				<xsd:element name="binary_data" type="xsd:base64Binary" minOccurs="0" maxOccurs="1">
-					<xsd:annotation>
-						<xsd:documentation>The data in binary code.</xsd:documentation>
-					</xsd:annotation>
-				</xsd:element>
-				<xsd:element name="text_data" type="xsd:string" minOccurs="0" maxOccurs="1">
-					<xsd:annotation>
-						<xsd:documentation>The data as text</xsd:documentation>
+						<xsd:documentation>One or more artist data structures.</xsd:documentation>
 					</xsd:annotation>
 				</xsd:element>
 			</xsd:sequence>
-		</xsd:complexType>
+	</xsd:complexType>
+
+	<xsd:complexType name="artist_type">
+		<xsd:sequence>
+			<xsd:element name="artist_id" type="xsd:int" minOccurs="0" maxOccurs="1" >
+				<xsd:annotation>
+					<xsd:documentation>The unique identifier of the artist to fetch.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="artist_name" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The artist's name.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="projects" type="av_projects_type" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The artist's projects.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="av_projects_type">
+		<xsd:sequence>
+			<xsd:element name="project" type="av_project_type" minOccurs="0" maxOccurs="unbounded" >
+				<xsd:annotation>
+					<xsd:documentation>A list of the artist's projects.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="av_project_type">
+		<xsd:sequence>
+			<xsd:element name="project_id" type="xsd:int" minOccurs="0" maxOccurs="1"	>
+				<xsd:annotation>
+					<xsd:documentation>The unique identifier of the project.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="artist_id" type="xsd:int" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The artist's unique identifier.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="project_type_id" type="xsd:int" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The id of the project type which represents either audio or
+						video.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="genre_id" type="xsd:int" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The id of the project's genre.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="content_id" type="xsd:int" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The id of the media content.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="media_type_id" type="xsd:int" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The id of the project's media type.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="title" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The project's title.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="year" type="xsd:int" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The year the project was releases.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="total_time" type="xsd:int" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The total time in minutes for an audio album or video.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="producer" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The project's producer, director, or composer.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="master_dup_id" type="xsd:int" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Indicates if the audio-video exist as multiple media types in
+						the system. 1 = true, and 0 = false.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ripped" type="xsd:int" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Flag indicating whether or not the project was ripped.
+						1=true, 0= false.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="cost" type="xsd:double" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The amound paid for the audio-video asset.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="content_path" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The file path to the content</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="content_filename" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The content's filename with extension.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="art_work_path" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The file path to the image that represents the project's art
+						work.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="art_work_filename" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>he filename of art work image with extension.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="comments" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The project's comments.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="tracks" type="tracks_type" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The project's tracks.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="tracks_type">
+		<xsd:sequence>
+			<xsd:element name="track" type="track_type" minOccurs="0" maxOccurs="unbounded" >
+				<xsd:annotation>
+					<xsd:documentation>A list of the project's tracks.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="track_type">
+		<xsd:sequence>
+			<xsd:element name="track_id" type="xsd:int" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The unique identifier of the track.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="project_id" type="xsd:int" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The unique identifier of the track's	project.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="genre_id" type="xsd:int" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>An identifier pertaining to the track's genre.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="disc_number" type="xsd:int" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The disc number.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="track_number" type="xsd:int" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The track number.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="track_name" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The track's name.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="hours" type="xsd:int" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The hour component of the track duration.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="minutes" type="xsd:int" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The minute component of the track duration.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="seconds" type="xsd:int" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The second component of the track duration.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="artist" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Captures the artist of this track in cases where project/album contains various artists.  Otherwise, this value should be blank for single artist projects.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="producer" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The track's producer.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="composer" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The track's composer.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="lyricist" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The track's lyricist.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="location_servername" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The server name of the track's location.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="location_sharename" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The share name of the track's location.  Thiis used typically if the track resides on a Windows OS platform.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="location_root_path" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The root path where the track can be located.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="location_path" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The remaining path where the track can be located.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="location_filename" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The file name of the track</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="comments" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Any notes providing additional information about the track</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="genre_type">
+		<xsd:sequence>
+			<xsd:element name="genre_id" type="xsd:int" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The unique identifier of the genre.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="genre_name" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The genre's name.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="mediatype_type">
+		<xsd:sequence>
+			<xsd:element name="media_type_id" type="xsd:int" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The unique identifier of the media type.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="media_type_name" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The media type's name.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="projecttype_type">
+		<xsd:sequence>
+			<xsd:element name="project_type_id" type="xsd:int" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The unique identifier of the project type.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="project_type_name" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The media project's name.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="mimetype_type">
+		<xsd:sequence>
+			<xsd:element name="mime_type_id" type="xsd:int" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The unique identifier of the MIME type.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="file_ext" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The expected file extension for the media type.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="media_type" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Indicates the Internet media type of the message content,
+						consisting of a type and subtype, for example: Content-Type:
+						text/plain.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="batch_import_type">
+		<xsd:sequence>
+			<xsd:element name="start_time" type="xsd:dateTime" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The date and time when the audio batch import began.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="end_time" type="xsd:dateTime" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The date and time when the audio batch import ended.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="duration" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The amout of time it took for the process to complete.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="total_processed" type="xsd:int" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The total number of files processed.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="total_success" type="xsd:int" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The total number of files successfully processed.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="total_failure" type="xsd:int" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The total number of files unsuccessfully processed.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="total_non_av_files" type="xsd:int" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The total number of non-audio files encountered during the batch import.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="media_file_listener_details_type">
+		<xsd:sequence>
+			<xsd:element name="status" type="xsd:string" minOccurs="0" maxOccurs="1" >
+				<xsd:annotation>
+					<xsd:documentation>The status of the media file listener which should be populated with "Running" or "Stopped".</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="media_attachment_details_type">
+		<xsd:sequence>
+			<xsd:element name="content_id" type="xsd:int" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The id of media content that is to be linked to home applicaltion.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="project_name" type="xsd:string" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">The name of the target project to link media content.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="module_name" type="xsd:string" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The name of the project's module to link media content.  This is typically used to determine the datasource object that will house the media content id</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="property_name" type="xsd:string" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The name of the column or property belonging to the datasource responsible for housing the media content id.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="property_id" type="xsd:int" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The primary key value of the home application entity that will be associated with the content_id.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="genres_type">
+		<xsd:sequence>
+			<xsd:element name="genre" type="genre_type" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>List of genres.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="media_types">
+		<xsd:sequence>
+			<xsd:element name="media_type" type="mediatype_type" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>List of media types.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="project_types">
+		<xsd:sequence>
+			<xsd:element name="project_type" type="projecttype_type" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>List of project types.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="mime_types">
+		<xsd:sequence>
+			<xsd:element name="mime_type" type="mimetype_type" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>List of MIME types.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
 </xsd:schema>

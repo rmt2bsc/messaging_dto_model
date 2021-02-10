@@ -109,7 +109,6 @@ public class PersonTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withPersonId(int personId) {
-            Verifier.verifyNotNegative(personId, "Person id must not be a negative value");
             this.personId = personId;
             return this;
         }
@@ -125,7 +124,6 @@ public class PersonTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withFirstName(String firstName) {
-            Verifier.verifyNotBlank(firstName, "First name cannot be blank");
             this.firstName = firstName;
             return this;
         }
@@ -140,7 +138,6 @@ public class PersonTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withMiddleName(String midName) {
-            Verifier.verifyNotBlank(midName, "Middle name cannot be blank");
             this.midName = midName;
             return this;
         }
@@ -155,7 +152,6 @@ public class PersonTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withLastName(String lastName) {
-            Verifier.verifyNotBlank(lastName, "Last name cannot be blank");
             this.lastName = lastName;
             return this;
         }
@@ -171,7 +167,6 @@ public class PersonTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withMaidenName(String maidenName) {
-            Verifier.verifyNotBlank(maidenName, "Maiden name cannot be blank");
             this.maidenName = maidenName;
             return this;
         }
@@ -186,7 +181,6 @@ public class PersonTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withShortName(String shortName) {
-            Verifier.verifyNotBlank(shortName, "Short name cannot be blank");
             this.shortName = shortName;
             return this;
         }
@@ -201,7 +195,6 @@ public class PersonTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withBirthDate(Date birthDate) {
-            Verifier.verifyNotNull(birthDate, "Birth day cannot be null");
             String dateStr = RMT2Date.formatDate(birthDate, "MM/dd/yyyy");
             this.birthDate = dateStr;
             return this;
@@ -217,7 +210,6 @@ public class PersonTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withSocialSecurityNumber(String ssn) {
-            Verifier.verifyNotBlank(ssn, "Social Security Number cannot be blank");
             this.ssn = ssn;
             return this;
         }
@@ -232,7 +224,6 @@ public class PersonTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withEmail(String email) {
-            Verifier.verifyNotBlank(ssn, "Email cannot be blank");
             this.email = email;
             return this;
         }
@@ -247,7 +238,6 @@ public class PersonTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withGeneration(String generation) {
-            Verifier.verifyNotBlank(ssn, "Generation cannot be blank");
             GenerationType genType = null;
             try {
                 genType = GenerationType.fromValue(generation);
@@ -269,7 +259,6 @@ public class PersonTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withTitle(CodeDetailType title) {
-            Verifier.verifyNotNull(title, "Name title object cannot be null");
             this.title = title;
             return this;
         }
@@ -285,7 +274,6 @@ public class PersonTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withGender(CodeDetailType gender) {
-            Verifier.verifyNotNull(gender, "Gender object cannot be null");
             this.gender = gender;
             return this;
         }
@@ -301,7 +289,6 @@ public class PersonTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withMaritalStatus(CodeDetailType maritalStatus) {
-            Verifier.verifyNotNull(gender, "Gender object cannot be null");
             this.maritalStatus = maritalStatus;
             return this;
         }
@@ -317,7 +304,6 @@ public class PersonTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withRace(CodeDetailType race) {
-            Verifier.verifyNotNull(race, "Race object cannot be null");
             this.race = race;
             return this;
         }
@@ -333,7 +319,6 @@ public class PersonTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withCategory(CodeDetailType category) {
-            Verifier.verifyNotNull(category, "Category object cannot be null");
             this.category = category;
             return this;
         }
@@ -349,7 +334,6 @@ public class PersonTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withAddress(AddressType address) {
-            Verifier.verifyNotNull(address, "Address object cannot be null");
             this.address = address;
             return this;
         }

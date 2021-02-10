@@ -53,7 +53,7 @@ public class CashDisbursementCreateRequestBuilderTest {
                 
                 // Set these header elements with dummy values in order to be properly assigned later.
                 .withTransaction(ApiTransactionCodes.ACCOUNTING_CASHDISBURSE_CREATE)
-                .withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
+                .withRouting(ApiTransactionCodes.ROUTE_ACCOUNTING)
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
         
         TransactionDetailGroup data = fact.createTransactionDetailGroup();

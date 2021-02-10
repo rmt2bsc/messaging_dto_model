@@ -1,0 +1,29 @@
+<CustomerPaymentConfirmation>
+    <appRoot>c:/tmp/</appRoot>
+    <pageTitle>Customer Payment Confirmation</pageTitle>
+    <CustomerData>
+        <accountNo>ACCT-1234-1920</accountNo>
+        <addrZip>0</addrZip>
+        <addrZipext>0</addrZipext>
+        <balance>100.0</balance>
+        <businessId>1111</businessId>
+        <contactEmail>johndoe@gte.net</contactEmail>
+        <customerId>2222</customerId>
+    </CustomerData>
+    <SalesOrderData>
+        <customerId>2222</customerId>
+        <effectiveDate>2020-04-01</effectiveDate>
+        <invoiced>1</invoiced>
+        <orderTotal>100.0</orderTotal>
+        <soId>1111</soId>
+    </SalesOrderData>
+    <XactData>
+        <confirmNo>C32933-0039</confirmNo>
+        <reason>Cash Receipt: Full payment received for sales order #1292</reason>
+        <tenderId>CASH</tenderId>
+        <xactAmount>100.0</xactAmount>
+        <xactDate>2020-04-10</xactDate>
+        <xactId>7777</xactId>
+        <xactTypeId>20</xactTypeId>
+    </XactData>
+</CustomerPaymentConfirmation>

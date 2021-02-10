@@ -29,7 +29,7 @@ public class HeaderTypeBuilder {
         if (builder.deliveryDate != null) {
             subject.setDeliveryDate(RMT2Date.formatDate(builder.deliveryDate, "MM/dd/yyyy HH:mm:ss"));    
         }
-        subject.setSessionId(null);
+        subject.setSessionId(builder.sessionId);
         subject.setTransaction(builder.transId);
         subject.setUserId(builder.userId);
     }
@@ -47,6 +47,7 @@ public class HeaderTypeBuilder {
         private Date deliveryDate;
         private String deliveryMode;
         private String messageMode;
+        private String sessionId;
         private String routing;
         private String userId;
         
@@ -99,6 +100,16 @@ public class HeaderTypeBuilder {
          */
         public Builder withTransaction(String transId) {
             this.transId = transId;
+            return this;
+        }
+
+        /**
+         * 
+         * @param sessionId
+         * @return
+         */
+        public Builder withSessionId(String sessionId) {
+            this.sessionId = sessionId;
             return this;
         }
 

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="CustomerPaymentConfirmation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="appRoot" type="xs:string" />
+        <xs:element name="pageTitle" type="xs:string" />
+        <xs:element name="CustomerData">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="accountNo" type="xs:string" />
+              <xs:element name="addr1" type="xs:string"/>
+              <xs:element name="addr2" type="xs:string"/>
+              <xs:element name="addr3" type="xs:string"/>
+              <xs:element name="addr4" type="xs:string"/>
+              <xs:element name="addrPhoneCell" type="xs:string"/>
+              <xs:element name="addrPhoneExt" type="xs:string"/>
+              <xs:element name="addrPhoneFax" type="xs:string"/>
+              <xs:element name="addrPhoneHome" type="xs:string"/>
+              <xs:element name="addrPhoneMain" type="xs:string"/>
+              <xs:element name="addrPhonePager" type="xs:string"/>
+              <xs:element name="addrPhoneWork" type="xs:string"/>
+              <xs:element name="addrZip" type="xs:unsignedByte" />
+              <xs:element name="addrZipext" type="xs:unsignedByte" />
+              <xs:element name="balance" type="xs:decimal" />
+              <xs:element name="businessId" type="xs:integer" />
+              <xs:element name="contactEmail" type="xs:string"/>
+              <xs:element name="contactExt" type="xs:string"/>
+              <xs:element name="contactFirstname" type="xs:string"/>
+              <xs:element name="contactLastname" type="xs:string"/>
+              <xs:element name="contactPhone" type="xs:string"/>
+              <xs:element name="creditLimit" type="xs:decimal" />
+              <xs:element name="customerId" type="xs:integer" />
+              <xs:element name="description" type="xs:string"/>
+              <xs:element name="glAccountId" type="xs:integer" />
+              <xs:element name="name" type="xs:string"/>
+              <xs:element name="taxId" type="xs:string"/>
+              <xs:element name="zipCity" type="xs:string"/>
+              <xs:element name="zipState" type="xs:string"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SalesOrderData">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="customerId" type="xs:integer" />
+              <xs:element name="effectiveDate" type="xs:string" />
+              <xs:element name="invoiced" type="xs:integer" />
+              <xs:element name="orderTotal" type="xs:decimal" />
+              <xs:element name="soId" type="xs:unsignedShort" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="XactData">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="beanClassName" type="xs:string" />
+              <xs:element name="bankTransInd" type="xs:string"/>
+              <xs:element name="confirmNo" type="xs:string"/>
+              <xs:element name="documentId" type="xs:integer" />
+              <xs:element name="entityRefNo" type="xs:string"/>
+              <xs:element name="postedDate" type="xs:string"/>
+              <xs:element name="reason" type="xs:string" />
+              <xs:element name="tenderId" type="xs:string" />
+              <xs:element name="xactAmount" type="xs:decimal" />
+              <xs:element name="xactDate" type="xs:string" />
+              <xs:element name="xactId" type="xs:integer" />
+              <xs:element name="xactTypeId" type="xs:integer" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

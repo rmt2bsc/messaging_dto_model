@@ -2,6 +2,19 @@ package org.rmt2.constants;
 
 public class ApiTransactionCodes {
 
+    public static final String APP_ADDRESSBOOK = "addressbook";
+    public static final String APP_ACCOUNTING = "accounting";
+    public static final String APP_MULTIMEDIA = "multimedia";
+    public static final String APP_SECURITY = "security";
+    public static final String APP_PROJECTTRACKER = "projecttracker";
+
+    public static final String ROUTE_ACCOUNTING = "JMS:rmt2.queue.accounting";
+    public static final String ROUTE_ADDRESSBOOK = "JMS:rmt2.queue.addressbook";
+    public static final String ROUTE_MULTIMEDIA = "JMS:rmt2.queue.media";
+    public static final String ROUTE_PROJECTTRACKER = "JMS:rmt2.queue.projecttracker";
+    public static final String ROUTE_SECURITY = "JMS:rmt2.queue.security";
+    public static final String ROUTE_MEDIA_LINK = "JMS:rmt2.topic.media";
+
     // AddressBook
     public static final String CONTACTS_GET = "GET_CONTACT";
     public static final String CONTACTS_UPDATE = "UPDATE_CONTACT";
@@ -17,11 +30,6 @@ public class ApiTransactionCodes {
     public static final String REGION_GET = "GET_REGION";
     public static final String IP_INFO_GET = "GET_IP_INFO";
     public static final String TIMEZONE_GET = "GET_TIMEZONE";
-
-    // MultiMedia
-    public static final String MEDIA_GET_CONTENT = "GET_CONTENT_ATTACHMENT";
-    public static final String MEDIA_SAVE_CONTENT = "SAVE_CONTENT_ATTACHMENT";
-    public static final String MEDIA_CONTENT_APP_LINK = "LINK_CONTENT_TO_APPLICATION";
 
     // Accounting - General Ledger
     public static final String GL_ACCOUNT_GET = "GET_GL_ACCOUNT";
@@ -79,6 +87,7 @@ public class ApiTransactionCodes {
     public static final String ACCOUNTING_CASHRECEIPT_GET = "GET_CASH_RECEIPT";
     public static final String ACCOUNTING_CASHRECEIPT_CREATE = "CREATE_CASH_RECEIPT";
 
+    // Accounting - Sales Order Transactions
     public static final String ACCOUNTING_SALESORDER_GET = "GET_SALES_ORDER";
     public static final String ACCOUNTING_SALESORDER_CREATE = "CREATE_SALES_ORDER";
     public static final String ACCOUNTING_SALESORDER_INVOICE_CREATE = "CREATE_SALES_ORDER_AND_INVOICE";
@@ -92,8 +101,55 @@ public class ApiTransactionCodes {
     public static final String ACCOUNTING_SALESORDER_REFUND = "REFUND_SALES_ORDER";
     public static final String ACCOUNTING_SALESORDER_PRINT = "PRINT_SALES_ORDER";
     public static final String ACCOUNTING_SALESORDER_GET_CUSTOMER_SPECIFIC = "GET_CUSTOMER_SALES_ORDER";
-
     public static final String ACCOUNTING_TRANSACTION_BY_ID_GET = "GET_TRANS_BY_ID";
+
+    // Project Tracker - Employee Transactions
+    public static final String PROJTRACK_CLIENT_GET = "GET_CLIENT";
+    public static final String PROJTRACK_PROJECT_GET = "GET_PROJECT";
+    public static final String PROJTRACK_PROJECT_UPDATE = "UPDATE_PROJECT";
+    public static final String PROJTRACK_PROJECT_DELETE = "DELETE_PROJECT";
+    public static final String PROJTRACK_TASK_GET = "GET_TASK";
+    public static final String PROJTRACK_TASK_UPDATE = "UPDATE_TASK";
+    public static final String PROJTRACK_TASK_DELETE = "DELETE_TASK";
+    public static final String PROJTRACK_EMPLOYEE_GET = "GET_EMPLOYEE";
+    public static final String PROJTRACK_EMPLOYEE_UPDATE = "UPDATE_EMPLOYEE";
+    public static final String PROJTRACK_EMPLOYEE_PROJECT_GET = "GET_EMPLOYEE_PROJECT";
+    public static final String PROJTRACK_EMPLOYEE_PROJECT_UPDATE = "UPDATE_EMPLOYEE_PROJECT";
+    public static final String PROJTRACK_EMPLOYEE_TITLE_GET = "GET_EMPLOYEE_TITLE";
+    public static final String PROJTRACK_EMPLOYEE_TYPE_GET = "GET_EMPLOYEE_TYPE";
+
+    // Project Tracker - Timesheet Transactions
+    public static final String PROJTRACK_TIMESHEET_GET = "GET_TIMESHEET";
+    public static final String PROJTRACK_TIMESHEET_UPDATE = "UPDATE_TIMESHEET";
+    public static final String PROJTRACK_TIMESHEET_DELETE = "DELETE_TIMESHEET";
+    public static final String PROJTRACK_TIMESHEET_SUBMIT = "SUBMIT_TIMESHEET";
+    public static final String PROJTRACK_TIMESHEET_APPROVE = "APPROVE_TIMESHEET";
+    public static final String PROJTRACK_TIMESHEET_DECLINE = "DECLINE_TIMESHEET";
+    public static final String PROJTRACK_TIMESHEET_INVOICE = "INVOICE_TIMESHEET";
+    public static final String PROJTRACK_TIMESHEET_PRINT_SUMMARY = "PRINT_TIMESHEET_SUMMARY";
+    public static final String PROJTRACK_TIMESHEET_PRINT_WORKLOG = "PRINT_TIMESHEET_WORKLOG";
+    public static final String PROJTRACK_TIMESHEET_STATUS_GET = "GET_TIMESHEET_STATUS";
+
+    // Media - Lookup data Transactions
+    public static final String MEDIA_GENRE_GET = "GET_GENRE";
+    public static final String MEDIA_MEDIATYPE_GET = "GET_MEDIA_TYPE";
+    public static final String MEDIA_AUDIO_METADATA_IMPORT_BATCH = "BATCH_AUDIO_METADATA_IMPORT";
+    public static final String MEDIA_VIDEO_METADATA_IMPORT_BATCH = "BATCH_VIDEO_METADATA_IMPORT";
+    public static final String MEDIA_ARTIST_GET = "GET_ARTIST";
+    public static final String MEDIA_ARTIST_UPDATE = "UPDATE_ARTIST";
+    public static final String MEDIA_ARTIST_DELETE = "DELETE_ARTIST";
+    public static final String MEDIA_ARTIST_PROJECT_GET = "GET_ARTIST_PROJECT";
+    public static final String MEDIA_ARTIST_PROJECT_UPDATE = "UPDATE_ARTIST_PROJECT";
+    public static final String MEDIA_TRACK_GET = "GET_TRACK";
+    public static final String MEDIA_TRACK_UPDATE = "UPDATE_TRACK";
+    public static final String MEDIA_CONSOLIDATED_SEARCH = "SEARCH_MEDIA";
+    public static final String MEDIA_MANUAL_UPLOAD_CONTENT = "MANUAL_UPLOAD_CONTENT";
+    public static final String MEDIA_CONTENT_GET = "GET_CONTENT";
+    public static final String MEDIA_CONTENT_DELETE = "DELETE_CONTENT";
+    public static final String MEDIA_FILE_LISTENER_START = "START_MEDIA_FILE_LISTENER";
+    public static final String MEDIA_FILE_LISTENER_STOP = "STOP_MEDIA_FILE_LISTENER";
+    public static final String MEDIA_FILE_LISTENER_HEALTH = "HEALTH_CHECK_MEDIA_FILE_LISTENER";
+    public static final String MEDIA_CONTENT_APP_LINK = "LINK_CONTENT_TO_APPLICATION";
 
     public ApiTransactionCodes() {
         // TODO Auto-generated constructor stub

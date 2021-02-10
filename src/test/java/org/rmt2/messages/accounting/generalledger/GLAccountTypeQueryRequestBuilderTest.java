@@ -64,7 +64,7 @@ public class GLAccountTypeQueryRequestBuilderTest {
         criteria.setAcctType(gatt);
         
         GlCriteriaGroup criteriaGroup = fact.createGlCriteriaGroup();
-        criteriaGroup.setCriteria(criteria);
+        criteriaGroup.setGlCriteria(criteria);
         req.setCriteria(criteriaGroup);
         req.setHeader(head);
         

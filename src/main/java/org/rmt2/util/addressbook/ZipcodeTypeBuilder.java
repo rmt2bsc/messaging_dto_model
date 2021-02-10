@@ -5,8 +5,6 @@ import java.math.BigInteger;
 import org.rmt2.jaxb.ObjectFactory;
 import org.rmt2.jaxb.ZipcodeType;
 
-import com.api.util.assistants.Verifier;
-
 /**
  * ZipcodeType Builder.
  * 
@@ -80,7 +78,6 @@ public class ZipcodeTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withZipId(int zipId) {
-            Verifier.verifyNotNegative(zipId, "Zip must not be a negative value");
             this.zipId = zipId;
             return this;
         }
@@ -95,7 +92,6 @@ public class ZipcodeTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withZipcode(int zipcode) {
-            Verifier.verifyPositive(zipcode, "Zipcode must be a positive non-zero value");
             this.zipcode = zipcode;
             return this;
         }
@@ -110,7 +106,6 @@ public class ZipcodeTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withCity(String city) {
-            Verifier.verifyNotBlank(city, "City cannot be blank");
             this.city = city;
             return this;
         }
@@ -125,7 +120,6 @@ public class ZipcodeTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withState(String state) {
-            Verifier.verifyNotBlank(state, "State cannot be blank");
             this.state = state;
             return this;
         }
@@ -140,7 +134,6 @@ public class ZipcodeTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withAreaCode(String areaCode) {
-            Verifier.verifyNotBlank(areaCode, "Area Code cannot be blank");
             this.areaCode = areaCode;
             return this;
         }
@@ -155,7 +148,6 @@ public class ZipcodeTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withCityAliasName(String cityAliasName) {
-            Verifier.verifyNotBlank(cityAliasName, "Area Code cannot be blank");
             this.cityAliasName = cityAliasName;
             return this;
         }
@@ -170,7 +162,6 @@ public class ZipcodeTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withCityAliasAbbr(String cityAliasAbbr) {
-            Verifier.verifyNotBlank(cityAliasAbbr, "Area Code cannot be blank");
             this.cityAliasAbbr = cityAliasAbbr;
             return this;
         }
@@ -185,7 +176,6 @@ public class ZipcodeTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withCountyName(String countyName) {
-            Verifier.verifyNotBlank(countyName, "Area Code cannot be blank");
             this.countyName = countyName;
             return this;
         }
