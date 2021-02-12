@@ -20,7 +20,7 @@
 						<xsd:documentation xml:lang="en">General information about the status of retrieving the user's application roles.  The return code should contain the number of roles found for the application the user is being verified.</xsd:documentation>
 					</xsd:annotation>
 				</xsd:element>
-			  <xsd:element name="profile" type="auth_detail_group" minOccurs="0" maxOccurs="1">
+		  	<xsd:element name="profile" type="profile_type" minOccurs="0" maxOccurs="1">
 						<xsd:annotation>
 							<xsd:documentation>The various authentication detail types</xsd:documentation> 
 						</xsd:annotation>
