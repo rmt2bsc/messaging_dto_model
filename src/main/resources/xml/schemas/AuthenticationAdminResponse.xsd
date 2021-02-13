@@ -7,7 +7,7 @@
 	<xsd:include schemaLocation="RMT2_Message_Reply_Status_Type.xsd"/>
 	<xsd:include schemaLocation="authentication/Authentication_Type.xsd"/>
 
-	<xsd:element name="AuthenticationAppResourcesResponse">
+	<xsd:element name="AuthenticationResponse">
 		<xsd:complexType>
 		  <xsd:sequence>
 				<xsd:element name="header" type="header_type" minOccurs="1">
