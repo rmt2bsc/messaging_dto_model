@@ -12,7 +12,7 @@
 					<xsd:documentation>User application roles criteria</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="resource_criteria" type="resource_criteria_type" minOccurs="1" maxOccurs="1">
+			<xsd:element name="resource_criteria" type="resource_criteria_type" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>Resource selection criteria</xsd:documentation>
 				</xsd:annotation>
@@ -25,52 +25,52 @@
 			<xsd:documentation>The selection criteria for user profile search</xsd:documentation>
 		</xsd:annotation>
 		<xsd:sequence>
-			<xsd:element name="login_id" type="xsd:int" minOccurs="1" maxOccurs="1" nillable="false">
+			<xsd:element name="login_id" type="xsd:int" minOccurs="0" maxOccurs="1" nillable="false">
 				<xsd:annotation>
 					<xsd:documentation>User's Primary Key value to search by</xsd:documentation> 
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="user_name" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false">
+			<xsd:element name="user_name" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="false">
 				<xsd:annotation>
 					<xsd:documentation>User's login id to search by</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="first_name" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false">
+			<xsd:element name="first_name" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="false">
 				<xsd:annotation>
 					<xsd:documentation>User's first name to search by</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="last_name" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false">
+			<xsd:element name="last_name" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="false">
 				<xsd:annotation>
 					<xsd:documentation>User's last name to search by</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="email" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false">
+			<xsd:element name="email" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="false">
 				<xsd:annotation>
 					<xsd:documentation>User's email address to search by</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="dob" type="xsd:date" minOccurs="1" maxOccurs="1" nillable="false">
+			<xsd:element name="dob" type="xsd:date" minOccurs="0" maxOccurs="1" nillable="false">
 				<xsd:annotation>
 					<xsd:documentation>Date of birth of the user to search by.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="ssn" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false">
+			<xsd:element name="ssn" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="false">
 				<xsd:annotation>
 					<xsd:documentation>The user's social security number to search by.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="start_date" type="xsd:date" minOccurs="1" maxOccurs="1" nillable="false">
+			<xsd:element name="start_date" type="xsd:date" minOccurs="0" maxOccurs="1" nillable="false">
 				<xsd:annotation>
 					<xsd:documentation>The date and time user's security profile was created to search by.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="term_date" type="xsd:date" minOccurs="1" maxOccurs="1" nillable="false">
+			<xsd:element name="term_date" type="xsd:date" minOccurs="0" maxOccurs="1" nillable="false">
 				<xsd:annotation>
 					<xsd:documentation>The date and time the user's security profile was terminated to search by.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="active" type="xsd:boolean" minOccurs="1" maxOccurs="1" nillable="false">
+			<xsd:element name="active" type="xsd:boolean" minOccurs="0" maxOccurs="1" nillable="false">
 				<xsd:annotation>
 					<xsd:documentation>Indicates whether user's security profile is currently active to search by.  A value of true equals user is active.   An inactive user status will equal false.</xsd:documentation>
 				</xsd:annotation>
