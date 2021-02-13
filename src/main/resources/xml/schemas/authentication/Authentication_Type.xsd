@@ -1,5 +1,7 @@
 <?xml version="1.0"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" >
+	<xsd:include schemaLocation="../misc/Misc_Types_Type.xsd"/>
+	
 	<xsd:complexType name="criteria_type">
 		<xsd:sequence>
 			<xsd:element name="user_criteria" type="user_criteria_type" minOccurs="0" maxOccurs="1">
@@ -263,7 +265,6 @@
 					<xsd:documentation xml:lang="en">Manages a list of the user's application access configuration.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			
 		</xsd:sequence>
 	</xsd:complexType>
 	
@@ -327,6 +328,7 @@
 					<xsd:documentation>Indicates whether or not the user resource is secured</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
+			<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
 		</xsd:sequence>
 	</xsd:complexType>
 
@@ -350,6 +352,7 @@
 					<xsd:documentation>The description of the user's role</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
+			<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
 		</xsd:sequence>
 	</xsd:complexType>
 
@@ -378,6 +381,7 @@
 					<xsd:documentation>Status of the application.  Active equals true and Inactive equals false.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
+			<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
 		</xsd:sequence>
 	</xsd:complexType>
 
@@ -416,6 +420,7 @@
 					<xsd:documentation>The application role description</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
+			<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
 		</xsd:sequence>
 	</xsd:complexType>
 
@@ -431,6 +436,7 @@
 					<xsd:documentation>The description of the user group</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
+			<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
 		</xsd:sequence>
 	</xsd:complexType>
 	
@@ -544,6 +550,7 @@
 					<xsd:documentation>This is a list of resources that have been revoked from the said user.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
+			<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
 		</xsd:sequence>
 	</xsd:complexType>
 	
@@ -564,6 +571,7 @@
 					<xsd:documentation>Application role to associated with the user</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
+			<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
 		</xsd:sequence>
 	</xsd:complexType>
 	
