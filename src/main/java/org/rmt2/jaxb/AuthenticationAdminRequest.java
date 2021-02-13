@@ -12,23 +12,24 @@ import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import com.RMT2Base;
 
 
 /**
- * <p>Java class for user_group_type complex type.
+ * <p>Java class for anonymous complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="user_group_type">
+ * &lt;complexType>
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="grp_id" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
- *         &lt;element name="description" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="tracking" type="{}record_tracking_type" minOccurs="0"/>
+ *         &lt;element name="header" type="{}header_type"/>
+ *         &lt;element name="criteria" type="{}criteria_type" minOccurs="0"/>
+ *         &lt;element name="profile" type="{}profile_type" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -38,92 +39,93 @@ import com.RMT2Base;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "user_group_type", propOrder = {
-    "grpId",
-    "description",
-    "tracking"
+@XmlType(name = "", propOrder = {
+    "header",
+    "criteria",
+    "profile"
 })
-public class UserGroupType
+@XmlRootElement(name = "AuthenticationAdminRequest")
+public class AuthenticationAdminRequest
     extends RMT2Base
     implements Serializable
 {
 
     private final static long serialVersionUID = 1L;
-    @XmlElement(name = "grp_id")
-    protected Integer grpId;
-    protected String description;
-    protected RecordTrackingType tracking;
+    @XmlElement(required = true)
+    protected HeaderType header;
+    protected CriteriaType criteria;
+    protected ProfileType profile;
 
     /**
-     * Gets the value of the grpId property.
+     * Gets the value of the header property.
      * 
      * @return
      *     possible object is
-     *     {@link Integer }
+     *     {@link HeaderType }
      *     
      */
-    public Integer getGrpId() {
-        return grpId;
+    public HeaderType getHeader() {
+        return header;
     }
 
     /**
-     * Sets the value of the grpId property.
+     * Sets the value of the header property.
      * 
      * @param value
      *     allowed object is
-     *     {@link Integer }
+     *     {@link HeaderType }
      *     
      */
-    public void setGrpId(Integer value) {
-        this.grpId = value;
+    public void setHeader(HeaderType value) {
+        this.header = value;
     }
 
     /**
-     * Gets the value of the description property.
+     * Gets the value of the criteria property.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link CriteriaType }
      *     
      */
-    public String getDescription() {
-        return description;
+    public CriteriaType getCriteria() {
+        return criteria;
     }
 
     /**
-     * Sets the value of the description property.
+     * Sets the value of the criteria property.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link CriteriaType }
      *     
      */
-    public void setDescription(String value) {
-        this.description = value;
+    public void setCriteria(CriteriaType value) {
+        this.criteria = value;
     }
 
     /**
-     * Gets the value of the tracking property.
+     * Gets the value of the profile property.
      * 
      * @return
      *     possible object is
-     *     {@link RecordTrackingType }
+     *     {@link ProfileType }
      *     
      */
-    public RecordTrackingType getTracking() {
-        return tracking;
+    public ProfileType getProfile() {
+        return profile;
     }
 
     /**
-     * Sets the value of the tracking property.
+     * Sets the value of the profile property.
      * 
      * @param value
      *     allowed object is
-     *     {@link RecordTrackingType }
+     *     {@link ProfileType }
      *     
      */
-    public void setTracking(RecordTrackingType value) {
-        this.tracking = value;
+    public void setProfile(ProfileType value) {
+        this.profile = value;
     }
 
 }
