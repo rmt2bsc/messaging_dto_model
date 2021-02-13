@@ -102,7 +102,7 @@
 					<xsd:documentation xml:lang="en">The user's login id to obtain application roles.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="app_id" type="xsd:integer" minOccurs="0" maxOccurs="1">
+			<xsd:element name="app_id" type="xsd:int" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The id of the application.</xsd:documentation>
 				</xsd:annotation>
@@ -361,7 +361,7 @@
 			<xsd:documentation>This is the document that manages application data.</xsd:documentation>
 		</xsd:annotation>
 		<xsd:sequence>
-			<xsd:element name="app_id" type="xsd:integer" minOccurs="1" maxOccurs="1">
+			<xsd:element name="app_id" type="xsd:int" minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The id of the application.</xsd:documentation>
 				</xsd:annotation>
@@ -696,7 +696,7 @@
 					<xsd:documentation>The user's last name</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="access_level" type="xsd:integer" minOccurs="0" maxOccurs="1">
+			<xsd:element name="access_level" type="xsd:int" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The access level</xsd:documentation>
 				</xsd:annotation>
@@ -736,7 +736,7 @@
 					<xsd:documentation>The server name</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="server_port" type="xsd:integer" minOccurs="1" maxOccurs="1">
+			<xsd:element name="server_port" type="xsd:int" minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The server port</xsd:documentation>
 				</xsd:annotation>
@@ -791,7 +791,7 @@
 					<xsd:documentation>A long number representing the date and time the session was last active.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="session_max" type="xsd:integer" minOccurs="1" maxOccurs="1">
+			<xsd:element name="session_max" type="xsd:int" minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>Indicates in seconds how long the session will last without any user activity before timing out</xsd:documentation>
 				</xsd:annotation>
