@@ -2,7 +2,7 @@
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" >
 	<xsd:include schemaLocation="../misc/Misc_Types_Type.xsd"/>
 	
-	<xsd:complexType name="criteria_type">
+	<xsd:complexType name="auth_criteria_type">
 		<xsd:sequence>
 			<xsd:element name="user_criteria" type="user_criteria_type" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
@@ -223,7 +223,7 @@
 		</xsd:sequence>
 	</xsd:complexType>
 
-	<xsd:complexType name="profile_type">
+	<xsd:complexType name="auth_profile_type">
 		<xsd:sequence>
 			<xsd:element name="application_info" type="application_type" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
