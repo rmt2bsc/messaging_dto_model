@@ -130,7 +130,7 @@ public class ApiTransactionCodes {
     public static final String PROJTRACK_TIMESHEET_PRINT_WORKLOG = "PRINT_TIMESHEET_WORKLOG";
     public static final String PROJTRACK_TIMESHEET_STATUS_GET = "GET_TIMESHEET_STATUS";
 
-    // Media - Lookup data Transactions
+    // MultiMedia Transactions
     public static final String MEDIA_GENRE_GET = "GET_GENRE";
     public static final String MEDIA_MEDIATYPE_GET = "GET_MEDIA_TYPE";
     public static final String MEDIA_AUDIO_METADATA_IMPORT_BATCH = "BATCH_AUDIO_METADATA_IMPORT";
@@ -150,6 +150,9 @@ public class ApiTransactionCodes {
     public static final String MEDIA_FILE_LISTENER_STOP = "STOP_MEDIA_FILE_LISTENER";
     public static final String MEDIA_FILE_LISTENER_HEALTH = "HEALTH_CHECK_MEDIA_FILE_LISTENER";
     public static final String MEDIA_CONTENT_APP_LINK = "LINK_CONTENT_TO_APPLICATION";
+
+    // Authentication / Security transactions
+    public static final String AUTH_APPLICATION_UPDATE = "UPDATE_APPLICATION";
 
     public ApiTransactionCodes() {
         // TODO Auto-generated constructor stub
