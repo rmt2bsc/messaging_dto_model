@@ -58,7 +58,7 @@ public class ApplicationUpdateRequestBuilderTest {
         app.setAppId(0);
         app.setDescription("Authenticationa pplication");
 
-        apgt.setApplicationInfo(app);
+        apgt.getApplicationInfo().add(app);
         req.setProfile(apgt);
         req.setHeader(head);
 
@@ -94,7 +94,7 @@ public class ApplicationUpdateRequestBuilderTest {
         app.setAppId(1000);
         app.setDescription("Authenticationa pplication");
 
-        apgt.setApplicationInfo(app);
+        apgt.getApplicationInfo().add(app);
         req.setProfile(apgt);
         req.setHeader(head);
 

@@ -230,27 +230,27 @@
 
 	<xsd:complexType name="auth_profile_group_type">
 		<xsd:sequence>
-			<xsd:element name="application_info" type="application_type" minOccurs="0" maxOccurs="1">
+			<xsd:element name="application_info" type="application_type" minOccurs="0" maxOccurs="unbounded">
 				<xsd:annotation>
 					<xsd:documentation>Manages application data.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="role_info" type="role_type" minOccurs="0" maxOccurs="1">
+			<xsd:element name="role_info" type="role_type" minOccurs="0" maxOccurs="unbounded">
 				<xsd:annotation>
 					<xsd:documentation>The user's granted and revoked roles.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="app_role_info" type="app_role_type" minOccurs="0" maxOccurs="1">
+			<xsd:element name="app_role_info" type="app_role_type" minOccurs="0" maxOccurs="unbounded">
 				<xsd:annotation>
 					<xsd:documentation>Manages application roles.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="user_group_info" type="user_group_type" minOccurs="0" maxOccurs="1">
+			<xsd:element name="user_group_info" type="user_group_type" minOccurs="0" maxOccurs="unbounded">
 				<xsd:annotation>
 					<xsd:documentation>Manages user groups.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="user_app_role_info" type="user_app_role_type" minOccurs="0" maxOccurs="1">
+			<xsd:element name="user_app_role_info" type="user_app_role_type" minOccurs="0" maxOccurs="unbounded">
 				<xsd:annotation>
 					<xsd:documentation>Manages user application roles.</xsd:documentation>
 				</xsd:annotation>
