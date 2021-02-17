@@ -17,18 +17,19 @@ import com.RMT2Base;
 
 
 /**
- * <p>Java class for user_app_role_type complex type.
+ * <p>Java class for user_resource_access_type complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="user_app_role_type">
+ * &lt;complexType name="user_resource_access_type">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="user_app_role_id" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
+ *         &lt;element name="user_rsrc_access_id" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
  *         &lt;element name="user_info" type="{}user_type" minOccurs="0"/>
- *         &lt;element name="app_role_info" type="{}app_role_type" minOccurs="0"/>
+ *         &lt;element name="user_group_info" type="{}user_group_type" minOccurs="0"/>
+ *         &lt;element name="resource_info" type="{}resource_type" minOccurs="0"/>
  *         &lt;element name="tracking" type="{}record_tracking_type" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -39,48 +40,51 @@ import com.RMT2Base;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "user_app_role_type", propOrder = {
-    "userAppRoleId",
+@XmlType(name = "user_resource_access_type", propOrder = {
+    "userRsrcAccessId",
     "userInfo",
-    "appRoleInfo",
+    "userGroupInfo",
+    "resourceInfo",
     "tracking"
 })
-public class UserAppRoleType
+public class UserResourceAccessType
     extends RMT2Base
     implements Serializable
 {
 
     private final static long serialVersionUID = 1L;
-    @XmlElement(name = "user_app_role_id")
-    protected Integer userAppRoleId;
+    @XmlElement(name = "user_rsrc_access_id")
+    protected Integer userRsrcAccessId;
     @XmlElement(name = "user_info")
     protected UserType userInfo;
-    @XmlElement(name = "app_role_info")
-    protected AppRoleType appRoleInfo;
+    @XmlElement(name = "user_group_info")
+    protected UserGroupType userGroupInfo;
+    @XmlElement(name = "resource_info")
+    protected ResourceType resourceInfo;
     protected RecordTrackingType tracking;
 
     /**
-     * Gets the value of the userAppRoleId property.
+     * Gets the value of the userRsrcAccessId property.
      * 
      * @return
      *     possible object is
      *     {@link Integer }
      *     
      */
-    public Integer getUserAppRoleId() {
-        return userAppRoleId;
+    public Integer getUserRsrcAccessId() {
+        return userRsrcAccessId;
     }
 
     /**
-     * Sets the value of the userAppRoleId property.
+     * Sets the value of the userRsrcAccessId property.
      * 
      * @param value
      *     allowed object is
      *     {@link Integer }
      *     
      */
-    public void setUserAppRoleId(Integer value) {
-        this.userAppRoleId = value;
+    public void setUserRsrcAccessId(Integer value) {
+        this.userRsrcAccessId = value;
     }
 
     /**
@@ -108,27 +112,51 @@ public class UserAppRoleType
     }
 
     /**
-     * Gets the value of the appRoleInfo property.
+     * Gets the value of the userGroupInfo property.
      * 
      * @return
      *     possible object is
-     *     {@link AppRoleType }
+     *     {@link UserGroupType }
      *     
      */
-    public AppRoleType getAppRoleInfo() {
-        return appRoleInfo;
+    public UserGroupType getUserGroupInfo() {
+        return userGroupInfo;
     }
 
     /**
-     * Sets the value of the appRoleInfo property.
+     * Sets the value of the userGroupInfo property.
      * 
      * @param value
      *     allowed object is
-     *     {@link AppRoleType }
+     *     {@link UserGroupType }
      *     
      */
-    public void setAppRoleInfo(AppRoleType value) {
-        this.appRoleInfo = value;
+    public void setUserGroupInfo(UserGroupType value) {
+        this.userGroupInfo = value;
+    }
+
+    /**
+     * Gets the value of the resourceInfo property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link ResourceType }
+     *     
+     */
+    public ResourceType getResourceInfo() {
+        return resourceInfo;
+    }
+
+    /**
+     * Sets the value of the resourceInfo property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link ResourceType }
+     *     
+     */
+    public void setResourceInfo(ResourceType value) {
+        this.resourceInfo = value;
     }
 
     /**
