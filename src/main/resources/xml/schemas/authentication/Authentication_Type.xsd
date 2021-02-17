@@ -540,14 +540,40 @@
 					<xsd:documentation>This is a list of application roles that have been revoked from the said user.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="granted_resources" type="resource_type" minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="granted_resources" type="user_resource_access_type" minOccurs="0" maxOccurs="unbounded">
 				<xsd:annotation>
 					<xsd:documentation>This is a list of resources that have been granted to said user</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="revoked_resources" type="resource_type" minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="revoked_resources" type="user_resource_access_type" minOccurs="0" maxOccurs="unbounded">
 				<xsd:annotation>
 					<xsd:documentation>This is a list of resources that have been revoked from the said user.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="user_resource_access_type">
+		<xsd:sequence>
+			<xsd:element name="user_rsrc_access_id" type="xsd:int" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>An id that uniquely identifies a user's resourcde access profile.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="user_info" type="user_type" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>User Type Information</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="user_group_info" type="user_group_type" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>User group informaion</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="resource_info" type="resource_type" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Resource type informaion</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
 			<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
