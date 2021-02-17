@@ -18,4 +18,29 @@ public class ApiHeaderNames {
     public static final String MESSAGE_MODE_RESPONSE = "RESPONSE";
     
     public static final String DUMMY_HEADER_VALUE = "XXXXXXX";
+
+    /**
+     * Application name for accounting
+     */
+    public static final String APP_NAME_ACCOUNTING = "accounting";
+
+    /**
+     * Application name for addressbook
+     */
+    public static final String APP_NAME_ADDRESSBOOK = "addressbook";
+
+    /**
+     * Application name for authentication
+     */
+    public static final String APP_NAME_AUTHENTICATION = "authentication";
+
+    /**
+     * Application name for media
+     */
+    public static final String APP_NAME_MEDIA = "media";
+
+    /**
+     * Application name for projecttracker
+     */
+    public static final String APP_NAME_PROJECTTRACKER = "projecttracker";
 }
