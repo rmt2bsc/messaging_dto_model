@@ -7,12 +7,13 @@ public class ApiTransactionCodes {
     public static final String APP_MULTIMEDIA = "multimedia";
     public static final String APP_SECURITY = "security";
     public static final String APP_PROJECTTRACKER = "projecttracker";
+    public static final String APP_AUTHENTICATION = "authentication";
 
     public static final String ROUTE_ACCOUNTING = "JMS:rmt2.queue.accounting";
     public static final String ROUTE_ADDRESSBOOK = "JMS:rmt2.queue.addressbook";
     public static final String ROUTE_MULTIMEDIA = "JMS:rmt2.queue.media";
     public static final String ROUTE_PROJECTTRACKER = "JMS:rmt2.queue.projecttracker";
-    public static final String ROUTE_SECURITY = "JMS:rmt2.queue.security";
+    public static final String ROUTE_AUTHENTICATION = "JMS:rmt2.queue.authentication";
     public static final String ROUTE_MEDIA_LINK = "JMS:rmt2.topic.media";
 
     // AddressBook

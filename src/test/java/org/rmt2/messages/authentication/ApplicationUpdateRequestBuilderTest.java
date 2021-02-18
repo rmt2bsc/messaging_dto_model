@@ -46,7 +46,7 @@ public class ApplicationUpdateRequestBuilderTest {
                 
                 // Set these header elements with dummy values in order to be properly assigned later.
                 .withTransaction(ApiTransactionCodes.AUTH_APPLICATION_UPDATE)
-                .withRouting(ApiTransactionCodes.ROUTE_ACCOUNTING)
+                .withRouting(ApiTransactionCodes.ROUTE_AUTHENTICATION)
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE)
                 .withSessionId(ConfigConstants.API_DUMMY_SESSION_ID)
                 .build();
@@ -82,7 +82,7 @@ public class ApplicationUpdateRequestBuilderTest {
                 // Set these header elements with dummy values in order to be
                 // properly assigned later.
                 .withTransaction(ApiTransactionCodes.AUTH_APPLICATION_UPDATE)
-                .withRouting(ApiTransactionCodes.ROUTE_ACCOUNTING)
+                .withRouting(ApiTransactionCodes.ROUTE_AUTHENTICATION)
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE)
                 .withSessionId(ConfigConstants.API_DUMMY_SESSION_ID)
                 .build();
