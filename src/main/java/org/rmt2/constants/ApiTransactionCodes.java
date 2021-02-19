@@ -155,6 +155,7 @@ public class ApiTransactionCodes {
     // Authentication / Security transactions
     public static final String AUTH_APPLICATION_GET = "GET_APPLICATION";
     public static final String AUTH_APPLICATION_UPDATE = "UPDATE_APPLICATION";
+    public static final String AUTH_APPLICATION_DELETE = "DELETE_APPLICATION";
 
     public ApiTransactionCodes() {
         // TODO Auto-generated constructor stub
