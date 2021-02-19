@@ -153,6 +153,7 @@ public class ApiTransactionCodes {
     public static final String MEDIA_CONTENT_APP_LINK = "LINK_CONTENT_TO_APPLICATION";
 
     // Authentication / Security transactions
+    public static final String AUTH_APPLICATION_GET = "GET_APPLICATION";
     public static final String AUTH_APPLICATION_UPDATE = "UPDATE_APPLICATION";
 
     public ApiTransactionCodes() {
