@@ -13,24 +13,25 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import com.RMT2Base;
 
 
 /**
- * <p>Java class for contact_detail_group complex type.
+ * This is the document that manages user resource, resource type and resource sub type elements.
+ * 
+ * <p>Java class for resources_info_type complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="contact_detail_group">
+ * &lt;complexType name="resources_info_type">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="business_contacts" type="{}business_type" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="person_contacts" type="{}person_type" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="common_contacts" type="{}common_contact_type" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="resource" type="{}resource_type" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="resourcetype" type="{}resourcetype_type" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="resourcesubtype" type="{}resourcesubtype_type" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -40,109 +41,106 @@ import com.RMT2Base;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "contact_detail_group", propOrder = {
-    "businessContacts",
-    "personContacts",
-    "commonContacts"
+@XmlType(name = "resources_info_type", propOrder = {
+    "resource",
+    "resourcetype",
+    "resourcesubtype"
 })
-public class ContactDetailGroup
+public class ResourcesInfoType
     extends RMT2Base
     implements Serializable
 {
 
     private final static long serialVersionUID = 1L;
-    @XmlElement(name = "business_contacts")
-    protected List<BusinessType> businessContacts;
-    @XmlElement(name = "person_contacts")
-    protected List<PersonType> personContacts;
-    @XmlElement(name = "common_contacts")
-    protected List<CommonContactType> commonContacts;
+    protected List<ResourceType> resource;
+    protected List<ResourcetypeType> resourcetype;
+    protected List<ResourcesubtypeType> resourcesubtype;
 
     /**
-     * Gets the value of the businessContacts property.
+     * Gets the value of the resource property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the businessContacts property.
+     * This is why there is not a <CODE>set</CODE> method for the resource property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getBusinessContacts().add(newItem);
+     *    getResource().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link BusinessType }
+     * {@link ResourceType }
      * 
      * 
      */
-    public List<BusinessType> getBusinessContacts() {
-        if (businessContacts == null) {
-            businessContacts = new ArrayList<BusinessType>();
+    public List<ResourceType> getResource() {
+        if (resource == null) {
+            resource = new ArrayList<ResourceType>();
         }
-        return this.businessContacts;
+        return this.resource;
     }
 
     /**
-     * Gets the value of the personContacts property.
+     * Gets the value of the resourcetype property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the personContacts property.
+     * This is why there is not a <CODE>set</CODE> method for the resourcetype property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getPersonContacts().add(newItem);
+     *    getResourcetype().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link PersonType }
+     * {@link ResourcetypeType }
      * 
      * 
      */
-    public List<PersonType> getPersonContacts() {
-        if (personContacts == null) {
-            personContacts = new ArrayList<PersonType>();
+    public List<ResourcetypeType> getResourcetype() {
+        if (resourcetype == null) {
+            resourcetype = new ArrayList<ResourcetypeType>();
         }
-        return this.personContacts;
+        return this.resourcetype;
     }
 
     /**
-     * Gets the value of the commonContacts property.
+     * Gets the value of the resourcesubtype property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the commonContacts property.
+     * This is why there is not a <CODE>set</CODE> method for the resourcesubtype property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getCommonContacts().add(newItem);
+     *    getResourcesubtype().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link CommonContactType }
+     * {@link ResourcesubtypeType }
      * 
      * 
      */
-    public List<CommonContactType> getCommonContacts() {
-        if (commonContacts == null) {
-            commonContacts = new ArrayList<CommonContactType>();
+    public List<ResourcesubtypeType> getResourcesubtype() {
+        if (resourcesubtype == null) {
+            resourcesubtype = new ArrayList<ResourcesubtypeType>();
         }
-        return this.commonContacts;
+        return this.resourcesubtype;
     }
 
 }

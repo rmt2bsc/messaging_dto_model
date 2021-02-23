@@ -9,7 +9,6 @@
 package org.rmt2.jaxb;
 
 import java.io.Serializable;
-import java.math.BigInteger;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -18,18 +17,21 @@ import com.RMT2Base;
 
 
 /**
- * <p>Java class for xact_code_type complex type.
+ * This is the document that manages user resource sub type objects.
+ * 
+ * <p>Java class for resourcesubtype_type complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="xact_code_type">
+ * &lt;complexType name="resourcesubtype_type">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="xact_code_id" type="{http://www.w3.org/2001/XMLSchema}integer"/>
- *         &lt;element name="xact_code_grp" type="{}xact_code_group_type"/>
- *         &lt;element name="description" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="uid" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
+ *         &lt;element name="resource_type_id" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
+ *         &lt;element name="code" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="description" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="tracking" type="{}record_tracking_type" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -40,72 +42,96 @@ import com.RMT2Base;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "xact_code_type", propOrder = {
-    "xactCodeId",
-    "xactCodeGrp",
+@XmlType(name = "resourcesubtype_type", propOrder = {
+    "uid",
+    "resourceTypeId",
+    "code",
     "description",
     "tracking"
 })
-public class XactCodeType
+public class ResourcesubtypeType
     extends RMT2Base
     implements Serializable
 {
 
     private final static long serialVersionUID = 1L;
-    @XmlElement(name = "xact_code_id", required = true)
-    protected BigInteger xactCodeId;
-    @XmlElement(name = "xact_code_grp", required = true)
-    protected XactCodeGroupType xactCodeGrp;
-    @XmlElement(required = true)
+    protected Integer uid;
+    @XmlElement(name = "resource_type_id")
+    protected Integer resourceTypeId;
+    protected String code;
     protected String description;
     protected RecordTrackingType tracking;
 
     /**
-     * Gets the value of the xactCodeId property.
+     * Gets the value of the uid property.
      * 
      * @return
      *     possible object is
-     *     {@link BigInteger }
+     *     {@link Integer }
      *     
      */
-    public BigInteger getXactCodeId() {
-        return xactCodeId;
+    public Integer getUid() {
+        return uid;
     }
 
     /**
-     * Sets the value of the xactCodeId property.
+     * Sets the value of the uid property.
      * 
      * @param value
      *     allowed object is
-     *     {@link BigInteger }
+     *     {@link Integer }
      *     
      */
-    public void setXactCodeId(BigInteger value) {
-        this.xactCodeId = value;
+    public void setUid(Integer value) {
+        this.uid = value;
     }
 
     /**
-     * Gets the value of the xactCodeGrp property.
+     * Gets the value of the resourceTypeId property.
      * 
      * @return
      *     possible object is
-     *     {@link XactCodeGroupType }
+     *     {@link Integer }
      *     
      */
-    public XactCodeGroupType getXactCodeGrp() {
-        return xactCodeGrp;
+    public Integer getResourceTypeId() {
+        return resourceTypeId;
     }
 
     /**
-     * Sets the value of the xactCodeGrp property.
+     * Sets the value of the resourceTypeId property.
      * 
      * @param value
      *     allowed object is
-     *     {@link XactCodeGroupType }
+     *     {@link Integer }
      *     
      */
-    public void setXactCodeGrp(XactCodeGroupType value) {
-        this.xactCodeGrp = value;
+    public void setResourceTypeId(Integer value) {
+        this.resourceTypeId = value;
+    }
+
+    /**
+     * Gets the value of the code property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getCode() {
+        return code;
+    }
+
+    /**
+     * Sets the value of the code property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setCode(String value) {
+        this.code = value;
     }
 
     /**
