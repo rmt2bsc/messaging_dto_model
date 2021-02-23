@@ -159,6 +159,7 @@ public class ApiTransactionCodes {
     public static final String AUTH_ROLE_UPDATE = "UPDATE_ROLE";
     public static final String AUTH_ROLE_GET = "GET_ROLE";
     public static final String AUTH_ROLE_DELETE = "DELETE_ROLE";
+    public static final String AUTH_RESOURCE_TYPE_UPDATE = "UPDATE_RESOURCE_TYPE";
 
     public ApiTransactionCodes() {
         // TODO Auto-generated constructor stub
