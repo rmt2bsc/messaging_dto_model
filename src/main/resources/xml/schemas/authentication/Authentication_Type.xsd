@@ -260,9 +260,9 @@
 					<xsd:documentation>Manages users.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="resources" type="resource_type" minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="resources_info" type="resources_info_type" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
-					<xsd:documentation xml:lang="en">One or more resources.</xsd:documentation>
+					<xsd:documentation xml:lang="en">Manages user resources, user resource type, and user resource sub type datat.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
 			<xsd:element name="application_access_info" type="application_access_type" minOccurs="0" maxOccurs="unbounded">
@@ -273,49 +273,57 @@
 		</xsd:sequence>
 	</xsd:complexType>
 	
-	<xsd:complexType name="resource_type">
+	<xsd:complexType name="resources_info_type">
 	    <xsd:annotation>
 			<xsd:documentation>This is the document that manages user resource, resource type and resource sub type elements.</xsd:documentation>
 		</xsd:annotation>
 		<xsd:sequence>
-			<xsd:element name="rsrc_id" type="xsd:int"  minOccurs="0" maxOccurs="1">
+			<xsd:element name="resource" type="resource_type"  minOccurs="0" maxOccurs="unbounded">
 				<xsd:annotation>
 					<xsd:documentation>This is the user resource unique id</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="rsrc_name" type="xsd:string" minOccurs="0" maxOccurs="1">
-				<xsd:annotation>
-					<xsd:documentation>This is the user resource name</xsd:documentation>
-				</xsd:annotation>
-			</xsd:element>
-			<xsd:element name="rsrc_description" type="xsd:string" minOccurs="0" maxOccurs="1">
-				<xsd:annotation>
-					<xsd:documentation>This is the user resource description</xsd:documentation>
-				</xsd:annotation>
-			</xsd:element>
-			<xsd:element name="rsrc_type_id" type="xsd:int"  minOccurs="0" maxOccurs="1">
+			<xsd:element name="resourcetype" type="resourcetype_type"  minOccurs="0" maxOccurs="unbounded">
 				<xsd:annotation>
 					<xsd:documentation>This is the id of the resource type</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="rsrc_type_name" type="xsd:string" minOccurs="0" maxOccurs="1">
-				<xsd:annotation>
-					<xsd:documentation>This is the name of the resource type</xsd:documentation>
-				</xsd:annotation>
-			</xsd:element>
-			<xsd:element name="rsrc_subtype_id" type="xsd:int"  minOccurs="0" maxOccurs="1">
+			<xsd:element name="resourcesubtype" type="resourcesubtype_type"  minOccurs="0" maxOccurs="unbounded">
 				<xsd:annotation>
 					<xsd:documentation>This is the id of the resource sub type</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="rsrc_subtype_name" type="xsd:string" minOccurs="0" maxOccurs="1">
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="resource_type">
+		<xsd:annotation>
+			<xsd:documentation>This is the document that manages user resource objects.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="uid" type="xsd:int"  minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
-					<xsd:documentation>This is the name of the resource sub type</xsd:documentation>
+					<xsd:documentation>This is the user resource unique id</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="rsrc_subtype_description" type="xsd:string" minOccurs="0" maxOccurs="1">
+			<xsd:element name="code" type="xsd:string" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
-					<xsd:documentation>This is the description of the resource sub type</xsd:documentation>
+					<xsd:documentation>This is the user resource code</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="description" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>This is the user resource description</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="type_id" type="xsd:int"  minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>This is the id of the resource type</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="subtype_id" type="xsd:int"  minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>This is the id of the resource sub type</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
 			<xsd:element name="url" type="xsd:string" minOccurs="0" maxOccurs="1">
@@ -336,7 +344,55 @@
 			<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
 		</xsd:sequence>
 	</xsd:complexType>
-
+	
+	<xsd:complexType name="resourcetype_type">
+		<xsd:annotation>
+			<xsd:documentation>This is the document that manages user resource type objects.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="uid" type="xsd:int"  minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>This is the id of the resource type</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="description" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>This is the name of the resource type</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="resourcesubtype_type">
+		<xsd:annotation>
+			<xsd:documentation>This is the document that manages user resource sub type objects.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="uid" type="xsd:int"  minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>This is the id of the resource sub type</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="resource_type_id" type="xsd:int"  minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>This is the id of the assoicated resource type</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="code" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>This is the name of the resource sub type</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="description" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>This is the description of the resource sub type</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
     <xsd:complexType name="role_type">
 		<xsd:annotation>
 			<xsd:documentation>This is the document that manages roles.</xsd:documentation>

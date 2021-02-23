@@ -20,11 +20,11 @@ public class ResourceTypeBuilder {
     private ResourceTypeBuilder(Builder builder) {
         ObjectFactory f = new ObjectFactory();
         subject = f.createResourceType();
-        subject.setRsrcId(builder.resourceId);
-        subject.setRsrcTypeId(builder.resourceTypeId);
-        subject.setRsrcSubtypeId(builder.resourceSubTypeId);
-        subject.setRsrcSubtypeName(builder.name);
-        subject.setRsrcSubtypeDescription(builder.description);
+        subject.setUid(builder.resourceId);
+        subject.setTypeId(builder.resourceTypeId);
+        subject.setSubtypeId(builder.resourceSubTypeId);
+        subject.setCode(builder.name);
+        subject.setDescription(builder.description);
         subject.setUrl(builder.url);
         subject.setHost(builder.host);
         subject.setSecured(builder.secured);

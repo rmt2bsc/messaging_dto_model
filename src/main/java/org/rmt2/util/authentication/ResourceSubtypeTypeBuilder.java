@@ -2,7 +2,7 @@ package org.rmt2.util.authentication;
 
 import org.rmt2.jaxb.ObjectFactory;
 import org.rmt2.jaxb.RecordTrackingType;
-import org.rmt2.jaxb.ResourceType;
+import org.rmt2.jaxb.ResourcesubtypeType;
 
 /**
  * Resource Sub Type Builder.
@@ -12,18 +12,18 @@ import org.rmt2.jaxb.ResourceType;
  */
 public class ResourceSubtypeTypeBuilder {
 
-    private ResourceType subject;
+    private ResourcesubtypeType subject;
     
     /**
      * Create a ResourcetypeTypeBuilder
      */
     private ResourceSubtypeTypeBuilder(Builder builder) {
         ObjectFactory f = new ObjectFactory();
-        subject = f.createResourceType();
-        subject.setRsrcSubtypeId(builder.resourceSubTypeId);
-        subject.setRsrcTypeId(builder.resourceTypeId);
-        subject.setRsrcSubtypeName(builder.name);
-        subject.setRsrcSubtypeDescription(builder.description);
+        subject = f.createResourcesubtypeType();
+        subject.setUid(builder.resourceSubTypeId);
+        subject.setResourceTypeId(builder.resourceTypeId);
+        subject.setCode(builder.name);
+        subject.setDescription(builder.description);
         subject.setTracking(builder.tracking);
     }
 
@@ -126,11 +126,11 @@ public class ResourceSubtypeTypeBuilder {
         }
 
         /**
-         * Completes the building of the ResourceType
+         * Completes the building of the ResourcesubtypeType
          * 
-         * @return an instance of {@link ResourceType}
+         * @return an instance of {@link ResourcesubtypeType}
          */
-        public ResourceType build() {
+        public ResourcesubtypeType build() {
             ResourceSubtypeTypeBuilder obj = new ResourceSubtypeTypeBuilder(this);
             return obj.subject;
         }
