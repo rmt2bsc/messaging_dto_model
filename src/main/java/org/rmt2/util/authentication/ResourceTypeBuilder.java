@@ -21,13 +21,13 @@ public class ResourceTypeBuilder {
         ObjectFactory f = new ObjectFactory();
         subject = f.createResourceType();
         subject.setUid(builder.resourceId);
-        subject.setTypeId(builder.resourceTypeId);
-        subject.setSubtypeId(builder.resourceSubTypeId);
+        subject.setTypeId(builder.resourceTypeId == 0 ? null : builder.resourceTypeId);
+        subject.setSubtypeId(builder.resourceSubTypeId == 0 ? null : builder.resourceSubTypeId);
         subject.setCode(builder.name);
         subject.setDescription(builder.description);
         subject.setUrl(builder.url);
         subject.setHost(builder.host);
-        subject.setSecured(builder.secured);
+        subject.setSecured(builder.secured == 0 ? null : builder.secured);
         subject.setTracking(builder.tracking);
     }
 
