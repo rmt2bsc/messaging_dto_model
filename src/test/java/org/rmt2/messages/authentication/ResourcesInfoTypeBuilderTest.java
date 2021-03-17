@@ -104,7 +104,7 @@ public class ResourcesInfoTypeBuilderTest {
                 .withUrl("URL")
                 .withTypeId(11)
                 .withSubTypeId(111)
-                .withSecuredFlag(true)
+                .withSecuredFlag(1)
                 .withRecordTrackingType(tracking)
                 .build();
 
@@ -116,7 +116,7 @@ public class ResourcesInfoTypeBuilderTest {
                 .withUrl("URL")
                 .withTypeId(22)
                 .withSubTypeId(222)
-                .withSecuredFlag(true)
+                .withSecuredFlag(1)
                 .withRecordTrackingType(tracking)
                 .build();
 

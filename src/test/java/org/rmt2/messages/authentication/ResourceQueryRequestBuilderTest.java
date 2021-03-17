@@ -105,7 +105,7 @@ public class ResourceQueryRequestBuilderTest {
                 .withDescription("rsrouce Description 1")
                 .withUrl("Resource URL 1")
                 .withHost("Rsource HOst 1")
-                .withSecuredFlag(true)
+                .withSecuredFlag(1)
                 .build();
 
         ResourceType rt2 = ResourceTypeBuilder.Builder.create()
@@ -116,7 +116,7 @@ public class ResourceQueryRequestBuilderTest {
                 .withDescription("rsrouce Description 2")
                 .withUrl("Resource URL 2")
                 .withHost("Rsource HOst 2")
-                .withSecuredFlag(true)
+                .withSecuredFlag(1)
                 .build();
 
         ResourcesInfoType rit = ResourcesInfoTypeBuilder.Builder.create()

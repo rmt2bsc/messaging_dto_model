@@ -27,7 +27,7 @@ public class ResourceTypeBuilder {
         subject.setDescription(builder.description);
         subject.setUrl(builder.url);
         subject.setHost(builder.host);
-        subject.setSecured(builder.secured == 0 ? null : builder.secured);
+        subject.setSecured(builder.secured);
         subject.setTracking(builder.tracking);
     }
 
@@ -169,8 +169,8 @@ public class ResourceTypeBuilder {
          * @throws VerifyException
          *             if the parameter conditions are not met.
          */
-        public Builder withSecuredFlag(boolean value) {
-            this.secured = value ? 1 : 0;
+        public Builder withSecuredFlag(Integer value) {
+            this.secured = value == null ? -1 : value;
             return this;
         }
 

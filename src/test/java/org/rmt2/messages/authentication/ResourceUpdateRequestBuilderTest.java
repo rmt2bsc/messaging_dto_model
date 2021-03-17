@@ -63,7 +63,7 @@ public class ResourceUpdateRequestBuilderTest {
                 .withSubTypeId(100)
                 .withUrl("URL")
                 .withHost("Host")
-                .withSecuredFlag(true)
+                .withSecuredFlag(1)
                 .withDescription("rsrouce type Name")
                 .build();
 
@@ -109,7 +109,7 @@ public class ResourceUpdateRequestBuilderTest {
                 .withSubTypeId(100)
                 .withUrl("URL")
                 .withHost("Host")
-                .withSecuredFlag(true)
+                .withSecuredFlag(1)
                 .withDescription("rsrouce type Name")
                 .build();
 
