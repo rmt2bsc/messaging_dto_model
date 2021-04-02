@@ -61,6 +61,20 @@ public class AppRoleTypeBuilder {
         }
 
         /**
+         * Set application role id.
+         * 
+         * @param value
+         *            an int
+         * @return Non-null Builder used to continue building the object
+         * @throws VerifyException
+         *             if the parameter conditions are not met.
+         */
+        public Builder withAppRoleId(int value) {
+            this.AppRoleId = value;
+            return this;
+        }
+
+        /**
          * Set application object.
          * 
          * @param value
