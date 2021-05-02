@@ -175,6 +175,7 @@ public class ApiTransactionCodes {
     public static final String AUTH_APP_ROLE_GET = "GET_APP_ROLE";
     public static final String AUTH_APP_ROLE_DELETE = "DELETE_APP_ROLE";
     public static final String AUTH_USER_UPDATE = "UPDATE_USER";
+    public static final String AUTH_USER_GET = "GET_USER";
 
     public ApiTransactionCodes() {
         // TODO Auto-generated constructor stub
