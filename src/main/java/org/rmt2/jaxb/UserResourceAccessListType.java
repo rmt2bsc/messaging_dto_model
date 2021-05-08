@@ -19,16 +19,16 @@ import com.RMT2Base;
 
 
 /**
- * <p>Java class for sales_order_list_type complex type.
+ * <p>Java class for user_resource_access_list_type complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="sales_order_list_type">
+ * &lt;complexType name="user_resource_access_list_type">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="sales_order" type="{}sales_order_type" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="user_resource_access" type="{}user_resource_access_type" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -38,45 +38,45 @@ import com.RMT2Base;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "sales_order_list_type", propOrder = {
-    "salesOrder"
+@XmlType(name = "user_resource_access_list_type", propOrder = {
+    "userResourceAccess"
 })
-public class SalesOrderListType
+public class UserResourceAccessListType
     extends RMT2Base
     implements Serializable
 {
 
     private final static long serialVersionUID = 1L;
-    @XmlElement(name = "sales_order")
-    protected List<SalesOrderType> salesOrder;
+    @XmlElement(name = "user_resource_access")
+    protected List<UserResourceAccessType> userResourceAccess;
 
     /**
-     * Gets the value of the salesOrder property.
+     * Gets the value of the userResourceAccess property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the salesOrder property.
+     * This is why there is not a <CODE>set</CODE> method for the userResourceAccess property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getSalesOrder().add(newItem);
+     *    getUserResourceAccess().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link SalesOrderType }
+     * {@link UserResourceAccessType }
      * 
      * 
      */
-    public List<SalesOrderType> getSalesOrder() {
-        if (salesOrder == null) {
-            salesOrder = new ArrayList<SalesOrderType>();
+    public List<UserResourceAccessType> getUserResourceAccess() {
+        if (userResourceAccess == null) {
+            userResourceAccess = new ArrayList<UserResourceAccessType>();
         }
-        return this.salesOrder;
+        return this.userResourceAccess;
     }
 
 }
