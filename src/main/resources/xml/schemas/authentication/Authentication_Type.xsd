@@ -591,27 +591,37 @@
 					<xsd:documentation>The user's session id or security token.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="granted_app_roles" type="user_app_role_type" minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="granted_app_roles" type="user_app_roles_type" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>This is a list of application roles that have been granted to said user</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="revoked_app_roles" type="user_app_role_type" minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="revoked_app_roles" type="user_app_roles_type" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>This is a list of application roles that have been revoked from the said user.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="granted_resources" type="user_resource_access_type" minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="granted_resources" type="user_resource_access_list_type" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>This is a list of resources that have been granted to said user</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="revoked_resources" type="user_resource_access_type" minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="revoked_resources" type="user_resource_access_list_type" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>This is a list of resources that have been revoked from the said user.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
 			<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="user_resource_access_list_type">
+		<xsd:sequence>
+			<xsd:element name="user_resource_access" type="user_resource_access_type" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>list of user resource access types.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
 		</xsd:sequence>
 	</xsd:complexType>
 	
@@ -638,6 +648,16 @@
 				</xsd:annotation>
 			</xsd:element>
 			<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="user_app_roles_type">
+		<xsd:sequence>
+			<xsd:element name="user_app_role" type="user_app_role_type" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>One or more user application role type objects.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
 		</xsd:sequence>
 	</xsd:complexType>
 	

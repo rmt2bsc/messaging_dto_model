@@ -55,6 +55,20 @@ public class UserAppRoleTypeBuilder {
         }
 
         /**
+         * Set user application role id.
+         * 
+         * @param value
+         *            an int
+         * @return Non-null Builder used to continue building the object
+         * @throws VerifyException
+         *             if the parameter conditions are not met.
+         */
+        public Builder withUserApplicationRoleId(int value) {
+            this.userAppRoleId = value;
+            return this;
+        }
+
+        /**
          * Set application role object.
          * 
          * @param value
@@ -63,7 +77,7 @@ public class UserAppRoleTypeBuilder {
          * @throws VerifyException
          *             if the parameter conditions are not met.
          */
-        public Builder withApplicationRole(AppRoleType value) {
+        public Builder withApplicationRoleInfo(AppRoleType value) {
             this.appRoleInfo = value;
             return this;
         }
@@ -77,7 +91,7 @@ public class UserAppRoleTypeBuilder {
          * @throws VerifyException
          *             if the parameter conditions are not met.
          */
-        public Builder withRole(UserType value) {
+        public Builder withUserInfo(UserType value) {
             this.userInfo = value;
             return this;
         }

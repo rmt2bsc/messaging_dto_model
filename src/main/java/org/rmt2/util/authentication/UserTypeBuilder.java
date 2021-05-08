@@ -49,17 +49,21 @@ public class UserTypeBuilder {
         subject.setPassword(builder.password);
         subject.setSessionId(builder.sessionId);
 
-        if (builder.grantedAppRoles != null) {
-            subject.getGrantedAppRoles().addAll(builder.grantedAppRoles);
+        if (builder.grantedAppRoleList != null) {
+            subject.setGrantedAppRoles(f.createUserAppRolesType());
+            subject.getGrantedAppRoles().getUserAppRole().addAll(builder.grantedAppRoleList);
         }
-        if (builder.revokedAppRoles != null) {
-            subject.getRevokedAppRoles().addAll(builder.revokedAppRoles);
+        if (builder.revokedAppRoleList != null) {
+            subject.setRevokedAppRoles(f.createUserAppRolesType());
+            subject.getRevokedAppRoles().getUserAppRole().addAll(builder.revokedAppRoleList);
         }
         if (builder.grantedResources != null) {
-            subject.getGrantedResources().addAll(builder.grantedResources);
+            subject.setGrantedResources(f.createUserResourceAccessListType());
+            subject.getGrantedResources().getUserResourceAccess().addAll(builder.grantedResources);
         }
         if (builder.revokedResources != null) {
-            subject.getRevokedResources().addAll(builder.revokedResources);
+            subject.setRevokedResources(f.createUserResourceAccessListType());
+            subject.getRevokedResources().getUserResourceAccess().addAll(builder.revokedResources);
         }
         subject.setTracking(builder.tracking);
     }
@@ -88,15 +92,15 @@ public class UserTypeBuilder {
         private String description;
         private String password;
         private String sessionId;
-        private List<UserAppRoleType> grantedAppRoles;
-        private List<UserAppRoleType> revokedAppRoles;
+        private List<UserAppRoleType> grantedAppRoleList;
+        private List<UserAppRoleType> revokedAppRoleList;
         private List<UserResourceAccessType> grantedResources;
         private List<UserResourceAccessType> revokedResources;
         private RecordTrackingType tracking;
 
         private Builder() {
-            this.grantedAppRoles = null;
-            this.revokedAppRoles = null;
+            this.grantedAppRoleList = null;
+            this.revokedAppRoleList = null;
             this.grantedResources = null;
             this.revokedResources = null;
             this.tracking = null;
@@ -360,7 +364,7 @@ public class UserTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withGrantedAppRoles(List<UserAppRoleType> value) {
-            this.grantedAppRoles = value;
+            this.grantedAppRoleList = value;
             return this;
         }
 
@@ -377,10 +381,10 @@ public class UserTypeBuilder {
             if (value == null) {
                 return this;
             }
-            if (this.grantedAppRoles == null) {
-                this.grantedAppRoles = new ArrayList<>();
+            if (this.grantedAppRoleList == null) {
+                this.grantedAppRoleList = new ArrayList<>();
             }
-            this.grantedAppRoles.add(value);
+            this.grantedAppRoleList.add(value);
             return this;
         }
 
@@ -394,7 +398,7 @@ public class UserTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withRevokedAppRoles(List<UserAppRoleType> value) {
-            this.revokedAppRoles = value;
+            this.revokedAppRoleList = value;
             return this;
         }
 
@@ -411,10 +415,10 @@ public class UserTypeBuilder {
             if (value == null) {
                 return this;
             }
-            if (this.revokedAppRoles == null) {
-                this.revokedAppRoles = new ArrayList<>();
+            if (this.revokedAppRoleList == null) {
+                this.revokedAppRoleList = new ArrayList<>();
             }
-            this.revokedAppRoles.add(value);
+            this.revokedAppRoleList.add(value);
             return this;
         }
 
