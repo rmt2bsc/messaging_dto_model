@@ -29,7 +29,7 @@ import com.api.config.ConfigConstants;
 import com.api.config.SystemConfigurator;
 import com.api.xml.jaxb.JaxbUtil;
 
-public class UserAppRoleQueryRequestBuilderTest {
+public class UserPermissionsQueryRequestBuilderTest {
 
     private JaxbUtil jaxb;
     
@@ -66,6 +66,8 @@ public class UserAppRoleQueryRequestBuilderTest {
         
         criteria.setLoginId(10);
         criteria.setUserName("username");
+        criteria.setFirstName("firstName");
+        criteria.setLastName("lastName");
         criteria.setAppId(100);
         criteria.setAppCode("AppCode");
         criteria.setRoleId(200);        
