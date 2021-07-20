@@ -92,6 +92,11 @@
 	
 	<xsd:complexType name="user_app_roles_criteria_type">
 		<xsd:sequence>
+			<xsd:element name="user_app_role_id" type="xsd:int" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The unique id of the user's application role id</xsd:documentation> 
+				</xsd:annotation>
+			</xsd:element>
 			<xsd:element name="login_id" type="xsd:int" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>User's login id as search criteria</xsd:documentation> 

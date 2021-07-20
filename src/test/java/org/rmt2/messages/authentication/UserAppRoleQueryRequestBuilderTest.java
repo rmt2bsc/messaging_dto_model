@@ -55,7 +55,7 @@ public class UserAppRoleQueryRequestBuilderTest {
                 .withDeliveryDate(new Date())
                 
                 // Set these header elements with dummy values in order to be properly assigned later.
-                .withTransaction(ApiTransactionCodes.AUTH_USER_APPROLE_GET)
+                .withTransaction(ApiTransactionCodes.AUTH_USER_PERMISSIONS_GET)
                 .withRouting(ApiTransactionCodes.ROUTE_AUTHENTICATION)
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE)
                 .withSessionId(ConfigConstants.API_DUMMY_SESSION_ID)
@@ -82,7 +82,7 @@ public class UserAppRoleQueryRequestBuilderTest {
         String xml = jaxb.marshalJsonMessage(req);
         System.out.println(xml);
         Assert.assertNotNull(xml);
-        Assert.assertTrue(xml.contains(ApiTransactionCodes.AUTH_USER_APPROLE_GET));
+        Assert.assertTrue(xml.contains(ApiTransactionCodes.AUTH_USER_PERMISSIONS_GET));
     }
 
     @Test
@@ -98,7 +98,7 @@ public class UserAppRoleQueryRequestBuilderTest {
 
                 // Set these header elements with dummy values in order to be
                 // properly assigned later.
-                .withTransaction(ApiTransactionCodes.AUTH_USER_APPROLE_GET)
+                .withTransaction(ApiTransactionCodes.AUTH_USER_PERMISSIONS_GET)
                 .withRouting(ApiTransactionCodes.ROUTE_AUTHENTICATION)
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE)
                 .withSessionId(ConfigConstants.API_DUMMY_SESSION_ID)
@@ -134,7 +134,7 @@ public class UserAppRoleQueryRequestBuilderTest {
                 .build();
 
         UserType ut = UserTypeBuilder.Builder.create()
-                .withLoginId(0)
+                .withLoginId(777)
                 .withGroupInfo(ugt)
                 .withUsername("username")
                 .withFirstname("roy")
@@ -155,7 +155,7 @@ public class UserAppRoleQueryRequestBuilderTest {
         String xml = jaxb.marshalJsonMessage(resp);
         System.out.println(xml);
         Assert.assertNotNull(xml);
-        Assert.assertTrue(xml.contains(ApiTransactionCodes.AUTH_USER_APPROLE_GET));
+        Assert.assertTrue(xml.contains(ApiTransactionCodes.AUTH_USER_PERMISSIONS_GET));
     }
 
  }
