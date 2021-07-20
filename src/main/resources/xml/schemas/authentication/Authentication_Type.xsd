@@ -107,6 +107,16 @@
 					<xsd:documentation xml:lang="en">The user's login id to obtain application roles.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
+			<xsd:element name="first_name" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="false">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">The user's first name.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="last_name" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="false">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">The user's last name.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
 			<xsd:element name="app_id" type="xsd:int" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The id of the application.</xsd:documentation>
