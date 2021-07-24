@@ -179,6 +179,7 @@ public class ApiTransactionCodes {
     public static final String AUTH_USER_DELETE = "DELETE_USER";
     public static final String AUTH_USER_APPROLE_MAINT = "MAINTAIN_USER_APPROLE";
     public static final String AUTH_USER_PERMISSIONS_GET = "GET_USER_PERMISSIONS";
+    public static final String AUTH_USER_LOGIN = "LOGIN_USER";
 
     public ApiTransactionCodes() {
         // TODO Auto-generated constructor stub

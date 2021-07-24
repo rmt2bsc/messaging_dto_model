@@ -110,6 +110,111 @@ public class ApplicationAccessTypeBuilder {
         }
 
         /**
+         * Set login id
+         * 
+         * @param value
+         *            a String
+         * @return Non-null Builder used to continue building the object
+         * @throws VerifyException
+         *             if the parameter conditions are not met.
+         */
+        public Builder withLoginId(int value) {
+            if (this.userInfo == null) {
+                this.userInfo = UserTypeBuilder.Builder.create()
+                        .withLoginId(value)
+                        .build();
+            }
+            else {
+                this.userInfo.setLoginId(value);
+            }
+            return this;
+        }
+
+        /**
+         * Set user name.
+         * 
+         * @param value
+         *            a String
+         * @return Non-null Builder used to continue building the object
+         * @throws VerifyException
+         *             if the parameter conditions are not met.
+         */
+        public Builder withUserName(String value) {
+            if (this.userInfo == null) {
+                this.userInfo = UserTypeBuilder.Builder.create()
+                        .withUsername(value)
+                        .build();
+            }
+            else {
+                this.userInfo.setUserName(value);
+            }
+            return this;
+        }
+
+        /**
+         * Set password.
+         * 
+         * @param value
+         *            a String
+         * @return Non-null Builder used to continue building the object
+         * @throws VerifyException
+         *             if the parameter conditions are not met.
+         */
+        public Builder withPassword(String value) {
+            if (this.userInfo == null) {
+                this.userInfo = UserTypeBuilder.Builder.create()
+                        .withPassword(value)
+                        .build();
+            }
+            else {
+                this.userInfo.setPassword(value);
+            }
+            return this;
+        }
+
+        /**
+         * Set first name.
+         * 
+         * @param value
+         *            a String
+         * @return Non-null Builder used to continue building the object
+         * @throws VerifyException
+         *             if the parameter conditions are not met.
+         */
+        public Builder withFirstName(String value) {
+            if (this.userInfo == null) {
+                this.userInfo = UserTypeBuilder.Builder.create()
+                        .withFirstname(value)
+                        .build();
+            }
+            else {
+                this.userInfo.setFirstName(value);
+            }
+            return this;
+        }
+
+        /**
+         * Set last name.
+         * 
+         * @param value
+         *            a String
+         * @return Non-null Builder used to continue building the object
+         * @throws VerifyException
+         *             if the parameter conditions are not met.
+         */
+        public Builder withLastName(String value) {
+            if (this.userInfo == null) {
+                this.userInfo = UserTypeBuilder.Builder.create()
+                        .withLastname(value)
+                        .build();
+            }
+            else {
+                this.userInfo.setLastName(value);
+            }
+            return this;
+        }
+
+        /**
          * Set up logged in flag.
          * 
          * @param value
