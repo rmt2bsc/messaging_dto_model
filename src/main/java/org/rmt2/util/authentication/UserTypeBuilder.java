@@ -43,8 +43,12 @@ public class UserTypeBuilder {
         subject.setStartDate(builder.startDate);
         subject.setTermDate(builder.termDate);
         subject.setGroupInfo(builder.grpInfo);
-        subject.setTotalLogons(builder.totalLogins);
-        subject.setActive(builder.active);
+        if (builder.totalLogins != null) {
+            subject.setTotalLogons(builder.totalLogins);    
+        }
+        if (builder.active != null) {
+            subject.setActive(builder.active);    
+        }
         subject.setDescription(builder.description);
         subject.setPassword(builder.password);
         subject.setSessionId(builder.sessionId);
@@ -75,7 +79,7 @@ public class UserTypeBuilder {
      *
      */
     public static final class Builder {
-        private int loginId;
+        private Integer loginId;
         private String userName;
         private String firstName;
         private String lastName;
@@ -83,12 +87,12 @@ public class UserTypeBuilder {
         private String email;
         private String ssn;
         private UserGroupType grpInfo;
-        private int loggedIn;
+        private Integer loggedIn;
         private XMLGregorianCalendar birthDate;
         private XMLGregorianCalendar startDate;
         private XMLGregorianCalendar termDate;
-        private int totalLogins;
-        private int active;
+        private Integer totalLogins;
+        private Integer active;
         private String description;
         private String password;
         private String sessionId;
@@ -99,6 +103,9 @@ public class UserTypeBuilder {
         private RecordTrackingType tracking;
 
         private Builder() {
+            this.active = null;
+            this.loggedIn = null;
+            this.loginId = null;
             this.grantedAppRoleList = null;
             this.revokedAppRoleList = null;
             this.grantedResources = null;
@@ -125,7 +132,7 @@ public class UserTypeBuilder {
          * @throws VerifyException
          *             if the parameter conditions are not met.
          */
-        public Builder withLoginId(int value) {
+        public Builder withLoginId(Integer value) {
             this.loginId = value;
             return this;
         }
@@ -251,8 +258,10 @@ public class UserTypeBuilder {
          * @throws VerifyException
          *             if the parameter conditions are not met.
          */
-        public Builder withLoggedInFlag(boolean value) {
-            this.loggedIn = value ? 1 : 0;
+        public Builder withLoggedInFlag(Boolean value) {
+            if (value != null) {
+                this.loggedIn = value ? 1 : 0;    
+            }
             return this;
         }
 
@@ -321,8 +330,10 @@ public class UserTypeBuilder {
          * @throws VerifyException
          *             if the parameter conditions are not met.
          */
-        public Builder withActiveFlag(boolean value) {
-            this.active = value ? 1 : 0;
+        public Builder withActiveFlag(Boolean value) {
+            if (value != null) {
+                this.active = value ? 1 : 0;    
+            }
             return this;
         }
 

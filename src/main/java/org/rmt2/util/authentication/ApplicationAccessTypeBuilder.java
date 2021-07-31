@@ -43,10 +43,10 @@ public class ApplicationAccessTypeBuilder {
      *
      */
     public static final class Builder {
-        private int appAccessId;
+        private Integer appAccessId;
         private ApplicationType appInfo;
         private UserType userInfo;
-        private int loggedIn;
+        private Integer loggedIn;
         private XMLGregorianCalendar loginDate;
         private XMLGregorianCalendar lastLoginDate;
         private String sessionId;
@@ -76,7 +76,7 @@ public class ApplicationAccessTypeBuilder {
          * @throws VerifyException
          *             if the parameter conditions are not met.
          */
-        public Builder withAppAccessId(int value) {
+        public Builder withAppAccessId(Integer value) {
             this.appAccessId = value;
             return this;
         }
@@ -223,8 +223,10 @@ public class ApplicationAccessTypeBuilder {
          * @throws VerifyException
          *             if the parameter conditions are not met.
          */
-        public Builder withLoginInFlag(boolean value) {
-            this.loggedIn = value ? 1 : 0;
+        public Builder withLoginInFlag(Boolean value) {
+            if (value != null) {
+                this.loggedIn = value ? 1 : 0;    
+            }
             return this;
         }
 

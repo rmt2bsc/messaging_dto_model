@@ -521,7 +521,7 @@
 			<xsd:documentation>The profile of a user</xsd:documentation>
 		</xsd:annotation>
 		<xsd:sequence>
-			<xsd:element name="login_id" type="xsd:int" minOccurs="1" maxOccurs="1">
+			<xsd:element name="login_id" type="xsd:int" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>User's Primary Key value</xsd:documentation> 
 				</xsd:annotation>
@@ -556,7 +556,7 @@
 					<xsd:documentation>User's email address</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="logged_in" type="xsd:int" minOccurs="0" maxOccurs="1" default="0">
+			<xsd:element name="logged_in" type="xsd:int" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>Indicates whether user is currently logged into the system.  A value of true equals user is logged in.   Otherwise, the indicator will equal false.</xsd:documentation>
 				</xsd:annotation>
@@ -742,22 +742,22 @@
 			<xsd:documentation>This is the document that manages user's  login credentials.</xsd:documentation>
 		</xsd:annotation>
 		<xsd:sequence>
-			<xsd:element name="uid" type="xsd:string" default="0" minOccurs="1" maxOccurs="1">
+			<xsd:element name="uid" type="xsd:string" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The user's login id.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="pw" type="xsd:string" minOccurs="1" maxOccurs="1">
+			<xsd:element name="pw" type="xsd:string" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The user's password.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="app_code" type="xsd:string" minOccurs="1" maxOccurs="1">
+			<xsd:element name="app_code" type="xsd:string" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The Application code name.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="session_id" type="xsd:string" minOccurs="1" maxOccurs="1">
+			<xsd:element name="session_id" type="xsd:string" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The user's session id.</xsd:documentation>
 				</xsd:annotation>
