@@ -42,7 +42,10 @@ public class UserTypeBuilder {
         subject.setDob(builder.birthDate);
         subject.setStartDate(builder.startDate);
         subject.setTermDate(builder.termDate);
-        subject.setGroupInfo(builder.grpInfo);
+        if (builder.grpInfo != null && builder.grpInfo.getGrpId() != null && builder.grpInfo.getGrpId() > 0) {
+            subject.setGroupInfo(builder.grpInfo);
+        }
+
         if (builder.totalLogins != null) {
             subject.setTotalLogons(builder.totalLogins);    
         }
@@ -133,7 +136,9 @@ public class UserTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withLoginId(Integer value) {
-            this.loginId = value;
+            if (value != null && value > 0) {
+                this.loginId = value;
+            }
             return this;
         }
 
