@@ -22,9 +22,17 @@ public class AppRoleTypeBuilder {
     private AppRoleTypeBuilder(Builder builder) {
         ObjectFactory f = new ObjectFactory();
         subject = f.createAppRoleType();
-        subject.setAppRoleId(builder.AppRoleId);
-        subject.setAppInfo(builder.appInfo);
-        subject.setRoleInfo(builder.roleInfo);
+
+        if (builder.AppRoleId != null && builder.AppRoleId > 0) {
+            subject.setAppRoleId(builder.AppRoleId);
+        }
+
+        if (builder.appInfo != null && builder.appInfo.getAppId() > 0) {
+            subject.setAppInfo(builder.appInfo);
+        }
+        if (builder.roleInfo != null && builder.roleInfo.getRoleId() > 0) {
+            subject.setRoleInfo(builder.roleInfo);
+        }
         subject.setAppRoleCode(builder.code);
         subject.setAppRoleName(builder.name);
         subject.setAppRoleDesc(builder.description);
@@ -38,7 +46,7 @@ public class AppRoleTypeBuilder {
      *
      */
     public static final class Builder {
-        private int AppRoleId;
+        private Integer AppRoleId;
         private ApplicationType appInfo;
         private RoleType roleInfo;
         private String code;
@@ -69,7 +77,7 @@ public class AppRoleTypeBuilder {
          * @throws VerifyException
          *             if the parameter conditions are not met.
          */
-        public Builder withAppRoleId(int value) {
+        public Builder withAppRoleId(Integer value) {
             this.AppRoleId = value;
             return this;
         }

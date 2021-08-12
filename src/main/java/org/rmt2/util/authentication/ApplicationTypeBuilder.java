@@ -20,10 +20,16 @@ public class ApplicationTypeBuilder {
     private ApplicationTypeBuilder(Builder builder) {
         ObjectFactory f = new ObjectFactory();
         subject = f.createApplicationType();
-        subject.setAppId(builder.appId);
+        if (builder.appId != null && builder.appId > 0) {
+            subject.setAppId(builder.appId);
+        }
         subject.setAppCode(builder.name);
         subject.setDescription(builder.description);
-        subject.setActive(builder.active);
+
+        if (builder.active != null) {
+            subject.setActive(builder.active);
+        }
+
         subject.setTracking(builder.tracking);
     }
 
@@ -34,10 +40,10 @@ public class ApplicationTypeBuilder {
      *
      */
     public static final class Builder {
-        private int appId;
+        private Integer appId;
         private String name;
         private String description;
-        private int active;
+        private Integer active;
         private RecordTrackingType tracking;
 
         private Builder() {
@@ -63,7 +69,7 @@ public class ApplicationTypeBuilder {
          * @throws VerifyException
          *             if the parameter conditions are not met.
          */
-        public Builder withAppId(int value) {
+        public Builder withAppId(Integer value) {
             this.appId = value;
             return this;
         }
@@ -106,7 +112,7 @@ public class ApplicationTypeBuilder {
          * @throws VerifyException
          *             if the parameter conditions are not met.
          */
-        public Builder withActive(int value) {
+        public Builder withActive(Integer value) {
             this.active = value;
             return this;
         }

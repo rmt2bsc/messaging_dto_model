@@ -20,7 +20,9 @@ public class RoleTypeBuilder {
     private RoleTypeBuilder(Builder builder) {
         ObjectFactory f = new ObjectFactory();
         subject = f.createRoleType();
-        subject.setRoleId(builder.roleId);
+        if (builder.roleId != null && builder.roleId > 0) {
+            subject.setRoleId(builder.roleId);
+        }
         subject.setRoleName(builder.name);
         subject.setRoleDescription(builder.description);
         subject.setTracking(builder.tracking);
@@ -33,7 +35,7 @@ public class RoleTypeBuilder {
      *
      */
     public static final class Builder {
-        private int roleId;
+        private Integer roleId;
         private String name;
         private String description;
         private RecordTrackingType tracking;
@@ -61,7 +63,7 @@ public class RoleTypeBuilder {
          * @throws VerifyException
          *             if the parameter conditions are not met.
          */
-        public Builder withRoleId(int value) {
+        public Builder withRoleId(Integer value) {
             this.roleId = value;
             return this;
         }
