@@ -23,7 +23,7 @@ import com.api.util.RMT2Date;
 import com.api.xml.jaxb.JaxbUtil;
 
 /**
- * Test User Logout Message
+ * Test User Logout Message. 
  * 
  * @author royterrell
  *
