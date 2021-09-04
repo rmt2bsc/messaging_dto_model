@@ -181,6 +181,7 @@ public class ApiTransactionCodes {
     public static final String AUTH_USER_PERMISSIONS_GET = "GET_USER_PERMISSIONS";
     public static final String AUTH_USER_LOGIN = "LOGIN_USER";
     public static final String AUTH_USER_LOGOUT = "LOGOUT_USER";
+    public static final String AUTH_CHANGE_PASSWORD = "CHANGE_PASSWORD";
 
     public ApiTransactionCodes() {
         // TODO Auto-generated constructor stub
