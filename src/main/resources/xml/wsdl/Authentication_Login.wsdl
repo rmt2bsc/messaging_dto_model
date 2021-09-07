@@ -2,17 +2,17 @@
 <wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
 	<wsdl:types>
 		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-			<xsd:include schemaLocation="../schemas/RQ_Authentication_Login.xsd"/>
+			<xsd:include schemaLocation="../schemas/AuthenticationRequest.xsd"/>
 		</xsd:schema>
 		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-			<xsd:include schemaLocation="../schemas/RS_Authentication_Login.xsd"/>
+			<xsd:include schemaLocation="../schemas/AuthenticationResponse.xsd"/>
 		</xsd:schema>
 	</wsdl:types>
 	<wsdl:message name="InMessage">
-		<wsdl:part name="InMessageRequest" element="RQ_authentication_login"/>
+		<wsdl:part name="InMessageRequest" element="AuthenticationRequest"/>
 	</wsdl:message>
 	<wsdl:message name="OutMessage">
-		<wsdl:part name="OutMessageResponse" element="RS_authentication_login"/>
+		<wsdl:part name="OutMessageResponse" element="AuthenticationResponse"/>
 	</wsdl:message>
 	<wsdl:portType name="AuthenticateLoginInterface">
 		<wsdl:operation name="AuthenticateLogin">
@@ -37,7 +37,7 @@
 		<!--
 			<soap:address location="http://rmt2.net/ServiceDispatch/soapRouter"/>
 		-->
-			<soap:address location="http://localhost:8080/ServiceRouter/soapRouter"/>
+			<soap:address location="http://localhost:8080/server-external-api/services/soap"/>
 		</wsdl:port>
 	</wsdl:service>
 	
