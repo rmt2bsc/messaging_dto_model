@@ -178,6 +178,8 @@ public class ApiTransactionCodes {
     public static final String AUTH_USER_GET = "GET_USER";
     public static final String AUTH_USER_DELETE = "DELETE_USER";
     public static final String AUTH_USER_APPROLE_MAINT = "MAINTAIN_USER_APPROLE";
+    // IS-70: Added delte user application role transaction code
+    public static final String AUTH_USER_APPROLE_DELETE = "DELETE_USER_APPROLE";
     public static final String AUTH_USER_PERMISSIONS_GET = "GET_USER_PERMISSIONS";
     public static final String AUTH_USER_LOGIN = "LOGIN_USER";
     public static final String AUTH_SSO_USER_LOGIN = "SSO_LOGIN_USER";
