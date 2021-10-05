@@ -9,6 +9,8 @@ public class ApiTransactionCodes {
     public static final String APP_PROJECTTRACKER = "projecttracker";
     public static final String APP_AUTHENTICATION = "authentication";
 
+    public static final String MOODULE_GL = "generalledger";
+
     public static final String ROUTE_ACCOUNTING = "JMS:rmt2.queue.accounting";
     public static final String ROUTE_ADDRESSBOOK = "JMS:rmt2.queue.addressbook";
     public static final String ROUTE_MULTIMEDIA = "JMS:rmt2.queue.media";

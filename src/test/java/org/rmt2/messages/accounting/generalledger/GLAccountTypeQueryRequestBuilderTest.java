@@ -43,8 +43,8 @@ public class GLAccountTypeQueryRequestBuilderTest {
         AccountingGeneralLedgerRequest req = fact.createAccountingGeneralLedgerRequest();
         
         HeaderType head =  HeaderTypeBuilder.Builder.create()
-                .withApplication("accounting")
-                .withModule(ConfigConstants.API_APP_MODULE_VALUE)
+                .withApplication(ApiTransactionCodes.APP_ACCOUNTING)
+                .withModule(ApiTransactionCodes.MOODULE_GL)
                 .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
                 .withDeliveryDate(new Date())
                 
