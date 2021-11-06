@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	<xsd:include schemaLocation="RMT2_Message_Header_Type.xsd"/>
+	<xsd:include schemaLocation="RMT2_Message_Reply_Status_Type.xsd"/>
 	<xsd:include schemaLocation="accounting/Accounting_Type.xsd"/>
 	<xsd:annotation>
 		<xsd:documentation>Web Service Message for managing inventory responses</xsd:documentation>
