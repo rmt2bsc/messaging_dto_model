@@ -20,7 +20,7 @@ import com.api.config.ConfigConstants;
 import com.api.config.SystemConfigurator;
 import com.api.xml.jaxb.JaxbUtil;
 
-public class ItemMasterDeactivateQueryRequestBuilderTest {
+public class ActivateItemMasterRequestBuilderTest {
 
     private JaxbUtil jaxb;
     
@@ -35,6 +35,7 @@ public class ItemMasterDeactivateQueryRequestBuilderTest {
     }
  
 
+    
     @Test
     public void testBuildRequest() {
         ObjectFactory fact = new ObjectFactory();
@@ -47,7 +48,7 @@ public class ItemMasterDeactivateQueryRequestBuilderTest {
                 .withDeliveryDate(new Date())
                 
                 // Set these header elements with dummy values in order to be properly assigned later.
-                .withTransaction(ApiTransactionCodes.INVENTORY_ITEM_MASTER_DEACTIVATE)
+                .withTransaction(ApiTransactionCodes.INVENTORY_ITEM_MASTER_ACTIVATE)
                 .withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
         
@@ -63,7 +64,6 @@ public class ItemMasterDeactivateQueryRequestBuilderTest {
         String xml = jaxb.marshalJsonMessage(req);
         System.out.println(xml);
         Assert.assertNotNull(xml);
-        Assert.assertTrue(xml.contains(ApiTransactionCodes.INVENTORY_ITEM_MASTER_DEACTIVATE));
+        Assert.assertTrue(xml.contains(ApiTransactionCodes.INVENTORY_ITEM_MASTER_ACTIVATE));
     }
-
 }
