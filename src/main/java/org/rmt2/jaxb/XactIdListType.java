@@ -19,16 +19,16 @@ import com.RMT2Base;
 
 
 /**
- * <p>Java class for user_resource_access_list_type complex type.
+ * <p>Java class for xact_id_list_type complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="user_resource_access_list_type">
+ * &lt;complexType name="xact_id_list_type">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="user_resource_access" type="{}user_resource_access_type" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="xact_id" type="{http://www.w3.org/2001/XMLSchema}int" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -38,45 +38,45 @@ import com.RMT2Base;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "user_resource_access_list_type", propOrder = {
-    "userResourceAccess"
+@XmlType(name = "xact_id_list_type", propOrder = {
+    "xactId"
 })
-public class UserResourceAccessListType
+public class XactIdListType
     extends RMT2Base
     implements Serializable
 {
 
     private final static long serialVersionUID = 1L;
-    @XmlElement(name = "user_resource_access")
-    protected List<UserResourceAccessType> userResourceAccess;
+    @XmlElement(name = "xact_id", type = Integer.class)
+    protected List<Integer> xactId;
 
     /**
-     * Gets the value of the userResourceAccess property.
+     * Gets the value of the xactId property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the userResourceAccess property.
+     * This is why there is not a <CODE>set</CODE> method for the xactId property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getUserResourceAccess().add(newItem);
+     *    getXactId().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link UserResourceAccessType }
+     * {@link Integer }
      * 
      * 
      */
-    public List<UserResourceAccessType> getUserResourceAccess() {
-        if (userResourceAccess == null) {
-            userResourceAccess = new ArrayList<UserResourceAccessType>();
+    public List<Integer> getXactId() {
+        if (xactId == null) {
+            xactId = new ArrayList<Integer>();
         }
-        return this.userResourceAccess;
+        return this.xactId;
     }
 
 }
