@@ -92,6 +92,7 @@ public class ApiTransactionCodes {
     public static final String ACCOUNTING_CREDITPURCHASE_REVERSE = "REVERSE_CREDITOR_PURCHASES";
     public static final String ACCOUNTING_CASHRECEIPT_GET = "GET_CASH_RECEIPT";
     public static final String ACCOUNTING_CASHRECEIPT_CREATE = "CREATE_CASH_RECEIPT";
+    public static final String ACCOUNTING_CASHRECEIPT_REVERSE = "REVERSE_CASH_RECEIPT";
 
     // Accounting - Sales Order Transactions
     public static final String ACCOUNTING_SALESORDER_GET = "GET_SALES_ORDER";
