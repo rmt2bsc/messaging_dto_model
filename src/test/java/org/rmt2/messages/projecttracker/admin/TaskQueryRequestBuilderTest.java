@@ -56,7 +56,7 @@ public class TaskQueryRequestBuilderTest {
                 
                 // Set these header elements with dummy values in order to be properly assigned later.
                 .withTransaction(ApiTransactionCodes.PROJTRACK_TASK_GET)
-                .withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
+                .withRouting(ApiTransactionCodes.ROUTE_PROJECTTRACKER)
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
         
         TaskCriteriaType criteria = fact.createTaskCriteriaType();

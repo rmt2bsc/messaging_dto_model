@@ -56,7 +56,7 @@ public class ProjectQueryRequestBuilderTest {
                 
                 // Set these header elements with dummy values in order to be properly assigned later.
                 .withTransaction(ApiTransactionCodes.PROJTRACK_PROJECT_GET)
-                .withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
+                .withRouting(ApiTransactionCodes.ROUTE_PROJECTTRACKER)
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
         
         ProjectCriteriaType criteria = fact.createProjectCriteriaType();

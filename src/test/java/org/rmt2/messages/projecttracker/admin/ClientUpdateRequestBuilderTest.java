@@ -55,7 +55,7 @@ public class ClientUpdateRequestBuilderTest {
                 // Set these header elements with dummy values in order to be
                 // properly assigned later.
                 .withTransaction(ApiTransactionCodes.PROJTRACK_CLIENT_UPDATE)
-                .withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
+                .withRouting(ApiTransactionCodes.ROUTE_PROJECTTRACKER)
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
 
         BusinessType bt1 = BusinessTypeBuilder.Builder.create()

@@ -60,7 +60,7 @@ public class ClientQueryRequestBuilderTest {
                 
                 // Set these header elements with dummy values in order to be properly assigned later.
                 .withTransaction(ApiTransactionCodes.PROJTRACK_CLIENT_GET)
-                .withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
+                .withRouting(ApiTransactionCodes.ROUTE_PROJECTTRACKER)
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
         
         ClientCriteriaType criteria = fact.createClientCriteriaType();
