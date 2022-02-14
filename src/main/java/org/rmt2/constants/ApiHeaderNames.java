@@ -18,6 +18,10 @@ public class ApiHeaderNames {
     public static final String MESSAGE_MODE_RESPONSE = "RESPONSE";
     
     public static final String DUMMY_HEADER_VALUE = "XXXXXXX";
+    
+    public static final String DELIVERY_MODE_SYNC = "SYNC";
+    
+    public static final String DELIVERY_MODE_ASYNC = "ASYNC";
 
     /**
      * Application name for accounting
