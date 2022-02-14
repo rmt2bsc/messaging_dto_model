@@ -17,6 +17,10 @@ public class ApiTransactionCodes {
     public static final String ROUTE_PROJECTTRACKER = "JMS:rmt2.queue.projecttracker";
     public static final String ROUTE_AUTHENTICATION = "JMS:rmt2.queue.authentication";
     public static final String ROUTE_MEDIA_LINK = "JMS:rmt2.topic.media";
+    
+    public static final String MODULE_ADDRESSBOOK_LOOKUP = "lookup";
+    public static final String MODULE_ADDRESSBOOK_PROFILE = "profile";
+    public static final String MODULE_ADDRESSBOOK_POSTAL = "postal";
 
     // AddressBook
     public static final String CONTACTS_GET = "GET_CONTACT";
