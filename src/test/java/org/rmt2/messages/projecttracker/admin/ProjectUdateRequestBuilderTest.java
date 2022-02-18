@@ -58,7 +58,7 @@ public class ProjectUdateRequestBuilderTest {
                 .withBillRate(120.00)
                 .withOvertimeBillRate(130.00)
                 .withProjectId(10000)
-                .withProjectName("Project Name")
+                .withProjectName("Test Project for Business Server")
                 .withEffectiveDate(RMT2Date.stringToDate("2020/1/01"))
                 .withEndDate(RMT2Date.stringToDate("2020/5/01"))
                 .build();
