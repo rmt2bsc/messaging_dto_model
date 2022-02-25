@@ -134,6 +134,7 @@ public class ApiTransactionCodes {
 
     // Project Tracker - Timesheet Transactions
     public static final String PROJTRACK_TIMESHEET_GET = "GET_TIMESHEET";
+    public static final String PROJTRACK_TIMESHEET_GET_FULLGRAPH = "GET_FULL_GRAPH_TIMESHEET";
     public static final String PROJTRACK_TIMESHEET_UPDATE = "UPDATE_TIMESHEET";
     public static final String PROJTRACK_TIMESHEET_DELETE = "DELETE_TIMESHEET";
     public static final String PROJTRACK_TIMESHEET_SUBMIT = "SUBMIT_TIMESHEET";
