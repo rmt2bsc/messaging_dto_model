@@ -483,9 +483,9 @@
 					<xsd:documentation>Summary of hours workded each day of the timesheet period.  Also contains the sum of all hours worked.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="work_log" type="project_task_type" minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="work_log" type="work_log_type" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
-					<xsd:documentation>Trackes the hours for each applicable for each project/task</xsd:documentation>
+					<xsd:documentation>Data table used to track the time its workers spend on tasks and projects</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
 			<xsd:element name="status_history" type="timesheet_status_history_type" minOccurs="0" maxOccurs="unbounded">
@@ -497,6 +497,16 @@
 		</xsd:sequence>
 	</xsd:complexType>
 
+	<xsd:complexType name="work_log_type">
+		<xsd:sequence>
+			<xsd:element name="time_entry" type="project_task_type" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Tracks the hours for each applicable for each project/task</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	
 	<xsd:complexType name="timesheet_hours_summary_type">
 		<xsd:sequence>
 			<xsd:element name="day1_hrs" type="xsd:decimal" minOccurs="1" maxOccurs="1">
