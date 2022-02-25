@@ -13,21 +13,22 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import com.RMT2Base;
 
 
 /**
- * <p>Java class for creditor_list_type complex type.
+ * <p>Java class for work_log_type complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="creditor_list_type">
+ * &lt;complexType name="work_log_type">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="creditor" type="{}creditor_type" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="time_entry" type="{}project_task_type" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -37,44 +38,45 @@ import com.RMT2Base;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "creditor_list_type", propOrder = {
-    "creditor"
+@XmlType(name = "work_log_type", propOrder = {
+    "timeEntry"
 })
-public class CreditorListType
+public class WorkLogType
     extends RMT2Base
     implements Serializable
 {
 
     private final static long serialVersionUID = 1L;
-    protected List<CreditorType> creditor;
+    @XmlElement(name = "time_entry")
+    protected List<ProjectTaskType> timeEntry;
 
     /**
-     * Gets the value of the creditor property.
+     * Gets the value of the timeEntry property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the creditor property.
+     * This is why there is not a <CODE>set</CODE> method for the timeEntry property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getCreditor().add(newItem);
+     *    getTimeEntry().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link CreditorType }
+     * {@link ProjectTaskType }
      * 
      * 
      */
-    public List<CreditorType> getCreditor() {
-        if (creditor == null) {
-            creditor = new ArrayList<CreditorType>();
+    public List<ProjectTaskType> getTimeEntry() {
+        if (timeEntry == null) {
+            timeEntry = new ArrayList<ProjectTaskType>();
         }
-        return this.creditor;
+        return this.timeEntry;
     }
 
 }

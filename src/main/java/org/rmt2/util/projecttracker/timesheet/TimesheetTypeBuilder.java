@@ -64,8 +64,11 @@ public class TimesheetTypeBuilder {
         if (builder.workLogSummary != null) {
             subject.setWorkLogSummary(builder.workLogSummary);
         }
-        if (builder.workLog != null && builder.workLog.size() > 0) {
-            subject.getWorkLog().addAll(builder.workLog);
+        if (builder.timeEntry != null && builder.timeEntry.size() > 0) {
+            if (subject.getWorkLog() == null) {
+                subject.setWorkLog(f.createWorkLogType());
+            }
+            subject.getWorkLog().getTimeEntry().addAll(builder.timeEntry);
         }
         if (builder.statusHistory != null && builder.statusHistory.size() > 0) {
             subject.getStatusHistory().addAll(builder.statusHistory);
@@ -102,7 +105,7 @@ public class TimesheetTypeBuilder {
         private EmployeeType employee;
         private TimesheetStatusType status;
         private TimesheetHoursSummaryType workLogSummary;
-        private List<ProjectTaskType> workLog;
+        private List<ProjectTaskType> timeEntry;
         private List<TimesheetStatusHistoryType> statusHistory;
         private RecordTrackingType tracking;
 
@@ -110,7 +113,7 @@ public class TimesheetTypeBuilder {
             this.client = null;
             this.employee = null;
             this.status = null;
-            this.workLog = null;
+            this.timeEntry = null;
             this.workLogSummary = null;
             this.statusHistory = null;
             this.tracking = null;
@@ -413,14 +416,14 @@ public class TimesheetTypeBuilder {
          *            an instance of {@link ProjectTaskType}
          * @return Non-null Builder used to continue building the object
          */
-        public Builder addWorkLog(ProjectTaskType value) {
+        public Builder addTimeEntry(ProjectTaskType value) {
             if (value == null) {
                 return this;
             }
-            if (this.workLog == null) {
-                this.workLog = new ArrayList<>();
+            if (this.timeEntry == null) {
+                this.timeEntry = new ArrayList<>();
             }
-            this.workLog.add(value);
+            this.timeEntry.add(value);
             return this;
         }
 
@@ -444,14 +447,14 @@ public class TimesheetTypeBuilder {
          *            an instance of List<{@link ProjectTaskType}>
          * @return Non-null Builder used to continue building the object
          */
-        public Builder addWorkLog(List<ProjectTaskType> values) {
+        public Builder addTimeEntry(List<ProjectTaskType> values) {
             if (values == null) {
                 return this;
             }
-            if (this.workLog == null) {
-                this.workLog = new ArrayList<>();
+            if (this.timeEntry == null) {
+                this.timeEntry = new ArrayList<>();
             }
-            this.workLog.addAll(values);
+            this.timeEntry.addAll(values);
             return this;
         }
 
