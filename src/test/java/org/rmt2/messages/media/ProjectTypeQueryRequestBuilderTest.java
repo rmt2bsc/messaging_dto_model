@@ -1,6 +1,5 @@
 package org.rmt2.messages.media;
 
-import java.math.BigInteger;
 import java.util.Date;
 
 import org.junit.Assert;
@@ -9,10 +8,10 @@ import org.junit.Test;
 import org.rmt2.constants.ApiHeaderNames;
 import org.rmt2.constants.ApiTransactionCodes;
 import org.rmt2.constants.MessagingConstants;
-import org.rmt2.jaxb.CodeGroupType;
+import org.rmt2.jaxb.AudioVideoCriteriaType;
 import org.rmt2.jaxb.HeaderType;
-import org.rmt2.jaxb.LookupCodesRequest;
 import org.rmt2.jaxb.MimeDetailGroup;
+import org.rmt2.jaxb.MultimediaRequest;
 import org.rmt2.jaxb.MultimediaResponse;
 import org.rmt2.jaxb.ObjectFactory;
 import org.rmt2.jaxb.ProjectTypes;
@@ -41,7 +40,7 @@ public class ProjectTypeQueryRequestBuilderTest {
     @Test
     public void testBuildRequest() {
         ObjectFactory fact = new ObjectFactory();
-        LookupCodesRequest req = fact.createLookupCodesRequest();
+        MultimediaRequest req = fact.createMultimediaRequest();
         
         HeaderType head =  HeaderTypeBuilder.Builder.create()
                 .withApplication("media")
@@ -50,21 +49,23 @@ public class ProjectTypeQueryRequestBuilderTest {
                 .withDeliveryDate(new Date())
                 
                 // Set these header elements with dummy values in order to be properly assigned later.
-                .withTransaction(ApiTransactionCodes.LOOKUP_GROUP_UPDATE)
+                .withTransaction(ApiTransactionCodes.MEDIA_PROJECTTYPE_GET)
                 .withRouting(ApiTransactionCodes.ROUTE_MULTIMEDIA)
                 .withSessionId(ConfigConstants.API_DUMMY_SESSION_ID)
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
         
-        CodeGroupType cgt = fact.createCodeGroupType();
-        cgt.setGroupId(BigInteger.valueOf(200));
-        cgt.setGroupDesc("Group Description Test");
-        req.getGroupCodes().add(cgt);
+        AudioVideoCriteriaType cgt = fact.createAudioVideoCriteriaType();
+        cgt.setProjectTypeId(200);
+        cgt.setProjectTypeName("Project Type Description Test");
+
+        req.setCriteria(fact.createMimeCriteriaGroup());
+        req.getCriteria().setAudioVideoCriteria(cgt);
         req.setHeader(head);
         
         String xml = jaxb.marshalJsonMessage(req);
         System.out.println(xml);
         Assert.assertNotNull(xml);
-        Assert.assertTrue(xml.contains(ApiTransactionCodes.LOOKUP_GROUP_UPDATE));
+        Assert.assertTrue(xml.contains(ApiTransactionCodes.MEDIA_PROJECTTYPE_GET));
     }
  
     @Test
@@ -80,7 +81,7 @@ public class ProjectTypeQueryRequestBuilderTest {
 
                 // Set these header elements with dummy values in order to be
                 // properly assigned later.
-                .withTransaction(ApiTransactionCodes.LOOKUP_GROUP_UPDATE)
+                .withTransaction(ApiTransactionCodes.MEDIA_PROJECTTYPE_GET)
                 .withRouting(ApiTransactionCodes.ROUTE_MULTIMEDIA)
                 .withSessionId(ConfigConstants.API_DUMMY_SESSION_ID)
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
@@ -89,16 +90,10 @@ public class ProjectTypeQueryRequestBuilderTest {
         ProjectTypes g2t = fact.createProjectTypes();
         
         ProjecttypeType g = ProjecttypeTypeBuilder.Builder.create()
-                .withUID(55)
-                .withName("Audio")
+                .withUID(200)
+                .withName("Project Type Description Test")
                 .build();
-        g2t.getProjectType().add(g);        
-
-        g = ProjecttypeTypeBuilder.Builder.create()
-                .withUID(55)
-                .withName("Video")
-                .build();
-        g2t.getProjectType().add(g); 
+        g2t.getProjectType().add(g);
         
         cgt.setProjecttypes(g2t);
 
@@ -108,6 +103,6 @@ public class ProjectTypeQueryRequestBuilderTest {
         String xml = jaxb.marshalJsonMessage(req);
         System.out.println(xml);
         Assert.assertNotNull(xml);
-        Assert.assertTrue(xml.contains(ApiTransactionCodes.LOOKUP_GROUP_UPDATE));
+        Assert.assertTrue(xml.contains(ApiTransactionCodes.MEDIA_PROJECTTYPE_GET));
     }
 }

@@ -148,6 +148,7 @@ public class ApiTransactionCodes {
     // MultiMedia Transactions
     public static final String MEDIA_GENRE_GET = "GET_GENRE";
     public static final String MEDIA_MEDIATYPE_GET = "GET_MEDIA_TYPE";
+    public static final String MEDIA_PROJECTTYPE_GET = "GET_PROJECT_TYPE";
     public static final String MEDIA_AUDIO_METADATA_IMPORT_BATCH = "BATCH_AUDIO_METADATA_IMPORT";
     public static final String MEDIA_VIDEO_METADATA_IMPORT_BATCH = "BATCH_VIDEO_METADATA_IMPORT";
     public static final String MEDIA_ARTIST_GET = "GET_ARTIST";
