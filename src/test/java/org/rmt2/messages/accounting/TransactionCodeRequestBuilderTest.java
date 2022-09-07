@@ -49,6 +49,7 @@ public class TransactionCodeRequestBuilderTest {
                 // Set these header elements with dummy values in order to be properly assigned later.
                 .withTransaction(ApiTransactionCodes.ACCOUNTING_TRANSACTION_CODE_GET)
                 .withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
+                .withSessionId("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
         
         XactCodeCriteriaType criteria = fact.createXactCodeCriteriaType();
