@@ -31,7 +31,7 @@ public class UserTypeBuilder {
     private UserTypeBuilder(Builder builder) {
         ObjectFactory f = new ObjectFactory();
         subject = f.createUserType();
-        subject.setLoginId(builder.loginId);
+        subject.setLoginId(builder.loginId == null ? 0 : builder.loginId);
         subject.setUserName(builder.userName);
         subject.setFirstName(builder.firstName);
         subject.setLastName(builder.lastName);

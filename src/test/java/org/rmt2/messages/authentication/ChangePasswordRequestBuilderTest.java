@@ -58,6 +58,7 @@ public class ChangePasswordRequestBuilderTest {
         AuthProfileGroupType apgt = fact.createAuthProfileGroupType();
 
         UserType ut = UserTypeBuilder.Builder.create()
+                .withLoginId(10)
                 .withUsername("testuser")
                 .withPassword("testpassword")
                 .build();
@@ -94,6 +95,7 @@ public class ChangePasswordRequestBuilderTest {
         AuthProfileGroupType apgt = fact.createAuthProfileGroupType();
 
         UserType ut = UserTypeBuilder.Builder.create()
+                .withLoginId(10)
                 .withUsername("username")
                 .build();
 

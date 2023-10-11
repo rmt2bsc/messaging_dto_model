@@ -17,9 +17,13 @@ import org.rmt2.jaxb.ObjectFactory;
 import org.rmt2.jaxb.ResourceCriteriaType;
 import org.rmt2.jaxb.ResourceType;
 import org.rmt2.jaxb.ResourcesInfoType;
+import org.rmt2.jaxb.ResourcesubtypeType;
+import org.rmt2.jaxb.ResourcetypeType;
 import org.rmt2.util.HeaderTypeBuilder;
+import org.rmt2.util.authentication.ResourceSubtypeTypeBuilder;
 import org.rmt2.util.authentication.ResourceTypeBuilder;
 import org.rmt2.util.authentication.ResourcesInfoTypeBuilder;
+import org.rmt2.util.authentication.ResourcetypeTypeBuilder;
 
 import com.api.config.ConfigConstants;
 import com.api.config.SystemConfigurator;
@@ -97,10 +101,20 @@ public class ResourceQueryRequestBuilderTest {
                 .build();
 
         AuthProfileGroupType apgt = fact.createAuthProfileGroupType();
+
+        ResourcetypeType rtt = ResourcetypeTypeBuilder.Builder.create()
+                .withTypeId(777)
+                .withDescription("rsrouce type Name7")
+                .build();
+
+        ResourcesubtypeType rst = ResourceSubtypeTypeBuilder.Builder.create()
+                .withSubTypeId(0)
+                .build();
+
         ResourceType rt1 = ResourceTypeBuilder.Builder.create()
                 .withResourceId(1)
-                .withTypeId(10)
-                .withSubTypeId(100)
+                .withType(rtt)
+                .withSubType(rst)
                 .withName("Resource Name 1")
                 .withDescription("rsrouce Description 1")
                 .withUrl("Resource URL 1")
@@ -110,8 +124,8 @@ public class ResourceQueryRequestBuilderTest {
 
         ResourceType rt2 = ResourceTypeBuilder.Builder.create()
                 .withResourceId(1)
-                .withTypeId(10)
-                .withSubTypeId(101)
+                .withType(rtt)
+                .withSubType(rst)
                 .withName("Resource Name 2")
                 .withDescription("rsrouce Description 2")
                 .withUrl("Resource URL 2")

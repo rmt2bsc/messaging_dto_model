@@ -3,6 +3,8 @@ package org.rmt2.util.authentication;
 import org.rmt2.jaxb.ObjectFactory;
 import org.rmt2.jaxb.RecordTrackingType;
 import org.rmt2.jaxb.ResourceType;
+import org.rmt2.jaxb.ResourcesubtypeType;
+import org.rmt2.jaxb.ResourcetypeType;
 
 /**
  * Resource Builder.
@@ -21,8 +23,8 @@ public class ResourceTypeBuilder {
         ObjectFactory f = new ObjectFactory();
         subject = f.createResourceType();
         subject.setUid(builder.resourceId);
-        subject.setTypeId(builder.resourceTypeId == 0 ? null : builder.resourceTypeId);
-        subject.setSubtypeId(builder.resourceSubTypeId == 0 ? null : builder.resourceSubTypeId);
+        subject.setTypeInfo(builder.typeInfo == null ? null : builder.typeInfo);
+        subject.setSubtypeInfo(builder.subTypeInfo == null ? null : builder.subTypeInfo);
         subject.setCode(builder.name);
         subject.setDescription(builder.description);
         subject.setUrl(builder.url);
@@ -39,8 +41,8 @@ public class ResourceTypeBuilder {
      */
     public static final class Builder {
         private int resourceId;
-        private int resourceTypeId;
-        private int resourceSubTypeId;
+        private ResourcetypeType typeInfo;
+        private ResourcesubtypeType subTypeInfo;
         private String name;
         private String description;
         private String url;
@@ -85,8 +87,8 @@ public class ResourceTypeBuilder {
          * @throws VerifyException
          *             if the parameter conditions are not met.
          */
-        public Builder withSubTypeId(int value) {
-            this.resourceSubTypeId = value;
+        public Builder withSubType(ResourcesubtypeType value) {
+            this.subTypeInfo = value;
             return this;
         }
 
@@ -99,8 +101,8 @@ public class ResourceTypeBuilder {
          * @throws VerifyException
          *             if the parameter conditions are not met.
          */
-        public Builder withTypeId(int value) {
-            this.resourceTypeId = value;
+        public Builder withType(ResourcetypeType value) {
+            this.typeInfo = value;
             return this;
         }
 

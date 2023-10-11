@@ -3,6 +3,7 @@ package org.rmt2.util.authentication;
 import org.rmt2.jaxb.ObjectFactory;
 import org.rmt2.jaxb.RecordTrackingType;
 import org.rmt2.jaxb.ResourcesubtypeType;
+import org.rmt2.jaxb.ResourcetypeType;
 
 /**
  * Resource Sub Type Builder.
@@ -21,7 +22,7 @@ public class ResourceSubtypeTypeBuilder {
         ObjectFactory f = new ObjectFactory();
         subject = f.createResourcesubtypeType();
         subject.setUid(builder.resourceSubTypeId);
-        subject.setResourceTypeId(builder.resourceTypeId);
+        subject.setTypeInfo(builder.resourceType);
         subject.setCode(builder.name);
         subject.setDescription(builder.description);
         subject.setTracking(builder.tracking);
@@ -35,7 +36,7 @@ public class ResourceSubtypeTypeBuilder {
      */
     public static final class Builder {
         private int resourceSubTypeId;
-        private int resourceTypeId;
+        private ResourcetypeType resourceType;
         private String name;
         private String description;
         private RecordTrackingType tracking;
@@ -72,13 +73,13 @@ public class ResourceSubtypeTypeBuilder {
          * Set up resource type id
          * 
          * @param value
-         *            an int value that must be greater than or equal to zero
+         *            an {@link ResourcetypeType}
          * @return Non-null Builder used to continue building the object
          * @throws VerifyException
          *             if the parameter conditions are not met.
          */
-        public Builder withTypeId(int value) {
-            this.resourceTypeId = value;
+        public Builder withType(ResourcetypeType value) {
+            this.resourceType = value;
             return this;
         }
 

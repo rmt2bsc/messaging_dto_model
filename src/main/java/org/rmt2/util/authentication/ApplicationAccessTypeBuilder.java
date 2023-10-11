@@ -142,6 +142,7 @@ public class ApplicationAccessTypeBuilder {
         public Builder withUserName(String value) {
             if (this.userInfo == null) {
                 this.userInfo = UserTypeBuilder.Builder.create()
+                        .withLoginId(10)
                         .withUsername(value)
                         .build();
             }

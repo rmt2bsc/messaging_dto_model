@@ -331,12 +331,12 @@
 					<xsd:documentation>This is the user resource description</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="type_id" type="xsd:int"  minOccurs="0" maxOccurs="1">
+			<xsd:element name="type_info" type="resourcetype_type"  minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>This is the id of the resource type</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="subtype_id" type="xsd:int"  minOccurs="0" maxOccurs="1">
+			<xsd:element name="subtype_info" type="resourcesubtype_type"  minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>This is the id of the resource sub type</xsd:documentation>
 				</xsd:annotation>
@@ -389,7 +389,7 @@
 					<xsd:documentation>This is the id of the resource sub type</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="resource_type_id" type="xsd:int"  minOccurs="0" maxOccurs="1">
+			<xsd:element name="type_info" type="resourcetype_type"  minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>This is the id of the assoicated resource type</xsd:documentation>
 				</xsd:annotation>
