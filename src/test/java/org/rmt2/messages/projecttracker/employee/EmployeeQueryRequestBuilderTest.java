@@ -55,8 +55,8 @@ public class EmployeeQueryRequestBuilderTest {
         ProjectProfileRequest req = fact.createProjectProfileRequest();
         
         HeaderType head =  HeaderTypeBuilder.Builder.create()
-                .withApplication("projecttracker")
-                .withModule("employee")
+                .withApplication(ApiTransactionCodes.APP_PROJECTTRACKER)
+                .withModule(ApiTransactionCodes.MODULE_PROJECTTRACKER_EMPLOYEE)
                 .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
                 .withDeliveryDate(new Date())
                 
@@ -95,8 +95,8 @@ public class EmployeeQueryRequestBuilderTest {
         ProjectProfileResponse resp = fact.createProjectProfileResponse();
 
         HeaderType head = HeaderTypeBuilder.Builder.create()
-                .withApplication("projecttracker")
-                .withModule(ConfigConstants.API_APP_MODULE_VALUE)
+                .withApplication(ApiTransactionCodes.APP_PROJECTTRACKER)
+                .withModule(ApiTransactionCodes.MODULE_PROJECTTRACKER_EMPLOYEE)
                 .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
                 .withDeliveryDate(new Date())
 

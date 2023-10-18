@@ -45,13 +45,13 @@ public class MimeContentTypeRequestBuilderTest {
         LookupCodesRequest req = fact.createLookupCodesRequest();
         
         HeaderType head =  HeaderTypeBuilder.Builder.create()
-                .withApplication("media")
-                .withModule(ConfigConstants.API_APP_MODULE_VALUE)
+                .withApplication(ApiTransactionCodes.APP_MEDIA)
+                .withModule(ApiTransactionCodes.MODULE_MEDIA_MAINT)
                 .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
                 .withDeliveryDate(new Date())
                 
                 // Set these header elements with dummy values in order to be properly assigned later.
-                .withTransaction(ApiTransactionCodes.LOOKUP_GROUP_UPDATE)
+                .withTransaction(ApiTransactionCodes.MEDIA_CONTENT_GET)
                 .withRouting(ApiTransactionCodes.ROUTE_MULTIMEDIA)
                 .withSessionId(ConfigConstants.API_DUMMY_SESSION_ID)
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
@@ -65,7 +65,7 @@ public class MimeContentTypeRequestBuilderTest {
         String xml = jaxb.marshalJsonMessage(req);
         System.out.println(xml);
         Assert.assertNotNull(xml);
-        Assert.assertTrue(xml.contains(ApiTransactionCodes.LOOKUP_GROUP_UPDATE));
+        Assert.assertTrue(xml.contains(ApiTransactionCodes.MEDIA_CONTENT_GET));
     }
  
     @Test
@@ -74,14 +74,14 @@ public class MimeContentTypeRequestBuilderTest {
         MultimediaResponse req = fact.createMultimediaResponse();
 
         HeaderType head = HeaderTypeBuilder.Builder.create()
-                .withApplication("mime")
-                .withModule(ConfigConstants.API_APP_MODULE_VALUE)
+                .withApplication(ApiTransactionCodes.APP_MEDIA)
+                .withModule(ApiTransactionCodes.MODULE_MEDIA_MAINT)
                 .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
                 .withDeliveryDate(new Date())
 
                 // Set these header elements with dummy values in order to be
                 // properly assigned later.
-                .withTransaction(ApiTransactionCodes.LOOKUP_GROUP_UPDATE)
+                .withTransaction(ApiTransactionCodes.MEDIA_CONTENT_GET)
                 .withRouting(ApiTransactionCodes.ROUTE_MULTIMEDIA)
                 .withSessionId(ConfigConstants.API_DUMMY_SESSION_ID)
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
@@ -112,6 +112,6 @@ public class MimeContentTypeRequestBuilderTest {
         String xml = jaxb.marshalJsonMessage(req);
         System.out.println(xml);
         Assert.assertNotNull(xml);
-        Assert.assertTrue(xml.contains(ApiTransactionCodes.LOOKUP_GROUP_UPDATE));
+        Assert.assertTrue(xml.contains(ApiTransactionCodes.MEDIA_CONTENT_GET));
     }
 }

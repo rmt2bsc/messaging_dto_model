@@ -2,15 +2,37 @@ package org.rmt2.constants;
 
 public class ApiTransactionCodes {
 
+    // Applications/Projects
     public static final String APP_ADDRESSBOOK = "addressbook";
     public static final String APP_ACCOUNTING = "accounting";
-    public static final String APP_MULTIMEDIA = "multimedia";
+    public static final String APP_MEDIA = "media";
     public static final String APP_SECURITY = "security";
     public static final String APP_PROJECTTRACKER = "projecttracker";
     public static final String APP_AUTHENTICATION = "authentication";
 
-    public static final String MOODULE_GL = "generalledger";
+    // Application/Project Modules
+    public static final String MODULE_SECURITY_ADMIN = "admin";
+    public static final String MODULE_SECURITY_AUTHENTICATION = "auth";
 
+    public static final String MODULE_ADDRESSBOOK_LOOKUP = "lookup";
+    public static final String MODULE_ADDRESSBOOK_PROFILE = "profile";
+    public static final String MODULE_ADDRESSBOOK_POSTAL = "postal";
+
+    public static final String MODULE_ACCOUNTING_GL = "generalledger";
+    public static final String MODULE_ACCOUNTING_SUBSIDIARY = "subsidiary";
+    public static final String MODULE_ACCOUNTING_INV = "inventory";
+    public static final String MODULE_ACCOUNTING_XACT = "transaction";
+
+    public static final String MODULE_PROJECTTRACKER_ADMIN = "admin";
+    public static final String MODULE_PROJECTTRACKER_EMPLOYEE = "employee";
+    public static final String MODULE_PROJECTTRACKER_TIMESHEET = "timesheet";
+
+    public static final String MODULE_MEDIA_LOOKUP = "lookup";
+    public static final String MODULE_MEDIA_MAINT = "maint";
+    public static final String MODULE_MEDIA_BATCH = "batch";
+    public static final String MODULE_MEDIA_LISTENER = "listener";
+
+    // Routing
     public static final String ROUTE_ACCOUNTING = "JMS:rmt2.queue.accounting";
     public static final String ROUTE_ADDRESSBOOK = "JMS:rmt2.queue.addressbook";
     public static final String ROUTE_MULTIMEDIA = "JMS:rmt2.queue.media";
@@ -18,11 +40,9 @@ public class ApiTransactionCodes {
     public static final String ROUTE_AUTHENTICATION = "JMS:rmt2.queue.authentication";
     public static final String ROUTE_MEDIA_LINK = "JMS:rmt2.topic.media";
     
-    public static final String MODULE_ADDRESSBOOK_LOOKUP = "lookup";
-    public static final String MODULE_ADDRESSBOOK_PROFILE = "profile";
-    public static final String MODULE_ADDRESSBOOK_POSTAL = "postal";
 
-    // AddressBook
+
+    // AddressBook Transactions
     public static final String CONTACTS_GET = "GET_CONTACT";
     public static final String CONTACTS_UPDATE = "UPDATE_CONTACT";
     public static final String CONTACTS_DELETE = "DELETE_CONTACT";
@@ -38,7 +58,7 @@ public class ApiTransactionCodes {
     public static final String IP_INFO_GET = "GET_IP_INFO";
     public static final String TIMEZONE_GET = "GET_TIMEZONE";
 
-    // Accounting - General Ledger
+    // Accounting - General Ledger Transactions
     public static final String GL_ACCOUNT_GET = "GET_GL_ACCOUNT";
     public static final String GL_ACCOUNT_UPDATE = "UPDATE_GL_ACCOUNT";
     public static final String GL_ACCOUNT_DELETE = "DELETE_GL_ACCOUNT";
@@ -47,7 +67,7 @@ public class ApiTransactionCodes {
     public static final String GL_ACCOUNT_CATG_UPDATE = "UPDATE_GL_ACCOUNT_CATG";
     public static final String GL_ACCOUNT_CATG_DELETE = "DELETE_GL_ACCOUNT_CATG";
 
-    // Accounting - Inventory
+    // Accounting - Inventory Transactions
     public static final String INVENTORY_ITEM_STATUS_GET = "GET_ITEM_STATUS";
     public static final String INVENTORY_ITEM_STATUS_HIST_GET = "GET_ITEM_STATUS_HIST";
     public static final String INVENTORY_ITEM_CURRENT_STATUS_HIST_GET = "GET_CURRENT_ITEM_STATUS_HIST";
@@ -66,7 +86,7 @@ public class ApiTransactionCodes {
     public static final String INVENTORY_VENDOR_ITEM_REMOVE = "REMOVE_VENDOR_ITEM";
     public static final String INVENTORY_VENDOR_ITEM_UPDATE = "UPDATE_VENDOR_ITEM";
 
-    // Accounting - Subsidiary
+    // Accounting - Subsidiary Transactions
     public static final String SUBSIDIARY_CUSTOMER_GET = "GET_CUSTOMER";
     public static final String SUBSIDIARY_CUSTOMER_UPDATE = "UPDATE_CUSTOMER";
     public static final String SUBSIDIARY_CUSTOMER_DELETE = "DELETE_CUSTOMER";
@@ -77,11 +97,11 @@ public class ApiTransactionCodes {
     public static final String SUBSIDIARY_CREDITOR_TRAN_HIST_GET = "GET_CREDITOR_TRAN_HIST";
     public static final String SUBSIDIARY_CREDITOR_TYPE_GET = "GET_CREDITOR_TYPE";
 
-    // Accounting - Transaction Code
+    // Accounting - Transaction Code Transactions
     public static final String ACCOUNTING_TRANSACTION_GROUP_GET = "GET_TRANS_GROUP";
     public static final String ACCOUNTING_TRANSACTION_CODE_GET = "GET_TRANS_CODE";
 
-    // Accounting - Basic Transaction
+    // Accounting - Basic Transactions
     public static final String ACCOUNTING_GENERIC_TRANSACTION_GET = "GET_GENERIC_TRANSACTION";
     public static final String ACCOUNTING_TRANSACTION_GET = "GET_TRANSACTION";
     public static final String ACCOUNTING_TRANSACTION_CREATE = "CREATE_TRANSACTION";

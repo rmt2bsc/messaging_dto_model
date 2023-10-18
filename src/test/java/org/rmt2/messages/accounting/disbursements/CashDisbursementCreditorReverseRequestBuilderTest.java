@@ -51,7 +51,7 @@ public class CashDisbursementCreditorReverseRequestBuilderTest {
         
         HeaderType head =  HeaderTypeBuilder.Builder.create()
                 .withApplication(ApiTransactionCodes.APP_ACCOUNTING)
-                .withModule("transaction")
+                .withModule(ApiTransactionCodes.MODULE_ACCOUNTING_XACT)
                 .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
                 .withDeliveryDate(new Date())
                 

@@ -41,8 +41,8 @@ public class ProjectUdateRequestBuilderTest {
         ProjectProfileRequest req = fact.createProjectProfileRequest();
         
         HeaderType head =  HeaderTypeBuilder.Builder.create()
-                .withApplication("projecttracker")
-                .withModule("admin")
+                .withApplication(ApiTransactionCodes.APP_PROJECTTRACKER)
+                .withModule(ApiTransactionCodes.MODULE_PROJECTTRACKER_ADMIN)
                 .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
                 .withDeliveryDate(new Date())
                 

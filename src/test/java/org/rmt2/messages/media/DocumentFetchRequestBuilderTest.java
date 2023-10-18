@@ -61,8 +61,8 @@ public class DocumentFetchRequestBuilderTest {
         MultimediaRequest req = fact.createMultimediaRequest();
         
         HeaderType head =  HeaderTypeBuilder.Builder.create()
-                .withApplication("media")
-                .withModule("maint")
+                .withApplication(ApiTransactionCodes.APP_MEDIA)
+                .withModule(ApiTransactionCodes.MODULE_MEDIA_MAINT)
                 .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
                 .withDeliveryDate(new Date())
                 
@@ -103,8 +103,8 @@ public class DocumentFetchRequestBuilderTest {
         MultimediaResponse resp = fact.createMultimediaResponse();
 
         HeaderType head = HeaderTypeBuilder.Builder.create()
-                .withApplication("media")
-                .withModule("maint")
+                .withApplication(ApiTransactionCodes.APP_MEDIA)
+                .withModule(ApiTransactionCodes.MODULE_MEDIA_MAINT)
                 .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
                 .withDeliveryDate(new Date())
 

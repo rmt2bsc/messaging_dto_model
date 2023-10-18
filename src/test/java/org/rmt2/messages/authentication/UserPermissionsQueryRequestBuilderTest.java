@@ -49,8 +49,8 @@ public class UserPermissionsQueryRequestBuilderTest {
         AuthenticationRequest req = fact.createAuthenticationRequest();
         
         HeaderType head =  HeaderTypeBuilder.Builder.create()
-                .withApplication(ApiHeaderNames.APP_NAME_AUTHENTICATION)
-                .withModule("admin")
+                .withApplication(ApiTransactionCodes.APP_SECURITY)
+                .withModule(ApiTransactionCodes.MODULE_SECURITY_ADMIN)
                 .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
                 .withDeliveryDate(new Date())
                 
@@ -93,8 +93,8 @@ public class UserPermissionsQueryRequestBuilderTest {
         AuthenticationResponse resp = fact.createAuthenticationResponse();
 
         HeaderType head = HeaderTypeBuilder.Builder.create()
-                .withApplication(ApiHeaderNames.APP_NAME_AUTHENTICATION)
-                .withModule("admin")
+                .withApplication(ApiTransactionCodes.APP_SECURITY)
+                .withModule(ApiTransactionCodes.MODULE_SECURITY_ADMIN)
                 .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
                 .withDeliveryDate(new Date())
 

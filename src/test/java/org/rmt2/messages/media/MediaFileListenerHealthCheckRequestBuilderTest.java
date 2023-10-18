@@ -42,8 +42,8 @@ public class MediaFileListenerHealthCheckRequestBuilderTest {
         MultimediaRequest req = fact.createMultimediaRequest();
         
         HeaderType head =  HeaderTypeBuilder.Builder.create()
-                .withApplication("media")
-                .withModule("listener")
+                .withApplication(ApiTransactionCodes.APP_MEDIA)
+                .withModule(ApiTransactionCodes.MODULE_MEDIA_LISTENER)
                 .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
                 .withDeliveryDate(new Date())
                 
@@ -67,8 +67,8 @@ public class MediaFileListenerHealthCheckRequestBuilderTest {
         MultimediaResponse resp = fact.createMultimediaResponse();
 
         HeaderType head = HeaderTypeBuilder.Builder.create()
-                .withApplication("media")
-                .withModule("listener")
+                .withApplication(ApiTransactionCodes.APP_MEDIA)
+                .withModule(ApiTransactionCodes.MODULE_MEDIA_LISTENER)
                 .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
                 .withDeliveryDate(new Date())
 

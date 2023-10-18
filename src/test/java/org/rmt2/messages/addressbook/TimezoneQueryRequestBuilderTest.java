@@ -39,8 +39,8 @@ public class TimezoneQueryRequestBuilderTest {
         PostalRequest req = fact.createPostalRequest();
         
         HeaderType head =  HeaderTypeBuilder.Builder.create()
-                .withApplication("addressbook")
-                .withModule("postal")
+                .withApplication(ApiTransactionCodes.APP_ADDRESSBOOK)
+                .withModule(ApiTransactionCodes.MODULE_ADDRESSBOOK_POSTAL)
                 .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
                 .withDeliveryDate(new Date())
                 

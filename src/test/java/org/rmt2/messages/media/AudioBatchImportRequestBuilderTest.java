@@ -44,8 +44,8 @@ public class AudioBatchImportRequestBuilderTest {
         MultimediaRequest req = fact.createMultimediaRequest();
         
         HeaderType head =  HeaderTypeBuilder.Builder.create()
-                .withApplication("media")
-                .withModule("batch")
+                .withApplication(ApiTransactionCodes.APP_MEDIA)
+                .withModule(ApiTransactionCodes.MODULE_MEDIA_BATCH)
                 .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
                 .withDeliveryDate(new Date())
                 
@@ -79,8 +79,8 @@ public class AudioBatchImportRequestBuilderTest {
         MultimediaResponse req = fact.createMultimediaResponse();
 
         HeaderType head = HeaderTypeBuilder.Builder.create()
-                .withApplication("mime")
-                .withModule("batch")
+                .withApplication(ApiTransactionCodes.APP_MEDIA)
+                .withModule(ApiTransactionCodes.MODULE_MEDIA_BATCH)
                 .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
                 .withDeliveryDate(new Date())
 

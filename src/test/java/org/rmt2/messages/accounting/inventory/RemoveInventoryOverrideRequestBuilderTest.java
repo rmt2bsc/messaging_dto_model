@@ -44,8 +44,8 @@ public class RemoveInventoryOverrideRequestBuilderTest {
         InventoryRequest req = fact.createInventoryRequest();
         
         HeaderType head =  HeaderTypeBuilder.Builder.create()
-                .withApplication("accounting")
-                .withModule("inventory")
+                .withApplication(ApiTransactionCodes.APP_ACCOUNTING)
+                .withModule(ApiTransactionCodes.MODULE_ACCOUNTING_INV)
                 .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
                 .withDeliveryDate(new Date())
                 

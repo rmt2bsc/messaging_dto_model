@@ -49,8 +49,8 @@ public class BusinessContactQueryRequestBuilderTest {
         AddressBookRequest req = fact.createAddressBookRequest();
         
         HeaderType head =  HeaderTypeBuilder.Builder.create()
-                .withApplication("App Name")
-                .withModule(ConfigConstants.API_APP_MODULE_VALUE)
+                .withApplication(ApiTransactionCodes.APP_ADDRESSBOOK)
+                .withModule(ApiTransactionCodes.MODULE_ADDRESSBOOK_PROFILE)
                 .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
                 .withDeliveryDate(new Date())
                 

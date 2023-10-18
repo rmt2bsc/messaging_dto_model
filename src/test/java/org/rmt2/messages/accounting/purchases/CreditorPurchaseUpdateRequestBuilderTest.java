@@ -50,8 +50,8 @@ public class CreditorPurchaseUpdateRequestBuilderTest {
         AccountingTransactionRequest req = fact.createAccountingTransactionRequest();
         
         HeaderType head =  HeaderTypeBuilder.Builder.create()
-                .withApplication("accounting")
-                .withModule("transaction")
+                .withApplication(ApiTransactionCodes.APP_ACCOUNTING)
+                .withModule(ApiTransactionCodes.MODULE_ACCOUNTING_XACT)
                 .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
                 .withDeliveryDate(new Date())
                 

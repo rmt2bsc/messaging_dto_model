@@ -43,8 +43,8 @@ public class MediaTypeQueryRequestBuilderTest {
         MultimediaRequest req = fact.createMultimediaRequest();
         
         HeaderType head =  HeaderTypeBuilder.Builder.create()
-                .withApplication("media")
-                .withModule(ConfigConstants.API_APP_MODULE_VALUE)
+                .withApplication(ApiTransactionCodes.APP_MEDIA)
+                .withModule(ApiTransactionCodes.MODULE_MEDIA_LOOKUP)
                 .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
                 .withDeliveryDate(new Date())
                 
@@ -74,8 +74,8 @@ public class MediaTypeQueryRequestBuilderTest {
         MultimediaResponse req = fact.createMultimediaResponse();
 
         HeaderType head = HeaderTypeBuilder.Builder.create()
-                .withApplication("mime")
-                .withModule(ConfigConstants.API_APP_MODULE_VALUE)
+                .withApplication(ApiTransactionCodes.APP_MEDIA)
+                .withModule(ApiTransactionCodes.MODULE_MEDIA_LOOKUP)
                 .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
                 .withDeliveryDate(new Date())
 

@@ -11,7 +11,6 @@ import org.rmt2.constants.ApiHeaderNames;
 import org.rmt2.constants.ApiTransactionCodes;
 import org.rmt2.constants.MessagingConstants;
 import org.rmt2.jaxb.AccountingTransactionRequest;
-import org.rmt2.jaxb.BusinessType;
 import org.rmt2.jaxb.CustomerType;
 import org.rmt2.jaxb.HeaderType;
 import org.rmt2.jaxb.ObjectFactory;
@@ -22,7 +21,6 @@ import org.rmt2.jaxb.XactType;
 import org.rmt2.util.HeaderTypeBuilder;
 import org.rmt2.util.accounting.subsidiary.CustomerTypeBuilder;
 import org.rmt2.util.accounting.transaction.XacttypeTypeBuilder;
-import org.rmt2.util.addressbook.BusinessTypeBuilder;
 
 import com.api.config.ConfigConstants;
 import com.api.config.SystemConfigurator;
@@ -49,8 +47,8 @@ public class CustomerCashPaymentReverseRequestBuilderTest {
         AccountingTransactionRequest req = fact.createAccountingTransactionRequest();
         
         HeaderType head =  HeaderTypeBuilder.Builder.create()
-                .withApplication("accounting")
-                .withModule("transaction")
+                .withApplication(ApiTransactionCodes.APP_ACCOUNTING)
+                .withModule(ApiTransactionCodes.MODULE_ACCOUNTING_XACT)
                 .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
                 .withDeliveryDate(new Date())
                 

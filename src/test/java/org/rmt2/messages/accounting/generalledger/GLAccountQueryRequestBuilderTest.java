@@ -47,7 +47,7 @@ public class GLAccountQueryRequestBuilderTest {
         
         HeaderType head =  HeaderTypeBuilder.Builder.create()
                 .withApplication(ApiTransactionCodes.APP_ACCOUNTING)
-                .withModule(ApiTransactionCodes.MOODULE_GL)
+                .withModule(ApiTransactionCodes.MODULE_ACCOUNTING_GL)
                 .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
                 .withDeliveryDate(new Date())
                 

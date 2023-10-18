@@ -39,8 +39,8 @@ public class LookupGroupQueryRequestBuilderTest {
         LookupCodesRequest req = fact.createLookupCodesRequest();
         
         HeaderType head =  HeaderTypeBuilder.Builder.create()
-                .withApplication("addressbook")
-                .withModule(ConfigConstants.API_APP_MODULE_VALUE)
+                .withApplication(ApiTransactionCodes.APP_ADDRESSBOOK)
+                .withModule(ApiTransactionCodes.MODULE_ADDRESSBOOK_LOOKUP)
                 .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
                 .withDeliveryDate(new Date())
                 

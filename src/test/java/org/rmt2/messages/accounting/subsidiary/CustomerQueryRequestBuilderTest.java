@@ -44,8 +44,8 @@ public class CustomerQueryRequestBuilderTest {
         AccountingTransactionRequest req = fact.createAccountingTransactionRequest();
         
         HeaderType head =  HeaderTypeBuilder.Builder.create()
-                .withApplication("accounting")
-                .withModule("subsidiary")
+                .withApplication(ApiTransactionCodes.APP_ACCOUNTING)
+                .withModule(ApiTransactionCodes.MODULE_ACCOUNTING_SUBSIDIARY)
                 .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
                 .withDeliveryDate(new Date())
                 

@@ -48,8 +48,8 @@ public class UserLogoutRequestBuilderTest {
         AuthenticationRequest req = fact.createAuthenticationRequest();
         
         HeaderType head =  HeaderTypeBuilder.Builder.create()
-                .withApplication(ApiHeaderNames.APP_NAME_AUTHENTICATION)
-                .withModule("auth")
+                .withApplication(ApiTransactionCodes.APP_SECURITY)
+                .withModule(ApiTransactionCodes.MODULE_SECURITY_AUTHENTICATION)
                 .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
                 .withDeliveryDate(new Date())
                 
@@ -81,8 +81,8 @@ public class UserLogoutRequestBuilderTest {
         AuthenticationResponse resp = fact.createAuthenticationResponse();
 
         HeaderType head = HeaderTypeBuilder.Builder.create()
-                .withApplication(ApiHeaderNames.APP_NAME_AUTHENTICATION)
-                .withModule("auth")
+                .withApplication(ApiTransactionCodes.APP_SECURITY)
+                .withModule(ApiTransactionCodes.MODULE_SECURITY_AUTHENTICATION)
                 .withMessageMode(ApiHeaderNames.MESSAGE_MODE_RESPONSE)
                 .withDeliveryDate(new Date())
 

@@ -41,8 +41,8 @@ public class TimesheetStatusQueryRequestBuilderTest {
         ProjectProfileRequest req = fact.createProjectProfileRequest();
         
         HeaderType head =  HeaderTypeBuilder.Builder.create()
-                .withApplication("projecttracker")
-                .withModule("timesheet")
+                .withApplication(ApiTransactionCodes.APP_PROJECTTRACKER)
+                .withModule(ApiTransactionCodes.MODULE_PROJECTTRACKER_TIMESHEET)
                 .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
                 .withDeliveryDate(new Date())
                 
@@ -66,8 +66,8 @@ public class TimesheetStatusQueryRequestBuilderTest {
         ProjectProfileResponse resp = fact.createProjectProfileResponse();
 
         HeaderType head = HeaderTypeBuilder.Builder.create()
-                .withApplication("projecttracker")
-                .withModule(ConfigConstants.API_APP_MODULE_VALUE)
+                .withApplication(ApiTransactionCodes.APP_PROJECTTRACKER)
+                .withModule(ApiTransactionCodes.MODULE_PROJECTTRACKER_TIMESHEET)
                 .withMessageMode(ApiHeaderNames.MESSAGE_MODE_REQUEST)
                 .withDeliveryDate(new Date())
 
