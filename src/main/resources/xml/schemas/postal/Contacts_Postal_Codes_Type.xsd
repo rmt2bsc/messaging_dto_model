@@ -123,6 +123,7 @@
 
     <xsd:complexType name="zipcode_criteria_type">
 		<xsd:sequence>
+			<xsd:element name="zipId" type="xsd:integer" nillable="false" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="zipcode" type="xsd:integer" nillable="false" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="city" type="xsd:string" nillable="false" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="state" type="xsd:string" nillable="false" minOccurs="0" maxOccurs="1"/>
