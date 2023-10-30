@@ -128,6 +128,7 @@
 			<xsd:element name="state" type="xsd:string" nillable="false" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="areaCode" type="xsd:string" nillable="false" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="countyName" type="xsd:string" nillable="false" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="timezone" type="xsd:integer" nillable="false" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="result_format" type="zip_result_format_type" minOccurs="1" maxOccurs="1" default="SHORT"/>
 		</xsd:sequence>
 	</xsd:complexType>
