@@ -9,8 +9,6 @@ import org.rmt2.jaxb.GlBalancetypeType;
 import org.rmt2.jaxb.ObjectFactory;
 import org.rmt2.jaxb.RecordTrackingType;
 
-import com.api.util.assistants.Verifier;
-
 /**
  * GlAccountType Builder.
  * 
@@ -164,7 +162,6 @@ public class GlAccountTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withAccountNumber(String accountNo) {
-            Verifier.verifyNotEmpty(accountNo, "Account number cannot be empty");
             this.accountNo = accountNo;
             return this;
         }
@@ -179,7 +176,6 @@ public class GlAccountTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withAccountName(String accountName) {
-            Verifier.verifyNotEmpty(accountName, "Account name cannot be empty");
             this.accountName = accountName;
             return this;
         }
