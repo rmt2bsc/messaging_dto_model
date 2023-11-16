@@ -193,13 +193,13 @@ public class CustomerTypeBuilder {
          * Set up balance.
          * 
          * @param balance
-         *            an String value that must not be blank
+         *            an Double value that must not be blank
          * @return Non-null Builder used to continue building the object
          * @throws VerifyException
          *             if the parameter conditions are not met.
          */
-        public Builder withBalance(double balance) {
-            this.balance = BigDecimal.valueOf(balance);
+        public Builder withBalance(Double balance) {
+            this.balance = (balance == null ? BigDecimal.ZERO : BigDecimal.valueOf(balance));
             return this;
         }
 
