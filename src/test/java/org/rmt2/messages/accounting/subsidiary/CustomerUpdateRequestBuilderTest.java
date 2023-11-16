@@ -64,7 +64,7 @@ public class CustomerUpdateRequestBuilderTest {
                 .withAccountNo("ACCT-NO-8888")
                 .withCreditLimit(1234.55)
                 .withAcctDescription("ACCOUNT DESCRIPTION")
-                .withBalance(50000)
+                .withBalance((double) 50000)
                 .withActive(1).build();
                 
         TransactionDetailGroup profileGroup = fact.createTransactionDetailGroup();
