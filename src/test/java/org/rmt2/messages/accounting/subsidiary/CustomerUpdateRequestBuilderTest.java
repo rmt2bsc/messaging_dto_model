@@ -10,6 +10,7 @@ import org.rmt2.constants.ApiTransactionCodes;
 import org.rmt2.constants.MessagingConstants;
 import org.rmt2.jaxb.AccountingTransactionRequest;
 import org.rmt2.jaxb.BusinessType;
+import org.rmt2.jaxb.CodeDetailType;
 import org.rmt2.jaxb.CustomerType;
 import org.rmt2.jaxb.HeaderType;
 import org.rmt2.jaxb.ObjectFactory;
@@ -17,6 +18,7 @@ import org.rmt2.jaxb.TransactionDetailGroup;
 import org.rmt2.util.HeaderTypeBuilder;
 import org.rmt2.util.accounting.subsidiary.CustomerTypeBuilder;
 import org.rmt2.util.addressbook.BusinessTypeBuilder;
+import org.rmt2.util.addressbook.CodeDetailTypeBuilder;
 
 import com.api.config.ConfigConstants;
 import com.api.config.SystemConfigurator;
@@ -52,9 +54,20 @@ public class CustomerUpdateRequestBuilderTest {
                 .withRouting(ApiHeaderNames.DUMMY_HEADER_VALUE)
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
         
+        CodeDetailType cdtEntity = CodeDetailTypeBuilder.Builder.create()
+                .withCodeId(200)
+                .build();
+        
+        CodeDetailType cdtServType = CodeDetailTypeBuilder.Builder.create()
+                .withCodeId(300)
+                .build();
+        
         BusinessType busType = BusinessTypeBuilder.Builder.create()
                 .withBusinessId(1351)
-                .withLongname("Business Type Description").build();
+                .withLongname("Business Type Description")
+                .withEntityType(cdtEntity)
+                .withServiceType(cdtServType)
+                .build();
         
         CustomerType custType = CustomerTypeBuilder.Builder.create()
                 .withCustomerId(3333)

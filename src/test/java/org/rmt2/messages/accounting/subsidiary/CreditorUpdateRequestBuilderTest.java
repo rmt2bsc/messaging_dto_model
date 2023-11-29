@@ -1,5 +1,6 @@
 package org.rmt2.messages.accounting.subsidiary;
 
+import java.math.BigInteger;
 import java.util.Date;
 
 import org.junit.Assert;
@@ -10,6 +11,7 @@ import org.rmt2.constants.ApiTransactionCodes;
 import org.rmt2.constants.MessagingConstants;
 import org.rmt2.jaxb.AccountingTransactionRequest;
 import org.rmt2.jaxb.BusinessType;
+import org.rmt2.jaxb.CodeDetailType;
 import org.rmt2.jaxb.CreditorType;
 import org.rmt2.jaxb.CreditortypeType;
 import org.rmt2.jaxb.HeaderType;
@@ -21,6 +23,7 @@ import org.rmt2.util.RecordTrackingTypeBuilder;
 import org.rmt2.util.accounting.subsidiary.CreditorTypeBuilder;
 import org.rmt2.util.accounting.subsidiary.CreditortypeTypeBuilder;
 import org.rmt2.util.addressbook.BusinessTypeBuilder;
+import org.rmt2.util.addressbook.CodeDetailTypeBuilder;
 
 import com.api.config.ConfigConstants;
 import com.api.config.SystemConfigurator;
@@ -63,9 +66,20 @@ public class CreditorUpdateRequestBuilderTest {
                 .withIpCreated("192.168.0.1")
                 .withIpUpdate("192.168.0.1").build();
         
+        CodeDetailType cdtEntity = CodeDetailTypeBuilder.Builder.create()
+                .withCodeId(200)
+                .build();
+        
+        CodeDetailType cdtServType = CodeDetailTypeBuilder.Builder.create()
+                .withCodeId(300)
+                .build();
+        
         BusinessType busType = BusinessTypeBuilder.Builder.create()
                 .withBusinessId(1351)
-                .withLongname("Business Type Description").build();
+                .withLongname("Business Type Description")
+                .withEntityType(cdtEntity)
+                .withServiceType(cdtServType)
+                .build();
         
         CreditortypeType creditorType = CreditortypeTypeBuilder.Builder.create()
                 .withCreditorTypeId(3456)
