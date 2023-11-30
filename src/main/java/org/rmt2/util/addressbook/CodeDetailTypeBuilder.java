@@ -5,8 +5,6 @@ import java.math.BigInteger;
 import org.rmt2.jaxb.CodeDetailType;
 import org.rmt2.jaxb.ObjectFactory;
 
-import com.api.util.assistants.Verifier;
-
 /**
  * CodeDetailType Builder.
  * 
@@ -68,7 +66,6 @@ public class CodeDetailTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withCodeId(int codeId) {
-            Verifier.verifyNotNegative(codeId, "Code id must not be a negative value");
             this.codeId = codeId;
             return this;
         }
@@ -84,7 +81,6 @@ public class CodeDetailTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withShortDescription(String shortdesc) {
-            Verifier.verifyNotBlank(shortdesc, "Short description cannot be blank");
             this.shortdesc = shortdesc;
             return this;
         }
@@ -99,7 +95,6 @@ public class CodeDetailTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withLongDescription(String longdesc) {
-            Verifier.verifyNotBlank(longdesc, "Long description cannot be blank");
             this.longdesc = longdesc;
             return this;
         }
@@ -114,7 +109,6 @@ public class CodeDetailTypeBuilder {
          *             if the parameter conditions are not met.
          */
         public Builder withLabel(String label) {
-            Verifier.verifyNotBlank(label, "Label cannot be blank");
             this.label = label;
             return this;
         }
