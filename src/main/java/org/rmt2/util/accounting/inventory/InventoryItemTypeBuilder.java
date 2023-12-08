@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.rmt2.jaxb.CreditorType;
+import org.rmt2.jaxb.InventoryItemStatusType;
 import org.rmt2.jaxb.InventoryItemType;
 import org.rmt2.jaxb.InventoryItemtypeType;
 import org.rmt2.jaxb.InventoryStatusHistoryType;
@@ -34,6 +35,7 @@ public class InventoryItemTypeBuilder {
         subject.setItemId(builder.itemId);
         subject.setItemSerialNo(builder.itemSerialNo);
         subject.setItemType(builder.itemType);
+        subject.setItemStatus(builder.itemStatus);
         subject.setMarkup(builder.markup);
         subject.setOverrideRetail(builder.overrideRetail);
         subject.setQtyOnHand(builder.qtyOnHand);
@@ -52,6 +54,7 @@ public class InventoryItemTypeBuilder {
     public static final class Builder {
         private BigInteger itemId;
         private InventoryItemtypeType itemType;
+        private InventoryItemStatusType itemStatus;
         private CreditorType creditor;
         private String description;
         private String vendorItemNo;
@@ -106,23 +109,50 @@ public class InventoryItemTypeBuilder {
             return this;
         }
 
+        // /**
+        // * Set up item type id.
+        // *
+        // * @param itemTypeId
+        // * an int value that must be greater than zero
+        // * @return Non-null Builder used to continue building the object
+        // * @throws VerifyException
+        // * if the parameter conditions are not met.
+        // */
+        // public Builder withItemTypeId(int itemTypeId) {
+        // ObjectFactory f = new ObjectFactory();
+        // InventoryItemtypeType o = f.createInventoryItemtypeType();
+        // o.setItemTypeId(BigInteger.valueOf(itemTypeId));
+        // this.itemType = o;
+        // return this;
+        // }
+
         /**
-         * Set up item type id.
+         * Set up item type property.
          * 
-         * @param itemTypeId
-         *            an int value that must be greater than zero
+         * @param value
+         *            {@link InventoryItemtypeType}
          * @return Non-null Builder used to continue building the object
          * @throws VerifyException
          *             if the parameter conditions are not met.
          */
-        public Builder withItemTypeId(int itemTypeId) {
-            ObjectFactory f = new ObjectFactory();
-            InventoryItemtypeType o = f.createInventoryItemtypeType();
-            o.setItemTypeId(BigInteger.valueOf(itemTypeId));
-            this.itemType = o;
+        public Builder withItemType(InventoryItemtypeType value) {
+            this.itemType = value;
             return this;
         }
 
+        /**
+         * Set up item status property.
+         * 
+         * @param value
+         *            {@link InventoryItemtypeType}
+         * @return Non-null Builder used to continue building the object
+         * @throws VerifyException
+         *             if the parameter conditions are not met.
+         */
+        public Builder withItemStatus(InventoryItemStatusType value) {
+            this.itemStatus = value;
+            return this;
+        }
         
         /**
          * Set up item creditor id.
