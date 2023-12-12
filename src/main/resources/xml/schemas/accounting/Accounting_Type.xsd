@@ -1147,7 +1147,9 @@
 			<xsd:element name="vendor_item_no" type="xsd:string" minOccurs="1" maxOccurs="1"/>
 			<xsd:element name="item_serial_no" type="xsd:string" minOccurs="1" maxOccurs="1"/>
 			<xsd:element name="qty_on_hand" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="qty_on_hand_predicate" type="xsd:string" minOccurs="1" maxOccurs="1"/>
 			<xsd:element name="unit_cost" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="unit_cost_predicate" type="xsd:string" minOccurs="1" maxOccurs="1"/>
 			<xsd:element name="markup" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
 			<xsd:element name="active" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="status" type="inventory_item_status_type" minOccurs="0" maxOccurs="unbounded"/>
