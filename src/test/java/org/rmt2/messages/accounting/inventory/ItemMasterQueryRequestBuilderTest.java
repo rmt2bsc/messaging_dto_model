@@ -63,6 +63,10 @@ public class ItemMasterQueryRequestBuilderTest {
         criteria.setUnitCost(BigDecimal.valueOf(150.89));
         criteria.setQtyOnHand(BigInteger.valueOf(10));
         criteria.setVendorItemNo("1234-4839");
+        // UI-30: Added logic to capture the custom predicate operators for
+        // fields Qty on Hand and Unit Cost
+        criteria.setQtyOnHandPredicate("NOTEQUAL");
+        criteria.setUnitCostPredicate("GreaterThanOrEqual");
         
         InventoryItemtypeType iit = fact.createInventoryItemtypeType();
         iit.setItemTypeId(BigInteger.valueOf(222));
