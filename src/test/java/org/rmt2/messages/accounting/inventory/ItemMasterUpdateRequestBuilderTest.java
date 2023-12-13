@@ -15,10 +15,12 @@ import org.rmt2.jaxb.InventoryDetailGroup;
 import org.rmt2.jaxb.InventoryItemType;
 import org.rmt2.jaxb.InventoryItemtypeType;
 import org.rmt2.jaxb.InventoryRequest;
+import org.rmt2.jaxb.InventoryStatusHistoryType;
 import org.rmt2.jaxb.ObjectFactory;
 import org.rmt2.jaxb.RecordTrackingType;
 import org.rmt2.util.HeaderTypeBuilder;
 import org.rmt2.util.RecordTrackingTypeBuilder;
+import org.rmt2.util.accounting.inventory.InventoryItemStatusHistTypeBuilder;
 import org.rmt2.util.accounting.inventory.InventoryItemTypeBuilder;
 
 import com.api.config.ConfigConstants;
@@ -57,6 +59,15 @@ public class ItemMasterUpdateRequestBuilderTest {
                 .withDeliveryMode(ApiHeaderNames.DUMMY_HEADER_VALUE).build();
         
 
+        InventoryItemtypeType iit = fact.createInventoryItemtypeType();
+        iit.setItemTypeId(BigInteger.valueOf(33));
+
+        InventoryStatusHistoryType isht = InventoryItemStatusHistTypeBuilder.Builder.create()
+                .withItemId(100)
+                .withStatusHistId(0)
+                .withReason("Change Reason Text")
+                .build();
+
         InventoryItemType item = InventoryItemTypeBuilder.Builder.create()
                 .withItemId(100)
                 .withActive(true)
@@ -65,9 +76,15 @@ public class ItemMasterUpdateRequestBuilderTest {
                 .withMarkup(3)
                 .withUnitCost(150.99)
                 .withQtyOnHand(10)
-                .withVendorItemNo("1234-4839").build();
+                .withVendorItemNo("1234-4839")
+                .withRetailPrice(300.00)
+                .withOverrideRetail(1)
+                .withCreditorId(200)
+                .withItemType(iit)
+                .withStatusHistory(isht)
+                .build();
         
-        InventoryItemtypeType iit = fact.createInventoryItemtypeType();
+        iit = fact.createInventoryItemtypeType();
         iit.setItemTypeId(BigInteger.valueOf(222));
         item.setItemType(iit);
         

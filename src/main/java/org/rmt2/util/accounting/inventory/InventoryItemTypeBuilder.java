@@ -43,6 +43,11 @@ public class InventoryItemTypeBuilder {
         subject.setTracking(builder.tracking);
         subject.setUnitCost(builder.unitCost);
         subject.setVendorItemNo(builder.vendorItemNo);
+        // UI-30: Added for the sake of capturing the Change Reason text for the
+        // item master
+        if (builder.statusHistory != null) {
+            subject.getStatusHistory().addAll(builder.statusHistory);
+        }
     }
 
     /**
