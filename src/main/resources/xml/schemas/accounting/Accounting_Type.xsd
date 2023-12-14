@@ -365,6 +365,16 @@
 					<xsd:documentation>Unique identifier of the customer</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
+			<xsd:element name="invoice_id" type="xsd:int" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Unique identifier of the sales order's invoice</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="xact_id" type="xsd:int" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Unique identifier of the sales order's invoice transaction</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
 			<xsd:element name="account_no" type="xsd:string" minOccurs="1" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>The customer's account number</xsd:documentation>
