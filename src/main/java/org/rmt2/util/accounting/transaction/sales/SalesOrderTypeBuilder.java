@@ -211,7 +211,7 @@ public class SalesOrderTypeBuilder {
         }
 
         /**
-         * Set up salesOrderItems.
+         * Set up a sales Order Item type.
          * 
          * @param item
          *            Sales Order Items Object
@@ -223,6 +223,25 @@ public class SalesOrderTypeBuilder {
                 this.salesOrderItems = f.createSalesOrderItemListType();
             }
             this.salesOrderItems.getSalesOrderItem().add(item);
+            return this;
+        }
+
+        /**
+         * Set up a list of sales Order Item types.
+         * 
+         * @param items
+         *            List of {@link SalesOrderItemType}
+         * @return Non-null Builder used to continue building the object
+         */
+        public Builder withSalesOrderItems(List<SalesOrderItemType> items) {
+            if (items == null) {
+                return this;
+            }
+            if (this.salesOrderItems == null) {
+                ObjectFactory f = new ObjectFactory();
+                this.salesOrderItems = f.createSalesOrderItemListType();
+            }
+            this.salesOrderItems.getSalesOrderItem().addAll(items);
             return this;
         }
 
