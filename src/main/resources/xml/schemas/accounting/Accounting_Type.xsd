@@ -1163,6 +1163,7 @@
 			<xsd:element name="markup" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
 			<xsd:element name="active" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="status" type="inventory_item_status_type" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="custom_criteria" type="xsd:string" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="tracking" type="record_tracking_type" minOccurs="0" maxOccurs="1"/>
 		</xsd:sequence>
 	</xsd:complexType>

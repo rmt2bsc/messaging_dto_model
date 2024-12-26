@@ -67,6 +67,7 @@ public class ItemMasterQueryRequestBuilderTest {
         // fields Qty on Hand and Unit Cost
         criteria.setQtyOnHandPredicate("NOTEQUAL");
         criteria.setUnitCostPredicate("GreaterThanOrEqual");
+        criteria.setCustomCriteria("item_id not in ((select item_id from sales_order_items where so_id = 10");
         
         InventoryItemtypeType iit = fact.createInventoryItemtypeType();
         iit.setItemTypeId(BigInteger.valueOf(222));
